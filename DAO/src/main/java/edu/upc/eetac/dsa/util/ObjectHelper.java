@@ -2,7 +2,7 @@ package edu.upc.eetac.dsa.util;
 
 
 import java.lang.reflect.Field;
-
+//COMENTARIO PRUEBA
 public class ObjectHelper {
     public static String[] getFields(Object entity) {
 
