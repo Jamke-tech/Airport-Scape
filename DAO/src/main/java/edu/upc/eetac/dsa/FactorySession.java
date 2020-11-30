@@ -6,9 +6,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 //ESTO ES UNA PRUEBAAAAAAAAAAAAAAAAAAAAAAAA
 //ESTOOOO NO SE que COÑO ES
+//HOLA CHICOSSSS
 //Hola que tal
 
 //No me sale lo de maria
+
 public class FactorySession {
     public static Session openSession() {
 
