@@ -4,9 +4,6 @@ package edu.upc.eetac.dsa;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-//Ala otra vez/PUSH desdegithub
-// Que guapo chaval
-//miguel muy buena
 public class FactorySession {
     public static Session openSession() {
 
