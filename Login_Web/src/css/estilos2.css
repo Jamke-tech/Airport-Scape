@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imagen/aero1.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.d-flex .navbar{
+    position: relative;
+
+}
+.d-flex .bp-primary{
+    position: absolute;
+    width: 65px;
+    height: 100%;
+    background: rgba(0,0,0,.7) !important;
+    overflow: hidden;
+    -webkit-transition: width 0.5s;
+
+}
+
+.d-flex .bp-primary:hover{
+    width: 250px
+}
+
+.d-flex .logo{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    background: url(../imagen/menu.png);
+
+}
+
+.d-flex  .nameGame{
+    padding: 14px 20px;
+    color: #fff;
+
+}
+
+.d-flex .menu{
+    width: 200px;
+
+}
+.d-flex .menu a:hover{
+    text-decoration: none;
+
+}
+
+.d-flex .contenedor-form{
+
+    position: relative;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    max-width: 500px;
+    max-height: 600px;
+    margin: 300px auto;
+    color: #fff;
+    border-radius: 5px;
+
+}
+
+.d-flex .contenedor-form h2{
+    margin: 10px 10px 20px 10px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1;
+
+}
+
+.d-flex .contenedor-form h6{
+    margin: 10px 10px 20px 10px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.d-flex .contenedor-form input[type="password"] {
+    outline: none;
+    background: rgba(0,0,0,.7);
+    display: block;
+    width: 90%;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    border-bottom: 3px solid #fff;
+    margin: 0px 0px 20px 25px;
+
+}
+
+
+.d-flex .contenedor-form input[type="password"]:hover {
+    border-bottom: 3px solid #0075d9;
+
+}
+
+.d-flex .contenedor-form input[type="submit"]{
+    background: rgba(255,255,255,.7);
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 2px;
+
+}
+
+.d-flex .contenedor-form input[type="submit"]:hover{
+    background: rgba(0,117,217,.7);
+
+}
+
+
+
