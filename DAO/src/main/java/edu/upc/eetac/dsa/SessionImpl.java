@@ -17,6 +17,10 @@ public class SessionImpl implements Session {
         this.conn = conn;
     }
 
+
+
+
+
     public void save(Object entity) {
 
         String insertQuery = QueryHelper.createQueryINSERT(entity);
@@ -60,6 +64,7 @@ public class SessionImpl implements Session {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
 

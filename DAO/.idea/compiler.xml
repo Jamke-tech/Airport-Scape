@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="DAO" target="1.5" />
-      <module name="main" target="1.5" />
+      <module name="main" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

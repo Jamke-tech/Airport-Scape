@@ -70,12 +70,12 @@
           <config-type value="CUSTOM" />
           <database-version value="9999.0" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="C:\Users\migue\Documents\GitHub\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
+          <driver-library value="D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
           <driver value="org.mariadb.jdbc.Driver" />
           <url value="jdbc:mariadb://147.83.7.203:3306" />
           <type value="USER_PASSWORD" />
-          <user value="root" />
-          <deprecated-pwd value="TWF6aW5nZXI3Mg==" />
+          <user value="admin" />
+          <deprecated-pwd value="cGFzc3dvcmQ=" />
         </database>
         <properties>
           <auto-commit value="false" />
