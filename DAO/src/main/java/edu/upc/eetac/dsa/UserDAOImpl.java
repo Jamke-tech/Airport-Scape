@@ -3,13 +3,14 @@ package edu.upc.eetac.dsa;
 import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
 public class UserDAOImpl implements IUserDAO {
 
 
-    public int registerUser(String userName, String password, String name, String surname, String mail) {
+    public int registerUser(String userName, String password, String name, String surname, String mail) throws SQLException {
         Session session = null;
         int idUser = 0;
         try {
@@ -20,25 +21,24 @@ public class UserDAOImpl implements IUserDAO {
             session.save(user);
         }
         catch (Exception e) {
-            // LOG
+            e.printStackTrace();
         }
         finally {
             session.close();
         }
-
         return idUser;
     }
 
 
-    public User getEmployee(int employeeID) {
+    public User getUser(int idUser) throws SQLException {
         Session session = null;
         User user = null;
         try {
             session = FactorySession.openSession();
-            user = (User) session.get(User.class, employeeID);
+            user = (User) session.get(User.class, idUser);
         }
         catch (Exception e) {
-            // LOG
+            e.printStackTrace();
         }
         finally {
             session.close();
@@ -48,19 +48,21 @@ public class UserDAOImpl implements IUserDAO {
     }
 
 
-    public void updateEmployee(int employeeID, String name, String surname, double salary) {
-        User user = this.getEmployee(employeeID);
+    public void updateUser(int idUser, String name, String surname, int money, HashMap<Integer, BuyedObject> buyedObjects, String mail) throws SQLException {
+        User user = this.getUser(idUser);
         user.setName(name);
         user.setSurname(surname);
-        user.setSalary(salary);
+        user.setMoney(money);
+        user.setBuyedObjects(buyedObjects);
+        user.setMail(mail);
 
         Session session = null;
         try {
             session = FactorySession.openSession();
-            session.update(User.class);
+            session.update(user);
         }
         catch (Exception e) {
-            // LOG
+            e.printStackTrace();
         }
         finally {
             session.close();
@@ -68,15 +70,15 @@ public class UserDAOImpl implements IUserDAO {
     }
 
 
-    public void deleteEmployee(int employeeID) {
-        User user = this.getEmployee(employeeID);
+    public void deleteUser(int idUser) throws SQLException {
+        User user = this.getUser(idUser);
         Session session = null;
         try {
             session = FactorySession.openSession();
-            session.delete(User.class);
+            session.delete(user, "ID", idUser);
         }
         catch (Exception e) {
-            // LOG
+            e.printStackTrace();
         }
         finally {
             session.close();
@@ -93,7 +95,7 @@ public class UserDAOImpl implements IUserDAO {
             userList = session.findAll(User.class);
         }
         catch (Exception e) {
-            // LOG
+            e.printStackTrace();
         }
         finally {
             session.close();
@@ -115,7 +117,7 @@ public class UserDAOImpl implements IUserDAO {
             userList = session.findAll(User.class, params);
         }
         catch (Exception e) {
-            // LOG
+            e.printStackTrace();
         }
         finally {
             session.close();
