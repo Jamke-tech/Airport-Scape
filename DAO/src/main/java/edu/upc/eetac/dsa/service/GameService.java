@@ -38,6 +38,8 @@ public class GameService {
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response RegisterUser(User user) {
+        //Registrar usuari mirant si el username es igual o no
+
 
 
     }
@@ -53,7 +55,7 @@ public class GameService {
 
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response LoginUser(Login parametrosLogin) {
+    public Response LoginUser(User parametrosLogIn) {
 
 
     }
@@ -68,7 +70,7 @@ public class GameService {
 
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response ChangePassword(User user) {
+    public Response ChangePassword(User mail) {
 
 
     }
