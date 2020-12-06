@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
+
 
 public class splash_activity_main extends AppCompatActivity {
 
     private final int SPLASH_DURATION = 3500;
+    private ProgressBar loginbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,11 @@ public class splash_activity_main extends AppCompatActivity {
                 Intent intent = new Intent(splash_activity_main.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
+
             };
         }, SPLASH_DURATION);
     }
+
+
+
 }
