@@ -48,7 +48,7 @@ public class UserDAOImpl implements IUserDAO {
     }
 
 
-    public void updateUser(int idUser, String name, String surname, int money, HashMap<Integer, BuyedObject> buyedObjects, String mail) throws SQLException {
+    public void updateUser(int idUser, String name, String surname, int money, HashMap<Integer,BuyedObject> buyedObjects, String mail) throws SQLException {
         User user = this.getUser(idUser);
         user.setName(name);
         user.setSurname(surname);
@@ -86,44 +86,6 @@ public class UserDAOImpl implements IUserDAO {
 
     }
 
-
-    public List<User> getEmployees() {
-        Session session = null;
-        List<User> userList =null;
-        try {
-            session = FactorySession.openSession();
-            userList = session.findAll(User.class);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
-        return userList;
-    }
-
-
-    public List<User> getEmployeeByDept(int deptID) {
-
-        Session session = null;
-        List<User> userList =null;
-        try {
-            session = FactorySession.openSession();
-
-            HashMap<String, Integer> params = new HashMap<String, Integer>();
-            params.put("deptID", deptID);
-
-            userList = session.findAll(User.class, params);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally {
-            session.close();
-        }
-        return userList;
-    }
 
 
 }

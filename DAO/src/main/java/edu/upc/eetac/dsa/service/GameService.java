@@ -1,5 +1,7 @@
 package edu.upc.eetac.dsa.service;
-import edu.upc.eetac.dsa.model.*;
+import edu.upc.eetac.dsa.Session;
+import edu.upc.eetac.dsa.model.BuyedObject;
+import edu.upc.eetac.dsa.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -12,15 +14,20 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
+import static edu.upc.eetac.dsa.FactorySession.openSession;
+
 @Api (value = "/game")
 @Path ("/game")
 
 public class GameService {
 
     //Aqui hem d'afegir o inicialitzar les coses
+    private Session session;
 
 
     public GameService(){
+        session = openSession();// nos retorna la session de la base de datos donde ya podremos operar
+
 
     }
 
