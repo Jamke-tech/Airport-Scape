@@ -22,10 +22,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f" name="Default Changelist" comment="">
+    <list default="true" id="ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f" name="Default Changelist" comment="JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login_Web/src/css/estilosRegister.css" beforeDir="false" afterPath="$PROJECT_DIR$/Login_Web/src/css/estilosRegister.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login_Web/src/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Login_Web/src/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login_Web/src/css/estilosLogIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/Login_Web/src/css/estilosLogIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login_Web/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Login_Web/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +60,25 @@
       <option name="presentableId" value="Default" />
       <updated>1606739184554</updated>
     </task>
+    <task id="LOCAL-00001" summary="JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax">
+      <created>1607270447456</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607270447457</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -85,11 +103,27 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607260059943">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606739671264" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/5.-1080.1920.1040@0.0.1536.824" timestamp="1607260059943" />
+    <state x="557" y="-827" key="Vcs.Push.Dialog.v2" timestamp="1607270484701">
+      <screen x="5" y="-1080" width="1920" height="1040" />
+    </state>
+    <state x="557" y="-827" key="Vcs.Push.Dialog.v2/0.0.1536.824/5.-1080.1920.1040@5.-1080.1920.1040" timestamp="1607270484701" />
+    <state x="782" y="-646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607270993953">
+      <screen x="5" y="-1080" width="1920" height="1040" />
+    </state>
+    <state x="782" y="-646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/5.-1080.1920.1040@5.-1080.1920.1040" timestamp="1607270993953" />
+    <state x="347" y="-899" key="new project wizard" timestamp="1607270139005">
+      <screen x="5" y="-1080" width="1920" height="1040" />
+    </state>
+    <state x="347" y="-899" key="new project wizard/0.0.1536.824/5.-1080.1920.1040@5.-1080.1920.1040" timestamp="1607270139005" />
   </component>
 </project>
