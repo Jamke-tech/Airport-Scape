@@ -24,67 +24,78 @@
                 <a href="X" class="d-block text-light p-3"><i class="icon ion-md-airplane mr-2 lead"></i>Inicio</a>
                 <a href="X" class="d-block text-light p-3"><i class="icon ion-md-key mr-2 lead"></i>Log in/Create Account</a>
                 <a href="X" class="d-block text-light p-3"><i class="icon ion-md-card mr-2 lead"></i>Shop</a>
+                <a href="X" class="d-block text-light p-3"><i class="icon ion-md-stats mr-2 lead"></i>Statistics</a>
                 <a href="X" class="d-block text-light p-3"><i class="icon ion-md-construct mr-2 lead"></i>...</a>
             </div>
         </div>
 
-        <div>
+
+        <div class="w-100">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Go in!
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="index.html"><i class="icon ion-md-person mr-2 lead"></i>Log In</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="register.html"><i class="icon ion-md-create mr-2 lead"></i>Create Account</a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="contenedor-form">
+                <div class="toggle">
+                    <a href="index.html">Log In</a>
+                </div>
+
+
+                <div class="Formulario">
+                    <h2> Create Account </h2>
+                    <form action="X" method="post">
+                        <div class="form-box1">
+                            <input id ="textName" type="text" placeholder="Name" name="name" value="">
+                        </div>
+                        <div class="form-box2">
+                            <input id ="textSurname" type="text" placeholder="Surname" name="surname" value="" >
+                        </div>
+                        <div class="form-box3">
+                            <input id ="textUsername" type="text" placeholder="Username" name="userName" value="" >
+                        </div>
+                        <div class="form-box4">
+                            <input id ="textPassword" type="password" placeholder="Password" name="password" value="">
+                        </div>
+                        <div class="form-box5">
+                            <input id ="textEmail" type="email" placeholder="Email" name="mail" value="">
+                        </div>
+
+                        <button class="button" id ="botonCrear" type="button">Create</button>
+
+                    </form>
+                </div>
 
 
 
+            </div>
         </div>
 
-        <div class="contenedor-form">
-            <div class="toggle">
-                <a href="X">Log In</a>
-            </div>
 
-
-            <div class="Formulario">
-                <h2> Create Account </h2>
-                <form action="X" method="post">
-                    <div class="form-box1">
-                        <input id ="textName" type="text" placeholder="Name" name="name" value="">
-                    </div>
-                    <div class="form-box2">
-                        <input id ="textSurname" type="text" placeholder="Surname" name="surname" value="" >
-                    </div>
-                    <div class="form-box3">
-                        <input id ="textUsername" type="text" placeholder="Username" name="userName" value="" >
-                    </div>
-                    <div class="form-box4">
-                        <input id ="textPassword" type="password" placeholder="Password" name="password" value="">
-                    </div>
-                    <div class="form-box5">
-                        <input id ="textEmail" type="email" placeholder="Email" name="mail" value="">
-                    </div>
-
-                    <button class="button" id ="botonCrear" type="button">Create</button>
-
-                </form>
-            </div>
-
-
-
-        </div>
 
     </div>
 
-    <!--
-    <script>
 
-
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $userName = $_POST['userName'];
-        $password = $_POST['password'];
-        $mail= $_POST['mail'];
-
-        $query = "INSERT into `tablename`(`name`, `surname`, `userName`,
-        `password`.``mail`) VALUES (  '$name', '$surname','$userName', '$password','mail')";
-
-    </script>
--->
 
     <!--jQuery UI for the shake effect when error-->
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>

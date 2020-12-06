@@ -16,6 +16,7 @@ body{
 
 .d-flex .navbar{
     position: relative;
+    z-index: 50;
 
 }
 .d-flex .bp-primary{
@@ -25,7 +26,7 @@ body{
     background: rgba(0,0,0,.7) !important;
     overflow: hidden;
     -webkit-transition: width 0.5s;
-
+    z-index: 100;
 }
 
 .d-flex .bp-primary:hover{
@@ -65,7 +66,7 @@ body{
     margin: 48px auto;
     color: #fff;
     border-radius: 5px;
-
+    z-index: 10;
 }
 
 .d-flex .contenedor-form .toggle{
