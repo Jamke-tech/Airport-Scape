@@ -1,5 +1,6 @@
 package com.example.log_in_java;
 
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,3 +12,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
+
+
+
