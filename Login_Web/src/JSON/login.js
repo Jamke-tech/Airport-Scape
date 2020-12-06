@@ -26,12 +26,35 @@ $(function(){
     }
     if (emptyField == 0){
         var logInData = {
-                "Username": username.value,
-                "Password": password.value,
+                "userName": username.value,
+                "password": password.value,
             }
+        //Prova
+        console.log(logInData);
+
+        $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/DSA/webpage/login", //A definir cuando se haga bien el servicio
+                data: JSON.stringify(logInData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data) {
+                    console.log("success");
+                    console.log(data.status)
+                },
+                complete: function(data) {
+                    if(data.status == 401){
+                        alert("Wrong password or username");
+                    }
+                    else if (data.status == 404){
+                        alert("User not registered");
+                    }
+                    else if (data.status != 200){
+                        alert("CONNECTION ERROR ");
+                    }
+                }
+            })
     }
 
-//Prova
-    console.log(logInData);
     })
 })

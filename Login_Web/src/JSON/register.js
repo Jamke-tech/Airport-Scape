@@ -41,29 +41,41 @@ $(function(){
 
     if (emptyField == 0){
         var UserData = {
-                "Name": name.value,
-                "Surname": surname.value,
-                "Username": username.value,
-                "Password": password.value,
-                "Email": email.value
+                "userName": username.value,
+                "password": password.value,
+                "name": name.value,
+                "surname": surname.value,
+                "mail": email.value
             }
+        console.log(UserData);
+        $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/DSA/webpage/register", //A definir cuando se haga bien el servicio
+                data: JSON.stringify(UserData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function(data) {
+                    console.log("success");
+                    console.log(data.status)
+                },
+                complete: function(data) {
+                    if(data.status == 503){
+                        alert("Databse down!");
+                    }
+                    else if (data.status == 400){
+                        alert("Wrong data!");
+                    }
+                    else if (data.status == 403){
+                        alert("Nickname already in use!");
+                    }
+                    else if (data.status != 200){
+                        alert("CONNECTION ERROR ");
+                    }
+                }
+            })
+            //Podriamos hacer que al hacer el register se loguee automaticamente y se añada en un apartado de ESTADISTICAS o JUGADORES en la web
     }
 
-
-//Prova
-    console.log(UserData);
- /*
-    $.ajax({
-        type: "POST",
-        url: //"http://localhost:8080...."
-        data: JSON.stringify(UserData),
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        .
-        .
-        .
-    })
-    */
     })
 
 })
