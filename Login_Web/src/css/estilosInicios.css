@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imagen/aero1.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.d-flex .navbar{
+    position: relative;
+    z-index: -2;
+
+}
+.d-flex .bp-primary{
+    position: absolute;
+    width: 65px;
+    height: 100%;
+    background: rgba(0,0,0,.7) !important;
+    overflow: hidden;
+    -webkit-transition: width 0.5s;
+    z-index:5;
+
+}
+
+.d-flex .bp-primary:hover{
+    width: 250px
+}
+
+.d-flex .logo{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    background: url(../imagen/menu.png);
+
+}
+
+.d-flex  .nameGame{
+    padding: 14px 20px;
+    color: #fff;
+
+}
+
+.d-flex .menu{
+    width: 200px;
+
+}
+.d-flex .menu a:hover{
+    text-decoration: none;
+
+}
+
+.banner-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.banner-container .title {
+    margin: 0;
+}
+
+.banner-container .btn {
+    white-space: nowrap;
+}
+
+.banner-second {
+    background-position: center top;
+    background-size: cover;
+    z-index: 2;
+}
+
+
+
+.banner-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #fff;
+}
+
+.banner-container .title {
+    margin: 0;
+}
+
+
+.banner-second {
+    background-position: center top;
+    background-size: cover;
+}
+
+
+.banner-second {
+    background: url(../imagen/logo.jpg);;
+    height: 50vh;
+    margin-bottom: 1rem;
+    position: relative;
+
+}
+
+.banner-second::before {
+    content: "";
+    background: #000000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+}
+
+@media screen and (min-width: 768px) {
+    .banner {
+        padding-top: 0;
+    }
+
+    .banner .title {
+        font-size: 20rem !important;
+    }
+
+    .banner .title-cover {
+        font-size: 20rem;
+    }
+
+    .banner .btn {
+        position: absolute;
+        right: 60px;
+        bottom: 60px;
+    }
+}
+
+@media screen and (min-width: 1023px) {
+    .banner-cover {
+        background-image: url(../img/banner-large.jpg);
+    }
+}
+
+@media (max-width: 544px) {
+    .column-full {
+        width: 100% !important;
+        text-align: center;
+
+
+.container {
+    width: 85%;
+    color: #fff;
+}
