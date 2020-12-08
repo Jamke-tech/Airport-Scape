@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3344710380918013270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3344710380918013275}
+  - component: {fileID: 3344710380918013268}
+  - component: {fileID: 3344710380918013269}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3344710380918013275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344710380918013270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3344710380918013268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344710380918013270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89b6bf0e93c07844842afa39c6a2535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardScript: {fileID: 0}
+  zone: 1
+  playerTime: 120
+  turnDelay: 0.1
+--- !u!114 &3344710380918013269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344710380918013270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785ccc3f2d371d547b638f2ca4624b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 20
+  columns: 40
+  floorTiles:
+  - {fileID: 5957757960710327514, guid: 6063f31639c66bc48844b98bfd8af1cf, type: 3}
+  perimetralFloor:
+  - {fileID: 1011831571164002740, guid: 245354fdcdddeb8469fd64e93819a530, type: 3}
+  enemyTiles: []
+  externalWalls:
+  - {fileID: 4163563723367476122, guid: 9297f39ef5290da46ba18fc82056790a, type: 3}
+  - {fileID: 717255076021127934, guid: 759079c5dd6c96b498f8b1e604e0eff6, type: 3}
+  - {fileID: 1203559807394320370, guid: b8e84b6061290ca49855ec5edee05f31, type: 3}
+  cleanersSprite:
+  - {fileID: 7389264481948410190, guid: 42c15c7c9e26e854b9983fff17936086, type: 3}
+  benchHorizontal: {fileID: 4973936850726526412, guid: 6f2d74420031f7141a7794d44f0460a6,
+    type: 3}
+  benchVertical: {fileID: 4268429523090625992, guid: 94edfbe8d66322a4a8ebe10458b26709,
+    type: 3}
+  cleanerCount:
+    minimum: 1
+    maximum: 1
