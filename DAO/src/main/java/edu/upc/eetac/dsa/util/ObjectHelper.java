@@ -18,6 +18,20 @@ public class ObjectHelper {
         return sFields;
     }
 
+        public static int getId(Object entity) throws IllegalAccessException {
+        //FALTA CORREGIR
+            Class theClass = entity.getClass();
+
+            Field[] fields = theClass.getDeclaredFields();
+
+            String[] sFields = new String[fields.length];
+
+            Field ID = fields[0];
+            int id = ID.getInt(entity);
+
+            return id;
+        }
+
 
     public static void setter(Object object, String property, Object value) throws IllegalAccessException {
         // FALTA CORREGIR

@@ -5,7 +5,9 @@ import edu.upc.eetac.dsa.util.QueryHelper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,18 +58,27 @@ public class SessionImpl implements Session {
             pstm.setObject(1, 0);
             pstm.setObject(2, ID);
             pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            if (rs.next()){
+                Object o = new Object();
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+            }
             return pstm.getResultSet();
 
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 
-    public void update(Object object){
+    public void update(Object object) throws IllegalAccessException {
         //FALTA POR CORREGIR
         String updateQuery = QueryHelper.createQueryUPDATE(object);
         PreparedStatement pstm = null;
+        int ID = ObjectHelper.getId(object);
         try {
             pstm = conn.prepareStatement(updateQuery);
             pstm.setObject(1, 0);
@@ -76,6 +87,7 @@ public class SessionImpl implements Session {
             for (String field: ObjectHelper.getFields(object)) {
                 pstm.setObject(i++, ObjectHelper.getter(object, field));
             }
+            pstm.setObject(i, ID);
             pstm.executeQuery();
 
         } catch (SQLException e) {
@@ -109,7 +121,24 @@ public class SessionImpl implements Session {
 
     }
 
-    public void delete(Object object, String property, Object value) {
+        public void delete(Object object) throws IllegalAccessException {
+        //FALTA POR CORREGIR
+        String deleteQuery = QueryHelper.createQueryDELETE(object);
+        PreparedStatement pstm = null;
+        int ID = ObjectHelper.getId(object);
+        try {
+            pstm = conn.prepareStatement(deleteQuery);
+            pstm.setObject(1, 0);
+            pstm.setObject(2, "ID");
+            pstm.setObject(3, ID);
+            pstm.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+/*    public void delete(Object object, String property, Object value) {
         //FALTA POR CORREGIR
         String deleteQuery = QueryHelper.createQueryDELETE(object);
         PreparedStatement pstm = null;
@@ -124,17 +153,40 @@ public class SessionImpl implements Session {
             e.printStackTrace();
         }
 
-    }
+    }*/
 
     public List<Object> findAll(Class theClass) {
-        return null;
+        String selectQuery = QueryHelper.createQuerySELECTAll(theClass);
+        PreparedStatement pstm = null;
+        List<Object> ListObject = new ArrayList<Object>();
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, 0);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            while (rs.next()) {
+                Object o = new Object();
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                ListObject.add(o);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return ListObject;
     }
 
     public List<Object> findAll(Class theClass, HashMap params) {
-        return null;
+
+        return List<Object>;
     }
 
     public List<Object> query(String query, Class theClass, HashMap params) {
-        return null;
+
+
+        return List<Object>;
     }
 }

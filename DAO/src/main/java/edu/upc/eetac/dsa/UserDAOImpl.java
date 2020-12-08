@@ -30,7 +30,7 @@ public class UserDAOImpl implements IUserDAO {
     }
 
 
-    public User getUser(int idUser) throws SQLException {
+    public User getUserById(int idUser) throws SQLException {
         Session session = null;
         User user = null;
         try {
@@ -48,8 +48,8 @@ public class UserDAOImpl implements IUserDAO {
     }
 
 
-    public void updateUser(int idUser, String name, String surname, int money, HashMap<Integer,BuyedObject> buyedObjects, String mail) throws SQLException {
-        User user = this.getUser(idUser);
+    public void updateUser(User user, String name, String surname, int money, HashMap<Integer,BuyedObject> buyedObjects, String mail) throws SQLException {
+        //User user = this.getUser(idUser);
         user.setName(name);
         user.setSurname(surname);
         user.setMoney(money);
@@ -70,12 +70,12 @@ public class UserDAOImpl implements IUserDAO {
     }
 
 
-    public void deleteUser(int idUser) throws SQLException {
-        User user = this.getUser(idUser);
+    public void deleteUser(User user) throws SQLException {
+        //User user = this.getUser(idUser);
         Session session = null;
         try {
             session = FactorySession.openSession();
-            session.delete(user, "ID", idUser);
+            session.delete(user);
         }
         catch (Exception e) {
             e.printStackTrace();

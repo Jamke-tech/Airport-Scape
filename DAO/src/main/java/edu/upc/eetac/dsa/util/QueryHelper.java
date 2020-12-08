@@ -33,6 +33,12 @@ public class QueryHelper {
 
         return sb.toString();
     }
+    public static String createQuerySELECTAll(Object entity) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+
+        return sb.toString();
+    }
 
     public static String createQueryUPDATE(Object entity){
         // FALTA CORREGIR
@@ -43,6 +49,7 @@ public class QueryHelper {
         for (String field: fields) {
             sb.append(field).append(" = ?, ");
         }
+        sb.append(" WHERE ID = ?");
 
         return sb.toString();
     }
