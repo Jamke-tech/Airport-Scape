@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else{
                     if(response.code() == 400)
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nBad Request (Error in parameters' format)" , Toast.LENGTH_LONG).show();
-                    else if(response.code() == 409)
+                    else if(response.code() == 403)
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nAlready existing User" , Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nInternal Server Error", Toast.LENGTH_LONG).show();
