@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
-public class UserDAOImpl implements IUserDAO {
+public class UserDAOImpl extends GestorGame implements IUserDAO {
 
 
     public int registerUser(String userName, String password, String name, String surname, String mail) throws SQLException {

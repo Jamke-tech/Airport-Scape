@@ -1,4 +1,5 @@
 package edu.upc.eetac.dsa.service;
+import edu.upc.eetac.dsa.FactorySession;
 import edu.upc.eetac.dsa.Session;
 import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static edu.upc.eetac.dsa.FactorySession.openSession;
@@ -46,6 +48,12 @@ public class GameService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response RegisterUser(User user) {
         //Registrar usuari mirant si el username es igual o no
+         game.RegisterUser(user);
+
+
+        int money = 1000;
+        HashMap<Integer, BuyedObject> buyedObjects = null;
+        session.save(user);
 
 
 
