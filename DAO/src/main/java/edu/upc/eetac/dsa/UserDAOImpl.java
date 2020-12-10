@@ -5,9 +5,20 @@ import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserDAOImpl extends GestorGame implements IUserDAO {
+
+    private static IUserDAO instance;
+
+    private UserDAOImpl() {   }
+
+    public static IUserDAO getInstance() {
+        if (instance==null) instance = new UserDAOImpl();
+        return instance;
+    }
+
 
 
     public int registerUser(String userName, String password, String name, String surname, String mail) throws SQLException {

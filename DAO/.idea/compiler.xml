@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="DAO" target="1.5" />
+      <module name="DAO" target="1.8" />
       <module name="main" target="8" />
     </bytecodeTargetLevel>
   </component>

@@ -181,12 +181,12 @@ public class SessionImpl implements Session {
 
     public List<Object> findAll(Class theClass, HashMap params) {
 
-        return List<Object>;
+        return null;
     }
 
     public List<Object> query(String query, Class theClass, HashMap params) {
 
 
-        return List<Object>;
+        return null;
     }
 }
