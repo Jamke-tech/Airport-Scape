@@ -21,15 +21,18 @@ public class UserDAOImpl extends GestorGame implements IUserDAO {
 
 
 
-    public int registerUser(String userName, String password, String name, String surname, String mail) throws SQLException {
+    public int registerUser(User user) throws SQLException {
         Session session = null;
         int idUser = 0;
         try {
             session = FactorySession.openSession();
             int money = 1000;
             HashMap<Integer, BuyedObject> buyedObjects = null;
-            User user = new User(idUser, userName, password, name, surname, money, buyedObjects, mail);
+            user.setBuyedObjects(buyedObjects);
+            user.setMoney(money);
+            user.setIdUser(idUser);
             session.save(user);
+            return idUser;
         }
         catch (Exception e) {
             e.printStackTrace();

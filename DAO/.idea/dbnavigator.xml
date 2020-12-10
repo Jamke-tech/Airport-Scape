@@ -70,7 +70,7 @@
           <config-type value="CUSTOM" />
           <database-version value="10.5" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="C:\Users\migue\Documents\GitHub\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
+          <driver-library value="D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
           <driver value="org.mariadb.jdbc.Driver" />
           <url value="jdbc:mariadb://localhost:3306" />
           <type value="USER_PASSWORD" />

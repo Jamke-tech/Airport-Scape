@@ -1,9 +1,6 @@
 package edu.upc.eetac.dsa.service;
-import edu.upc.eetac.dsa.FactorySession;
 import edu.upc.eetac.dsa.IUserDAO;
-import edu.upc.eetac.dsa.Session;
 import edu.upc.eetac.dsa.UserDAOImpl;
-import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -11,23 +8,15 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-import static edu.upc.eetac.dsa.FactorySession.openSession;
-
-@Api (value = "/user")
+@Api (value = "/user", description = "Endpoint to User Service")
 @Path ("/user")
 
 public class UserService {
 
-    //Aqui hem d'afegir o inicialitzar les coses
     private IUserDAO u;
-
 
     public UserService(){
         this.u = UserDAOImpl.getInstance();
@@ -51,14 +40,27 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response RegisterUser(User user) {
 
+        try{
+            int numException = u.registerUser(user);
+            if (numException!=0) {
+                return Response.status(200).entity(user).build();
+            }
+            else if(numException==-3)
+            {
+                return Response.status(403).build();
+            }
+            else
+            {
+                return Response.status(400).build();
+            }
+        }
+        catch (Exception e){
 
-
-
-
-
+            return Response.status(503).build();
+        }
     }
 
-    @POST
+    /*@POST
     @ApiOperation(value = "LOGIN USER", notes = "PARA LOGIN Android i WEB")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
@@ -163,7 +165,7 @@ public class UserService {
     public Response GetObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
 
 
-    }
+    }*/
 
 
 

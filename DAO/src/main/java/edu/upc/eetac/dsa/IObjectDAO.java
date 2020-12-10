@@ -9,5 +9,5 @@ import java.util.HashMap;
 public interface IObjectDAO {
     public BuyedObject getBuyedObjectById(BuyedObject buyedObject) throws SQLException;
     public void deleteBuyedObject(BuyedObject buyedObject) throws SQLException;
-    public List<BuyedObject> getListBuyedObjects();
+    //public List<BuyedObject> getListBuyedObjects();
 }
