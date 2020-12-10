@@ -11,7 +11,8 @@ public interface IUserDAO {
 
     public int registerUser(User user) throws SQLException;
     public User getUserById(int idUser) throws SQLException;
-    public void updateUser(User user, String name, String surname, int money, HashMap<Integer, BuyedObject> buyedObjects, String mail)throws SQLException;
+    public int updateUser(User user)throws SQLException;
     public void deleteUser(User user) throws SQLException;
     public int loginUser(User userToLog) throws SQLException;
+    public User getUserByNickname( String nameUser) throws SQLException;
 }

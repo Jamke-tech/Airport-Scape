@@ -23,18 +23,23 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="459fb730-ec37-465f-a6d1-5d18810d9a21">
+        <schema name="information_schema" object-types="function, table, procedure, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="075181c0-edf7-499c-bd0b-69100ef54770">
-      <console name="AirportBBDD" type="STANDARD" schema="" session="Main" />
+    <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21">
+      <console name="AirportBBDD" type="STANDARD" schema="mysql" session="Main"><![CDATA[CREATE DATABASE AirportBBDD;]]></console>
+      <console name="Connection" type="STANDARD" schema="information_schema" session="Main"><![CDATA[select]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="075181c0-edf7-499c-bd0b-69100ef54770" />
+    <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -62,7 +67,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="075181c0-edf7-499c-bd0b-69100ef54770" active="true">
+      <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21" active="true">
         <database>
           <name value="AirportBBDD" />
           <description value="" />

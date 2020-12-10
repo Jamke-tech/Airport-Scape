@@ -18,7 +18,10 @@ public class UserService {
 
     private IUserDAO u;
 
-    public UserService(){this.u = UserDAOImpl.getInstance();}
+    public UserService(){
+        this.u = UserDAOImpl.getInstance();
+
+    }
 
     //OUR USER CRUD OPERATIONS
     @POST
@@ -28,20 +31,18 @@ public class UserService {
             @ApiResponse(code = 503, message = "BBDD Down"),
             @ApiResponse(code = 400, message = "WRONG DATA"),
             @ApiResponse(code = 403, message = "NICKNAME USED")
-
     })
-
-    @Path("/")
+    @Path ("/register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response RegisterUser(User user) {
 
         try{
             int numException = u.registerUser(user);
-            if (numException!=0) {
+            if (numException>=0) {
                 return Response.status(200).entity(user).build();
             }
-            else if(numException==-3)
+            else if(numException==-403)
             {
                 return Response.status(403).build();
             }
@@ -66,13 +67,13 @@ public class UserService {
 
     })
 
-    @Path("/")
+    @Path ("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response LoginUser(User parametrosLogIn) {
         try{
             int numException = u.loginUser(parametrosLogIn);
-            if (numException!=0) {
+            if (numException==0) {
                 return Response.status(200).entity(parametrosLogIn).build();
             }
             else if(numException==1)
@@ -92,7 +93,7 @@ public class UserService {
 
     }
 
-    /*@POST
+    @POST
     @ApiOperation(value = "Change Password", notes = "Pedir @ para cambiar el password")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
@@ -100,10 +101,11 @@ public class UserService {
 
     })
 
-    @Path("/")
+    @Path("/changepass")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response ChangePassword(User mail) {
 
+        return Response.status(400).build();
 
     }
 
@@ -116,9 +118,25 @@ public class UserService {
 
     })
 
-    @Path("/")
+    @Path("/edit")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response EditUser(User user) {
+
+        try{
+            int numException = u.registerUser(user);
+            if (numException==0) {
+                return Response.status(200).entity(user).build();
+            }
+            else
+            {
+                return Response.status(400).build();
+            }
+        }
+        catch (Exception e){
+
+            return Response.status(503).build();
+        }
+
 
 
     }
@@ -134,52 +152,19 @@ public class UserService {
     @Path("/{nickName}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user
     public Response GetUser(@PathParam("nickName") String userName) {
+        try{
+            User user = u.getUserById(2);
+            return Response.status(200).entity(user).build();
+        }
+        catch (Exception e){
+
+            return Response.status(503).build();
+        }
+
+
 
 
     }
 
-    @PUT
-    @ApiOperation(value = "Comprar Objeto", notes = "Nos dice que objeto compra el cliente")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK"),
-            @ApiResponse(code = 503, message = "BBDD Down"),
-            @ApiResponse(code=406, message = "NOT Enough Money")
 
-    })
-
-    @Path("/{nickName}/{idObject}")
-    public Response BuyObject(@PathParam("nickName") String userName,@PathParam("idObject") int idBuyedObject ) {
-
-
-    }
-
-    @GET
-    @ApiOperation(value = "Lista Objetos de User", notes = "Nos devuelve todos los objetos de un user")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = BuyedObject.class, responseContainer = "List"),
-            @ApiResponse(code = 503, message = "BBDD Down")
-
-    })
-
-    @Path("/{nickName}")
-    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
-    public Response ListBuyedObjects(@PathParam("nickName") String userName) {
-
-
-    }
-
-    @GET
-    @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = BuyedObject.class),
-            @ApiResponse(code = 503, message = "BBDD Down")
-
-    })
-
-    @Path("/{idObject}")
-    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user
-    public Response GetObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
-
-
-    }*/
 }

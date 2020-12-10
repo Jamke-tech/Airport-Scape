@@ -49,14 +49,13 @@ public class SessionImpl implements Session {
         conn.close();
     }
 
-    public Object get(Class theClass, int ID) {
+    public Object get(Object theClass, int ID) {
         //FALTA POR CORREGIR
         String selectQuery = QueryHelper.createQuerySELECT(theClass);
         PreparedStatement pstm = null;
         try {
             pstm = conn.prepareStatement(selectQuery);
-            pstm.setObject(1, 0);
-            pstm.setObject(2, ID);
+            pstm.setObject(1, ID);
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
             if (rs.next()){
@@ -70,6 +69,31 @@ public class SessionImpl implements Session {
             e.printStackTrace();
             return null;
         } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Object getByName(Object theClass, String name) {
+        String selectQuery = QueryHelper.createQuerySELECTName(theClass);
+        PreparedStatement pstm = null;
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, name);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            if (rs.next()){
+                Object o = new Object();
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+            }
+            return pstm.getResultSet();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
