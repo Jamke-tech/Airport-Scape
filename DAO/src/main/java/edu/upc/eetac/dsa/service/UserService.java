@@ -1,6 +1,6 @@
 package edu.upc.eetac.dsa.service;
-import edu.upc.eetac.dsa.IUserDAO;
-import edu.upc.eetac.dsa.UserDAOImpl;
+import edu.upc.eetac.dsa.DAO.IUserDAO;
+import edu.upc.eetac.dsa.DAO.UserDAOImpl;
 import edu.upc.eetac.dsa.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,15 +18,11 @@ public class UserService {
 
     private IUserDAO u;
 
-    public UserService(){
-        this.u = UserDAOImpl.getInstance();
+    public UserService(){this.u = UserDAOImpl.getInstance();}
 
-
-    }
-
-
+    //OUR USER CRUD OPERATIONS
     @POST
-    @ApiOperation(value = "Register new USER", notes = "PARA registrar en Android i WEB")
+    @ApiOperation(value = "Register new USER", notes = "Para registrar en Android i WEB")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = User.class),
             @ApiResponse(code = 503, message = "BBDD Down"),
@@ -60,23 +56,43 @@ public class UserService {
         }
     }
 
-    /*@POST
-    @ApiOperation(value = "LOGIN USER", notes = "PARA LOGIN Android i WEB")
+    @POST
+    @ApiOperation(value = "LOGIN USER", notes = "Para LOGIN Android i WEB")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 200, message = "OK", response = User.class),
             @ApiResponse(code = 401, message = "Not Authorized"),
-            @ApiResponse(code = 404, message = "User Not Found")
+            @ApiResponse(code = 404, message = "User Not Found"),
+            @ApiResponse(code = 503, message = "BBDD Down")
 
     })
 
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response LoginUser(User parametrosLogIn) {
+        try{
+            int numException = u.loginUser(parametrosLogIn);
+            if (numException!=0) {
+                return Response.status(200).entity(parametrosLogIn).build();
+            }
+            else if(numException==1)
+            {
+                return Response.status(401).build();
+            }
+            else
+            {
+                return Response.status(404).build();
+            }
+        }
+        catch (Exception e){
+
+            return Response.status(503).build();
+        }
 
 
     }
 
-    @POST
+    /*@POST
     @ApiOperation(value = "Change Password", notes = "Pedir @ para cambiar el password")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
@@ -166,13 +182,4 @@ public class UserService {
 
 
     }*/
-
-
-
-
-
-
-
-
-
 }

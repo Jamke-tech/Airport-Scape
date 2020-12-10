@@ -1,4 +1,4 @@
-package edu.upc.eetac.dsa;
+package edu.upc.eetac.dsa.BBDD;
 
 import edu.upc.eetac.dsa.util.ObjectHelper;
 import edu.upc.eetac.dsa.util.QueryHelper;

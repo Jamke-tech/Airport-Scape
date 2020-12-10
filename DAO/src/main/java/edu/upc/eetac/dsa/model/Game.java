@@ -1,12 +1,12 @@
 package edu.upc.eetac.dsa.model;
 
 public class Game {
-    private int idGame;
-    private MainCharacter character;
-    private Map map;
-    private int time;
-    private boolean win;
-    private int idUser;
+    public int idGame;
+    public MainCharacter character;
+    public Map map;
+    public int time;
+    public boolean win;
+    public int idUser;
 
     public Game(int idGame, MainCharacter character, Map map, int time, boolean win, int idUser) {
         this.idGame = idGame;

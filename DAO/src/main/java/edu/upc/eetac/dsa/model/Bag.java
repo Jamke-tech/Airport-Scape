@@ -3,11 +3,11 @@ package edu.upc.eetac.dsa.model;
 import java.util.HashMap;
 
 public class Bag {
-    private int idBag;
-    private String name;
-    private int capacity;
-    private String description;
-    private HashMap<Integer, ContrabandObject> contrabandObjects;
+    public int idBag;
+    public String name;
+    public int capacity;
+    public String description;
+    public HashMap<Integer, ContrabandObject> contrabandObjects;
 
     public Bag(int idBag, String name, int capacity, String description, HashMap<Integer, ContrabandObject> contrabandObjects) {
         this.idBag = idBag;

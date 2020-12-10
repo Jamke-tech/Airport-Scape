@@ -1,4 +1,4 @@
-package edu.upc.eetac.dsa;
+package edu.upc.eetac.dsa.DAO;
 
 import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;

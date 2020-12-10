@@ -1,11 +1,11 @@
 package edu.upc.eetac.dsa.model;
 
 public class BuyedObject {
-    private int idBuyedObject;
-    private String name;
-    private double price;
-    private String description;
-    private int attribute;
+    public int idBuyedObject;
+    public String name;
+    public double price;
+    public String description;
+    public int attribute;
 
     public BuyedObject(int idBuyedObject, String name, double price, String description, int attribute) {
         this.idBuyedObject = idBuyedObject;

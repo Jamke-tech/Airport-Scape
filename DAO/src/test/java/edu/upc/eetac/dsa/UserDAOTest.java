@@ -1,16 +1,13 @@
 package edu.upc.eetac.dsa;
 
-import edu.upc.eetac.dsa.model.BuyedObject;
-import edu.upc.eetac.dsa.model.Game;
+import edu.upc.eetac.dsa.DAO.IUserDAO;
+import edu.upc.eetac.dsa.DAO.UserDAOImpl;
 import edu.upc.eetac.dsa.model.User;
-import edu.upc.eetac.dsa.util.QueryHelper;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 
 public class UserDAOTest {
 
@@ -33,9 +30,8 @@ public class UserDAOTest {
         String name ="Miguel";
         String surname = "Marin";
         int money = 1000;
-        HashMap<Integer, BuyedObject > buyedObjects = null;
         String mail = "miguel_8171099@gmail.com";
-        User user = new User(idUser, userName, password, name, surname, money, buyedObjects,  mail);
+        User user = new User(idUser, userName, password, name, surname, money,  mail);
         idUser = Impl.registerUser(user);
         Assert.assertEquals(1, idUser);
     }

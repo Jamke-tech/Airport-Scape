@@ -1,10 +1,10 @@
 package edu.upc.eetac.dsa.model;
 
 public class ContrabandObject {
-    private int idContrabandObject;
-    private String name;
-    private String description;
-    private int value;
+    public int idContrabandObject;
+    public String name;
+    public String description;
+    public int value;
 
     public ContrabandObject(int idContrabandObject, String name, String description, int value) {
         this.idContrabandObject = idContrabandObject;

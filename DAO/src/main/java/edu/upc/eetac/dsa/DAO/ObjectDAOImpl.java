@@ -1,7 +1,8 @@
-package edu.upc.eetac.dsa;
+package edu.upc.eetac.dsa.DAO;
 
+import edu.upc.eetac.dsa.BBDD.FactorySession;
+import edu.upc.eetac.dsa.BBDD.Session;
 import edu.upc.eetac.dsa.model.BuyedObject;
-import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
 

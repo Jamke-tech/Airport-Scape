@@ -1,4 +1,4 @@
-package edu.upc.eetac.dsa;
+package edu.upc.eetac.dsa.BBDD;
 
 
 import java.sql.Connection;

@@ -1,14 +1,14 @@
-package edu.upc.eetac.dsa;
+package edu.upc.eetac.dsa.DAO;
 
+import edu.upc.eetac.dsa.BBDD.FactorySession;
+import edu.upc.eetac.dsa.BBDD.Session;
 import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
-public class UserDAOImpl extends GestorGame implements IUserDAO {
+public class UserDAOImpl implements IUserDAO {
 
     private static IUserDAO instance;
 
@@ -27,8 +27,6 @@ public class UserDAOImpl extends GestorGame implements IUserDAO {
         try {
             session = FactorySession.openSession();
             int money = 1000;
-            HashMap<Integer, BuyedObject> buyedObjects = null;
-            user.setBuyedObjects(buyedObjects);
             user.setMoney(money);
             user.setIdUser(idUser);
             session.save(user);
@@ -39,8 +37,9 @@ public class UserDAOImpl extends GestorGame implements IUserDAO {
         }
         finally {
             session.close();
+            return idUser;
         }
-        return idUser;
+
     }
 
 
@@ -60,6 +59,15 @@ public class UserDAOImpl extends GestorGame implements IUserDAO {
 
         return user;
     }
+    public int loginUser(User userToLog)
+    {
+        //hem de mirar si aquest usuari existeix i si existeix si la contraseña es la mateixa que tenim a la base de dades
+
+
+
+
+        return 0;
+    }
 
 
     public void updateUser(User user, String name, String surname, int money, HashMap<Integer,BuyedObject> buyedObjects, String mail) throws SQLException {
@@ -67,7 +75,6 @@ public class UserDAOImpl extends GestorGame implements IUserDAO {
         user.setName(name);
         user.setSurname(surname);
         user.setMoney(money);
-        user.setBuyedObjects(buyedObjects);
         user.setMail(mail);
 
         Session session = null;

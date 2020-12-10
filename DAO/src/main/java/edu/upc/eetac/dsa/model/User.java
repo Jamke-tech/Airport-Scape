@@ -4,23 +4,21 @@ import java.util.HashMap;
 
 public class User {
 
-    private int idUser;
-    private String userName;
-    private String password;
-    private String name;
-    private String surname;
-    private int money;
-    private HashMap<Integer, BuyedObject> buyedObjects;
-    private String mail;
+    public int idUser;
+    public String userName;
+    public String password;
+    public String name;
+    public String surname;
+    public int money;
+    public String mail;
 
-    public User(int idUser, String userName, String password, String name, String surname, int money, HashMap<Integer, BuyedObject> buyedObjects, String mail) {
+    public User(int idUser, String userName, String password, String name, String surname, int money, String mail) {
         this.idUser = idUser;
         this.userName = userName;
         this.password = password;
         this.name = name;
         this.surname = surname;
         this.money = money;
-        this.buyedObjects = buyedObjects;
         this.mail = mail;
     }
 
@@ -46,10 +44,6 @@ public class User {
 
     public void setMoney(int money) {
         this.money = money;
-    }
-
-    public void setBuyedObjects(HashMap<Integer, BuyedObject> buyedObjects) {
-        this.buyedObjects = buyedObjects;
     }
 
     public void setMail(String mail) {
