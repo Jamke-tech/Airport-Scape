@@ -38,7 +38,7 @@ public class ObjectDAOImpl {
         }
     }
 
-    public List<BuyedObject> getListBuyedObjects() {
+/*    public List<BuyedObject> getListBuyedObjects() {
 
-    }
+    }*/
 }
