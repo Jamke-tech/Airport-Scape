@@ -144,10 +144,10 @@ public class UserDAOImpl implements IUserDAO {
 
     public User getUserByNickname( String nameUser) throws SQLException{
         Session session = null;
-        User user = null;
+        User user = new User();
         try {
             session = FactorySession.openSession();
-            user = (User) session.getByName(User.class, nameUser);
+            user = (User) session.getByName(user, nameUser);
         }
         catch (Exception e) {
             e.printStackTrace();

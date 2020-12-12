@@ -84,9 +84,8 @@ public class SessionImpl implements Session {
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
             if (rs.next()){
-                Object o = new Object();
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
-                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                    ObjectHelper.setter(theClass,rs.getMetaData().getColumnName(i),rs.getObject(i));
             }
             return pstm.getResultSet();
 

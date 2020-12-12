@@ -20,6 +20,10 @@ public class User {
         this.mail = mail;
     }
 
+    public User() {
+
+    }
+
     public void setId(int id) {
         this.id = id;
     }

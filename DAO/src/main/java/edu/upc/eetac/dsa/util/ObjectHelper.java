@@ -41,7 +41,7 @@ public class ObjectHelper {
         String[] sFields = new String[fields.length];
 
         for (Field f: fields) {
-            if (f.getName() == property){
+            if (f.getName().equals(property)){
                 f.set(object, value);
             }
         }

@@ -56,10 +56,10 @@ public class UserDAOTest {
         Impl.deleteUser(user);
     }*/
     @Test
-    public void getUserById() throws SQLException {
-        int id = 0;
-        User user = Impl.getUserById(id);
-        Assert.assertEquals("mmv", user.getUserName());
+    public void getUserByNickname() throws SQLException {
+        String nickname = "mmv8";
+        User user = Impl.getUserByNickname(nickname);
+        Assert.assertEquals(3, user.getId());
     }
 
 }
