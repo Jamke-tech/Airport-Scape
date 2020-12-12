@@ -21,25 +21,16 @@ public class UserDAOImpl implements IUserDAO {
     public int registerUser(User user) throws SQLException {
         Session session = null;
         int idUser = 0;
-       // int retorno = -400;
         try {
             session = FactorySession.openSession();
-/*            User existingUser = (User) session.getByName(user,user.getNameOfUser());
-            if(existingUser!=null)
-            {
-                retorno = -403;//nickname used
-            }*/
-          //  else{//iniciamos un nuevo usuario i lo ponemos en la base de datos
                 int money = 1000;
                 user.setMoney(money);
-                user.setId(idUser);
                 session.save(user);
-                //retorno = idUser;
-           // }
+                user.setId(idUser);
+
         }
         catch (Exception e) {
             e.printStackTrace();
-           // retorno = -400;
         }
         finally {
             if(session!=null) {

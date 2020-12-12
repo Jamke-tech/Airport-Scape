@@ -22,10 +22,10 @@ public class UserDAOTest {
     public void tearDown(){
         this.UserDAOImpl.getInstance().clear();
     }*/
-    @Test
+/*    @Test
     public void testRegisterUser() throws SQLException {
         int idUser = 0;
-        String userName = "mmv";
+        String userName = "mmv888";
         String password = "mmv";
         String name ="Miguel";
         String surname = "Marin";
@@ -33,22 +33,33 @@ public class UserDAOTest {
         String mail = "miguel_8171099@gmail.com";
         User user = new User(idUser, userName, password, name, surname, money,  mail);
         idUser = Impl.registerUser(user);
-        Assert.assertEquals(1, idUser);
+        Assert.assertEquals(5, idUser);
     }
+
+    @Test
+    public void testUpdateUser() throws SQLException {
+        int error;
+        int idUser = 1;
+        String userName = "mmv";
+        String password = "mmv";
+        String name ="Miguel";
+        String surname = "Marin Vicente";
+        int money = 1000;
+        String mail = "miguel_8171099@hotmail.com";
+        User user = new User(idUser, userName, password, name, surname, money,  mail);
+        error = Impl.updateUser(user);
+        Assert.assertEquals(0, error);
+    }*/
 
 /*    @Test
-    public void testGetUserById() {
-        Assert.assertEquals());
-    }
-
-    @Test
-    public void testUpdateUser() {
-        Assert.assertEquals();
-    }
-
-    @Test
     public void testDeleteUser() {
-        Assert.assertEquals();
+        Impl.deleteUser(user);
     }*/
+    @Test
+    public void getUserById() throws SQLException {
+        int id = 0;
+        User user = Impl.getUserById(id);
+        Assert.assertEquals("mmv", user.getUserName());
+    }
 
 }

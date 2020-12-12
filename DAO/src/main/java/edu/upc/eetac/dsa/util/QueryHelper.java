@@ -11,8 +11,6 @@ public class QueryHelper {
 
         String [] fields = ObjectHelper.getFields(entity);
 
-/*        String id = fields[0];
-        sb.append(id);*/
         String field;
         int i =1;
         while (i<fields.length){
@@ -21,9 +19,6 @@ public class QueryHelper {
             sb.append(field);
             i++;
         }
- /*       for (String field: fields) {
-            sb.append(", ").append(field);
-        }*/
 
         sb.append(") VALUES (?");
 
@@ -32,9 +27,6 @@ public class QueryHelper {
             sb.append(", ?");
             i++;
         }
-/*        for (String field2: fields) {
-            sb.append(", ?");
-        }*/
 
         sb.append(")");
         logger.info(sb.toString());
@@ -66,12 +58,18 @@ public class QueryHelper {
     public static String createQueryUPDATE(Object entity){
         // FALTA CORREGIR
         String [] fields = ObjectHelper.getFields(entity);
-        StringBuffer sb = new StringBuffer("UPDATE");
+        StringBuffer sb = new StringBuffer("UPDATE ");
         sb.append(entity.getClass().getSimpleName()).append(" ");
-        sb.append("SET");
-        for (String field: fields) {
-            sb.append(field).append(" = ?, ");
+        sb.append("SET ");
+        String field;
+        int i =1;
+        while (i<fields.length){
+            field = fields[i];
+            if (i>1) sb.append(" = ?, ");
+            sb.append(field);
+            i++;
         }
+        sb.append(" = ?");
         sb.append(" WHERE ID = ?");
 
         return sb.toString();
@@ -80,13 +78,13 @@ public class QueryHelper {
     public static String createQueryUPDATECOMPLEX(Object entity){
         // FALTA CORREGIR
         String [] fields = ObjectHelper.getFields(entity);
-        StringBuffer sb = new StringBuffer("UPDATE");
+        StringBuffer sb = new StringBuffer("UPDATE ");
         sb.append(entity.getClass().getSimpleName()).append(" ");
-        sb.append("SET");
+        sb.append("SET (");
         for (String field: fields) {
             sb.append(field).append(" = ?, ");
         }
-        sb.append("WHERE");
+        sb.append(") WHERE");
         sb.append("? = ?");
 
         return sb.toString();

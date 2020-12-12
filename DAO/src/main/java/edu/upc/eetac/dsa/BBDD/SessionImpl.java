@@ -27,11 +27,6 @@ public class SessionImpl implements Session {
 
         try {
             pstm = conn.prepareStatement(insertQuery);
-            //pstm.setObject(1, 0);
-/*            int i = 1;
-            for (String field: ObjectHelper.getFields(entity)) {
-                pstm.setObject(i++, ObjectHelper.getter(entity, field));
-            }*/
             String field;
             int i =1;
             while (i<ObjectHelper.getFields(entity).length){
@@ -105,19 +100,19 @@ public class SessionImpl implements Session {
     }
 
     public void update(Object object) throws IllegalAccessException {
-        //FALTA POR CORREGIR
         String updateQuery = QueryHelper.createQueryUPDATE(object);
+
         PreparedStatement pstm = null;
-        int ID = ObjectHelper.getId(object);
+
         try {
             pstm = conn.prepareStatement(updateQuery);
-            pstm.setObject(1, 0);
-            int i = 2;
-
-            for (String field: ObjectHelper.getFields(object)) {
+            String field;
+            int i =1;
+            while (i<ObjectHelper.getFields(object).length){
+                field = ObjectHelper.getFields(object)[i];
                 pstm.setObject(i++, ObjectHelper.getter(object, field));
             }
-            pstm.setObject(i, ID);
+            pstm.setObject(i++, ObjectHelper.getter(object, ObjectHelper.getFields(object)[0]));
             pstm.executeQuery();
 
         } catch (SQLException e) {
@@ -158,9 +153,8 @@ public class SessionImpl implements Session {
         int ID = ObjectHelper.getId(object);
         try {
             pstm = conn.prepareStatement(deleteQuery);
-            pstm.setObject(1, 0);
-            pstm.setObject(2, "ID");
-            pstm.setObject(3, ID);
+            pstm.setObject(1, "ID");
+            pstm.setObject(2, ID);
             pstm.executeQuery();
 
         } catch (SQLException e) {
