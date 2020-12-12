@@ -1,5 +1,12 @@
 package edu.upc.eetac.dsa.service;
 
+import edu.upc.eetac.dsa.DAO.IObjectDAO;
+import edu.upc.eetac.dsa.DAO.IUserDAO;
+import edu.upc.eetac.dsa.DAO.ObjectDAOImpl;
+import edu.upc.eetac.dsa.DAO.UserDAOImpl;
+import edu.upc.eetac.dsa.model.BuyedObject;
+import edu.upc.eetac.dsa.model.User;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -8,8 +15,20 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+@Api(value = "/object", description = "Endpoint to Object Service")
+@Path ("/object")
 public class ObjectService {
-    /*@PUT
+
+    private IObjectDAO o;
+    private IUserDAO u;
+
+    public ObjectService(){
+        this.o = ObjectDAOImpl.getInstance();
+        this.u = UserDAOImpl.getInstance();
+
+    }
+
+    @PUT
     @ApiOperation(value = "Comprar Objeto", notes = "Nos dice que objeto compra el cliente")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
@@ -19,12 +38,30 @@ public class ObjectService {
     })
 
     @Path("/{nickName}/{idObject}")
-    public Response BuyObject(@PathParam("nickName") String userName, @PathParam("idObject") int idBuyedObject ) {
+    public Response BuyObject(@PathParam("nickName") String userName, @PathParam("idObject") int idObject ) {
 
+        try{
+            User user = u.getUserByNickname(userName);
+            int error = o.buyObjectForUser(user,idObject);
+            if (error==0)
+            {
+                return Response.status(200).build();
+            }
+            else if (error==6){
+                return Response.status(406).build();
+            }
+            else
+                return Response.status(503).build();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
 
     }
 
-    @GET
+    /*@GET
     @ApiOperation(value = "Lista Objetos de User", notes = "Nos devuelve todos los objetos de un user")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = BuyedObject.class, responseContainer = "List"),

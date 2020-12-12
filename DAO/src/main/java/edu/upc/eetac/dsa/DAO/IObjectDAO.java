@@ -5,9 +5,10 @@ import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 public interface IObjectDAO {
-    public BuyedObject getBuyedObjectById(BuyedObject buyedObject) throws SQLException;
+    public int buyObjectForUser (User user,int idObject) throws SQLException;
     public void deleteBuyedObject(BuyedObject buyedObject) throws SQLException;
-    //public List<BuyedObject> getListBuyedObjects();
+    public List<BuyedObject> getListBuyedObjects() throws SQLException;
 }

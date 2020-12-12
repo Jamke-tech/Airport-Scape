@@ -95,6 +95,25 @@ public class SessionImpl implements Session {
             return null;
         }
     }
+    public Object getByID(Object theClass, int id) throws SQLException {
+        String selectQuery = QueryHelper.createQuerySELECT(theClass);
+        PreparedStatement pstm = null;
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, id);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            if (rs.next()){
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(theClass,rs.getMetaData().getColumnName(i),rs.getObject(i));
+            }
+            return pstm.getResultSet();
+
+        }  catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public void update(Object object) throws SQLException {
         String updateQuery = QueryHelper.createQueryUPDATE(object);

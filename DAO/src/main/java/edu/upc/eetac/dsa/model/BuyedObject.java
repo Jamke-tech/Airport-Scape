@@ -1,37 +1,30 @@
 package edu.upc.eetac.dsa.model;
 
 public class BuyedObject {
-    public int id;
-    public String name;
-    public double price;
-    public String description;
-    public int attribute;
 
-    public BuyedObject(int id, String name, double price, String description, int attribute) {
+    public int id;
+    public int idObject;
+    public String nickNameBuyer;
+
+    public BuyedObject(int id, int idObject, String nickNameBuyer) {
         this.id = id;
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.attribute = attribute;
+        this.idObject = idObject;
+        this.nickNameBuyer = nickNameBuyer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getIdComprador() {
+        return nickNameBuyer;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setAttribute(int attribute) {
-        this.attribute = attribute;
+    public void setIdComprador(String nickNameBuyer) {
+        this.nickNameBuyer = nickNameBuyer;
     }
 }
