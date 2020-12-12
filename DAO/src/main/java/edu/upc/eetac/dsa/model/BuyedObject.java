@@ -1,22 +1,22 @@
 package edu.upc.eetac.dsa.model;
 
 public class BuyedObject {
-    public int idBuyedObject;
+    public int id;
     public String name;
     public double price;
     public String description;
     public int attribute;
 
-    public BuyedObject(int idBuyedObject, String name, double price, String description, int attribute) {
-        this.idBuyedObject = idBuyedObject;
+    public BuyedObject(int id, String name, double price, String description, int attribute) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.attribute = attribute;
     }
 
-    public void setIdBuyedObject(int idBuyedObject) {
-        this.idBuyedObject = idBuyedObject;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {

@@ -23,16 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="459fb730-ec37-465f-a6d1-5d18810d9a21">
-        <schema name="information_schema" object-types="function, table, procedure, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21">
-      <console name="AirportBBDD" type="STANDARD" schema="mysql" session="Main"><![CDATA[CREATE DATABASE AirportBBDD;]]></console>
-      <console name="Connection" type="STANDARD" schema="information_schema" session="Main"><![CDATA[select]]></console>
+      <console name="AirportBBDD" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -69,13 +64,13 @@
     <connections>
       <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21" active="true">
         <database>
-          <name value="AirportBBDD" />
+          <name value="AirportScape" />
           <description value="" />
           <database-type value="GENERIC" />
           <config-type value="CUSTOM" />
           <database-version value="10.5" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
+          <driver-library value="C:\Users\migue\Documents\GitHub\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
           <driver value="org.mariadb.jdbc.Driver" />
           <url value="jdbc:mariadb://localhost:3306" />
           <type value="USER_PASSWORD" />

@@ -1,15 +1,15 @@
 package edu.upc.eetac.dsa.model;
 
 public class Game {
-    public int idGame;
+    public int id;
     public MainCharacter character;
     public Map map;
     public int time;
     public boolean win;
     public int idUser;
 
-    public Game(int idGame, MainCharacter character, Map map, int time, boolean win, int idUser) {
-        this.idGame = idGame;
+    public Game(int id, MainCharacter character, Map map, int time, boolean win, int idUser) {
+        this.id = id;
         this.character = character;
         this.map = map;
         this.time = time;
@@ -17,8 +17,8 @@ public class Game {
         this.idUser = idUser;
     }
 
-    public void setIdGame(int idGame) {
-        this.idGame = idGame;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCharacter(MainCharacter character) {

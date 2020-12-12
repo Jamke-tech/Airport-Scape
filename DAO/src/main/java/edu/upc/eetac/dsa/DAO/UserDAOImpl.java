@@ -2,11 +2,9 @@ package edu.upc.eetac.dsa.DAO;
 
 import edu.upc.eetac.dsa.BBDD.FactorySession;
 import edu.upc.eetac.dsa.BBDD.Session;
-import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 
 public class UserDAOImpl implements IUserDAO {
 
@@ -23,25 +21,25 @@ public class UserDAOImpl implements IUserDAO {
     public int registerUser(User user) throws SQLException {
         Session session = null;
         int idUser = 0;
-        int retorno = -400;
+       // int retorno = -400;
         try {
             session = FactorySession.openSession();
-            User existingUser = (User) session.getByName(user,user.getNameOfUser());
+/*            User existingUser = (User) session.getByName(user,user.getNameOfUser());
             if(existingUser!=null)
             {
                 retorno = -403;//nickname used
-            }
-            else{//iniciamos un nuevo usuario i lo ponemos en la base de datos
+            }*/
+          //  else{//iniciamos un nuevo usuario i lo ponemos en la base de datos
                 int money = 1000;
                 user.setMoney(money);
-                user.setIdUser(idUser);
+                user.setId(idUser);
                 session.save(user);
-                retorno = idUser;
-            }
+                //retorno = idUser;
+           // }
         }
         catch (Exception e) {
             e.printStackTrace();
-            retorno = -400;
+           // retorno = -400;
         }
         finally {
             if(session!=null) {
@@ -49,19 +47,51 @@ public class UserDAOImpl implements IUserDAO {
             }
 
         }
-        return retorno;
+        return idUser;
 
     }
+/*    public int registerUser(User user) throws SQLException {
+        Session session = null;
+        int idUser = 0;
+        //int retorno = -400;
+        try {
+            session = FactorySession.openSession();
+*//*            User existingUser = (User) session.getByName(user,user.getNameOfUser());
+            if(existingUser!=null)
+            {
+                retorno = -403;//nickname used
+            }*//*
+           // else{//iniciamos un nuevo usuario i lo ponemos en la base de datos
+                int money = 1000;
+                user.setMoney(money);
+                user.setId(idUser);
+                session.save(user);
+               // retorno = idUser;
+           // }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+           // retorno = -400;
+        }
+        finally {
+            if(session!=null) {
+                session.close();
+            }
+
+        }
+        return idUser;
+
+    }*/
 
     public int loginUser(User userToLog) throws SQLException {
         Session session = null;
         int error=3;
         try {
             session = FactorySession.openSession();
-            User existingUser = (User) session.getByName(userToLog,userToLog.getNameOfUser());
+            User existingUser = (User) session.getByName(userToLog,userToLog.getUserName());
             if(existingUser!=null)//user found we must prove that the pass is the same
             {
-                if(existingUser.getPass().equals(userToLog.getPass()))
+                if(existingUser.getPassword().equals(userToLog.getPassword()))
                 {
                     error = 0;
                 }

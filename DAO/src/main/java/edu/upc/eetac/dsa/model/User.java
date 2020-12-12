@@ -1,10 +1,8 @@
 package edu.upc.eetac.dsa.model;
 
-import java.util.HashMap;
-
 public class User {
 
-    public int idUser;
+    public int id;
     public String userName;
     public String password;
     public String name;
@@ -12,8 +10,8 @@ public class User {
     public int money;
     public String mail;
 
-    public User(int idUser, String userName, String password, String name, String surname, int money, String mail) {
-        this.idUser = idUser;
+    public User(int id, String userName, String password, String name, String surname, int money, String mail) {
+        this.id = id;
         this.userName = userName;
         this.password = password;
         this.name = name;
@@ -22,8 +20,8 @@ public class User {
         this.mail = mail;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setUserName(String userName) {
@@ -50,16 +48,35 @@ public class User {
         this.mail = mail;
     }
 
-    public String getNameOfUser() {
-        return userName;
-
-
+    public int getId() {
+        return id;
     }
 
-    public String getPass() {
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
         return password;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public String getMail() {
+        return mail;
+    }
 }
+
 
 
 

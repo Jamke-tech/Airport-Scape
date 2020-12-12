@@ -1,7 +1,8 @@
 package edu.upc.eetac.dsa.util;
+import org.apache.log4j.Logger;
 
 public class QueryHelper {
-
+    final static Logger logger = Logger.getLogger(QueryHelper.class);
     public static String createQueryINSERT(Object entity) {
 
         StringBuffer sb = new StringBuffer("INSERT INTO ");
@@ -10,19 +11,33 @@ public class QueryHelper {
 
         String [] fields = ObjectHelper.getFields(entity);
 
-        sb.append("ID");
-        for (String field: fields) {
-            sb.append(", ").append(field);
+/*        String id = fields[0];
+        sb.append(id);*/
+        String field;
+        int i =1;
+        while (i<fields.length){
+            field = fields[i];
+            if (i>1) sb.append(", ");
+            sb.append(field);
+            i++;
         }
+ /*       for (String field: fields) {
+            sb.append(", ").append(field);
+        }*/
 
         sb.append(") VALUES (?");
 
-        for (String field: fields) {
+        i=2;
+        while (i<fields.length){
             sb.append(", ?");
+            i++;
         }
+/*        for (String field2: fields) {
+            sb.append(", ?");
+        }*/
 
         sb.append(")");
-
+        logger.info(sb.toString());
         return sb.toString();
     }
 
