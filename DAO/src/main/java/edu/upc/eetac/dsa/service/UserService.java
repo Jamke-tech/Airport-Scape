@@ -29,8 +29,7 @@ public class UserService {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = User.class),
             @ApiResponse(code = 503, message = "BBDD Down"),
-            @ApiResponse(code = 400, message = "WRONG DATA"),
-            @ApiResponse(code = 403, message = "NICKNAME USED")
+            @ApiResponse(code = 400, message = "NICKNAME USED"),
     })
     @Path ("/register")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -39,17 +38,14 @@ public class UserService {
 
         try{
             int numException = u.registerUser(user);
-            if (numException>=0) {
+            if (numException==0) {
                 return Response.status(200).entity(user).build();
-            }
-            else if(numException==-403)
-            {
-                return Response.status(403).build();
             }
             else
             {
                 return Response.status(400).build();
             }
+
         }
         catch (Exception e){
 
@@ -136,9 +132,6 @@ public class UserService {
 
             return Response.status(503).build();
         }
-
-
-
     }
 
     @GET
@@ -153,7 +146,7 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user
     public Response GetUser(@PathParam("nickName") String userName) {
         try{
-            User user = u.getUserById(2);
+            User user = u.getUserByNickname(userName);
             return Response.status(200).entity(user).build();
         }
         catch (Exception e){

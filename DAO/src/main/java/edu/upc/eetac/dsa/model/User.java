@@ -19,9 +19,8 @@ public class User {
         this.money = money;
         this.mail = mail;
     }
-
-    public User() {
-
+    public User ()
+    {
     }
 
     public void setId(int id) {

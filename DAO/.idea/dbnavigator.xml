@@ -28,6 +28,7 @@
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21">
       <console name="AirportBBDD" type="STANDARD" schema="" session="Main" />
+      <console name="Connection" type="STANDARD" schema="information_schema" session="Main">select</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

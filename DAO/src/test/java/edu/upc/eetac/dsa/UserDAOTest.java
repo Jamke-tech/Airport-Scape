@@ -18,48 +18,57 @@ public class UserDAOTest {
         this.Impl = UserDAOImpl.getInstance();
     }
 
-/*    @After
-    public void tearDown(){
-        this.UserDAOImpl.getInstance().clear();
-    }*/
-/*    @Test
+
+   @Test
     public void testRegisterUser() throws SQLException {
         int idUser = 0;
-        String userName = "mmv888";
-        String password = "mmv";
-        String name ="Miguel";
-        String surname = "Marin";
+        String userName = "jamke";
+        String password = "jamke";
+        String name ="Jaume";
+        String surname = "Tabernero";
         int money = 1000;
-        String mail = "miguel_8171099@gmail.com";
+        String mail = "jaume_taber10@hotmail.com";
         User user = new User(idUser, userName, password, name, surname, money,  mail);
-        idUser = Impl.registerUser(user);
-        Assert.assertEquals(5, idUser);
+        int error = Impl.registerUser(user);
+        Assert.assertEquals(-1, error);
     }
 
     @Test
     public void testUpdateUser() throws SQLException {
         int error;
         int idUser = 1;
-        String userName = "mmv";
-        String password = "mmv";
-        String name ="Miguel";
+        String userName = "mmv888";
+        String password = "mmv888";
+        String name = "Miguel";
         String surname = "Marin Vicente";
         int money = 1000;
         String mail = "miguel_8171099@hotmail.com";
-        User user = new User(idUser, userName, password, name, surname, money,  mail);
+        User user = new User(idUser, userName, password, name, surname, money, mail);
         error = Impl.updateUser(user);
         Assert.assertEquals(0, error);
-    }*/
+    }
+    @Test
+    public void testloginUser() throws SQLException {
+        int error;
+        String userName = "jamke";
+        String password = "jamke";
+        User user = new User(0, userName, password, null, null, 0, null);
+        error = Impl.loginUser(user);
+        Assert.assertEquals(0, error);//Password okey
+    }
+
+
+
 
 /*    @Test
     public void testDeleteUser() {
         Impl.deleteUser(user);
     }*/
-    @Test
+   @Test
     public void getUserByNickname() throws SQLException {
-        String nickname = "mmv8";
+        String nickname = "mmv888";
         User user = Impl.getUserByNickname(nickname);
-        Assert.assertEquals(3, user.getId());
+        Assert.assertEquals("mmv888", user.getUserName());
     }
 
 }

@@ -19,28 +19,29 @@ public class SessionImpl implements Session {
         this.conn = conn;
     }
 
-    public void save(Object entity) {
+    public void save(Object entity)  throws SQLException{
 
         String insertQuery = QueryHelper.createQueryINSERT(entity);
 
         PreparedStatement pstm = null;
-
         try {
             pstm = conn.prepareStatement(insertQuery);
             String field;
-            int i =1;
-            while (i<ObjectHelper.getFields(entity).length){
+            int i = 1;
+            while (i < ObjectHelper.getFields(entity).length) {
                 field = ObjectHelper.getFields(entity)[i];
                 pstm.setObject(i++, ObjectHelper.getter(entity, field));
             }
 
             pstm.executeQuery();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        }
+        catch (IllegalAccessException e)
+        {
             e.printStackTrace();
         }
+
+
+
 
     }
 
@@ -75,7 +76,7 @@ public class SessionImpl implements Session {
     }
 
     @Override
-    public Object getByName(Object theClass, String name) {
+    public Object getByName(Object theClass, String name) throws SQLException {
         String selectQuery = QueryHelper.createQuerySELECTName(theClass);
         PreparedStatement pstm = null;
         try {
@@ -89,16 +90,13 @@ public class SessionImpl implements Session {
             }
             return pstm.getResultSet();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        } catch (Exception e) {
+        }  catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public void update(Object object) throws IllegalAccessException {
+    public void update(Object object) throws SQLException {
         String updateQuery = QueryHelper.createQueryUPDATE(object);
 
         PreparedStatement pstm = null;
@@ -114,14 +112,12 @@ public class SessionImpl implements Session {
             pstm.setObject(i++, ObjectHelper.getter(object, ObjectHelper.getFields(object)[0]));
             pstm.executeQuery();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        }  catch (IllegalAccessException e) {
             e.printStackTrace();
         }
     }
 
-    public void updateComplex(Object object, String propertyCondition, Object valueCondition){
+    public void updateComplex(Object object, String propertyCondition, Object valueCondition) throws SQLException{
         //FALTA POR CORREGIR
         String updateQuery = QueryHelper.createQueryUPDATECOMPLEX(object);
         PreparedStatement pstm = null;
@@ -145,38 +141,23 @@ public class SessionImpl implements Session {
 
     }
 
-        public void delete(Object object) throws IllegalAccessException {
+    public void delete(Object object) throws SQLException {
         //FALTA POR CORREGIR
         String deleteQuery = QueryHelper.createQueryDELETE(object);
         PreparedStatement pstm = null;
-        int ID = ObjectHelper.getId(object);
+
         try {
+            int ID = ObjectHelper.getId(object);
             pstm = conn.prepareStatement(deleteQuery);
             pstm.setObject(1, "ID");
             pstm.setObject(2, ID);
             pstm.executeQuery();
 
-        } catch (SQLException e) {
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
 
     }
-/*    public void delete(Object object, String property, Object value) {
-        //FALTA POR CORREGIR
-        String deleteQuery = QueryHelper.createQueryDELETE(object);
-        PreparedStatement pstm = null;
-        try {
-            pstm = conn.prepareStatement(deleteQuery);
-            pstm.setObject(1, 0);
-            pstm.setObject(2, property);
-            pstm.setObject(3, value);
-            pstm.executeQuery();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }*/
 
     public List<Object> findAll(Class theClass) {
         String selectQuery = QueryHelper.createQuerySELECTAll(theClass);

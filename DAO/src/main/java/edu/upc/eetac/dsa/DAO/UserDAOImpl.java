@@ -20,66 +20,33 @@ public class UserDAOImpl implements IUserDAO {
 
     public int registerUser(User user) throws SQLException {
         Session session = null;
-        int idUser = 0;
+        int error =-1;
         try {
             session = FactorySession.openSession();
                 int money = 1000;
                 user.setMoney(money);
                 session.save(user);
-                user.setId(idUser);
+                error=0;
 
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
         finally {
             if(session!=null) {
                 session.close();
             }
-
+            return error;
         }
-        return idUser;
-
     }
-/*    public int registerUser(User user) throws SQLException {
-        Session session = null;
-        int idUser = 0;
-        //int retorno = -400;
-        try {
-            session = FactorySession.openSession();
-*//*            User existingUser = (User) session.getByName(user,user.getNameOfUser());
-            if(existingUser!=null)
-            {
-                retorno = -403;//nickname used
-            }*//*
-           // else{//iniciamos un nuevo usuario i lo ponemos en la base de datos
-                int money = 1000;
-                user.setMoney(money);
-                user.setId(idUser);
-                session.save(user);
-               // retorno = idUser;
-           // }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-           // retorno = -400;
-        }
-        finally {
-            if(session!=null) {
-                session.close();
-            }
 
-        }
-        return idUser;
-
-    }*/
 
     public int loginUser(User userToLog) throws SQLException {
         Session session = null;
         int error=3;
         try {
-            session = FactorySession.openSession();
-            User existingUser = (User) session.getByName(userToLog,userToLog.getUserName());
+            User existingUser = getUserByNickname(userToLog.getUserName());
             if(existingUser!=null)//user found we must prove that the pass is the same
             {
                 if(existingUser.getPassword().equals(userToLog.getPassword()))
@@ -159,12 +126,12 @@ public class UserDAOImpl implements IUserDAO {
         return user;
     }
 
-    public User getUserById(int idUser) throws SQLException {
+    public int getIDByNickName (String nickName) throws SQLException{
         Session session = null;
-        User user = null;
+        User user = new User();
         try {
             session = FactorySession.openSession();
-            user = (User) session.get(User.class, idUser);
+            user = (User) session.getByName(user, nickName);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -173,7 +140,8 @@ public class UserDAOImpl implements IUserDAO {
             session.close();
         }
 
-        return user;
+        return user.getId();
+
     }
 
 
