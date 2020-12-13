@@ -23,7 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f" name="Default Changelist" comment="JavaScript login added (+ modifications on html and css)">
-      <change beforePath="$PROJECT_DIR$/Log_IN_java/app/src/main/java/com/example/log_in_java/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Log_IN_java/app/src/main/java/com/example/log_in_java/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login_Web/src/JSON/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/Login_Web/src/JSON/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Login_Web/src/JSON/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/Login_Web/src/JSON/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Login_Web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ExempleDatabaseDSA-master/DatabaseDSA-master" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,7 +109,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax" />
@@ -119,12 +120,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824/5.-1080.1920.1040@0.0.1536.824" timestamp="1607288532826" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607855515108">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607260059943">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606739671264" />
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/5.-1080.1920.1040@0.0.1536.824" timestamp="1607260059943" />
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607855515108" />
     <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1607273582412">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

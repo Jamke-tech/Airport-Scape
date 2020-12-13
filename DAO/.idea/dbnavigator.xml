@@ -23,11 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="459fb730-ec37-465f-a6d1-5d18810d9a21">
-        <schema name="airportscape" object-types="constraint, index, table, procedure, view, function, column" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21">
@@ -75,7 +71,7 @@
           <config-type value="CUSTOM" />
           <database-version value="10.5" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
+          <driver-library value="D:\4a\DSA\PROJECT\Airport-Scape\connectors\mariadb-java-client-2.7.1.jar" />
           <driver value="org.mariadb.jdbc.Driver" />
           <url value="jdbc:mariadb://localhost:3306" />
           <type value="USER_PASSWORD" />

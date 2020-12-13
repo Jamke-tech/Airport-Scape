@@ -66,8 +66,10 @@
                     <h2> Recover your password </h2>
                     <h6> Enter your email address. </h6>
                     <form action="X">
-                        <input type="email" placeholder="Email" id="email" required>
-                        <input type="submit" value="Send a email">
+                        <div class="form-box">
+                            <input id ="mail" type="email" placeholder="E-mail" name="email" value="">
+                        </div>
+                        <button class="button" id ="sendemail" type="button">Send me an email</button>
                     </form>
                 </div>
 
@@ -77,13 +79,16 @@
 
     </div>
 
+
     <!--jQuery UI for the shake effect when error-->
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <!--Global Script-->
+    <script src="JSON/password.js"></script>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
 

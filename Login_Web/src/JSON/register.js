@@ -41,16 +41,19 @@ $(function(){
 
     if (emptyField == 0){
         var UserData = {
+                "id": 0,
                 "userName": username.value,
                 "password": password.value,
                 "name": name.value,
                 "surname": surname.value,
+                "money": 0,
                 "mail": email.value
+
             }
         console.log(UserData);
         $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/DSA/webpage/register", //A definir cuando se haga bien el servicio
+                url: "https://localhost:8080/gameDSA/user/register", //A definir cuando se haga bien el servicio
                 data: JSON.stringify(UserData),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -60,18 +63,17 @@ $(function(){
                 },
                 complete: function(data) {
                     if(data.status == 503){
-                        alert("Databse down!");
+                        alert("Database down!");
                     }
                     else if (data.status == 400){
-                        alert("Wrong data!");
-                    }
-                    else if (data.status == 403){
-                        alert("Nickname already in use!");
+                        alert("Nickname already in use");
                     }
                     else if (data.status != 200){
                         alert("CONNECTION ERROR ");
+                        console.log(data.status)
                     }
                 }
+
             })
             //Podriamos hacer que al hacer el register se loguee automaticamente y se añada en un apartado de ESTADISTICAS o JUGADORES en la web
     }

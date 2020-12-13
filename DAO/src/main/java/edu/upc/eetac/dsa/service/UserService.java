@@ -1,7 +1,7 @@
 package edu.upc.eetac.dsa.service;
-import edu.upc.eetac.dsa.DAO.IUserDAO;
-import edu.upc.eetac.dsa.DAO.UserDAOImpl;
-import edu.upc.eetac.dsa.model.User;
+import edu.upc.eetac.dsa.model.*;
+import edu.upc.eetac.dsa.DAO.*;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
