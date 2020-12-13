@@ -18,13 +18,15 @@ public interface UserManagerService {
     Call <User> login(@Body User user);
 
     @POST("user/register")
-    Call <Void> register(@Body User user);
+    Call <User> register(@Body User user);
 
     @GET("user/users")
     Call <List<User>> getUsers();
 
     @GET("user/{nickName}")
     Call <User> getUser(@Path("name") String userName);
+
+    //De aqui para abajo arreglar  amedida que vayamos usando
 
     @POST("usermanager/users/{name}/update") //PUT
     Call <Void> updateUser(@Body User usr, @Path("name") String userName);

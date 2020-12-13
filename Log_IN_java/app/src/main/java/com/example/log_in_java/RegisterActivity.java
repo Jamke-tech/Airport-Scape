@@ -20,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private static Retrofit retrofit;
     private int idRegister;
     private EditText passwordRegister;
     private EditText repeatPasswordRegister;
@@ -35,11 +36,11 @@ public class RegisterActivity extends AppCompatActivity {
     //-----------------API Methods------------------//
     public void register(final User user){
 
-        Call<Void> call = usersAPI.register(user);
-        call.enqueue(new Callback<Void>() {
+        Call<User> call = usersAPI.register(user);
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if(response.isSuccessful()){
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(response.code() == 200){
                     //Fill the user instance
                     User loggedUser = User.getInstance();
                     loggedUser.setUserName(user.getUserName());
@@ -48,19 +49,21 @@ public class RegisterActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish(); //-----Response activity (close session - delete SHAREDPREFERENCES)
+
+                    Toast.makeText(getApplicationContext(), "Register successful", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    if(response.code() == 403)
-                        Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nBad Request (Error in parameters' format)" , Toast.LENGTH_LONG).show();
-                    else if(response.code() == 400)
-                        Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nAlready existing User" , Toast.LENGTH_LONG).show();
+                    if(response.code() == 400)
+                        Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nNickname used" , Toast.LENGTH_LONG).show();
+                    else if(response.code() == 503)
+                        Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nDatabase down" , Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nInternal Server Error", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
             }
@@ -81,16 +84,12 @@ public class RegisterActivity extends AppCompatActivity {
         passwordRegister = findViewById(R.id.editTextTextPassword);
         repeatPasswordRegister = findViewById(R.id.editTextTextPassword2);
 
+        startRetrofit();
+        //authenticated = false;
 
-        authenticated = false;
 
-        //LO SIGUIENTE ESTA COMENTADO PARA QUE SE ABRA EL REGISTER ACTIVITY, CUANDO TENGAMOS LA API SE DESCOMENTA
 
-        Retrofit retrofitinstance = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/gameDSA/") //Later on we will put the server's IP address, meanwhile in localhost
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        usersAPI = retrofitinstance.create(UserManagerService.class);
+        usersAPI = retrofit.create(UserManagerService.class);
 
 
         registerButton.setOnClickListener((v )->{
@@ -99,14 +98,18 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Error: you must fill all the fields", Toast.LENGTH_LONG).show();
             }
             else{
-                register(new User (idRegister, nameRegister.getText().toString(),surnameRegister.getText().toString(),nicknameRegister.getText().toString(),mailRegister.getText().toString(),passwordRegister.getText().toString(),0,null ));
+                register(new User(0,nicknameRegister.getText().toString(),passwordRegister.getText().toString(),nameRegister.getText().toString(),surnameRegister.getText().toString(),0,mailRegister.getText().toString()));
             }
 
         } );
 
-        ///////////////////NO BORRAR COMENTARIOS///////////////////////////////
 
     }
-
+    private static void startRetrofit(){
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://localhost:8080/gameDSA/") //Later on we will put the server's IP address, meanwhile in localhost
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
 }

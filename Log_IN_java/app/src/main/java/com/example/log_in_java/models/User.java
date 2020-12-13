@@ -5,35 +5,17 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class User implements Serializable {
-    //Singleton
+
     private static User userinstance;
 
-    private int idUser;
-    private String name;
-    private String surname;
-    private String userName;
-    private String mail;
-    private String password;
-    private int money;
-    private HashMap<Integer, BuyedObject> buyedObjects;
-
-    //----------Constructors----------//
-
-    public User(int idUser, String name, String surname, String userName, String mail, String password, int money, HashMap<Integer, BuyedObject> buyedObjects) {
-        this.idUser = idUser;
-        this.name = name;
-        this.surname = surname;
-        this.userName = userName;
-        this.mail = mail;
-        this.password = password;
-        this.money = money;
-        this.buyedObjects = buyedObjects;
-    }
-
-    public User(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
+    //Attributes
+    public int id;
+    public String userName;
+    public String password;
+    public String name;
+    public String surname;
+    public int money;
+    public String mail;
 
 
     //------------Singleton--------------//
@@ -48,56 +30,35 @@ public class User implements Serializable {
     }
 
 
+    //----------Constructors----------//
+
+    public User(int id, String userName, String password, String name, String surname, int money, String mail) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.money = money;
+        this.mail = mail;
+    }
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 
     //------------Methods----------------//
 
-    ///getters///
-
-    public static User getUserinstance() {
-        return userinstance;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public HashMap<Integer, BuyedObject> getBuyedObjects() {
-        return buyedObjects;
-    }
-
-    ///setters///
-
-
-    public static void setUserinstance(User userinstance) {
-        User.userinstance = userinstance;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setName(String name) {
@@ -108,35 +69,51 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setMoney(int money) {
+        this.money = money;
     }
 
     public void setMail(String mail) {
         this.mail = mail;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public int getId() {
+        return id;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setBuyedObjects(HashMap<Integer, BuyedObject> buyedObjects) {
-        this.buyedObjects = buyedObjects;
+    public String getPassword() {
+        return password;
     }
 
-    public void coseInstance(){
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void codeInstance(){
+        setId(0);
         setUserName(null);
-        setSurname(null);
-        setName(null);
-        setMail(null);
         setPassword(null);
-        setIdUser(0);
-        //setBuyedObjects(0,null); faltaría poner este bien
+        setName(null);
+        setSurname(null);
         setMoney(0);
+        setMail(null);
+
 
     }
 }

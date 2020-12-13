@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if (response.isSuccessful()){
+                if (response.code() == 200){
                     //Fill the user instance
                     User loggedUser = User.getInstance();
                     loggedUser.setUserName(response.body().getUserName());
@@ -46,12 +46,16 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish(); //-----Response activity (close session - delete SHAREDPREFERENCES)
-
+                    Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
                 }
                 else{
 
                     if(response.code() == 404)
                         Toast.makeText(getApplicationContext(), "Authentication error: " + response.code() + "\nInvalid username or password" , Toast.LENGTH_LONG).show();
+                    else if(response.code() == 401)
+                        Toast.makeText(getApplicationContext(),"Authentication error:"+response.code() + "\nNot authorized", Toast.LENGTH_LONG).show();
+                    else if(response.code() ==503)
+                        Toast.makeText(getApplicationContext(),"Authentication error:"+response.code() + "\nDatabase down", Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(getApplicationContext(), "Authentication error: " + response.code() + "\nInternal Server Error", Toast.LENGTH_LONG).show();
 
@@ -113,9 +117,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
-
     }
-
 
 }
