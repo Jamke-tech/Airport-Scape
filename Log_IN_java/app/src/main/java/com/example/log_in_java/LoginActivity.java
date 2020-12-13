@@ -2,6 +2,8 @@ package com.example.log_in_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -102,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             else{
                 login(new User(idLogin.getText().toString(),passwordLogin.getText().toString()));
+                savePreferences();
             }
 
         });
@@ -115,6 +118,17 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    private void savePreferences(){
+        SharedPreferences preferences= getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
+        String nickname = idLogin.getText().toString();
+        String password = passwordLogin.getText().toString();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("userNickname", nickname);
+        editor.putString("userPassword", password);
 
 
     }
