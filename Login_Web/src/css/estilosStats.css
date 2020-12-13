@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imagen/aero1.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+/* barra superior*/
+
+.d-flex .navbar{
+    position: relative;
+    z-index: 1;
+
+}
+
+/* menu lateral forma y fondo*/
+
+.d-flex .menu-lateral{
+     position: absolute;
+     width: 65px;
+     height: 100%;
+     background: rgba(0,0,0,.7) !important;
+     overflow: hidden;
+     -webkit-transition: width 0.5s;
+     z-index: 100;
+ }
+
+/* menu lateral acción*/
+
+ .d-flex .menu-lateral:hover{
+     width: 250px
+ }
+
+/* dibujo de menu lateral */
+
+ .d-flex .logo{
+     width: 40px;
+     height: 40px;
+     margin: 10px;
+     background: url(../imagen/menu.png);
+
+ }
+
+/* menu lateral titulo */
+
+ .d-flex  .nameGame{
+     padding: 14px 20px;
+     color: #fff;
+
+ }
+
+/* menu lateral tamaño de opciones*/
+
+ .d-flex .menu{
+     width: 200px;
+
+ }
+
+ /* menu lateral acción opciones*/
+
+ .d-flex .menu a:hover{
+     text-decoration: none;
+
+ }
+
+#ranking {
+
+  width: 800px;
+  margin: 60px auto;
+  font-family: sans-serif;
+  color: #213B4C;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+
+  table {
+    width: 100%;
+    border-spacing: 0 0;
+    background: #213B4C;
+    color: white;
+    box-shadow: 0 0 20px #1E3344;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+}
+
+}
+
