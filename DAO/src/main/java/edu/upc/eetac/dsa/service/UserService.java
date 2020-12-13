@@ -111,9 +111,7 @@ public class UserService {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 503, message = "BBDD Down"),
             @ApiResponse(code = 400, message = "WRONG DATA")
-
     })
-
     @Path("/edit")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response EditUser(User user) {

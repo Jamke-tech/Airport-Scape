@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.log_in_java.models.*;
+import com.example.log_in_java.models.User;
 import com.example.log_in_java.services.UserManagerService;
 
 import retrofit2.Call;
@@ -50,9 +50,9 @@ public class RegisterActivity extends AppCompatActivity {
                     finish(); //-----Response activity (close session - delete SHAREDPREFERENCES)
                 }
                 else{
-                    if(response.code() == 400)
+                    if(response.code() == 403)
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nBad Request (Error in parameters' format)" , Toast.LENGTH_LONG).show();
-                    else if(response.code() == 403)
+                    else if(response.code() == 400)
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nAlready existing User" , Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(getApplicationContext(), "Register error: " + response.code() + "\nInternal Server Error", Toast.LENGTH_LONG).show();
@@ -86,8 +86,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         //LO SIGUIENTE ESTA COMENTADO PARA QUE SE ABRA EL REGISTER ACTIVITY, CUANDO TENGAMOS LA API SE DESCOMENTA
 
-        /*Retrofit retrofitinstance = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/swagger/") //Later on we will put the server's IP address, meanwhile in localhost
+        Retrofit retrofitinstance = new Retrofit.Builder()
+                .baseUrl("http://localhost:8080/gameDSA/") //Later on we will put the server's IP address, meanwhile in localhost
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         usersAPI = retrofitinstance.create(UserManagerService.class);
@@ -102,7 +102,7 @@ public class RegisterActivity extends AppCompatActivity {
                 register(new User (idRegister, nameRegister.getText().toString(),surnameRegister.getText().toString(),nicknameRegister.getText().toString(),mailRegister.getText().toString(),passwordRegister.getText().toString(),0,null ));
             }
 
-        } );*/
+        } );
 
         ///////////////////NO BORRAR COMENTARIOS///////////////////////////////
 

@@ -14,16 +14,16 @@ import retrofit2.http.Path;
 
 public interface UserManagerService {
 
-    @POST("usermanager/login/")
+    @POST("user/login")
     Call <User> login(@Body User user);
 
-    @POST("usermanager/register")
+    @POST("user/register")
     Call <Void> register(@Body User user);
 
-    @GET("usermanager/users")
+    @GET("user/users")
     Call <List<User>> getUsers();
 
-    @GET("usermanager/users/{name}")
+    @GET("user/{nickName}")
     Call <User> getUser(@Path("name") String userName);
 
     @POST("usermanager/users/{name}/update") //PUT
