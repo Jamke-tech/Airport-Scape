@@ -20,7 +20,7 @@ public class User implements Serializable {
 
     //------------Singleton--------------//
 
-    private User(){}
+    public User(){}
 
     public static synchronized User getInstance(){
         if(userinstance == null) {

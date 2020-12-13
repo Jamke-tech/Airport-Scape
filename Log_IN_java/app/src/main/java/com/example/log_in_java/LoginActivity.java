@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         //Temporal
         authenticated = false;
         Retrofit retrofitinstance = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/swagger/") //Later on we will put the server's IP address, meanwhile in localhost
+                .baseUrl("https://localhost:8080/gameDSA/") //Later on we will put the server's IP address, meanwhile in localhost
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         usersAPI = retrofitinstance.create(UserManagerService.class);

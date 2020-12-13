@@ -3,6 +3,7 @@ package com.example.log_in_java;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,6 +18,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -35,9 +39,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     //-----------------API Methods------------------//
     public void register(final User user){
-
-        Call<User> call = usersAPI.register(user);
-        call.enqueue(new Callback<User>() {
+        usersAPI = retrofit.create(UserManagerService.class);
+        usersAPI.register(user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.code() == 200){
@@ -46,11 +49,11 @@ public class RegisterActivity extends AppCompatActivity {
                     loggedUser.setUserName(user.getUserName());
                     loggedUser.setPassword(user.getPassword());
 
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Toast.makeText(getApplicationContext(), "Register successful", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                     finish(); //-----Response activity (close session - delete SHAREDPREFERENCES)
-
-                    Toast.makeText(getApplicationContext(), "Register successful", Toast.LENGTH_LONG).show();
                 }
                 else{
                     if(response.code() == 400)
@@ -88,27 +91,31 @@ public class RegisterActivity extends AppCompatActivity {
         //authenticated = false;
 
 
-
-        usersAPI = retrofit.create(UserManagerService.class);
-
-
-        registerButton.setOnClickListener((v )->{
-
-            if(nameRegister.getText().toString().equals("")||surnameRegister.getText().toString().equals("")||nicknameRegister.getText().toString().equals("")|| mailRegister.getText().toString().equals("")|| passwordRegister.getText().toString().equals("") || repeatPasswordRegister.getText().toString().equals("")){
-                Toast.makeText(getApplicationContext(), "Error: you must fill all the fields", Toast.LENGTH_LONG).show();
-            }
-            else{
-                register(new User(0,nicknameRegister.getText().toString(),passwordRegister.getText().toString(),nameRegister.getText().toString(),surnameRegister.getText().toString(),0,mailRegister.getText().toString()));
-            }
-
-        } );
-
-
     }
+
+    public void registerButtonClicked (View v){
+        if(nameRegister.getText().toString().equals("")||surnameRegister.getText().toString().equals("")||nicknameRegister.getText().toString().equals("")|| mailRegister.getText().toString().equals("")|| passwordRegister.getText().toString().equals("") || repeatPasswordRegister.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "Error: you must fill all the fields", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Accesing to the BBDD", Toast.LENGTH_LONG).show();
+            User user = new User(0,nicknameRegister.getText().toString(),passwordRegister.getText().toString(),nameRegister.getText().toString(),surnameRegister.getText().toString(),0,mailRegister.getText().toString());
+            register(user);
+        }
+    }
+
+
+
     private static void startRetrofit(){
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //Attaching Interceptor to a client
+        OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(interceptor).build();
+
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/gameDSA/") //Later on we will put the server's IP address, meanwhile in localhost
+                .baseUrl("https://10.0.2.2:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build();
     }
 
