@@ -53,7 +53,7 @@ $(function(){
         console.log(UserData);
         $.ajax({
                 type: "POST",
-                url: "https://localhost:8080/gameDSA/user/register", //A definir cuando se haga bien el servicio
+                url: "/gameDSA/user/register", //A definir cuando se haga bien el servicio
                 data: JSON.stringify(UserData),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",

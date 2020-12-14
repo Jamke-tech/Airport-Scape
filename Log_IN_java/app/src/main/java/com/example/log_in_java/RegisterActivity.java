@@ -113,7 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
         OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://10.0.2.2:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
+                .baseUrl("http://10.0.2.2:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

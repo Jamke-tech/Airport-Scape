@@ -57,13 +57,6 @@ public class UserDAOTest {
         Assert.assertEquals(0, error);//Password okey
     }
 
-
-
-
-/*    @Test
-    public void testDeleteUser() {
-        Impl.deleteUser(user);
-    }*/
    @Test
     public void getUserByNickname() throws SQLException {
         String nickname = "mmv888";

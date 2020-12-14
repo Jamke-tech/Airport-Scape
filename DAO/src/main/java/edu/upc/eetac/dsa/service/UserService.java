@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -35,7 +36,7 @@ public class UserService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response RegisterUser(User user) {
-
+        System.out.println("Registre User");
         try{
             int numException = u.registerUser(user);
             if (numException==0) {
@@ -48,7 +49,7 @@ public class UserService {
 
         }
         catch (Exception e){
-
+            e.printStackTrace();
             return Response.status(503).build();
         }
     }
