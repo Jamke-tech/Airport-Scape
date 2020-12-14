@@ -61,7 +61,7 @@ public class ObjectService {
 
     }
 
-    /*@GET
+    @GET
     @ApiOperation(value = "Lista Objetos de User", notes = "Nos devuelve todos los objetos de un user")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = BuyedObject.class, responseContainer = "List"),
@@ -72,11 +72,12 @@ public class ObjectService {
     @Path("/{nickName}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
     public Response ListBuyedObjects(@PathParam("nickName") String userName) {
+        return Response.status(503).build();
 
 
     }
 
-    @GET
+    /*@GET
     @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = BuyedObject.class),

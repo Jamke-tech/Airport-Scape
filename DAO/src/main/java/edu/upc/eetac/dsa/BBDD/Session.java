@@ -12,8 +12,8 @@ public interface Session<E> {
     public void update(Object object) throws SQLException;
     public void updateComplex(Object object, String propertyCondition, Object valueCondition)throws SQLException;
     public void delete(Object object) throws SQLException;
-    List<Object> findAll(Class theClass);
-    List<Object> findAll(Class theClass, HashMap params);
-    List<Object> query(String query, Class theClass, HashMap params);
+    List<Object> findAll(Object object);
+    List<Object> findAll(Object object, HashMap params);
+    List<Object> query(String query, Object object, HashMap params);
     public Object getByID(Object theClass, int id) throws SQLException;
 }

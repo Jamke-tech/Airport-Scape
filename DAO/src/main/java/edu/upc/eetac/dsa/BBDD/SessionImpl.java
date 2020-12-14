@@ -50,9 +50,9 @@ public class SessionImpl implements Session {
         conn.close();
     }
 
-    public Object get(Object theClass, int ID) {
+    public Object get(Object theObject, int ID) {
         //FALTA POR CORREGIR
-        String selectQuery = QueryHelper.createQuerySELECT(theClass);
+        String selectQuery = QueryHelper.createQuerySELECT(theObject);
         PreparedStatement pstm = null;
         try {
             pstm = conn.prepareStatement(selectQuery);
@@ -60,11 +60,11 @@ public class SessionImpl implements Session {
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
             if (rs.next()){
-                Object o = new Object();
+
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
-                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));
             }
-            return pstm.getResultSet();
+            return theObject;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,8 +76,8 @@ public class SessionImpl implements Session {
     }
 
     @Override
-    public Object getByName(Object theClass, String name) throws SQLException {
-        String selectQuery = QueryHelper.createQuerySELECTName(theClass);
+    public Object getByName(Object theObject, String name) throws SQLException {
+        String selectQuery = QueryHelper.createQuerySELECTName(theObject);
         PreparedStatement pstm = null;
         try {
             pstm = conn.prepareStatement(selectQuery);
@@ -86,17 +86,17 @@ public class SessionImpl implements Session {
             ResultSet rs = pstm.getResultSet();
             if (rs.next()){
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
-                    ObjectHelper.setter(theClass,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));
             }
-            return theClass;
+            return theObject;
 
         }  catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public Object getByID(Object theClass, int id) throws SQLException {
-        String selectQuery = QueryHelper.createQuerySELECT(theClass);
+    public Object getByID(Object theObject, int id) throws SQLException {
+        String selectQuery = QueryHelper.createQuerySELECT(theObject);
         PreparedStatement pstm = null;
         try {
             pstm = conn.prepareStatement(selectQuery);
@@ -105,9 +105,9 @@ public class SessionImpl implements Session {
             ResultSet rs = pstm.getResultSet();
             if (rs.next()){
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
-                    ObjectHelper.setter(theClass,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));
             }
-            return pstm.getResultSet();
+            return theObject;
 
         }  catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -178,8 +178,8 @@ public class SessionImpl implements Session {
 
     }
 
-    public List<Object> findAll(Class theClass) {
-        String selectQuery = QueryHelper.createQuerySELECTAll(theClass);
+    public List<Object> findAll(Object theObject) {
+        String selectQuery = QueryHelper.createQuerySELECTAll(theObject);
         PreparedStatement pstm = null;
         List<Object> ListObject = new ArrayList<Object>();
         try {
@@ -202,12 +202,12 @@ public class SessionImpl implements Session {
         return ListObject;
     }
 
-    public List<Object> findAll(Class theClass, HashMap params) {
+    public List<Object> findAll(Object theObject, HashMap params) {
 
         return null;
     }
 
-    public List<Object> query(String query, Class theClass, HashMap params) {
+    public List<Object> query(String query, Object theObject, HashMap params) {
 
 
         return null;
