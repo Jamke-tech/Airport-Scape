@@ -37,8 +37,8 @@ public class UserDAOTest {
     public void testUpdateUser() throws SQLException {
         int error;
         int idUser = 1;
-        String userName = "mmv888";
-        String password = "mmv888";
+        String userName = "mmv";
+        String password = "mmv";
         String name = "Miguel";
         String surname = "Marin Vicente";
         int money = 1000;
