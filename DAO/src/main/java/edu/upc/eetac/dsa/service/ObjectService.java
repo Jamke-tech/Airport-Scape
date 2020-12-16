@@ -25,7 +25,7 @@ public class ObjectService {
     private IObjectDAO o;
     private IUserDAO u;
 
-    public ObjectService(){
+    public ObjectService() {
         this.o = ObjectDAOImpl.getInstance();
         this.u = UserDAOImpl.getInstance();
 
@@ -36,28 +36,23 @@ public class ObjectService {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 503, message = "BBDD Down"),
-            @ApiResponse(code=406, message = "NOT Enough Money")
+            @ApiResponse(code = 406, message = "NOT Enough Money")
 
     })
 
     @Path("/buy/{nickName}/{idObject}")
-    public Response BuyObject(@PathParam("nickName") String userName, @PathParam("idObject") int idObject ) {
+    public Response BuyObject(@PathParam("nickName") String userName, @PathParam("idObject") int idObject) {
 
-        try{
+        try {
             User user = u.getUserByNickname(userName);
-            int error = o.buyObjectForUser(user,idObject);
-            if (error==0)
-            {
+            int error = o.buyObjectForUser(user, idObject);
+            if (error == 0) {
                 return Response.status(200).build();
-            }
-            else if (error==6){
+            } else if (error == 6) {
                 return Response.status(406).build();
-            }
-            else
+            } else
                 return Response.status(503).build();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return Response.status(503).build();
         }
@@ -76,22 +71,21 @@ public class ObjectService {
     @Path("/getlist/{nickName}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
     public Response ListBuyedObjects(@PathParam("nickName") String userName) {
-        try{
+        try {
             List<Objects> objectsBuyedByUser = this.o.getListBuyedObjects(userName);
-            if (objectsBuyedByUser==null)
-            {
+            if (objectsBuyedByUser == null) {
                 return Response.status(401).build();
             }
-            GenericEntity<List<Objects>> entity = new GenericEntity<List<Objects>>(objectsBuyedByUser) {};
-            return Response.status(200).entity(entity).build()  ;
-        }
-        catch (Exception e)
-        {
+            GenericEntity<List<Objects>> entity = new GenericEntity<List<Objects>>(objectsBuyedByUser) {
+            };
+            return Response.status(200).entity(entity).build();
+        } catch (Exception e) {
             e.printStackTrace();
             return Response.status(503).build();
         }
 
     }
+}
 
     /*@GET
     @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
@@ -107,4 +101,4 @@ public class ObjectService {
 
 
     }*/
-}
+

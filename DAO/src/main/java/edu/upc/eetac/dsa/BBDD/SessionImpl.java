@@ -1,5 +1,7 @@
 package edu.upc.eetac.dsa.BBDD;
 
+import edu.upc.eetac.dsa.model.BuyedObject;
+import edu.upc.eetac.dsa.model.Objects;
 import edu.upc.eetac.dsa.util.ObjectHelper;
 import edu.upc.eetac.dsa.util.QueryHelper;
 
@@ -212,11 +214,12 @@ public class SessionImpl implements Session {
             pstm.setObject(1, userName);
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
+            Class nuestraClasse = theObject.getClass();
             while (rs.next()) {
-                Object o = new Object();
+                BuyedObject object = new BuyedObject();// parche pq si entra algo que no es object mal !!
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
-                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
-                ListObject.add(o);
+                    ObjectHelper.setter(object,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                ListObject.add(object);
             }
         } catch (SQLException e) {
             e.printStackTrace();

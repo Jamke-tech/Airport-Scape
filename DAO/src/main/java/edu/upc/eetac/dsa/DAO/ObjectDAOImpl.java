@@ -97,6 +97,7 @@ public class ObjectDAOImpl implements IObjectDAO {
                 int idObject = objectBuyed.getIdObject();
                 ObjectToAdd = (Objects) session.getByID(ObjectToAdd,idObject);
                 listObjects.add(ObjectToAdd);
+
             }
 
         }

@@ -36,15 +36,9 @@ public class BuyedObject {
         return id;
     }
 
-    public String getIdComprador() {
-        return nickNameBuyer;
-    }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setIdComprador(String nickNameBuyer) {
-        this.nickNameBuyer = nickNameBuyer;
-    }
 }

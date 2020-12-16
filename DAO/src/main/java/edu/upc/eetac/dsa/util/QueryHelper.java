@@ -36,7 +36,7 @@ public class QueryHelper {
     public static String createQuerySELECT(Object entity) {
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
-        sb.append(" WHERE ID = '?'");
+        sb.append(" WHERE ID = ?");
 
         return sb.toString();
     }
