@@ -5,6 +5,7 @@ import edu.upc.eetac.dsa.DAO.IUserDAO;
 import edu.upc.eetac.dsa.DAO.ObjectDAOImpl;
 import edu.upc.eetac.dsa.DAO.UserDAOImpl;
 import edu.upc.eetac.dsa.model.BuyedObject;
+import edu.upc.eetac.dsa.model.Objects;
 import edu.upc.eetac.dsa.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,8 +13,10 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Api(value = "/object", description = "Endpoint to Object Service")
 @Path ("/object")
@@ -37,7 +40,7 @@ public class ObjectService {
 
     })
 
-    @Path("/{nickName}/{idObject}")
+    @Path("/buy/{nickName}/{idObject}")
     public Response BuyObject(@PathParam("nickName") String userName, @PathParam("idObject") int idObject ) {
 
         try{
@@ -65,15 +68,28 @@ public class ObjectService {
     @ApiOperation(value = "Lista Objetos de User", notes = "Nos devuelve todos los objetos de un user")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = BuyedObject.class, responseContainer = "List"),
+            @ApiResponse(code = 401, message = "Error en los datos"),
             @ApiResponse(code = 503, message = "BBDD Down")
 
     })
 
-    @Path("/{nickName}")
+    @Path("/getlist/{nickName}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
     public Response ListBuyedObjects(@PathParam("nickName") String userName) {
-        return Response.status(503).build();
-
+        try{
+            List<Objects> objectsBuyedByUser = this.o.getListBuyedObjects(userName);
+            if (objectsBuyedByUser==null)
+            {
+                return Response.status(401).build();
+            }
+            GenericEntity<List<Objects>> entity = new GenericEntity<List<Objects>>(objectsBuyedByUser) {};
+            return Response.status(200).entity(entity).build()  ;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
 
     }
 

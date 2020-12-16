@@ -13,7 +13,7 @@ public interface Session<E> {
     public void updateComplex(Object object, String propertyCondition, Object valueCondition)throws SQLException;
     public void delete(Object object) throws SQLException;
     List<Object> findAll(Object object);
-    List<Object> findAll(Object object, HashMap params);
+    public List<Object> findAllByName(Object theObject, String userName);
     List<Object> query(String query, Object object, HashMap params);
     public Object getByID(Object theClass, int id) throws SQLException;
 }

@@ -12,6 +12,26 @@ public class BuyedObject {
         this.nickNameBuyer = nickNameBuyer;
     }
 
+    public BuyedObject() {
+
+    }
+
+    public int getIdObject() {
+        return idObject;
+    }
+
+    public void setIdObject(int idObject) {
+        this.idObject = idObject;
+    }
+
+    public String getNickNameBuyer() {
+        return nickNameBuyer;
+    }
+
+    public void setNickNameBuyer(String nickNameBuyer) {
+        this.nickNameBuyer = nickNameBuyer;
+    }
+
     public int getId() {
         return id;
     }

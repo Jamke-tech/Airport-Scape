@@ -7,6 +7,7 @@ import edu.upc.eetac.dsa.model.Objects;
 import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectDAOImpl implements IObjectDAO {
@@ -82,10 +83,32 @@ public class ObjectDAOImpl implements IObjectDAO {
         }
     }
 
-    public List<BuyedObject> getListBuyedObjects() throws SQLException {
-        //Falta crear la funcion
+    public List<Objects> getListBuyedObjects(String userName) throws SQLException {
+        //Tiene que entrar en la tabla de Buyed Object i seleccionar todos los objetos i con cada id sacar el objetos que es
+        Session session = null;
+        List<Objects> listObjects = new ArrayList<Objects>();
+        try {
+            session = FactorySession.openSession();
+            List<BuyedObject> compras = session.findAllByName(new BuyedObject(),userName); // nos retorna toda la lista de objetos comprados por el user con nickname X
 
-        return null;
+            for (BuyedObject objectBuyed : compras)//Recorremos toda la lista i lo pasamos a objectoes normales para enviar a laweb o Android
+            {
+                Objects ObjectToAdd = new Objects();
+                int idObject = objectBuyed.getIdObject();
+                ObjectToAdd = (Objects) session.getByID(ObjectToAdd,idObject);
+                listObjects.add(ObjectToAdd);
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            listObjects = null;
+        }
+        finally {
+            session.close();
+            return listObjects;
+        }
+
 
     }
 }

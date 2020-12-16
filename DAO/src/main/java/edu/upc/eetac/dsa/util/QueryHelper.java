@@ -54,6 +54,12 @@ public class QueryHelper {
 
         return sb.toString();
     }
+    public static String createQuerySELECTAllBynickName(Object entity) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+        sb.append(" WHERE nickNameBuyer = ?");
+        return sb.toString();
+    }
 
     public static String createQueryUPDATE(Object entity){
         // FALTA CORREGIR

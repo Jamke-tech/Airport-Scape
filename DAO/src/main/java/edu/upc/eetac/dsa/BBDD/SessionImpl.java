@@ -202,9 +202,29 @@ public class SessionImpl implements Session {
         return ListObject;
     }
 
-    public List<Object> findAll(Object theObject, HashMap params) {
-
-        return null;
+    @Override
+    public List<Object> findAllByName(Object theObject, String userName) {
+        String selectQuery = QueryHelper.createQuerySELECTAllBynickName(theObject);
+        PreparedStatement pstm = null;
+        List<Object> ListObject = new ArrayList<Object>();
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, userName);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            while (rs.next()) {
+                Object o = new Object();
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                ListObject.add(o);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return ListObject;
     }
 
     public List<Object> query(String query, Object theObject, HashMap params) {
