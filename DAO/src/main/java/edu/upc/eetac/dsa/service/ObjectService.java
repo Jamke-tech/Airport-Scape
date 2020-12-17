@@ -68,7 +68,7 @@ public class ObjectService {
 
     })
 
-    @Path("/getlist/{nickName}")
+    @Path("/getList/{nickName}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
     public Response ListBuyedObjects(@PathParam("nickName") String userName) {
         try {
@@ -95,8 +95,8 @@ public class ObjectService {
 
     })
 
-    @Path("/getlist/{nickName}")
-    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
+    @Path("/getIdList/{nickName}")
+    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con los id de los BuyedObject in a List
     public Response ListIdBuyedObjects(@PathParam("nickName") String userName) {
         try {
             List<Integer> idObjectsBuyedByUser = this.o.getListIdBuyedObjects(userName);

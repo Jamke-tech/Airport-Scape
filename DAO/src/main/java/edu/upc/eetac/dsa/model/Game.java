@@ -21,6 +21,10 @@ public class Game {
         this.ticket = ticket;
     }
 
+    public Game() {
+
+    }
+
     public int getId() {
         return id;
     }

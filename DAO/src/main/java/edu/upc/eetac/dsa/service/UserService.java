@@ -152,11 +152,5 @@ public class UserService {
 
             return Response.status(503).build();
         }
-
-
-
-
     }
-
-
 }

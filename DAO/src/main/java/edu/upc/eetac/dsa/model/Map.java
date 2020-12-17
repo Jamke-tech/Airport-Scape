@@ -1,31 +1,41 @@
 package edu.upc.eetac.dsa.model;
 
 public class Map {
-    private int idMap;
+    private int id;
     private String name;
-    private String description;
-    private int enemiesNumber;
+    private String stringMap;
 
-    public Map(int idMap, String name, String description, int enemiesNumber) {
-        this.idMap = idMap;
+    public Map(int id, String name, String stringMap) {
+        this.id = id;
         this.name = name;
-        this.description = description;
-        this.enemiesNumber = enemiesNumber;
+        this.stringMap = stringMap;
     }
 
-    public void setIdMap(int idMap) {
-        this.idMap = idMap;
+    public Map() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getStringMap() {
+        return stringMap;
     }
 
-    public void setEnemiesNumber(int enemiesNumber) {
-        this.enemiesNumber = enemiesNumber;
+    public void setStringMap(String stringMap) {
+        this.stringMap = stringMap;
     }
 }
