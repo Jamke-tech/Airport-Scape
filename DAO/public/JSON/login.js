@@ -34,7 +34,7 @@ $(function(){
 
         $.ajax({
                 type: "POST",
-                url: "https://localhost:8080/gameDSA/user/login", //A definir cuando se haga bien el servicio
+                url: "/gameDSA/user/login", //A definir cuando se haga bien el servicio
                 data: JSON.stringify(logInData),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",

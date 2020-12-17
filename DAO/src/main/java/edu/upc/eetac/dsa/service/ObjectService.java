@@ -85,7 +85,7 @@ public class ObjectService {
         }
 
     }
-}
+
 
     /*@GET
     @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
@@ -100,5 +100,7 @@ public class ObjectService {
     public Response GetObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
 
 
+
     }*/
+}
 
