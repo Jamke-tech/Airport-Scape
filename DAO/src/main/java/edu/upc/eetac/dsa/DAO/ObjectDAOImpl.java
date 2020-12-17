@@ -32,7 +32,7 @@ public class ObjectDAOImpl implements IObjectDAO {
             int priceObject = getPriceByID(idObject);//Buscams el precio del objeto con ID
             int userMoney=user.getMoney();//Buscamos el dinero que tiene el usuario
             int finalMoney = userMoney-priceObject;
-            if(finalMoney>=0) {
+            if(finalMoney>0) {
                 session = FactorySession.openSession();
                 User updateuser = new User (user.getId(),user.getUserName(),user.getPassword(),user.getName(),user.getSurname(),finalMoney, user.getMail());
                 session.update(updateuser);//modificamos el dinero restante al usuario
@@ -52,7 +52,22 @@ public class ObjectDAOImpl implements IObjectDAO {
         return error;
 
     }
+    public Objects getObjectByID (int idObject)throws SQLException{
+        Session session = null;
+        Objects object = new Objects();
+        try {
+            session = FactorySession.openSession();
+            object = (Objects) session.getByID(object,idObject);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
 
+        return object;
+    }
     public int getPriceByID (int idObject)throws SQLException{
         Session session = null;
         Objects object = new Objects();
@@ -97,7 +112,6 @@ public class ObjectDAOImpl implements IObjectDAO {
                 Objects ObjectToAdd = new Objects();
                 int idObject = objectBuyed.getIdObject();
                 ObjectToAdd = (Objects) session.getByID(ObjectToAdd,idObject);
-
                 listObjects.add(ObjectToAdd);
 
             }

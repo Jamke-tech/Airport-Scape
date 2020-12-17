@@ -6,13 +6,15 @@ public class Objects {
         public int price;
         public String description;
         public int attribute;
+        public boolean bag;
 
-    public Objects(int id, String name, int price, String description, int attribute) {
+    public Objects(int id, String name, int price, String description, int attribute, boolean bag) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.attribute = attribute;
+        this.bag = bag;
     }
 
     public Objects() {
@@ -58,4 +60,7 @@ public class Objects {
         this.attribute = attribute;
     }
 
+    public boolean isBag() { return bag;}
+
+    public void setBag(boolean bag) { this.bag = bag; }
 }
