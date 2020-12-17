@@ -91,7 +91,7 @@ public class ObjectService {
     @GET
     @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = BuyedObject.class),
+            @ApiResponse(code = 200, message = "OK", response = Objects.class),
             @ApiResponse(code = 503, message = "BBDD Down")
 
     })
@@ -101,7 +101,7 @@ public class ObjectService {
     public Response GetObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
         try {
             Objects object = o.getObjectByID(idBuyedObject);
-            return Response.status(200).build();
+            return Response.status(200).entity(object).build();
         } catch (Exception e) {
             e.printStackTrace();
             return Response.status(503).build();
