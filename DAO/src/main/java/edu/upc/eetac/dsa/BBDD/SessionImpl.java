@@ -216,7 +216,7 @@ public class SessionImpl implements Session {
             ResultSet rs = pstm.getResultSet();
             Class nuestraClasse = theObject.getClass();
             while (rs.next()) {
-                BuyedObject object = new BuyedObject();// parche pq si entra algo que no es object mal !!
+                BuyedObject object =  new BuyedObject();// parche pq si entra algo que no es object mal !!
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
                     ObjectHelper.setter(object,rs.getMetaData().getColumnName(i),rs.getObject(i));
                 ListObject.add(object);
