@@ -86,4 +86,25 @@ public class GameDAOImpl {
             return stringMap;
         }
     }
+    public int winGame(Game game, int money) throws SQLException {
+        // Hemos de añadir el dinero obtenido al usuario
+        Session session = null;
+        int error =-1;
+        try {
+            session = FactorySession.openSession();
+            int idUser = game.getIdUser();
+            User user = (User) session.getByID(new User(), idUser);
+            int userMoney = user.getMoney();//Buscamos el dinero que tiene el usuario
+            int finalMoney = userMoney + money;
+            User updateuser = new User (user.getId(),user.getUserName(),user.getPassword(),user.getName(),user.getSurname(),finalMoney, user.getMail());
+            session.update(updateuser);//Sumamos el dinero al usuario y lo modificamos
+            error = 0;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return error;
+
+    }
 }

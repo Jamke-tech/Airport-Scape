@@ -113,4 +113,33 @@ public class GameService {
             return Response.status(503).build();
         }
     }
+
+    @POST
+    @ApiOperation(value = "Win GAME", notes = "Cuando ganas la partida se le suma el dinero al usuario")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Game.class),
+            @ApiResponse(code = 503, message = "BBDD Down"),
+            @ApiResponse(code = 400, message = "NICKNAME USED"),
+    })
+    @Path ("/win")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response winGame(Game game, int money) {
+        System.out.println("Win Game");
+        try{
+            int numException = g.winGame(game, money);
+            if (numException==0) {
+                return Response.status(200).entity(game).build();
+            }
+            else
+            {
+                return Response.status(400).build();
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
+    }
 }

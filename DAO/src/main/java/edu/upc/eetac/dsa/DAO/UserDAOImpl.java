@@ -126,6 +126,23 @@ public class UserDAOImpl implements IUserDAO {
         return user;
     }
 
+    public User getUserById( int idUser) throws SQLException{
+        Session session = null;
+        User user = new User();
+        try {
+            session = FactorySession.openSession();
+            user = (User) session.getByID(user, idUser);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+
+        return user;
+    }
+
     public int getIDByNickName (String nickName) throws SQLException{
         Session session = null;
         User user = new User();
