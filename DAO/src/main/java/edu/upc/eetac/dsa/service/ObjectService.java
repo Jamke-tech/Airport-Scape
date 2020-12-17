@@ -85,9 +85,9 @@ public class ObjectService {
         }
 
     }
-}
 
-    /*@GET
+
+    @GET
     @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = BuyedObject.class),
@@ -98,7 +98,13 @@ public class ObjectService {
     @Path("/{idObject}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user
     public Response GetObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
-
-
-    }*/
+        try {
+            Objects object = o.getObjectByID(idBuyedObject);
+            return Response.status(200).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
+    }
+}
 

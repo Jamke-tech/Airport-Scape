@@ -52,6 +52,22 @@ public class ObjectDAOImpl implements IObjectDAO {
         return error;
 
     }
+    public Objects getObjectByID (int idObject)throws SQLException{
+        Session session = null;
+        Objects object = new Objects();
+        try {
+            session = FactorySession.openSession();
+            object = (Objects) session.getByID(object,idObject);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+
+        return object;
+    }
     public int getPriceByID (int idObject)throws SQLException{
         Session session = null;
         Objects object = new Objects();
