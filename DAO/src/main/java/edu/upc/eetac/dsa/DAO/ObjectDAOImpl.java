@@ -105,27 +105,52 @@ public class ObjectDAOImpl implements IObjectDAO {
         List<Objects> listObjects = new ArrayList<Objects>();
         try {
             session = FactorySession.openSession();
-            List<BuyedObject> compras = session.findAllByName(new BuyedObject(),userName); // nos retorna toda la lista de objetos comprados por el user con nickname X
+            List<BuyedObject> compras = session.findAllByName(new BuyedObject(), userName); // nos retorna toda la lista de objetos comprados por el user con nickname X
 
             for (BuyedObject objectBuyed : compras)//Recorremos toda la lista i lo pasamos a objectoes normales para enviar a laweb o Android
             {
                 Objects ObjectToAdd = new Objects();
                 int idObject = objectBuyed.getIdObject();
-                ObjectToAdd = (Objects) session.getByID(ObjectToAdd,idObject);
+                ObjectToAdd = (Objects) session.getByID(ObjectToAdd, idObject);
                 listObjects.add(ObjectToAdd);
 
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             listObjects = null;
-        }
-        finally {
+        } finally {
             session.close();
             return listObjects;
         }
-
-
     }
-}
+
+        public List<Integer> getListIdBuyedObjects(String userName) throws SQLException {
+            //Tiene que entrar en la tabla de Buyed Object y seleccionar todos los objetos y con cada id sacar el id del objetos que es
+            Session session = null;
+            List<Integer> listIdObjects = new ArrayList<Integer>();
+            try {
+                session = FactorySession.openSession();
+                List<BuyedObject> compras = session.findAllByName(new BuyedObject(),userName); // nos retorna toda la lista de objetos comprados por el user con nickname X
+
+                for (BuyedObject objectBuyed : compras)//Recorremos toda la lista y lo pasamos a objectos normales para enviar a laweb o Android
+                {
+                    Objects ObjectToAdd = new Objects();
+                    int idObject = objectBuyed.getIdObject();
+                    ObjectToAdd = (Objects) session.getByID(ObjectToAdd,idObject);
+                    listIdObjects.add(ObjectToAdd.getId());
+
+                }
+
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                listIdObjects = null;
+            }
+            finally {
+                session.close();
+                return listIdObjects;
+            }
+        }
+    }
+
