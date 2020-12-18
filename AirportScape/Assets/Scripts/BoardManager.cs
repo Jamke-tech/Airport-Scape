@@ -48,8 +48,40 @@ public class BoardManager : MonoBehaviour
     }
 
     void BoardSetup()
-    {
+    {    
         boardHolder = new GameObject("Board").transform;
+
+        String mapa = @"#######"; //mapa
+
+        mapa = mapa.Replace("\r\n", "\n");
+        String[] maplines = mapa.Split('\n');
+
+        String[] mesures = maplines[0].Split(' ');
+        int columns = Int32.Parse(mesures[0]);
+        int rows = Int32.Parse(mesures[1]);
+        for (int y = 0; y < rows; y++)
+        {
+            for (int x = 0; x < columns; x++)
+            {
+                char ch = maplines[y + 1][x];
+                switch(ch)
+                {
+                    case '#':
+
+                    case ' ':
+
+                        //continuar con estas cosas esta tarde.
+                }
+
+
+
+
+
+
+            }
+
+
+        }
 
         for (int x = -1; x < columns + 1; x++)//Per establir el terra
         {

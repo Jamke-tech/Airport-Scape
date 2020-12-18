@@ -43,7 +43,7 @@ public class GameDAOImpl {
         Game game = new Game();
         try {
             session = FactorySession.openSession();
-            game = (Game) session.getByName(game, name);
+            game = (Game) session.getByNameGame(game, name);
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -59,7 +59,7 @@ public class GameDAOImpl {
         int idMap = -1;
         try {
             session = FactorySession.openSession();
-            Game actualGame = (Game) session.getByName(new Game(), name);
+            Game actualGame = (Game) session.getByNameGame(new Game(), name);
             idMap = actualGame.getIdMap();
 
         } catch (Exception e) {

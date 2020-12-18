@@ -3,7 +3,6 @@ package edu.upc.eetac.dsa.service;
 import edu.upc.eetac.dsa.DAO.GameDAOImpl;
 import edu.upc.eetac.dsa.DAO.IGameDAO;
 import edu.upc.eetac.dsa.model.Game;
-import edu.upc.eetac.dsa.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -117,19 +116,19 @@ public class GameService {
     @POST
     @ApiOperation(value = "Win GAME", notes = "Cuando ganas la partida se le suma el dinero al usuario")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = Game.class),
+            @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 503, message = "BBDD Down"),
             @ApiResponse(code = 400, message = "NICKNAME USED"),
     })
-    @Path ("/win")
+    @Path ("/win/{money}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response winGame(Game game, int money) {
+    public Response winGame(Game game, @PathParam("money") int money) {
         System.out.println("Win Game");
         try{
             int numException = g.winGame(game, money);
             if (numException==0) {
-                return Response.status(200).entity(game).build();
+                return Response.status(200).build();
             }
             else
             {

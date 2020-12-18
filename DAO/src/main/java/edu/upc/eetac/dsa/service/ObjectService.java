@@ -87,35 +87,6 @@ public class ObjectService {
     }
 
     @GET
-    @ApiOperation(value = "Lista de id de Objetos de User", notes = "Nos devuelve todos los ids de los objetos de un user")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = Integer.class, responseContainer = "List"),
-            @ApiResponse(code = 401, message = "Error en los datos"),
-            @ApiResponse(code = 503, message = "BBDD Down")
-
-    })
-
-    @Path("/getIdList/{nickName}")
-    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con los id de los BuyedObject in a List
-    public Response ListIdBuyedObjects(@PathParam("nickName") String userName) {
-        try {
-            List<Integer> idObjectsBuyedByUser = this.o.getListIdBuyedObjects(userName);
-            if (idObjectsBuyedByUser == null) {
-                return Response.status(401).build();
-            }
-            GenericEntity<List<Integer>> entity = new GenericEntity<List<Integer>>(idObjectsBuyedByUser) {
-            };
-            return Response.status(200).entity(entity).build();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Response.status(503).build();
-        }
-
-    }
-
-
-
-    @GET
     @ApiOperation(value = "Recibimos characteristics de un objeto", notes = "Nos devuelve el objeto")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = Objects.class),
