@@ -97,6 +97,26 @@ public class SessionImpl implements Session {
             return null;
         }
     }
+    public Object getByNameGame(Object theObject, String name) throws SQLException {
+        String selectQuery = QueryHelper.createQuerySELECTNameGame(theObject);
+        PreparedStatement pstm = null;
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, name);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            if (rs.next()){
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));
+            }
+            return theObject;
+
+        }  catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public Object getByID(Object theObject, int id) throws SQLException {
         String selectQuery = QueryHelper.createQuerySELECT(theObject);
         PreparedStatement pstm = null;

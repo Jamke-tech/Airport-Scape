@@ -9,6 +9,7 @@ public interface Session<E> {
     void close() throws SQLException;
     Object get(Object theClass, int ID) throws SQLException;
     Object getByName(Object theClass, String name)  throws SQLException;
+    Object getByNameGame(Object theClass, String name)  throws SQLException;
     public void update(Object object) throws SQLException;
     public void updateComplex(Object object, String propertyCondition, Object valueCondition)throws SQLException;
     public void delete(Object object) throws SQLException;
