@@ -5,13 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public BoardManager boardScript;
+    public CameraFollow follwingCamera;
     public static GameManager instance = null;
     public int zone = 3;
     public int playerTime = 120;
     public float turnDelay = 0.1f;
     private List<Cleaner> cleaners;
-    private bool enemiesMoving;
-
 
     // Start is called before the first frame update
     void Awake()
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator MoveEnemies()
     {
-        enemiesMoving = true; //S'estan movent enemics
+       
         yield return new WaitForSeconds(turnDelay);//Fem un delay
         if (cleaners.Count == 0)
         {
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
             cleaners[i].MoveCleaner();
             yield return new WaitForSeconds(cleaners[i].moveTime);
         }
-        enemiesMoving = false;
+        
 
 
     }

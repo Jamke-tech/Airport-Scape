@@ -26,4 +26,8 @@ public class CameraFollow : MonoBehaviour
 
 
     }
+    public void SetFollowing(GameObject player)
+    {
+        following = player;
+    }
 }

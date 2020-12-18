@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardScript: {fileID: 0}
+  follwingCamera: {fileID: 0}
   zone: 1
   playerTime: 120
   turnDelay: 0.1
@@ -71,12 +72,21 @@ MonoBehaviour:
   - {fileID: 4163563723367476122, guid: 9297f39ef5290da46ba18fc82056790a, type: 3}
   - {fileID: 717255076021127934, guid: 759079c5dd6c96b498f8b1e604e0eff6, type: 3}
   - {fileID: 1203559807394320370, guid: b8e84b6061290ca49855ec5edee05f31, type: 3}
-  cleanersSprite:
-  - {fileID: 7389264481948410190, guid: 42c15c7c9e26e854b9983fff17936086, type: 3}
+  cleanersSprite: {fileID: 7389264481948410190, guid: 42c15c7c9e26e854b9983fff17936086,
+    type: 3}
+  playerSprite: {fileID: 8202539611048700264, guid: d17c3008d31e6ca4e981cf2d8b0d283f,
+    type: 3}
+  plants:
+  - {fileID: 1275217245501603514, guid: e76e75eb222cbb343a7e9fc629443f83, type: 3}
+  - {fileID: 5310389590974242058, guid: 85c205ee6f3cc8c42b1c4f4d08341f9f, type: 3}
+  - {fileID: 3835983802976053590, guid: 36617a68673ee2444bbb4a8928984363, type: 3}
+  - {fileID: 8834217101961174431, guid: 18bcb80bf51a45848ab3850f759b63f2, type: 3}
   benchHorizontal: {fileID: 4973936850726526412, guid: 6f2d74420031f7141a7794d44f0460a6,
     type: 3}
   benchVertical: {fileID: 4268429523090625992, guid: 94edfbe8d66322a4a8ebe10458b26709,
     type: 3}
+  bin: {fileID: 3578771030783471998, guid: b6ae01fb16ab42f4891e3d98563fed76, type: 3}
+  playerdisplayed: {fileID: 0}
   cleanerCount:
     minimum: 1
     maximum: 1

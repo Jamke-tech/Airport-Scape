@@ -17,45 +17,42 @@ public class BoardManager : MonoBehaviour
             maximum = max;
         }
     }
-
-
     public int rows = 20;
     public int columns = 40;
     public GameObject[] floorTiles;
     public GameObject[] perimetralFloor;
     public GameObject[] enemyTiles;
     public GameObject[] externalWalls;
-    public GameObject[] cleanersSprite;
+    public GameObject cleanersSprite;
+    public GameObject playerSprite;
+    public GameObject[] plants;
     public GameObject benchHorizontal;
     public GameObject benchVertical;
+    public GameObject bin;
     public Count cleanerCount = new Count(2, 2);
 
     private Transform boardHolder;
     private List<Vector3> gridPositionsCleanerPart1 = new List<Vector3>(); //To places the tiles
 
 
-    void InitialiseList()
-    {
-        gridPositionsCleanerPart1.Clear();
-        for (int x = 2; x < columns-2; x++)//Modificar depenent del que volem posar en la grid 
-        {
-            for (int y = 2; y < rows - 2; y++)
-            {
-                 gridPositionsCleanerPart1.Add(new Vector3(x, y, 0f));
-                
-            }
-        }
-    }
-
     void BoardSetup()
-    {    
+    {
         boardHolder = new GameObject("Board").transform;
 
-        String mapa = @"#######"; //mapa
+        String mapa = "10 10\r\n"
+                     +"##########\r\n"
+                     +"#p       #\r\n"
+                     +"# B      #\r\n"
+                     +"#  V     #\r\n"
+                     +"# p      #\r\n"
+                     +"#  p     #\r\n"
+                     +"#   p    #\r\n"
+                     +"#    p   #\r\n"
+                     +"#     p  #\r\n"
+                     +"##########\r\n"; //mapa
 
         mapa = mapa.Replace("\r\n", "\n");
         String[] maplines = mapa.Split('\n');
-
         String[] mesures = maplines[0].Split(' ');
         int columns = Int32.Parse(mesures[0]);
         int rows = Int32.Parse(mesures[1]);
@@ -64,26 +61,71 @@ public class BoardManager : MonoBehaviour
             for (int x = 0; x < columns; x++)
             {
                 char ch = maplines[y + 1][x];
-                switch(ch)
+                switch (ch)
                 {
-                    case '#':
+                    case '#': //instanciamos una external wall
+                        GameObject toInstantiate = externalWalls[Random.Range(0, externalWalls.Length)];
+                        GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+                        instance.transform.SetParent(boardHolder);
+                        break;
+                    case 'b'://papelera
 
-                    case ' ':
+                        GameObject instance2 = Instantiate(bin, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance2.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows-y,rows,columns);
+                        break;
 
-                        //continuar con estas cosas esta tarde.
+                    case 'B': //Banco Horizontal
+                        GameObject instance3 = Instantiate(benchHorizontal, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance3.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+
+                    case 'V'://Banco Vertical
+                        GameObject instance4 = Instantiate(benchVertical, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance4.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+
+                    case 'p': //planta
+                        GameObject toInstantiate2 = plants[Random.Range(0, plants.Length)];
+                        GameObject instance5 = Instantiate(toInstantiate2, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance5.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+
+                    case 'C': //Cleaner                        
+                        GameObject instance6 = Instantiate(cleanersSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        instance6.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'I': //Inicio del Jugador                       
+                        GameObject instance7 = Instantiate(playerSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        //playerdisplayed = instance7;
+                        break;
+                    default:
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+
                 }
-
-
-
-
-
-
             }
 
 
         }
+    }
 
-        for (int x = -1; x < columns + 1; x++)//Per establir el terra
+    public void intantiateFloor(int x, int y, int rows, int columns)
+    {
+        GameObject floorToInstatiate = floorTiles[Random.Range(0, floorTiles.Length)];
+        if (x == 1 || x == columns - 2 || y == 2 || y == rows - 1)//Ponemos el suelo perimetral
+            floorToInstatiate = perimetralFloor[Random.Range(0, perimetralFloor.Length)];
+        //Instanciamos el suelo sea el que sea
+        GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+        instanceFloor.transform.SetParent(boardHolder);
+    }
+
+        /*for (int x = -1; x < columns + 1; x++)//Per establir el terra
         {
             for (int y = -1; y < rows + 1; y++)
             {
@@ -186,7 +228,7 @@ public class BoardManager : MonoBehaviour
 
         }
         return exist;
-    }
+    }*/
 
 
     void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
@@ -222,9 +264,8 @@ public class BoardManager : MonoBehaviour
 
     public void SetUpScene()
     {
-        InitialiseList();
         BoardSetup();
-        LayoutObjectAtRandom(cleanersSprite, cleanerCount.minimum, cleanerCount.maximum);
+        //LayoutObjectAtRandom(cleanersSprite, cleanerCount.minimum, cleanerCount.maximum);
 
     }
 
