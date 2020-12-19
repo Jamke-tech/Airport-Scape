@@ -11,6 +11,7 @@
         android:layout_width="270dp"
         android:layout_height="112dp"
         android:layout_marginBottom="56dp"
+        android:onClick="myObjectsButtonClicked"
         android:text="MY OBJECTS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +32,7 @@
         android:id="@+id/playButton"
         android:layout_width="168dp"
         android:layout_height="268dp"
+        android:onClick="playButtonClicked"
         android:text="PLAY"
         tools:layout_editor_absoluteX="175dp"
         tools:layout_editor_absoluteY="48dp" />
@@ -39,6 +41,7 @@
         android:id="@+id/shopButton"
         android:layout_width="168dp"
         android:layout_height="268dp"
+        android:onClick="shopButtonClicked"
         android:text="SHOP"
         tools:layout_editor_absoluteX="175dp"
         tools:layout_editor_absoluteY="329dp" />

@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".MyObjectsActivity"/>
+        <activity android:name=".LoadGameActivity" />
+        <activity android:name=".NewGameActivity" />
+        <activity android:name=".twoOptionsToPlayActivity" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".splash_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

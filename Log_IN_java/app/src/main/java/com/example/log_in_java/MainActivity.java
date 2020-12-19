@@ -21,6 +21,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, ProfileActivity.class));
     }
 
+    public void playButtonClicked(View v){
+        startActivity(new Intent(MainActivity.this, twoOptionsToPlayActivity.class));
+    }
+
+    public void shopButtonClicked(View v){
+
+    }
+
+    public void myObjectsButtonClicked(View v){
+        startActivity(new Intent(MainActivity.this, MyObjectsActivity.class));
+    }
+
 }
 
 
