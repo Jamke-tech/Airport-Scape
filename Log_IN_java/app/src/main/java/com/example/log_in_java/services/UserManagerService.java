@@ -24,7 +24,7 @@ public interface UserManagerService {
     Call <List<User>> getUsers();
 
     @GET("user/{nickName}")
-    Call <User> getUser(@Path("name") String userName);
+    Call <User> getUser(@Path("nickName") String userName);
 
     //De aqui para abajo arreglar  amedida que vayamos usando
 

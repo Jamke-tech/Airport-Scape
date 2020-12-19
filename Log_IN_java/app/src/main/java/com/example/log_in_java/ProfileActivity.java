@@ -1,6 +1,5 @@
 package com.example.log_in_java;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -13,12 +12,6 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.log_in_java.models.User;
 import com.example.log_in_java.services.UserManagerService;
@@ -37,22 +30,22 @@ public class ProfileActivity extends AppCompatActivity {
     private static Retrofit retrofit;
     private static String retrofitIpAddress;
     private UserManagerService usersAPI;
-    User user = new User();
-    ImageView imageView;
-    TextView textUsername;
-    TextView textName;
-    TextView textSurname;
-    TextView textMail;
-    TextView textMoney;
+    private ImageView imageView;
+    private TextView textUsername;
+    private TextView textName;
+    private TextView textSurname;
+    private TextView textMail;
+    private TextView textMoney;
 
     //-------------------------------API Methods------------------------------------------//
     public void profileData(String usrname) {
         //Method getUser() from API
+        usersAPI = retrofit.create(UserManagerService.class);
         Call<User> call = usersAPI.getUser(usrname);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if (response.isSuccessful()) {
+                if (response.code() == 200) {
                     //We "fill" the logged User instance
                     User loggedUsr = User.getInstance();
                     loggedUsr.setPassword(response.body().getPassword());
@@ -62,11 +55,11 @@ public class ProfileActivity extends AppCompatActivity {
                     loggedUsr.setMail(response.body().getMail());
                     loggedUsr.setMoney(response.body().getMoney());
 
-                    String userName = "UserName : " + user.getUserName();
-                    String name = "Name : " + user.getName();
-                    String surname = "Surname : " + user.getSurname();
-                    String mail = "Mail : " + user.getMail();
-                    String money = "Money : " + user.getMoney();
+                    String userName = "UserName : " + loggedUsr.getUserName();
+                    String name = "Name : " + loggedUsr.getName();
+                    String surname = "Surname : " + loggedUsr.getSurname();
+                    String mail = "Mail : " + loggedUsr.getMail();
+                    String money = "Money : " + loggedUsr.getMoney();
 
                     textUsername.setText(userName);
                     textName.setText(name);
@@ -74,11 +67,6 @@ public class ProfileActivity extends AppCompatActivity {
                     textMail.setText(mail);
                     textMoney.setText(money);
 
-                    /*textUsername.setText(User.getInstance().getUserName());
-                    textName.setText(String.valueOf(User.getInstance().getName()));
-                    textSurname.setText(String.valueOf(User.getInstance().getSurname()));
-                    textMail.setText(String.valueOf(User.getInstance().getMail()));
-                    textMoney.setText(String.valueOf(User.getInstance().getMoney()));*/
 
 
                 } else
@@ -94,32 +82,6 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-
-    /*@Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_profile, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        //Initialize and fill all the Dashboard fields
-        imageView = (ImageView) getView().findViewById(R.id.imageProfile);
-        textUsername = (TextView) getView().findViewById(R.id.textUsername);
-        textName = (TextView) getView().findViewById(R.id.textName);
-        textSurname = (TextView) getView().findViewById(R.id.textSurname);
-        textMail = (TextView) getView().findViewById(R.id.textMail);
-        textMoney = (TextView) getView().findViewById(R.id.textMoney);
-
-        startRetrofit();
-        usersAPI = retrofit.create(UserManagerService.class);
-
-        profileData(User.getInstance().getUserName());
-
-    }*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,9 +94,9 @@ public class ProfileActivity extends AppCompatActivity {
         textMoney = this.findViewById(R.id.textMoney);
 
         startRetrofit();
-        //usersAPI = retrofit.create(UserManagerService.class);
 
-        //profileData(User.getInstance().getUserName());
+
+        profileData(User.getInstance().getUserName());
     }
 
 
