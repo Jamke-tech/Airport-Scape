@@ -1,7 +1,7 @@
 $(document).ready(function(){
     console.log("ok loaded")
 });
-
+//prova commit
 $(function(){
     $('#botonLogIn').on('click',function(e){
     console.log("LogIn clicked"); //per fer proves
@@ -40,7 +40,7 @@ $(function(){
                 dataType: "json",
                 success: function(data) {
                     console.log("success");
-                    console.log(data.status)
+                    console.log(data.status);
                 },
                 complete: function(data) {
                     if(data.status == 401){
