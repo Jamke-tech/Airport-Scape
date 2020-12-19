@@ -321,7 +321,7 @@ footer {
     padding-bottom: 0px !important;
 }
 
-.nabvar-mobile {
+.navbar-mobile {
     background: var(--dark);
     display: flex;
     justify-content: space-between;
@@ -615,6 +615,9 @@ footer {
 .card .price {
     position: absolute;
 }
+.card .state {
+    position: absolute;
+}
 
 .card:hover > .card-info {
     display: block;
@@ -694,6 +697,11 @@ footer {
     color: var(--dark-light);
     top: 0.5rem;
     left: 0.5rem;
+}
+.state {
+    color: var(--dark-light);
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 .card-simple-options {
