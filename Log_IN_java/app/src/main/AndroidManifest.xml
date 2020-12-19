@@ -15,8 +15,8 @@
         <activity android:name=".MyObjectsActivity"/>
         <activity android:name=".LoadGameActivity" />
         <activity android:name=".NewGameActivity" />
+        <activity android:name=".ProfileActivity"/>
         <activity android:name=".twoOptionsToPlayActivity" />
-        <activity android:name=".ProfileActivity" />
         <activity android:name=".splash_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

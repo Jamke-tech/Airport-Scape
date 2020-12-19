@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.log_in_java.models.User;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void profileButtonClicked(View v){
         startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+
     }
 
     public void playButtonClicked(View v){
