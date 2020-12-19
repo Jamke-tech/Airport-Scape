@@ -9,8 +9,11 @@ import io.swagger.annotations.ApiResponses;
 
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.sql.SQLException;
+import java.util.List;
 
 @Api (value = "/user", description = "Endpoint to User Service")
 @Path ("/user")
@@ -152,5 +155,23 @@ public class UserService {
 
             return Response.status(503).build();
         }
+    }
+
+    @GET
+    @ApiOperation(value = "Get user ranking", notes = "")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful", response = User.class, responseContainer="List"),
+    })
+    @Path("/ranking")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRanking() throws SQLException {
+        List<User> ranking = u.getListUsers();
+
+        GenericEntity<List<User>> entity = new GenericEntity<List<User>>(ranking) {};
+        if (ranking.size() > 0) {
+            return Response.status(201).entity(entity).build();
+        }
+        else
+            return Response.status(404).build();
     }
 }

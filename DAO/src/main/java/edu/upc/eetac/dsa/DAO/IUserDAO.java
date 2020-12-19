@@ -4,6 +4,7 @@ import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface IUserDAO {
     public User getUserByNickname( String nameUser) throws SQLException;
     public User getUserById( int idUser) throws SQLException;
     public int getIDByNickName (String nickName) throws SQLException;
+    List<User> getListUsers() throws SQLException;
 }
