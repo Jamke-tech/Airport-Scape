@@ -2,6 +2,7 @@ package com.example.log_in_java;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -28,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shopButtonClicked(View v){
-
+        //poner la url de la tienda web
+        Uri uri = Uri.parse("shop.html");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     public void myObjectsButtonClicked(View v){

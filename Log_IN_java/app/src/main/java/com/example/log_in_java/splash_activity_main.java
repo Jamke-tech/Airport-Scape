@@ -2,7 +2,9 @@ package com.example.log_in_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,6 +34,12 @@ public class splash_activity_main extends AppCompatActivity {
 
             };
         }, SPLASH_DURATION);
+    }
+
+    private void loadPreferences(){
+        SharedPreferences preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        String nickname =preferences.getString("nickname", "Does not exist this information");
+        String password = preferences.getString("password", "Does not exist this information");
     }
 
 
