@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 public class splash_activity_main extends AppCompatActivity {
 
     private final int SPLASH_DURATION = 3500;
+    private SharedPreferences preferences;
     private ProgressBar loginbar;
 
     @Override
@@ -24,24 +25,44 @@ public class splash_activity_main extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_main);
+        loadPreferences();
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(splash_activity_main.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                checkCredentials();
 
             };
         }, SPLASH_DURATION);
     }
 
     private void loadPreferences(){
-        SharedPreferences preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
-        String nickname =preferences.getString("nickname", "Does not exist this information");
-        String password = preferences.getString("password", "Does not exist this information");
+        preferences = getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
     }
 
+    private void checkCredentials(){
+
+        String nickname =preferences.getString("userNickname", null);
+        String password = preferences.getString("userPassword", null);
+        if (nickname != null && password != null){
+            goMainActivity();
+        }
+        else{
+            goLoginActivity();
+        }
+    }
+
+    private void goMainActivity(){
+        Intent intent = new Intent(splash_activity_main.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    private void goLoginActivity(){
+        Intent intent = new Intent(splash_activity_main.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }
