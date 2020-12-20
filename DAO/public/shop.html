@@ -18,9 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 </head>
-<body>
+<body onload="getObjects()">
 
-    <div class="d-flex">
+    <div class="d-flex" >
         <div id="sidebar-container" class="bp-primary">
             <div class="logo"></div>
             <div class="nameGame">
@@ -86,6 +86,7 @@
                             <div class="column is-half column-full">
                                 <div class="card">
                                     <span class="price" id="price1"><i class="icon ion-logo-bitcoin lead"></i>100</span>
+                                    <span class="state" id="state1"><i class="icon ion-md-checkmark"></i></span>
                                     <img src="imagen/mustache.jpg" alt="">
                                     <div class="card-info">
                                         <h4 class="has-text-black has-text-centered has-text-weight-bold"> Mustache </h4>
@@ -99,6 +100,7 @@
                             <div class="column column-full is-half">
                                 <div class="card">
                                     <span class="price" id="price2"><i class="icon ion-logo-bitcoin lead"></i>150</i></span>
+                                    <span class="state" id="state2"><i class="icon ion-md-checkmark"></i></span>
                                     <img src="imagen/sunglasses.jpg" alt="">
                                     <div class="card-info">
                                         <h4 class="has-text-black has-text-centered has-text-weight-bold"> Sunglasses </h4>
@@ -116,6 +118,15 @@
 
         </div>
     </div>
+    <script>
+    <!-- función conocer objetos BBDD -->
+    function getObjects() {
+        alert('va');
+
+
+
+    }
+    </script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
