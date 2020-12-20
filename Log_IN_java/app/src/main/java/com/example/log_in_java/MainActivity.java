@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, MyObjectsActivity.class));
     }
 
+    public void logOutButtonClicked(View v){
+        closeSession();
+    }
+
     private void loadPreferences(){
         preferences = getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
     }
@@ -54,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private void closeSession(){
         preferences.edit().clear().apply();
         goLoginActivity();
-
     }
 
     private void goLoginActivity(){

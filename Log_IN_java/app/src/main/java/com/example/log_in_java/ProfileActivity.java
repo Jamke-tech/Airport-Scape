@@ -3,6 +3,7 @@ package com.example.log_in_java;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private SharedPreferences preferences;
+    private String nickname;
     private Context context;
     private static Retrofit retrofit;
     private static String retrofitIpAddress;
@@ -39,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     //-------------------------------API Methods------------------------------------------//
     public void profileData(String usrname) {
+
         //Method getUser() from API
         usersAPI = retrofit.create(UserManagerService.class);
         Call<User> call = usersAPI.getUser(usrname);
@@ -84,6 +88,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        loadPreferences();
+        nickname =preferences.getString("userNickname", null);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         imageView = this.findViewById(R.id.imageProfile);
@@ -96,11 +102,14 @@ public class ProfileActivity extends AppCompatActivity {
         startRetrofit();
 
 
-        profileData(User.getInstance().getUserName());
+        //profileData(User.getInstance().getUserName());
+        profileData(nickname);
     }
 
 
-
+    private void loadPreferences(){
+        preferences = getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
+    }
 
     private static void startRetrofit(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

@@ -113,7 +113,7 @@ public class UserDAOImpl implements IUserDAO {
 
     }
 
-    public User getUserByNickname( String nameUser) throws SQLException{
+    public User getUserByNickname(String nameUser) throws SQLException{
         Session session = null;
         User user = new User();
         try {
