@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class MovingObject : MonoBehaviour
 {
     public float moveTime = 0.1f;
+    public int velocidad;
     public LayerMask blockinLayer; // per veure si el espai on ens movem esta ocupat o no 
 
     private BoxCollider2D boxCollider;
@@ -18,6 +19,7 @@ public abstract class MovingObject : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         inverseMoveTime = 1f / moveTime;
+        velocidad = 10;
 
     }
 
@@ -31,7 +33,7 @@ public abstract class MovingObject : MonoBehaviour
 
         if (hit.transform == null)//mirem si hem xocat
         {
-            StartCoroutine(SmoothMovement(end));
+            StartCoroutine(Movement(new Vector3(xDir,yDir,0f)));
             return true;
         }
         return false;
@@ -44,7 +46,11 @@ public abstract class MovingObject : MonoBehaviour
         bool canMove = Move(xDir, yDir, out hit);
     }
 
-
+    protected IEnumerator Movement (Vector3 inputplayer)
+    {
+        rb2D.MovePosition(GetComponent<Transform>().position + inputplayer * velocidad * Time.deltaTime);
+        yield return null;
+    }
     protected IEnumerator SmoothMovement(Vector3 end)
     {
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
