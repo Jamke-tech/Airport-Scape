@@ -17,8 +17,6 @@ public class BoardManager : MonoBehaviour
             maximum = max;
         }
     }
-    public int rows = 20;
-    public int columns = 40;
     public GameObject[] floorTiles;
     public GameObject[] perimetralFloor;
     public GameObject[] enemyTiles;
@@ -50,6 +48,27 @@ public class BoardManager : MonoBehaviour
                      +"#    p   #\r\n"
                      +"#     p  #\r\n"
                      +"##########\r\n"; //mapa
+40 20
+########################################
+#                                      #
+#                                      #
+#C                 pp                  #
+#                  VV                  #
+#                  VV                  #
+#                  VV                  #
+#                  bV                  #
+#                 Cpp                  #
+#                                      #
+#                                      #
+#                                      #
+#                  bb                  #
+#B B B B B B   B   VV                  #
+#                  VV                  #
+#B B B   B B B B   VV                  #
+#C                 VV                  #
+#B B B B B B B B   VV                  #
+#I                 VV                  #
+########################################
 
         mapa = mapa.Replace("\r\n", "\n");
         String[] maplines = mapa.Split('\n');

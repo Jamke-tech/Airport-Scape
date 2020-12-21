@@ -161,6 +161,7 @@ public class UserService {
     @ApiOperation(value = "Get user ranking", notes = "")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response = User.class, responseContainer="List"),
+            @ApiResponse(code = 404, message = "ERROR")
     })
     @Path("/ranking")
     @Produces(MediaType.APPLICATION_JSON)

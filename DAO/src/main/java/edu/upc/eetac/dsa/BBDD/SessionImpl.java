@@ -2,6 +2,7 @@ package edu.upc.eetac.dsa.BBDD;
 
 import edu.upc.eetac.dsa.model.BuyedObject;
 import edu.upc.eetac.dsa.model.Objects;
+import edu.upc.eetac.dsa.model.User;
 import edu.upc.eetac.dsa.util.ObjectHelper;
 import edu.upc.eetac.dsa.util.QueryHelper;
 
@@ -210,7 +211,7 @@ public class SessionImpl implements Session {
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
             while (rs.next()) {
-                Object o = new Object();
+                User o = new User();
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
                     ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
                 ListObject.add(o);
