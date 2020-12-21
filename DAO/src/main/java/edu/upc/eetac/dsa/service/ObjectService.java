@@ -70,7 +70,7 @@ public class ObjectService {
 
     @Path("/getList/{nickName}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma BuyedObject in a List
-    public Response ListBuyedObjects(@PathParam("nickName") String userName) {
+    public Response listBuyedObjects(@PathParam("nickName") String userName) {
         try {
             List<Objects> objectsBuyedByUser = this.o.getListBuyedObjects(userName);
             if (objectsBuyedByUser == null) {
@@ -96,10 +96,30 @@ public class ObjectService {
 
     @Path("/{idObject}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user
-    public Response GetObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
+    public Response getObjectCharacteristics(@PathParam("idObject") int idBuyedObject) {
         try {
             Objects object = o.getObjectByID(idBuyedObject);
             return Response.status(200).entity(object).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
+    }
+    @GET
+    @ApiOperation(value = "Listamos objects de la BBDDD", notes = "Nos devuelve lista de objetos")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Objects.class , responseContainer = "List" ),
+            @ApiResponse(code = 503, message = "BBDD Down")
+
+    })
+
+    @Path("/getListObjects")
+    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user
+    public Response getListObjectsShop() {
+        try {
+            List<Objects> objectsForSale = this.o.getListObjects();
+            GenericEntity<List<Objects>> entity = new GenericEntity<List<Objects>>(objectsForSale){};
+            return Response.status(200).entity(entity).build();
         } catch (Exception e) {
             e.printStackTrace();
             return Response.status(503).build();

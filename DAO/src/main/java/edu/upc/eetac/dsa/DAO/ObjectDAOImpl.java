@@ -124,8 +124,7 @@ public class ObjectDAOImpl implements IObjectDAO {
             return listObjects;
         }
     }
-
-        public List<Integer> getListIdBuyedObjects(String userName) throws SQLException {
+    public List<Integer> getListIdBuyedObjects(String userName) throws SQLException {
             //Tiene que entrar en la tabla de Buyed Object y seleccionar todos los objetos y con cada id sacar el id del objetos que es
             Session session = null;
             List<Integer> listIdObjects = new ArrayList<Integer>();
@@ -152,5 +151,23 @@ public class ObjectDAOImpl implements IObjectDAO {
                 return listIdObjects;
             }
         }
+
+    @Override
+    public List<Objects> getListObjects() throws SQLException {
+        Session session = null;
+        List<Objects> listObjects = new ArrayList<Objects>();
+        try {
+            session = FactorySession.openSession();
+            listObjects = (ArrayList<Objects>) session.findAll(new Objects());
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            listObjects = null;
+        } finally {
+            session.close();
+            return listObjects;
+        }
     }
+}
 
