@@ -1,4 +1,4 @@
-$(document).ready(function()){
+$(document).ready(function(){
 
     var staticUrl = '/gameDSA/user/ranking';
 
@@ -9,4 +9,4 @@ $(document).ready(function()){
             $("table").append(concat);
         });
     })
-}
+});

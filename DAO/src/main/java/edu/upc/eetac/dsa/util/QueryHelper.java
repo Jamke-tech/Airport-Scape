@@ -59,6 +59,7 @@ public class QueryHelper {
     public static String createQuerySELECTAll(Object entity) {
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+        sb.append(" WHERE 1 = ?");
 
         return sb.toString();
     }

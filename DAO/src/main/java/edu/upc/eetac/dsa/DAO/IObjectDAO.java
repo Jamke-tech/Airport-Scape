@@ -14,4 +14,6 @@ public interface IObjectDAO {
     public List<Objects> getListBuyedObjects (String Username) throws SQLException;
     public Objects getObjectByID (int idObject)throws SQLException;
     public List<Integer> getListIdBuyedObjects(String userName) throws SQLException;
+
+    List<Objects> getListObjects()throws SQLException;
 }

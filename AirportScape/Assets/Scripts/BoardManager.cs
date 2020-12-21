@@ -17,6 +17,8 @@ public class BoardManager : MonoBehaviour
             maximum = max;
         }
     }
+    public int columns = 20;
+    public int rows = 40;
     public GameObject[] floorTiles;
     public GameObject[] perimetralFloor;
     public GameObject[] enemyTiles;
@@ -33,48 +35,51 @@ public class BoardManager : MonoBehaviour
     private List<Vector3> gridPositionsCleanerPart1 = new List<Vector3>(); //To places the tiles
 
 
+
     void BoardSetup()
     {
         boardHolder = new GameObject("Board").transform;
 
+
+        /*40 20
+        ########################################
+        #                                      #
+        #                                      #
+        #C                 pp                  #
+        #                  VV                  #
+        #                  VV                  #
+        #                  VV                  #
+        #                  bV                  #
+        #                 Cpp                  #
+        #                                      #
+        #                                      #
+        #                                      #
+        #                  bb                  #
+        #B B B B B B   B   VV                  #
+        #                  VV                  #
+        #B B B   B B B B   VV                  #
+        #C                 VV                  #
+        #B B B B B B B B   VV                  #
+        #I                 VV                  #
+        ########################################*/
         String mapa = "10 10\r\n"
-                     +"##########\r\n"
-                     +"#p       #\r\n"
-                     +"# B      #\r\n"
-                     +"#  V     #\r\n"
-                     +"# p      #\r\n"
-                     +"#  p     #\r\n"
-                     +"#   p    #\r\n"
-                     +"#    p   #\r\n"
-                     +"#     p  #\r\n"
-                     +"##########\r\n"; //mapa
-40 20
-########################################
-#                                      #
-#                                      #
-#C                 pp                  #
-#                  VV                  #
-#                  VV                  #
-#                  VV                  #
-#                  bV                  #
-#                 Cpp                  #
-#                                      #
-#                                      #
-#                                      #
-#                  bb                  #
-#B B B B B B   B   VV                  #
-#                  VV                  #
-#B B B   B B B B   VV                  #
-#C                 VV                  #
-#B B B B B B B B   VV                  #
-#I                 VV                  #
-########################################
+             + "##########\r\n"
+             + "#p       #\r\n"
+             + "# B      #\r\n"
+             + "#  V     #\r\n"
+             + "# p      #\r\n"
+             + "#  p    C#\r\n"
+             + "#   p    #\r\n"
+             + "#    p   #\r\n"
+             + "#I    p  #\r\n"
+             + "##########\r\n"; //mapa
 
         mapa = mapa.Replace("\r\n", "\n");
         String[] maplines = mapa.Split('\n');
         String[] mesures = maplines[0].Split(' ');
         int columns = Int32.Parse(mesures[0]);
         int rows = Int32.Parse(mesures[1]);
+
         for (int y = 0; y < rows; y++)
         {
             for (int x = 0; x < columns; x++)
