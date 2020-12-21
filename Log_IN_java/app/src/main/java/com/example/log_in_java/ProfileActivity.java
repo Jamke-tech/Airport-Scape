@@ -27,6 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    //Hola Gerard esto es una prueba
     private SharedPreferences preferences;
     private String nickname;
     private Context context;
