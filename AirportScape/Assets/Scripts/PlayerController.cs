@@ -9,7 +9,7 @@ public class PlayerController : MovingObject
 
 
     private Animator animator;
-
+    
     
     // Start is called before the first frame update
     protected override void Start()
@@ -33,13 +33,15 @@ public class PlayerController : MovingObject
 
         horizontal = (int)Input.GetAxisRaw("Horizontal");
         vertical = (int)Input.GetAxisRaw("Vertical");
-
-
-        if (horizontal != 0)
-            vertical = 0; //prevenim que el jugador es mogui en diagonal
-
+        
         if (horizontal != 0 || vertical != 0)//mirem si ens estem intentant moure
+        {
+            if (horizontal != 0)
+                vertical = 0;
+            if (vertical != 0)
+                horizontal = 0;
             AttemptMove(horizontal, vertical);
+        }
 
         //fEM SALTAR ELS TRIGGERS PER LES ANIMACIONS DEL PERSONATGE
 
@@ -91,6 +93,7 @@ public class PlayerController : MovingObject
         //Saltar animacion de daño
         Debug.Log("AUCH");
     }
+
 
 
 }

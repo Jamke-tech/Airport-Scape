@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Cleaner : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Cleaner : MonoBehaviour
     int DirY;
     int randomNumber;
     public int PlayerTimeReduction;
+    public int velocidad;
+    public string[] movements = { "right", "up", "left", "down" };
+    public int pos = 0;
 
      // Start is called before the first frame update
     void Start()
@@ -27,6 +31,7 @@ public class Cleaner : MonoBehaviour
         DirY = 0;//No nos moveremos en eje vertical
 
         inverseMoveTime = 1f / moveTime;
+        velocidad = 15;
     }
  
     
@@ -41,14 +46,44 @@ public class Cleaner : MonoBehaviour
 
         if (hit.transform == null)//mirem si hem xocat
         {
-            StartCoroutine(SmoothMovement(end));
+            StartCoroutine(Movement(new Vector3(DirX, DirY, 0f)));
 
         }
         else
         {
-            DirX = DirX * -1;
+            if (pos == movements.Length)
+            {
+                pos = 0;
+            }
+            string direction = movements[pos];
+            if (direction == "right")
+            {
+                DirX = 1;
+                DirY = 0;
+            }
+            else if(direction =="up")
+            {
+                DirX = 0;
+                DirY = 1;
+            }
+            else if(direction=="left")
+            {
+                DirX = -1;
+                DirY = 0;
+            }
+            else
+            {
+                DirX = 0;
+                DirY = -1;
+            }
+            pos = Random.Range(0, 4);
         }
         
+    }
+    protected IEnumerator Movement(Vector3 inputplayer)
+    {
+        rb2D.MovePosition(GetComponent<Transform>().position + inputplayer * velocidad * Time.deltaTime);
+        yield return null;
     }
 
     protected IEnumerator SmoothMovement(Vector3 end)
