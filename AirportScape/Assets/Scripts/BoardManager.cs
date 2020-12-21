@@ -41,28 +41,28 @@ public class BoardManager : MonoBehaviour
         boardHolder = new GameObject("Board").transform;
 
 
-        /*40 20
-        ########################################
-        #                                      #
-        #                                      #
-        #C                 pp                  #
-        #                  VV                  #
-        #                  VV                  #
-        #                  VV                  #
-        #                  bV                  #
-        #                 Cpp                  #
-        #                                      #
-        #                                      #
-        #                                      #
-        #                  bb                  #
-        #B B B B B B   B   VV                  #
-        #                  VV                  #
-        #B B B   B B B B   VV                  #
-        #C                 VV                  #
-        #B B B B B B B B   VV                  #
-        #I                 VV                  #
-        ########################################*/
-        String mapa = "10 10\r\n"
+        String mapa = "40 20\r\n"
+       + "########################################\r\n"
+        + "#                                      #\r\n"
+        + "#                                      #\r\n"
+        + "#C                 pp                  #\r\n"
+        + "#                  VV                  #\r\n"
+        + "#                  VV                  #\r\n"
+        + "#                  VV                  #\r\n"
+        + "#                  bV                  #\r\n"
+        + "#                 Cpp                  #\r\n"
+        + "#                                      #\r\n"
+        + "#                                      #\r\n"
+        + "#                                      #\r\n"
+        + "#                  bb                  #\r\n"
+        + "#B B B B B B   B    V                  #\r\n"
+        + "#                  V                   #\r\n"
+        + "#B B B   B B B B    V                  #\r\n"
+        + "#C                 V                   #\r\n"
+        + "#B B B B B B B B    V                  #\r\n"
+        + "#I                 V                   #\r\n"
+        + "########################################\r\n";
+        /*String mapa = "10 10\r\n"
              + "##########\r\n"
              + "#p       #\r\n"
              + "# B      #\r\n"
@@ -72,7 +72,7 @@ public class BoardManager : MonoBehaviour
              + "#   p    #\r\n"
              + "#    p   #\r\n"
              + "#I    p  #\r\n"
-             + "##########\r\n"; //mapa
+             + "##########\r\n"; //mapa*/
 
         mapa = mapa.Replace("\r\n", "\n");
         String[] maplines = mapa.Split('\n');
@@ -126,7 +126,7 @@ public class BoardManager : MonoBehaviour
                     case 'I': //Inicio del Jugador                       
                         GameObject instance7 = Instantiate(playerSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
                         intantiateFloor(x, rows - y, rows, columns);
-                        //playerdisplayed = instance7;
+
                         break;
                     default:
                         intantiateFloor(x, rows - y, rows, columns);

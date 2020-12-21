@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     public GameObject following;
     public int maxX;
     public int maxY;
+    private Transform cameraHolder;
 
     public void Start()
     {
@@ -22,8 +23,6 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(posX, 0, maxX),
             Mathf.Clamp(posY, 0, maxY),
             transform.position.z);
-
-
 
     }
     public void SetFollowing(GameObject player)

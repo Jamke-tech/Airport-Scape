@@ -19,7 +19,7 @@ public abstract class MovingObject : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         inverseMoveTime = 1f / moveTime;
-        velocidad = 10;
+        velocidad = 25;
 
     }
 
