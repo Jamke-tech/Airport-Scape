@@ -7,14 +7,16 @@ public class Objects {
         public String description;
         public int attribute;
         public boolean bag;
+        public String urlImage;
 
-    public Objects(int id, String name, int price, String description, int attribute, boolean bag) {
+    public Objects(int id, String name, int price, String description, int attribute, boolean bag, String urlImage) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.attribute = attribute;
         this.bag = bag;
+        this.urlImage = urlImage;
     }
 
     public Objects() {
@@ -63,4 +65,12 @@ public class Objects {
     public boolean isBag() { return bag;}
 
     public void setBag(boolean bag) { this.bag = bag; }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
 }
