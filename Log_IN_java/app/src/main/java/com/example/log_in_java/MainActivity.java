@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void shopButtonClicked(View v){
         //poner la url de la tienda web
-        Uri uri = Uri.parse("shop.html");
+        Uri uri = Uri.parse("http://localhost:8080/shop.html");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
