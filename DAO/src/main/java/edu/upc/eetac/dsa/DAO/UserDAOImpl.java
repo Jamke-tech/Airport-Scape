@@ -168,9 +168,10 @@ public class UserDAOImpl implements IUserDAO {
     public ArrayList<User> getListUsers() throws SQLException{
         Session session = null;
         ArrayList<User> lista = null;
+        User user = new User();
         try{
             session = FactorySession.openSession();
-            lista = (ArrayList<User>) session.findAll(User.class);
+            lista = (ArrayList<User>) session.findAll(user);
         }
         catch (Exception e){
 

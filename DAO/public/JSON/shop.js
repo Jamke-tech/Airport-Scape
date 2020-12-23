@@ -75,12 +75,18 @@ $(function(){
 })
 */
 $(document).ready(function(){
-    console.log("ok loaded")
-});
 
-$(function(){
-    $('#shop.html').on('load',function(e){
+    var objectsUrl = '/gameDSA/object/getListObjects';
+    var card = document.getElementById("card");
 
+    $(function(){
+        $('#shop.html').on('load',function(e){
+            $.getJSON(objectsUrl, function(data){
+                    for (var i = 0; i < data.length; i++) {
+                        card.innerHTML += '<div class="card"></div>';
+                    }
 
-    });
+            });
+
+        });
 

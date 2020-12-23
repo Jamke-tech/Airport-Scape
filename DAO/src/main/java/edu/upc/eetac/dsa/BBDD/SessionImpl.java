@@ -98,6 +98,7 @@ public class SessionImpl implements Session {
             return null;
         }
     }
+
     public Object getByNameGame(Object theObject, String name) throws SQLException {
         String selectQuery = QueryHelper.createQuerySELECTNameGame(theObject);
         PreparedStatement pstm = null;
@@ -207,11 +208,12 @@ public class SessionImpl implements Session {
         List<Object> ListObject = new ArrayList<Object>();
         try {
             pstm = conn.prepareStatement(selectQuery);
-            pstm.setObject(1, 0);
+            pstm.setObject(1, 1);
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
             while (rs.next()) {
-                User o = new User();
+                Class theClass = theObject.getClass();
+                Object o = theClass.newInstance();
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
                     ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));
                 ListObject.add(o);
@@ -220,6 +222,8 @@ public class SessionImpl implements Session {
             e.printStackTrace();
             return null;
         } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
             e.printStackTrace();
         }
         return ListObject;
@@ -235,9 +239,11 @@ public class SessionImpl implements Session {
             pstm.setObject(1, userName);
             pstm.executeQuery();
             ResultSet rs = pstm.getResultSet();
-            Class nuestraClasse = theObject.getClass();
             while (rs.next()) {
-                BuyedObject object =  new BuyedObject();// parche pq si entra algo que no es object mal !!
+                //Class theClass = Class.forName("edu.upc.eetac.dsa.model.BuyedObject");
+                Class theClass = theObject.getClass();
+                Object object = theClass.newInstance();
+                //BuyedObject object =  new BuyedObject();// parche pq si entra algo que no es object mal !!
                 for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
                     ObjectHelper.setter(object,rs.getMetaData().getColumnName(i),rs.getObject(i));
                 ListObject.add(object);
@@ -246,6 +252,8 @@ public class SessionImpl implements Session {
             e.printStackTrace();
             return null;
         } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
             e.printStackTrace();
         }
         return ListObject;
