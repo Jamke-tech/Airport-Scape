@@ -1,0 +1,233 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"BRANCH:origin/master\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </select>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2020.2.2\\plugins\\maven\\lib\\maven3\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1l0fycJ45VOD0tNbAfvO03FOXgR\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/DAO\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1606739184554</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1606739184554</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax\">\r\n      <created>1607270447456</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1607270447457</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"JavaScript login added (+ modifications on html and css)\">\r\n      <created>1607273574768</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1607273574768</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.History.Properties\">\r\n    <option name=\"COLUMN_ORDER\">\r\n      <list>\r\n        <option value=\"0\" />\r\n        <option value=\"2\" />\r\n        <option value=\"3\" />\r\n        <option value=\"1\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax\" />\r\n    <MESSAGE value=\"JavaScript login added (+ modifications on html and css)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"JavaScript login added (+ modifications on html and css)\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0888579b2285b77686868a2f2fd4dbfc0c370435)
++++ b/.idea/workspace.xml	(date 1608547129262)
+@@ -24,6 +24,11 @@
+   <component name="ChangeListManager">
+     <list default="true" id="ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f" name="Default Changelist" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -48,7 +53,7 @@
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$/DAO" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PiterArmstrong-Backend-master" />
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -101,6 +106,12 @@
+                       </list>
+                     </value>
+                   </entry>
++                </map>
++              </option>
++              <option name="COLUMN_ID_WIDTH">
++                <map>
++                  <entry key="Table.Default.Author.ColumnIdWidth" value="175" />
++                  <entry key="Table.Default.Date.ColumnIdWidth" value="174" />
+                 </map>
+               </option>
+             </State>
+Index: DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.upc.eetac.dsa.util;\r\nimport org.apache.log4j.Logger;\r\n\r\npublic class QueryHelper {\r\n    final static Logger logger = Logger.getLogger(QueryHelper.class);\r\n    public static String createQueryINSERT(Object entity) {\r\n\r\n        StringBuffer sb = new StringBuffer(\"INSERT INTO \");\r\n        sb.append(entity.getClass().getSimpleName()).append(\" \");\r\n        sb.append(\"(\");\r\n\r\n        String [] fields = ObjectHelper.getFields(entity);\r\n\r\n        String field;\r\n        int i =1;\r\n        while (i<fields.length){\r\n            field = fields[i];\r\n            if (i>1) sb.append(\", \");\r\n            sb.append(field);\r\n            i++;\r\n        }\r\n\r\n        sb.append(\") VALUES (?\");\r\n\r\n        i=2;\r\n        while (i<fields.length){\r\n            sb.append(\", ?\");\r\n            i++;\r\n        }\r\n\r\n        sb.append(\")\");\r\n        logger.info(sb.toString());\r\n        return sb.toString();\r\n    }\r\n\r\n    public static String createQuerySELECT(Object entity) {\r\n        StringBuffer sb = new StringBuffer();\r\n        sb.append(\"SELECT * FROM \").append(entity.getClass().getSimpleName());\r\n        sb.append(\" WHERE ID = ?\");\r\n\r\n        return sb.toString();\r\n    }\r\n    public static String createQuerySELECTName (Object entity){\r\n        StringBuffer sb = new StringBuffer();\r\n        sb.append(\"SELECT * FROM \").append(entity.getClass().getSimpleName());\r\n        sb.append(\" WHERE userName = ?\");\r\n\r\n        return sb.toString();\r\n\r\n    }\r\n    public static String createQuerySELECTNameGame (Object entity){\r\n        StringBuffer sb = new StringBuffer();\r\n        sb.append(\"SELECT * FROM \").append(entity.getClass().getSimpleName());\r\n        sb.append(\" WHERE name = ?\");\r\n\r\n        return sb.toString();\r\n\r\n    }\r\n    public static String createQuerySELECTAll(Object entity) {\r\n        StringBuffer sb = new StringBuffer();\r\n        sb.append(\"SELECT * FROM \").append(entity.getClass().getSimpleName());\r\n\r\n        return sb.toString();\r\n    }\r\n    public static String createQuerySELECTAllBynickName(Object entity) {\r\n        StringBuffer sb = new StringBuffer();\r\n        sb.append(\"SELECT * FROM \").append(entity.getClass().getSimpleName());\r\n        sb.append(\" WHERE nickNameBuyer = ?\");\r\n        return sb.toString();\r\n    }\r\n\r\n    public static String createQueryUPDATE(Object entity){\r\n        // FALTA CORREGIR\r\n        String [] fields = ObjectHelper.getFields(entity);\r\n        StringBuffer sb = new StringBuffer(\"UPDATE \");\r\n        sb.append(entity.getClass().getSimpleName()).append(\" \");\r\n        sb.append(\"SET \");\r\n        String field;\r\n        int i =1;\r\n        while (i<fields.length){\r\n            field = fields[i];\r\n            if (i>1) sb.append(\" = ?, \");\r\n            sb.append(field);\r\n            i++;\r\n        }\r\n        sb.append(\" = ?\");\r\n        sb.append(\" WHERE ID = ?\");\r\n\r\n        return sb.toString();\r\n    }\r\n\r\n    public static String createQueryUPDATECOMPLEX(Object entity){\r\n        // FALTA CORREGIR\r\n        String [] fields = ObjectHelper.getFields(entity);\r\n        StringBuffer sb = new StringBuffer(\"UPDATE \");\r\n        sb.append(entity.getClass().getSimpleName()).append(\" \");\r\n        sb.append(\"SET (\");\r\n        for (String field: fields) {\r\n            sb.append(field).append(\" = ?, \");\r\n        }\r\n        sb.append(\") WHERE\");\r\n        sb.append(\"? = ?\");\r\n\r\n        return sb.toString();\r\n    }\r\n\r\n    public static String createQueryDELETE(Object entity){\r\n        // FALTA CORREGIR\r\n\r\n        StringBuffer sb = new StringBuffer(\"DELETE FROM\");\r\n        sb.append(entity.getClass().getSimpleName()).append(\" \");\r\n        sb.append(\"WHERE\");\r\n        sb.append(\"?\").append(\" = \");\r\n        sb.append(\"?\").append(\" \");\r\n\r\n        return sb.toString();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java b/DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java
+--- a/DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java	(revision 0888579b2285b77686868a2f2fd4dbfc0c370435)
++++ b/DAO/src/main/java/edu/upc/eetac/dsa/util/QueryHelper.java	(date 1608545185649)
+@@ -116,4 +116,9 @@
+         return sb.toString();
+     }
+ 
++    public static String createQuerySELECTall(Class theClass) {
++        StringBuffer sb = new StringBuffer();                     //sirve para public List<Object> findAll(Class theClass)
++        sb.append("SELECT * FROM ").append(theClass.getSimpleName());
++        return sb.toString();
++    }
+ }
+Index: DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.upc.eetac.dsa.service;\r\nimport edu.upc.eetac.dsa.model.*;\r\nimport edu.upc.eetac.dsa.DAO.*;\r\n\r\nimport io.swagger.annotations.Api;\r\nimport io.swagger.annotations.ApiOperation;\r\nimport io.swagger.annotations.ApiResponse;\r\nimport io.swagger.annotations.ApiResponses;\r\n\r\n\r\nimport javax.ws.rs.*;\r\nimport javax.ws.rs.core.GenericEntity;\r\nimport javax.ws.rs.core.MediaType;\r\nimport javax.ws.rs.core.Response;\r\nimport java.sql.SQLException;\r\nimport java.util.List;\r\n\r\n@Api (value = \"/user\", description = \"Endpoint to User Service\")\r\n@Path (\"/user\")\r\n\r\npublic class UserService {\r\n\r\n    private IUserDAO u;\r\n\r\n    public UserService(){\r\n        this.u = UserDAOImpl.getInstance();\r\n\r\n    }\r\n\r\n    //OUR USER CRUD OPERATIONS\r\n    @POST\r\n    @ApiOperation(value = \"Register new USER\", notes = \"Para registrar en Android i WEB\")\r\n    @ApiResponses(value = {\r\n            @ApiResponse(code = 200, message = \"OK\", response = User.class),\r\n            @ApiResponse(code = 503, message = \"BBDD Down\"),\r\n            @ApiResponse(code = 400, message = \"NICKNAME USED\"),\r\n    })\r\n    @Path (\"/register\")\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response RegisterUser(User user) {\r\n        System.out.println(\"Registre User\");\r\n        try{\r\n            int numException = u.registerUser(user);\r\n            if (numException==0) {\r\n                return Response.status(200).entity(user).build();\r\n            }\r\n            else\r\n            {\r\n                return Response.status(400).build();\r\n            }\r\n\r\n        }\r\n        catch (Exception e){\r\n            e.printStackTrace();\r\n            return Response.status(503).build();\r\n        }\r\n    }\r\n\r\n    @POST\r\n    @ApiOperation(value = \"LOGIN USER\", notes = \"Para LOGIN Android i WEB\")\r\n    @ApiResponses(value = {\r\n            @ApiResponse(code = 200, message = \"OK\", response = User.class),\r\n            @ApiResponse(code = 401, message = \"Not Authorized\"),\r\n            @ApiResponse(code = 404, message = \"User Not Found\"),\r\n            @ApiResponse(code = 503, message = \"BBDD Down\")\r\n\r\n    })\r\n\r\n    @Path (\"/login\")\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response LoginUser(User parametrosLogIn) {\r\n        try{\r\n            int numException = u.loginUser(parametrosLogIn);\r\n            if (numException==0) {\r\n                return Response.status(200).entity(parametrosLogIn).build();\r\n            }\r\n            else if(numException==1)\r\n            {\r\n                return Response.status(401).build();\r\n            }\r\n            else\r\n            {\r\n                return Response.status(404).build();\r\n            }\r\n        }\r\n        catch (Exception e){\r\n\r\n            return Response.status(503).build();\r\n        }\r\n\r\n\r\n    }\r\n\r\n    @POST\r\n    @ApiOperation(value = \"Change Password\", notes = \"Pedir @ para cambiar el password\")\r\n    @ApiResponses(value = {\r\n            @ApiResponse(code = 200, message = \"OK\"),\r\n            @ApiResponse(code = 400, message = \"WRONG DATA\")\r\n\r\n    })\r\n\r\n    @Path(\"/changepass\")\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    public Response ChangePassword(User mail) {\r\n\r\n        return Response.status(400).build();\r\n\r\n    }\r\n\r\n    @PUT\r\n    @ApiOperation(value = \"Edit User\", notes = \"Modificar los parametros de un usaurio\")\r\n    @ApiResponses(value = {\r\n            @ApiResponse(code = 200, message = \"OK\"),\r\n            @ApiResponse(code = 503, message = \"BBDD Down\"),\r\n            @ApiResponse(code = 400, message = \"WRONG DATA\")\r\n    })\r\n    @Path(\"/edit\")\r\n    @Consumes(MediaType.APPLICATION_JSON)\r\n    public Response EditUser(User user) {\r\n\r\n        try{\r\n            int numException = u.registerUser(user);\r\n            if (numException==0) {\r\n                return Response.status(200).entity(user).build();\r\n            }\r\n            else\r\n            {\r\n                return Response.status(400).build();\r\n            }\r\n        }\r\n        catch (Exception e){\r\n\r\n            return Response.status(503).build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @ApiOperation(value = \"Obtener Datos user\", notes = \"Nos devuelve todos los datos del user\")\r\n    @ApiResponses(value = {\r\n            @ApiResponse(code = 200, message = \"OK\", response = User.class),\r\n            @ApiResponse(code = 503, message = \"BBDD Down\")\r\n\r\n    })\r\n\r\n    @Path(\"/{nickName}\")\r\n    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class user\r\n    public Response GetUser(@PathParam(\"nickName\") String userName) {\r\n        try{\r\n            User user = u.getUserByNickname(userName);\r\n            return Response.status(200).entity(user).build();\r\n        }\r\n        catch (Exception e){\r\n\r\n            return Response.status(503).build();\r\n        }\r\n    }\r\n\r\n    @GET\r\n    @ApiOperation(value = \"Get user ranking\", notes = \"\")\r\n    @ApiResponses(value = {\r\n            @ApiResponse(code = 201, message = \"Successful\", response = User.class, responseContainer=\"List\"),\r\n            @ApiResponse(code = 404, message = \"ERROR\")\r\n    })\r\n    @Path(\"/ranking\")\r\n    @Produces(MediaType.APPLICATION_JSON)\r\n    public Response getRanking() throws SQLException {\r\n        List<User> ranking = u.getListUsers();\r\n\r\n        GenericEntity<List<User>> entity = new GenericEntity<List<User>>(ranking) {};\r\n        if (ranking.size() > 0) {\r\n            return Response.status(201).entity(entity).build();\r\n        }\r\n        else\r\n            return Response.status(404).build();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java b/DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java
+--- a/DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java	(revision 0888579b2285b77686868a2f2fd4dbfc0c370435)
++++ b/DAO/src/main/java/edu/upc/eetac/dsa/service/UserService.java	(date 1608545185702)
+@@ -160,7 +160,8 @@
+     @GET
+     @ApiOperation(value = "Get user ranking", notes = "")
+     @ApiResponses(value = {
+-            @ApiResponse(code = 201, message = "Successful", response = User.class, responseContainer="List"),
++            @ApiResponse(code = 200, message = "Successful", response = User.class, responseContainer="List"),
++            @ApiResponse(code = 500, message = "Internal Server Error")
+             @ApiResponse(code = 404, message = "ERROR")
+     })
+     @Path("/ranking")
+Index: DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.upc.eetac.dsa.DAO;\r\n\r\nimport edu.upc.eetac.dsa.BBDD.FactorySession;\r\nimport edu.upc.eetac.dsa.BBDD.Session;\r\nimport edu.upc.eetac.dsa.model.User;\r\n\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.Collection;\r\nimport java.util.Collections;\r\nimport java.util.Comparator;\r\n\r\npublic class UserDAOImpl implements IUserDAO {\r\n\r\n    private static IUserDAO instance;\r\n\r\n    private UserDAOImpl() {   }\r\n\r\n    public static IUserDAO getInstance() {\r\n        if (instance==null) instance = new UserDAOImpl();\r\n        return instance;\r\n\r\n    }\r\n\r\n    public int registerUser(User user) throws SQLException {\r\n        Session session = null;\r\n        int error =-1;\r\n        try {\r\n            session = FactorySession.openSession();\r\n                int money = 1000;\r\n                user.setMoney(money);\r\n                session.save(user);\r\n                error=0;\r\n\r\n        }\r\n        catch (Exception e)\r\n        {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            if(session!=null) {\r\n                session.close();\r\n            }\r\n            return error;\r\n        }\r\n    }\r\n\r\n\r\n    public int loginUser(User userToLog) throws SQLException {\r\n        Session session = null;\r\n        int error=3;\r\n        try {\r\n            User existingUser = getUserByNickname(userToLog.getUserName());\r\n            if(existingUser!=null)//user found we must prove that the pass is the same\r\n            {\r\n                if(existingUser.getPassword().equals(userToLog.getPassword()))\r\n                {\r\n                    error = 0;\r\n                }\r\n                else\r\n                {\r\n                    error =1;\r\n                }\r\n            }\r\n            else//user not found\r\n            {\r\n                error=4;\r\n            }\r\n\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            if(session!=null) {\r\n                session.close();\r\n            }\r\n\r\n        }\r\n        return error;\r\n    }\r\n\r\n    public int updateUser(User user) throws SQLException {\r\n        Session session = null;\r\n        int error=1;\r\n        try {\r\n            session = FactorySession.openSession();\r\n            session.update(user);\r\n            error =0;\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            session.close();\r\n            return error;\r\n        }\r\n    }\r\n\r\n    public void deleteUser(User user) throws SQLException {\r\n        //User user = this.getUser(idUser);\r\n        Session session = null;\r\n        try {\r\n            session = FactorySession.openSession();\r\n            session.delete(user);\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            session.close();\r\n        }\r\n\r\n    }\r\n\r\n    public User getUserByNickname(String nameUser) throws SQLException{\r\n        Session session = null;\r\n        User user = new User();\r\n        try {\r\n            session = FactorySession.openSession();\r\n            user = (User) session.getByName(user, nameUser);\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            session.close();\r\n        }\r\n\r\n        return user;\r\n    }\r\n\r\n    public User getUserById( int idUser) throws SQLException{\r\n        Session session = null;\r\n        User user = new User();\r\n        try {\r\n            session = FactorySession.openSession();\r\n            user = (User) session.getByID(user, idUser);\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            session.close();\r\n        }\r\n\r\n        return user;\r\n    }\r\n\r\n    public int getIDByNickName (String nickName) throws SQLException{\r\n        Session session = null;\r\n        User user = new User();\r\n        try {\r\n            session = FactorySession.openSession();\r\n            user = (User) session.getByName(user, nickName);\r\n        }\r\n        catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        finally {\r\n            session.close();\r\n        }\r\n\r\n        return user.getId();\r\n\r\n    }\r\n\r\n    public ArrayList<User> getListUsers() throws SQLException{\r\n        Session session = null;\r\n        ArrayList<User> lista = null;\r\n        try{\r\n            session = FactorySession.openSession();\r\n            lista = (ArrayList<User>) session.findAll(User.class);\r\n        }\r\n        catch (Exception e){\r\n\r\n        }\r\n        finally {\r\n            session.close();\r\n        }\r\n        return lista;\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java b/DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java
+--- a/DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java	(revision 0888579b2285b77686868a2f2fd4dbfc0c370435)
++++ b/DAO/src/main/java/edu/upc/eetac/dsa/DAO/UserDAOImpl.java	(date 1608545185760)
+@@ -5,10 +5,7 @@
+ import edu.upc.eetac.dsa.model.User;
+ 
+ import java.sql.SQLException;
+-import java.util.ArrayList;
+-import java.util.Collection;
+-import java.util.Collections;
+-import java.util.Comparator;
++import java.util.*;
+ 
+ public class UserDAOImpl implements IUserDAO {
+ 
+@@ -165,12 +162,12 @@
+ 
+     }
+ 
+-    public ArrayList<User> getListUsers() throws SQLException{
++    public List<User> getListUsers() throws SQLException{
+         Session session = null;
+-        ArrayList<User> lista = null;
++        List<User> lista = null;
+         try{
+             session = FactorySession.openSession();
+-            lista = (ArrayList<User>) session.findAll(User.class);
++            lista = session.findAll(User.class);
+         }
+         catch (Exception e){
+ 
+Index: DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.upc.eetac.dsa.BBDD;\r\n\r\nimport java.sql.SQLException;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\n\r\npublic interface Session<E> {\r\n    void save(Object entity) throws SQLException;\r\n    void close() throws SQLException;\r\n    Object get(Object theClass, int ID) throws SQLException;\r\n    Object getByName(Object theClass, String name)  throws SQLException;\r\n    Object getByNameGame(Object theClass, String name)  throws SQLException;\r\n    public void update(Object object) throws SQLException;\r\n    public void updateComplex(Object object, String propertyCondition, Object valueCondition)throws SQLException;\r\n    public void delete(Object object) throws SQLException;\r\n    List<Object> findAll(Object object);\r\n    public List<Object> findAllByName(Object theObject, String userName);\r\n    List<Object> query(String query, Object object, HashMap params);\r\n    public Object getByID(Object theClass, int id) throws SQLException;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java b/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java
+--- a/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java	(revision 0888579b2285b77686868a2f2fd4dbfc0c370435)
++++ b/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/Session.java	(date 1608545185784)
+@@ -13,7 +13,8 @@
+     public void update(Object object) throws SQLException;
+     public void updateComplex(Object object, String propertyCondition, Object valueCondition)throws SQLException;
+     public void delete(Object object) throws SQLException;
+-    List<Object> findAll(Object object);
++    //List<Object> findAll(Object object);
++    List<Object> findAll(Class theClass);
+     public List<Object> findAllByName(Object theObject, String userName);
+     List<Object> query(String query, Object object, HashMap params);
+     public Object getByID(Object theClass, int id) throws SQLException;
+Index: DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.upc.eetac.dsa.BBDD;\r\n\r\nimport edu.upc.eetac.dsa.model.BuyedObject;\r\nimport edu.upc.eetac.dsa.model.Objects;\r\nimport edu.upc.eetac.dsa.model.User;\r\nimport edu.upc.eetac.dsa.util.ObjectHelper;\r\nimport edu.upc.eetac.dsa.util.QueryHelper;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.HashMap;\r\nimport java.util.List;\r\n\r\n\r\npublic class SessionImpl implements Session {\r\n    private final Connection conn;\r\n\r\n    public SessionImpl(Connection conn) {\r\n        this.conn = conn;\r\n    }\r\n\r\n    public void save(Object entity)  throws SQLException{\r\n\r\n        String insertQuery = QueryHelper.createQueryINSERT(entity);\r\n\r\n        PreparedStatement pstm = null;\r\n        try {\r\n            pstm = conn.prepareStatement(insertQuery);\r\n            String field;\r\n            int i = 1;\r\n            while (i < ObjectHelper.getFields(entity).length) {\r\n                field = ObjectHelper.getFields(entity)[i];\r\n                pstm.setObject(i++, ObjectHelper.getter(entity, field));\r\n            }\r\n\r\n            pstm.executeQuery();\r\n        }\r\n        catch (IllegalAccessException e)\r\n        {\r\n            e.printStackTrace();\r\n        }\r\n\r\n\r\n\r\n\r\n    }\r\n\r\n    public void close() throws SQLException {\r\n        //FALTA POR CORREGIR\r\n        conn.close();\r\n    }\r\n\r\n    public Object get(Object theObject, int ID) {\r\n        //FALTA POR CORREGIR\r\n        String selectQuery = QueryHelper.createQuerySELECT(theObject);\r\n        PreparedStatement pstm = null;\r\n        try {\r\n            pstm = conn.prepareStatement(selectQuery);\r\n            pstm.setObject(1, ID);\r\n            pstm.executeQuery();\r\n            ResultSet rs = pstm.getResultSet();\r\n            if (rs.next()){\r\n\r\n                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)\r\n                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));\r\n            }\r\n            return theObject;\r\n\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        } catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public Object getByName(Object theObject, String name) throws SQLException {\r\n        String selectQuery = QueryHelper.createQuerySELECTName(theObject);\r\n        PreparedStatement pstm = null;\r\n        try {\r\n            pstm = conn.prepareStatement(selectQuery);\r\n            pstm.setObject(1, name);\r\n            pstm.executeQuery();\r\n            ResultSet rs = pstm.getResultSet();\r\n            if (rs.next()){\r\n                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)\r\n                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));\r\n            }\r\n            return theObject;\r\n\r\n        }  catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        }\r\n    }\r\n    public Object getByNameGame(Object theObject, String name) throws SQLException {\r\n        String selectQuery = QueryHelper.createQuerySELECTNameGame(theObject);\r\n        PreparedStatement pstm = null;\r\n        try {\r\n            pstm = conn.prepareStatement(selectQuery);\r\n            pstm.setObject(1, name);\r\n            pstm.executeQuery();\r\n            ResultSet rs = pstm.getResultSet();\r\n            if (rs.next()){\r\n                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)\r\n                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));\r\n            }\r\n            return theObject;\r\n\r\n        }  catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        }\r\n    }\r\n\r\n    public Object getByID(Object theObject, int id) throws SQLException {\r\n        String selectQuery = QueryHelper.createQuerySELECT(theObject);\r\n        PreparedStatement pstm = null;\r\n        try {\r\n            pstm = conn.prepareStatement(selectQuery);\r\n            pstm.setObject(1, id);\r\n            pstm.executeQuery();\r\n            ResultSet rs = pstm.getResultSet();\r\n            if (rs.next()){\r\n                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)\r\n                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));\r\n            }\r\n            return theObject;\r\n\r\n        }  catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        }\r\n    }\r\n\r\n    public void update(Object object) throws SQLException {\r\n        String updateQuery = QueryHelper.createQueryUPDATE(object);\r\n\r\n        PreparedStatement pstm = null;\r\n\r\n        try {\r\n            pstm = conn.prepareStatement(updateQuery);\r\n            String field;\r\n            int i =1;\r\n            while (i<ObjectHelper.getFields(object).length){\r\n                field = ObjectHelper.getFields(object)[i];\r\n                pstm.setObject(i++, ObjectHelper.getter(object, field));\r\n            }\r\n            pstm.setObject(i++, ObjectHelper.getter(object, ObjectHelper.getFields(object)[0]));\r\n            pstm.executeQuery();\r\n\r\n        }  catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void updateComplex(Object object, String propertyCondition, Object valueCondition) throws SQLException{\r\n        //FALTA POR CORREGIR\r\n        String updateQuery = QueryHelper.createQueryUPDATECOMPLEX(object);\r\n        PreparedStatement pstm = null;\r\n        try {\r\n            pstm = conn.prepareStatement(updateQuery);\r\n            pstm.setObject(1, 0);\r\n            int i = 2;\r\n\r\n            for (String field: ObjectHelper.getFields(object)) {\r\n                pstm.setObject(i++, ObjectHelper.getter(object, field));\r\n            }\r\n            pstm.setObject(i, propertyCondition);\r\n            pstm.setObject(i+1, valueCondition);\r\n            pstm.executeQuery();\r\n\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n        } catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n    }\r\n\r\n    public void delete(Object object) throws SQLException {\r\n        //FALTA POR CORREGIR\r\n        String deleteQuery = QueryHelper.createQueryDELETE(object);\r\n        PreparedStatement pstm = null;\r\n\r\n        try {\r\n            int ID = ObjectHelper.getId(object);\r\n            pstm = conn.prepareStatement(deleteQuery);\r\n            pstm.setObject(1, \"ID\");\r\n            pstm.setObject(2, ID);\r\n            pstm.executeQuery();\r\n\r\n        } catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n    }\r\n\r\n    public List<Object> findAll(Object theObject) {\r\n        String selectQuery = QueryHelper.createQuerySELECTAll(theObject);\r\n        PreparedStatement pstm = null;\r\n        List<Object> ListObject = new ArrayList<Object>();\r\n        try {\r\n            pstm = conn.prepareStatement(selectQuery);\r\n            pstm.setObject(1, 0);\r\n            pstm.executeQuery();\r\n            ResultSet rs = pstm.getResultSet();\r\n            while (rs.next()) {\r\n                User o = new User();\r\n                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)\r\n                    ObjectHelper.setter(o,rs.getMetaData().getColumnName(i),rs.getObject(i));\r\n                ListObject.add(o);\r\n            }\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        } catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n        }\r\n        return ListObject;\r\n    }\r\n\r\n    @Override\r\n    public List<Object> findAllByName(Object theObject, String userName) {\r\n        String selectQuery = QueryHelper.createQuerySELECTAllBynickName(theObject);\r\n        PreparedStatement pstm = null;\r\n        List<Object> ListObject = new ArrayList<Object>();\r\n        try {\r\n            pstm = conn.prepareStatement(selectQuery);\r\n            pstm.setObject(1, userName);\r\n            pstm.executeQuery();\r\n            ResultSet rs = pstm.getResultSet();\r\n            Class nuestraClasse = theObject.getClass();\r\n            while (rs.next()) {\r\n                BuyedObject object =  new BuyedObject();// parche pq si entra algo que no es object mal !!\r\n                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)\r\n                    ObjectHelper.setter(object,rs.getMetaData().getColumnName(i),rs.getObject(i));\r\n                ListObject.add(object);\r\n            }\r\n        } catch (SQLException e) {\r\n            e.printStackTrace();\r\n            return null;\r\n        } catch (IllegalAccessException e) {\r\n            e.printStackTrace();\r\n        }\r\n        return ListObject;\r\n    }\r\n\r\n    public List<Object> query(String query, Object theObject, HashMap params) {\r\n\r\n\r\n        return null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java b/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java
+--- a/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java	(revision 0888579b2285b77686868a2f2fd4dbfc0c370435)
++++ b/DAO/src/main/java/edu/upc/eetac/dsa/BBDD/SessionImpl.java	(date 1608545185856)
+@@ -6,10 +6,9 @@
+ import edu.upc.eetac.dsa.util.ObjectHelper;
+ import edu.upc.eetac.dsa.util.QueryHelper;
+ 
+-import java.sql.Connection;
+-import java.sql.PreparedStatement;
+-import java.sql.ResultSet;
+-import java.sql.SQLException;
++import java.lang.reflect.Field;
++import java.lang.reflect.InvocationTargetException;
++import java.sql.*;
+ import java.util.ArrayList;
+ import java.util.HashMap;
+ import java.util.List;
+@@ -199,9 +198,57 @@
+             e.printStackTrace();
+         }
+ 
++    }
++
++    @Override
++    public List<Object> findAll(Class theClass) {
++        String findAllQuery = QueryHelper.createQuerySELECTall(theClass);
++
++        Object entity = null;
++        List<Object> listOfObjects = new ArrayList<Object>();
++
++        try {
++            entity = theClass.getDeclaredConstructor().newInstance();
++        } catch (InstantiationException e) {
++            e.printStackTrace();
++        } catch (IllegalAccessException e) {
++            e.printStackTrace();
++        } catch (InvocationTargetException e) {  //excepcion para newInstance
++            e.printStackTrace();
++        } catch (NoSuchMethodException e) {   //excepción para el getDeclaredConstructor
++            e.printStackTrace();
++        }
++        ResultSet rs = null;
++        PreparedStatement pstm = null;
++
++        try {
++            pstm = conn.prepareStatement(findAllQuery);
++            rs = pstm.executeQuery();
++
++            while (rs.next()) {   //recorre cada fila
++                Field[] fields = theClass.getDeclaredFields();
++                rs.getString(1);     //te da el id que esta en la columna 1
++                for (int i = 0; i < fields.length; i++) {
++                    ObjectHelper.setter(entity, fields[i].getName(), rs.getObject(i + 2));   // "i" lo hemos inicializado a 0
++                }                                                                             // por tanto ponemos i +2 que sera la siquiente columna 2, 3, ...
++                listOfObjects.add(entity);
++                entity = theClass.getDeclaredConstructor().newInstance();
++            }
++        } catch (SQLException e) {
++            e.printStackTrace();
++        } catch (IllegalAccessException e) {
++            e.printStackTrace();
++        } catch (InvocationTargetException e) {
++            e.printStackTrace();
++        } catch (InstantiationException e) {
++            e.printStackTrace();
++        } catch (NoSuchMethodException e) {
++            e.printStackTrace();
++        }
++        return listOfObjects;
+     }
+ 
+-    public List<Object> findAll(Object theObject) {
++/*    public List<Object> findAll(Object theObject) {
+         String selectQuery = QueryHelper.createQuerySELECTAll(theObject);
+         PreparedStatement pstm = null;
+         List<Object> ListObject = new ArrayList<Object>();
+@@ -224,6 +271,7 @@
+         }
+         return ListObject;
+     }
++*/
+ 
+     @Override
+     public List<Object> findAllByName(Object theObject, String userName) {
