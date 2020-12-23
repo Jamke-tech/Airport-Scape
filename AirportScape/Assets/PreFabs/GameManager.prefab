@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785ccc3f2d371d547b638f2ca4624b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 20
   columns: 40
+  rows: 20
   floorTiles:
   - {fileID: 5957757960710327514, guid: 6063f31639c66bc48844b98bfd8af1cf, type: 3}
   perimetralFloor:
@@ -86,7 +86,13 @@ MonoBehaviour:
   benchVertical: {fileID: 4268429523090625992, guid: 94edfbe8d66322a4a8ebe10458b26709,
     type: 3}
   bin: {fileID: 3578771030783471998, guid: b6ae01fb16ab42f4891e3d98563fed76, type: 3}
-  playerdisplayed: {fileID: 0}
+  arrivals: {fileID: 3533039892363325905, guid: b267f878ae44eb54393442ac012c0409,
+    type: 3}
+  departures: {fileID: 7823446216572732656, guid: 52185ff8b17150c4a9dc0f6db385bde0,
+    type: 3}
+  baggage: {fileID: 3604845925486744525, guid: 3477eeefabd84794ebba183891082e08, type: 3}
+  companys:
+  - {fileID: 3692176098876694997, guid: 4123d3b3eb5934348b1d20224869e598, type: 3}
   cleanerCount:
     minimum: 1
     maximum: 1

@@ -18,6 +18,8 @@ public class Cleaner : MonoBehaviour
     public int velocidad;
     public string[] movements = { "right", "up", "left", "down" };
     public int pos = 0;
+    public int damage;
+
 
      // Start is called before the first frame update
     void Start()
@@ -31,81 +33,56 @@ public class Cleaner : MonoBehaviour
         DirY = 0;//No nos moveremos en eje vertical
 
         inverseMoveTime = 1f / moveTime;
-        velocidad = 15;
+        velocidad = Random.Range(15,25); // velocidad del personaje
+        PlayerTimeReduction = 20; // definicion del timepo que hace perder la cleaner
+        damage = 1; // tiempo que nos saca si xocamos con ella o ella con nosotros
     }
  
     
     public void MoveCleaner(  )
        
     {
-        Vector2 start = transform.position;
-        Vector2 end = start + new Vector2(DirX, DirY);
-        boxCollider.enabled = false;
-        hit = Physics2D.Linecast(start, end, blockingLayer);
-        boxCollider.enabled = true;
-
-        if (hit.transform == null)//mirem si hem xocat
+        /*if (pos == movements.Length)
         {
-            StartCoroutine(Movement(new Vector3(DirX, DirY, 0f)));
-
+            pos = 0;
+        }
+        string direction = movements[pos];
+        if (direction == "right")
+        {
+            DirX = 1;
+            DirY = 0;
+        }
+        else if (direction == "up")
+        {
+            DirX = 0;
+            DirY = 1;
+        }
+        else if (direction == "left")
+        {
+            DirX = -1;
+            DirY = 0;
         }
         else
         {
-            if (pos == movements.Length)
-            {
-                pos = 0;
-            }
-            string direction = movements[pos];
-            if (direction == "right")
-            {
-                DirX = 1;
-                DirY = 0;
-            }
-            else if(direction =="up")
-            {
-                DirX = 0;
-                DirY = 1;
-            }
-            else if(direction=="left")
-            {
-                DirX = -1;
-                DirY = 0;
-            }
-            else
-            {
-                DirX = 0;
-                DirY = -1;
-            }
-            pos = Random.Range(0, 4);
-        }
+            DirX = 0;
+            DirY = -1;
+        }*/
+        StartCoroutine(Movement(new Vector3(DirX, DirY, 0f)));
+
+
         
     }
+
     protected IEnumerator Movement(Vector3 inputplayer)
     {
         rb2D.MovePosition(GetComponent<Transform>().position + inputplayer * velocidad * Time.deltaTime);
         yield return null;
     }
-
-    protected IEnumerator SmoothMovement(Vector3 end)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-        while (sqrRemainingDistance > float.Epsilon)
-        {
-            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
-            rb2D.MovePosition(newPosition);
-            sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-            yield return null; // ens esperem un frame per fer la modificacio de la posicio
-        }
+        DirX = DirX*-1;
     }
 
-    void OnCollisionEnter2D (Collision2D collision)
-    {
-        if(collision.gameObject.tag == "PlayerController")
-        {
-            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-            player.LooseTime(PlayerTimeReduction);
-        }
-    }
 
 
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4525100003942338454}
   m_Layer: 8
   m_Name: Shopper
-  m_TagString: Enemy
+  m_TagString: Shopper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

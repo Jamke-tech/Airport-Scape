@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MovingObject
+public class PlayerController : MonoBehaviour
 {
     public int timeRemaining;
-
-
     private Animator animator;
-    
-    
+    RaycastHit2D hit;
+    public float moveTime = 0.1f;
+    public int velocidad;
+    public LayerMask blockinLayer; // per veure si el espai on ens movem esta ocupat o no 
+
+    private BoxCollider2D boxCollider;
+    private Rigidbody2D rb2D;
+    private float inverseMoveTime;
+
     // Start is called before the first frame update
-    protected override void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
         timeRemaining = GameManager.instance.playerTime;
-        base.Start();
+        boxCollider = GetComponent<BoxCollider2D>();
+        rb2D = GetComponent<Rigidbody2D>();
+        inverseMoveTime = 1f / moveTime;
+        velocidad = 5;
     }
 
     private void OnDisable()
@@ -26,7 +34,7 @@ public class PlayerController : MovingObject
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         int horizontal = 0;
         int vertical = 0;
@@ -40,7 +48,12 @@ public class PlayerController : MovingObject
                 vertical = 0;
             if (vertical != 0)
                 horizontal = 0;
-            AttemptMove(horizontal, vertical);
+
+            StartCoroutine(Movement(new Vector3(horizontal, vertical, 0f)));
+
+            /*Move(horizontal, vertical);
+            if (hit.transform != null)
+                Touch(hit);*/
         }
 
         //fEM SALTAR ELS TRIGGERS PER LES ANIMACIONS DEL PERSONATGE
@@ -86,14 +99,63 @@ public class PlayerController : MovingObject
 
 
     }
-
-    public void LooseTime(int timeLost)
+    public RaycastHit2D Move(int xDir, int yDir)
     {
-        timeRemaining = timeRemaining - timeLost;
-        //Saltar animacion de daño
-        Debug.Log("AUCH");
+        Vector2 start = transform.position;
+        Vector2 end = start + new Vector2(xDir*0.6f, yDir*0.6f);
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(start, end, blockinLayer);
+        boxCollider.enabled = true;
+
+        if (hit.transform == null)//mirem si hem xocat
+        {
+            StartCoroutine(Movement(new Vector3(xDir, yDir, 0f)));
+            return hit;
+        }
+        return hit;
     }
 
+    protected IEnumerator Movement(Vector3 inputplayer)
+    {
+        rb2D.MovePosition(GetComponent<Transform>().position + inputplayer * velocidad * Time.deltaTime);
 
+        yield return null;
+    }
+    /*public void Touch(RaycastHit2D hit)
+    {
+        if (hit.collider.tag == "Enemy")
+        {
+            LooseTime(hit.collider.damage);
+        }
+            
+
+            Debug.Log(hit.collider.name);
+    }*/
+    public void LooseTime(int timeLost)
+    {
+        GameManager.instance.playerTime = GameManager.instance.playerTime - timeLost;
+        //Saltar animacion de daño
+        Debug.Log(GameManager.instance.playerTime);
+    }
+
+    void OnCollisionEnter2D (Collision2D collision)
+    {
+
+        if(collision.gameObject.tag == "Cleaner")
+        {
+            LooseTime(10);//Daño de la limpieza
+        }
+        if(collision.gameObject.tag == "Thief")
+        {
+            //nos roba algo del inventario
+        }
+        if (collision.gameObject.tag == "Shopper")
+
+        {
+            //Nos hace perder mucho tiempo y podemos hacer que salgo algo de texto
+
+
+        }
+    }
 
 }
