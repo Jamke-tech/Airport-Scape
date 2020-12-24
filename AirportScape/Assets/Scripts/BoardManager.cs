@@ -34,12 +34,18 @@ public class BoardManager : MonoBehaviour
     public GameObject departures;
     public GameObject baggage;
     public GameObject[] companys;
+    public GameObject secretWall;
+    public GameObject fence;
 
-    public Count cleanerCount = new Count(2, 2);
+    private GameObject mainCamera;
 
     private Transform boardHolder;
     private List<Vector3> gridPositionsCleanerPart1 = new List<Vector3>(); //To places the tiles
-
+    public void Start()
+    {
+        //Buscamos la camara principal para asi poder assignar el personaje
+        mainCamera = GameObject.FindWithTag("MainCamera");
+    }
 
 
     void BoardSetup()
@@ -48,39 +54,28 @@ public class BoardManager : MonoBehaviour
         ObjectFactory.AddComponent<CompositeCollider2D>(board);
         boardHolder = board.transform;
         boardHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-
+        GameObject playerinstance = new GameObject("Player");
         String mapa = "40 20\r\n"
         + "########################################\r\n"
-        + "#        a          i                  #\r\n"
-        + "#                                      #\r\n"
-        + "#C                 pp                  #\r\n"
-        + "#                  VV                  #\r\n"
-        + "#                  VV                  #\r\n"
-        + "#          d       VV                  #\r\n"
-        + "#C                 bV                  #\r\n"
-        + "#                 Cpp                  #\r\n"
-        + "#                                      #\r\n"
-        + "#         a                            #\r\n"
-        + "#                                      #\r\n"
-        + "#                  bpb                 #\r\n"
-        + "# B B B B B B   B  V V                 #\r\n"
-        + "# C                                    #\r\n"
-        + "# B B B   B B B B  V V                 #\r\n"
-        + "#C   I                                 #\r\n"
-        + "# B B B B B B B B  V V                 #\r\n"
-        + "#                                      #\r\n"
+        + "#        a          S                  #\r\n"
+        + "#                   #                  #\r\n"
+        + "#C                 V#V                 #\r\n"
+        + "#                   #                  #\r\n"
+        + "#                  V#V                 #\r\n"
+        + "#                   #                  #\r\n"
+        + "#C                 b#V          I      #\r\n"
+        + "#                 Cp#p                 #\r\n"
+        + "#                   #vvvvvvvvvvv  vvvvv#\r\n"
+        + "#                   #                  #\r\n"
+        + "#                   #                  #\r\n"
+        + "#                 Cb#b                 #\r\n"
+        + "# B B B B B B   B  V#V                 #\r\n"
+        + "#           C       #                  #\r\n"
+        + "# B B B   B B B B  V#V                 #\r\n"
+        + "#C                  #                  #\r\n"
+        + "# B B B B B B B B  V#V                 #\r\n"
+        + "#                   #                  #\r\n"
         + "########################################\r\n";
-        /*String mapa = "10 10\r\n"
-             + "##########\r\n"
-             + "#p       #\r\n"
-             + "# B      #\r\n"
-             + "#  V     #\r\n"
-             + "# p      #\r\n"
-             + "#  p    C#\r\n"
-             + "#   p    #\r\n"
-             + "#    p   #\r\n"
-             + "#I    p  #\r\n"
-             + "##########\r\n"; //mapa*/
 
         mapa = mapa.Replace("\r\n", "\n");
         String[] maplines = mapa.Split('\n');
@@ -99,6 +94,16 @@ public class BoardManager : MonoBehaviour
                         GameObject toInstantiate = externalWalls[Random.Range(0, externalWalls.Length)];
                         GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
                         instance.transform.SetParent(boardHolder);
+                        break;
+                    case 'S': //instanciamos una external wall secreta para mover
+                        GameObject instanceSecretWall = Instantiate(secretWall, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instanceSecretWall.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'v': //instanciamos una fence de cristal
+                        GameObject instancefence = Instantiate(fence, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instancefence.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
                         break;
                     case 'b'://papelera
 
@@ -153,7 +158,7 @@ public class BoardManager : MonoBehaviour
                         intantiateFloor(x, rows - y, rows, columns);
                         break;
                     case 'I': //Inicio del Jugador                       
-                        GameObject instance11 = Instantiate(playerSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        playerinstance = Instantiate(playerSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
                         intantiateFloor(x, rows - y, rows, columns);
 
                         break;
@@ -166,6 +171,13 @@ public class BoardManager : MonoBehaviour
 
 
         }
+        //Añadimos la camara de seguimiento del personage.
+
+        CameraFollow camerascript = mainCamera.GetComponent<CameraFollow>();
+        camerascript.following = playerinstance;
+        //GameObject camerainstance =Instantiate(mainCamera, new Vector3(playerinstance.transform.position.x, playerinstance.transform.position.y, -10f), Quaternion.identity);
+        
+
     }
 
     public void intantiateFloor(int x, int y, int rows, int columns)

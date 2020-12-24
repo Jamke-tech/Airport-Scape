@@ -93,6 +93,6 @@ MonoBehaviour:
   baggage: {fileID: 3604845925486744525, guid: 3477eeefabd84794ebba183891082e08, type: 3}
   companys:
   - {fileID: 3692176098876694997, guid: 4123d3b3eb5934348b1d20224869e598, type: 3}
-  cleanerCount:
-    minimum: 1
-    maximum: 1
+  secretWall: {fileID: 5432660658672684247, guid: f1395e7d21b40fd47b8c8b6071d6c77b,
+    type: 3}
+  fence: {fileID: 7955030711698851217, guid: 2ee79e6f208c4754bba9aa5d44f66f9a, type: 3}

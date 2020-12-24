@@ -19,11 +19,13 @@ public class Cleaner : MonoBehaviour
     public string[] movements = { "right", "up", "left", "down" };
     public int pos = 0;
     public int damage;
+    private Animator animator;
 
 
-     // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
         GameManager.instance.AddCleanerToList(this);
@@ -39,38 +41,21 @@ public class Cleaner : MonoBehaviour
     }
  
     
-    public void MoveCleaner(  )
-       
+    public void MoveCleaner(  )  
     {
-        /*if (pos == movements.Length)
+        if (DirX < 0)
         {
-            pos = 0;
-        }
-        string direction = movements[pos];
-        if (direction == "right")
-        {
-            DirX = 1;
-            DirY = 0;
-        }
-        else if (direction == "up")
-        {
-            DirX = 0;
-            DirY = 1;
-        }
-        else if (direction == "left")
-        {
-            DirX = -1;
-            DirY = 0;
+            animator.SetBool("Left", true);
+            animator.SetBool("Right", false);
         }
         else
         {
-            DirX = 0;
-            DirY = -1;
-        }*/
+            animator.SetBool("Left", false);
+            animator.SetBool("Right", true);
+
+        }
         StartCoroutine(Movement(new Vector3(DirX, DirY, 0f)));
 
-
-        
     }
 
     protected IEnumerator Movement(Vector3 inputplayer)
