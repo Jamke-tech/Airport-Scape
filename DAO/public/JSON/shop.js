@@ -82,11 +82,29 @@ $(document).ready(function(){
     $(function(){
         $('#shop.html').on('load',function(e){
             $.getJSON(objectsUrl, function(data){
-                    for (var i = 0; i < data.length; i++) {
-                        card.innerHTML += '<div class="card"></div>';
+                    for (var i = 0; i < data.length; i++){
+                      var data = data[i]; // shorthand reference
+
+                      $('<div>')
+                        .addClass('card') // css classes
+                        .append(
+                          $('<span>').addClass('price').text(data[i].price),
+                          $('<span>').addClass('state').text(data[i].bag),
+                          $('<img>').attr({'src':data[i].urlImage,'alt':''}),
+                          $('<div>').addClass('card-info').append(
+                            $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(data[i].name),
+                            $('<p>').addClass('has-text-centered').text(data[i].description),
+                            $('<div>').addClass('card-buttons').append(
+                              $('<button>').prop('id','buttonBuy'+i).text().addClass('button')
+                            ),
+                          )
+                        )
+
+                        .appendTo('#column is-half column-full'); // add it to #column is-half column-full
                     }
 
             });
 
         });
+    })
 
