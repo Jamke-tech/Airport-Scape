@@ -13,15 +13,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 6
-  lastUpdatedAtString: 2020-12-27T11:55:23.917+01:00
-  initializedAtString: 2020-12-27T11:54:57.771+01:00
+  lastUpdatedAtString: 2020-12-27T12:25:07.377+01:00
+  initializedAtString: 2020-12-27T12:25:07.377+01:00
   entries:
-  - path: AirportScape\Library\gfu\cache\branches.yaml
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\gfu\cache\branches.yaml
-    projectPath: Library\gfu\cache\branches.yaml
+  - path: AirportScape\Library\ArtifactDB
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ArtifactDB
+    projectPath: Library\ArtifactDB
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
+  - path: AirportScape\Library\CurrentLayout-default.dwlt
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\CurrentLayout-default.dwlt
+    projectPath: Library\CurrentLayout-default.dwlt
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: AirportScape\Library\EditorInstance.json
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\EditorInstance.json
+    projectPath: Library\EditorInstance.json
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
   - path: AirportScape\Library\gfu\cache\gitlocks.yaml
     fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\gfu\cache\gitlocks.yaml
     projectPath: Library\gfu\cache\gitlocks.yaml
@@ -46,9 +58,39 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
+  - path: AirportScape\Library\SceneVisibilityState.asset
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\SceneVisibilityState.asset
+    projectPath: Library\SceneVisibilityState.asset
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: AirportScape\Library\ScriptAssemblies\Assembly-CSharp.dll
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ScriptAssemblies\Assembly-CSharp.dll
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: AirportScape\Library\ScriptAssemblies\Assembly-CSharp.pdb
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ScriptAssemblies\Assembly-CSharp.pdb
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.pdb
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
   - path: AirportScape\Library\shadercompiler-UnityShaderCompiler.exe0.log
     fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\shadercompiler-UnityShaderCompiler.exe0.log
     projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: AirportScape\Library\SourceAssetDB
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\SourceAssetDB
+    projectPath: Library\SourceAssetDB
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: AirportScape\Packages\packages-lock.json
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Packages\packages-lock.json
+    projectPath: Packages\packages-lock.json
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
@@ -58,189 +100,9 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-046f34cb4886aab40b84138f16f411fb
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-046f34cb4886aab40b84138f16f411fb
-    projectPath: Temp\UnityTempFile-046f34cb4886aab40b84138f16f411fb
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-0479cea008bc76d4983c477c935fe33f
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-0479cea008bc76d4983c477c935fe33f
-    projectPath: Temp\UnityTempFile-0479cea008bc76d4983c477c935fe33f
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-0c75f4db3b7f17845a02df2b49fb9bd7
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-0c75f4db3b7f17845a02df2b49fb9bd7
-    projectPath: Temp\UnityTempFile-0c75f4db3b7f17845a02df2b49fb9bd7
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-1761064892ad70a428c9ac209866bb24
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-1761064892ad70a428c9ac209866bb24
-    projectPath: Temp\UnityTempFile-1761064892ad70a428c9ac209866bb24
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-2102fed1fafd2744caa7565e601b1501
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-2102fed1fafd2744caa7565e601b1501
-    projectPath: Temp\UnityTempFile-2102fed1fafd2744caa7565e601b1501
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-32942e2e3924f2f48ab6366cfbb69169
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-32942e2e3924f2f48ab6366cfbb69169
-    projectPath: Temp\UnityTempFile-32942e2e3924f2f48ab6366cfbb69169
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-42c7330477dba0246856a753c9077bf2
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-42c7330477dba0246856a753c9077bf2
-    projectPath: Temp\UnityTempFile-42c7330477dba0246856a753c9077bf2
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-545c4df12bf29d44789a568a0d52596a
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-545c4df12bf29d44789a568a0d52596a
-    projectPath: Temp\UnityTempFile-545c4df12bf29d44789a568a0d52596a
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-551675c6ba71f1c4b97abcc13c035eec
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-551675c6ba71f1c4b97abcc13c035eec
-    projectPath: Temp\UnityTempFile-551675c6ba71f1c4b97abcc13c035eec
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-587d47fe2e626ca4b931db1cd41ee260
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-587d47fe2e626ca4b931db1cd41ee260
-    projectPath: Temp\UnityTempFile-587d47fe2e626ca4b931db1cd41ee260
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-58835fba43eb6894a8a1246bd2980d80
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-58835fba43eb6894a8a1246bd2980d80
-    projectPath: Temp\UnityTempFile-58835fba43eb6894a8a1246bd2980d80
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-5b4a4ea259be8da42941c336bc2d2b95
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-5b4a4ea259be8da42941c336bc2d2b95
-    projectPath: Temp\UnityTempFile-5b4a4ea259be8da42941c336bc2d2b95
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-60ab94da13876c8458a5d5a7c39d4114
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-60ab94da13876c8458a5d5a7c39d4114
-    projectPath: Temp\UnityTempFile-60ab94da13876c8458a5d5a7c39d4114
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-61f336b0055efd540b862ac674e7c594
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-61f336b0055efd540b862ac674e7c594
-    projectPath: Temp\UnityTempFile-61f336b0055efd540b862ac674e7c594
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-63a5346b4bd8d104b9f4702591ff428e
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-63a5346b4bd8d104b9f4702591ff428e
-    projectPath: Temp\UnityTempFile-63a5346b4bd8d104b9f4702591ff428e
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-66b5fa20d583e9c4599651a138ca980f
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-66b5fa20d583e9c4599651a138ca980f
-    projectPath: Temp\UnityTempFile-66b5fa20d583e9c4599651a138ca980f
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-66f3d40ff9f23ed4783e6162c9020bc3
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-66f3d40ff9f23ed4783e6162c9020bc3
-    projectPath: Temp\UnityTempFile-66f3d40ff9f23ed4783e6162c9020bc3
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-6f32d78e3eb891444be89bb63c6ed51f
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-6f32d78e3eb891444be89bb63c6ed51f
-    projectPath: Temp\UnityTempFile-6f32d78e3eb891444be89bb63c6ed51f
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-75ec2595f36811b4db74a03544d1414b
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-75ec2595f36811b4db74a03544d1414b
-    projectPath: Temp\UnityTempFile-75ec2595f36811b4db74a03544d1414b
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-7a0585b477f62d44a8fdaf45cff157af
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-7a0585b477f62d44a8fdaf45cff157af
-    projectPath: Temp\UnityTempFile-7a0585b477f62d44a8fdaf45cff157af
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-82af3aa99779a0948b08abb3319ed366
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-82af3aa99779a0948b08abb3319ed366
-    projectPath: Temp\UnityTempFile-82af3aa99779a0948b08abb3319ed366
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-87e6056b9553cdc41811d467cf60390f
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-87e6056b9553cdc41811d467cf60390f
-    projectPath: Temp\UnityTempFile-87e6056b9553cdc41811d467cf60390f
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-8c6f50e9512e56c439cbc077400d0289
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-8c6f50e9512e56c439cbc077400d0289
-    projectPath: Temp\UnityTempFile-8c6f50e9512e56c439cbc077400d0289
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-9013d633825783d4ba6b5ee8b40e4660
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-9013d633825783d4ba6b5ee8b40e4660
-    projectPath: Temp\UnityTempFile-9013d633825783d4ba6b5ee8b40e4660
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-927b0a7e5bc86294389148d15e5b600b
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-927b0a7e5bc86294389148d15e5b600b
-    projectPath: Temp\UnityTempFile-927b0a7e5bc86294389148d15e5b600b
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-92b2ad97872100940a909bdc77a368b6
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-92b2ad97872100940a909bdc77a368b6
-    projectPath: Temp\UnityTempFile-92b2ad97872100940a909bdc77a368b6
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-988bc5d93b8439646a5ea2e0bb4372f6
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-988bc5d93b8439646a5ea2e0bb4372f6
-    projectPath: Temp\UnityTempFile-988bc5d93b8439646a5ea2e0bb4372f6
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-9c9296d4e7717754ea382e4df9bf408a
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-9c9296d4e7717754ea382e4df9bf408a
-    projectPath: Temp\UnityTempFile-9c9296d4e7717754ea382e4df9bf408a
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-a67145fae5f72de46b7a166bd8188f8d
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-a67145fae5f72de46b7a166bd8188f8d
-    projectPath: Temp\UnityTempFile-a67145fae5f72de46b7a166bd8188f8d
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-ad7bd78a27bfb0b429b39a6c462f6275
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-ad7bd78a27bfb0b429b39a6c462f6275
-    projectPath: Temp\UnityTempFile-ad7bd78a27bfb0b429b39a6c462f6275
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Temp\UnityTempFile-eddb8666b675e374db5f0c093f6bf6cf
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-eddb8666b675e374db5f0c093f6bf6cf
-    projectPath: Temp\UnityTempFile-eddb8666b675e374db5f0c093f6bf6cf
+  - path: AirportScape\Temp\UnityTempFile-4c5be29245a79f14faa16674da699d90
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-4c5be29245a79f14faa16674da699d90
+    projectPath: Temp\UnityTempFile-4c5be29245a79f14faa16674da699d90
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
