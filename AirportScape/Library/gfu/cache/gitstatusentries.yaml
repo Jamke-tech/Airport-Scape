@@ -13,30 +13,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 6
-  lastUpdatedAtString: 2020-12-27T12:25:07.377+01:00
+  lastUpdatedAtString: 2020-12-27T12:31:44.913+01:00
   initializedAtString: 2020-12-27T12:25:07.377+01:00
   entries:
-  - path: AirportScape\Library\ArtifactDB
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ArtifactDB
-    projectPath: Library\ArtifactDB
+  - path: AirportScape\Assets\Scripts\Thief.cs
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Assets\Scripts\Thief.cs
+    projectPath: Assets\Scripts\Thief.cs
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: AirportScape\Library\CurrentLayout-default.dwlt
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\CurrentLayout-default.dwlt
-    projectPath: Library\CurrentLayout-default.dwlt
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: AirportScape\Library\EditorInstance.json
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\EditorInstance.json
-    projectPath: Library\EditorInstance.json
+  - path: AirportScape\Library\Artifacts\ac\ac50ee09994987400445e28dd7345e5d
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\Artifacts\ac\ac50ee09994987400445e28dd7345e5d
+    projectPath: Library\Artifacts\ac\ac50ee09994987400445e28dd7345e5d
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
+  - path: AirportScape\Library\EditorSnapSettings.asset
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\EditorSnapSettings.asset
+    projectPath: Library\EditorSnapSettings.asset
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: AirportScape\Library\gfu\cache\branches.yaml
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\gfu\cache\branches.yaml
+    projectPath: Library\gfu\cache\branches.yaml
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
   - path: AirportScape\Library\gfu\cache\gitlocks.yaml
     fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\gfu\cache\gitlocks.yaml
     projectPath: Library\gfu\cache\gitlocks.yaml
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: AirportScape\Library\gfu\cache\gitlog.yaml
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\gfu\cache\gitlog.yaml
+    projectPath: Library\gfu\cache\gitlog.yaml
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
@@ -58,21 +70,9 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: AirportScape\Library\SceneVisibilityState.asset
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\SceneVisibilityState.asset
-    projectPath: Library\SceneVisibilityState.asset
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: AirportScape\Library\ScriptAssemblies\Assembly-CSharp.dll
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ScriptAssemblies\Assembly-CSharp.dll
-    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: AirportScape\Library\ScriptAssemblies\Assembly-CSharp.pdb
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ScriptAssemblies\Assembly-CSharp.pdb
-    projectPath: Library\ScriptAssemblies\Assembly-CSharp.pdb
+  - path: AirportScape\Library\ScriptAssemblies\BuiltinAssemblies.stamp
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\ScriptAssemblies\BuiltinAssemblies.stamp
+    projectPath: Library\ScriptAssemblies\BuiltinAssemblies.stamp
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
@@ -88,9 +88,9 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: AirportScape\Packages\packages-lock.json
-    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Packages\packages-lock.json
-    projectPath: Packages\packages-lock.json
+  - path: AirportScape\Library\StateCache\Hierarchy\69a4b8-mainStage.json
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Library\StateCache\Hierarchy\69a4b8-mainStage.json
+    projectPath: Library\StateCache\Hierarchy\69a4b8-mainStage.json
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
@@ -103,6 +103,12 @@ MonoBehaviour:
   - path: AirportScape\Temp\UnityTempFile-4c5be29245a79f14faa16674da699d90
     fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-4c5be29245a79f14faa16674da699d90
     projectPath: Temp\UnityTempFile-4c5be29245a79f14faa16674da699d90
+    originalPath: 
+    indexStatus: 1
+    workTreeStatus: 1
+  - path: AirportScape\Temp\UnityTempFile-8bb6527f29cb2d2438c3dd8d370111a5
+    fullPath: D:\4t_CARRERA\4A\DSA\Projecte\Airport-Scape\AirportScape\Temp\UnityTempFile-8bb6527f29cb2d2438c3dd8d370111a5
+    projectPath: Temp\UnityTempFile-8bb6527f29cb2d2438c3dd8d370111a5
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1

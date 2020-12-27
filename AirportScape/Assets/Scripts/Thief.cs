@@ -20,8 +20,8 @@ public class Thief : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Towards = Mathf.MoveTowards(transform.position, target.position, speed * Time.deltaTime);      
-        rb2D.MovePosition(Towards); 
+        //Towards = Mathf.MoveTowards(transform.position, target.position, speed * Time.deltaTime);      
+        //rb2D.MovePosition(Towards); 
 
         //.MovePosition(GetComponent<Transform>().position + inputplayer * velocidad * Time.deltaTime);
     }
