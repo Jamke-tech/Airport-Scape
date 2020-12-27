@@ -11,7 +11,7 @@ import java.net.URI;
 
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://147.83.7.203:8080/gameDSA/";//entorno produccion
+    public static final String BASE_URI = "http://147.83.7.203/gameDSA/";//entorno produccion
     //public static final String BASE_URI = "http://localhost:8080/gameDSA/";//entorno local
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -27,8 +27,7 @@ public class Main {
 
         BeanConfig beanConfig = new BeanConfig();
 
-        //beanConfig.setHost("localhost:8080"); //entorno local
-        beanConfig.setHost("147.83.7.203:8080"); //entorno producción
+        beanConfig.setHost("localhost:8080");
         beanConfig.setBasePath("/gameDSA");
         beanConfig.setContact("support@example.com");
         beanConfig.setDescription("REST API for GAMESERVICE DSA");
