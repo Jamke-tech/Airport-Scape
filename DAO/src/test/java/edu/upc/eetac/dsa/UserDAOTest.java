@@ -54,14 +54,14 @@ public class UserDAOTest {
         String password = "jamke";
         User user = new User(0, userName, password, null, null, 0, null);
         error = Impl.loginUser(user);
-        Assert.assertEquals(0, error);//Password okey
+        Assert.assertEquals(0, error);//Password key
     }
 
    @Test
     public void getUserByNickname() throws SQLException {
-        String nickname = "mmv888";
+        String nickname = "mmv";
         User user = Impl.getUserByNickname(nickname);
-        Assert.assertEquals("mmv888", user.getUserName());
+        Assert.assertEquals("mmv", user.getUserName());
     }
 
 }
