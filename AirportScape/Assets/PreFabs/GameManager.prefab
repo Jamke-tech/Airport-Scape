@@ -76,6 +76,8 @@ MonoBehaviour:
     type: 3}
   playerSprite: {fileID: 8202539611048700264, guid: d17c3008d31e6ca4e981cf2d8b0d283f,
     type: 3}
+  thiefSprite: {fileID: 6246450978322330396, guid: 0ac7d28b89129c54483ce668d2bccf4d,
+    type: 3}
   plants:
   - {fileID: 1275217245501603514, guid: e76e75eb222cbb343a7e9fc629443f83, type: 3}
   - {fileID: 5310389590974242058, guid: 85c205ee6f3cc8c42b1c4f4d08341f9f, type: 3}

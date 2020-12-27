@@ -26,6 +26,7 @@ public class BoardManager : MonoBehaviour
     public GameObject[] externalWalls;
     public GameObject cleanersSprite;
     public GameObject playerSprite;
+    public GameObject thiefSprite;
     public GameObject[] plants;
     public GameObject benchHorizontal;
     public GameObject benchVertical;
@@ -63,12 +64,12 @@ public class BoardManager : MonoBehaviour
         + "#                   #                  #\r\n"
         + "#                  V#V                 #\r\n"
         + "#                   #                  #\r\n"
-        + "#C                 b#V          I      #\r\n"
+        + "#C                 b#V                 #\r\n"
         + "#                 Cp#p                 #\r\n"
-        + "#                   #vvvvvvvvvvv  vvvvv#\r\n"
+        + "#          I        #vvvvvvvvvvv  vvvvv#\r\n"
         + "#                   #                  #\r\n"
         + "#                   #                  #\r\n"
-        + "#                 Cb#b                 #\r\n"
+        + "# T               Cb#b                 #\r\n"
         + "# B B B B B B   B  V#V                 #\r\n"
         + "#           C       #                  #\r\n"
         + "# B B B   B B B B  V#V                 #\r\n"
@@ -155,6 +156,11 @@ public class BoardManager : MonoBehaviour
                     case 'C': //Cleaner                        
                         GameObject instance10 = Instantiate(cleanersSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
                         instance10.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'T': //Cleaner                        
+                        GameObject instanceThief = Instantiate(thiefSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        instanceThief.transform.SetParent(boardHolder);
                         intantiateFloor(x, rows - y, rows, columns);
                         break;
                     case 'I': //Inicio del Jugador                       
