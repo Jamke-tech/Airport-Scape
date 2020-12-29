@@ -2,7 +2,7 @@ $(document).ready(function(){
     console.log("ok loaded")
 });
 
-$(function(){
+/*$(function(){
     var i = 1;
     for (i = 1; i =6 ; i++){
         $('#buttonBuy'+ i).on('click',function(e){
@@ -37,7 +37,7 @@ $(function(){
     })
 }
 })
-/*
+
 $(document).ready(function(){
     console.log("ok loaded")
 });
@@ -105,6 +105,8 @@ $(document).ready(function(){
 
             });
 
-        });
-    })
+        })
+    });
+})
+
 

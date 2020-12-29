@@ -30,7 +30,7 @@
                 <a href="inicio.html" class="d-block text-light p-3"><i class="icon ion-md-airplane mr-2 lead"></i>Inicio</a>
                 <a href="index.html" class="d-block text-light p-3"><i class="icon ion-md-key mr-2 lead"></i>Log in/Create Account</a>
                 <a href="shop.html" class="d-block text-light p-3"><i class="icon ion-md-card mr-2 lead"></i>Shop</a>
-                <a href="X" class="d-block text-light p-3"><i class="icon ion-md-stats mr-2 lead"></i>Statistics</a>
+                <a href="estadisticas.html" class="d-block text-light p-3"><i class="icon ion-md-stats mr-2 lead"></i>Statistics</a>
                 <a href="X" class="d-block text-light p-3"><i class="icon ion-md-construct mr-2 lead"></i>...</a>
             </div>
         </div>
@@ -81,10 +81,10 @@
             <div class="container">
                 <div class="columns is-multiline">
                     <div class="column is-full-mobile">
-                        <div class="columns is-centered is-mobile is-multiline">
+                        <div class="columns is-centered is-mobile is-multiline" id ="objetos">
                             <!-- 1 Sección de fotografías -->
-                            <div class="column is-half column-full" id="objetos">
-                             <!--   <div class="card" id="card">
+                            <!--<div class="column is-half column-full" id="objetos">
+                                <div class="card" id="card">
                                     <span class="price" id="price1"><i class="icon ion-logo-bitcoin lead"></i>100</span>
                                     <span class="state" id="state1"><i class="icon ion-md-checkmark"></i></span>
                                     <img src="imagen/mustache.jpg" alt="">
@@ -121,12 +121,37 @@
     <script>
     <!-- función conocer objetos BBDD -->
     function getObjects() {
-        alert('va');
+        var objectsUrl = '/gameDSA/object/getListObjects';
+        var card = document.getElementById("card");
+        $.getJSON(objectsUrl, function(data){
+            $(data).each( function(key,val) {
+                  var image = val.urlImage;
+                  $('<div>').addClass('column').append(
+                      $('<div>')
+                        .addClass('card') // css classes
+                        .append(
+                          $('<span>').addClass('price').text(val.price),
+                          $('<span>').addClass('state').text(val.bag),
+                          $('<img>').attr({'src':image,'alt':''}),
+                          $('<div>').addClass('card-info').append(
+                            $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
+                            $('<p>').addClass('has-text-centered').text(val.description),
+                            $('<div>').addClass('card-buttons').append(
+                                $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar")
+                            ),
+                          )
 
 
+                        )
+                  )
+                  .appendTo('#objetos'); // add it to #column is-half column-full
+            })
+
+        });
 
     }
     </script>
+    <script src="JSON/shop.js"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
