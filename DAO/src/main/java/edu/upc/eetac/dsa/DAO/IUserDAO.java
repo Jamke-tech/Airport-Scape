@@ -16,6 +16,7 @@ public interface IUserDAO {
     public int loginUser(User userToLog) throws SQLException;
     public User getUserByNickname( String nameUser) throws SQLException;
     public User getUserById( int idUser) throws SQLException;
+    public User getUserByEmail( String email) throws SQLException;
     public int getIDByNickName (String nickName) throws SQLException;
     List<User> getListUsers() throws SQLException;
 }

@@ -17,4 +17,5 @@ public interface Session<E> {
     public List<Object> findAllByName(Object theObject, String userName);
     List<Object> query(String query, Object object, HashMap params);
     public Object getByID(Object theClass, int id) throws SQLException;
+    public Object getByEmail(Object theClass, String email) throws SQLException;
 }

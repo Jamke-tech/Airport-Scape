@@ -33,11 +33,16 @@ $(function(){
                 success: function(data) {
                     console.log("success");
                     console.log(data.status);
-                    alert("Check your email account!");
                 },
                 complete: function(data) {
                     if(data.status == 400){
                         alert("Wrong mail");
+                    }
+                    else if (data.status == 200){
+                        alert("Check your email account");
+                    }
+                    else if (data.status == 404){
+                        alert("No user registered with that mail");
                     }
                     else if (data.status != 200){
                         alert("CONNECTION ERROR ");

@@ -48,6 +48,15 @@ public class QueryHelper {
         return sb.toString();
 
     }
+
+    public static String createQuerySELECTEmail (Object entity){
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+        sb.append(" WHERE mail = ?");
+
+        return sb.toString();
+
+    }
     public static String createQuerySELECTNameGame (Object entity){
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
