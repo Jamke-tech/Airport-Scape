@@ -1,6 +1,7 @@
 package edu.upc.eetac.dsa.service;
 import edu.upc.eetac.dsa.model.*;
 import edu.upc.eetac.dsa.DAO.*;
+import edu.upc.eetac.dsa.util.Mailer;
 
 import edu.upc.eetac.dsa.util.Mailer;
 import io.swagger.annotations.Api;
@@ -98,15 +99,15 @@ public class UserService {
     @ApiOperation(value = "Change Password", notes = "Pedir @ para cambiar el password")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
-            @ApiResponse(code = 400, message = "WRONG DATA")
+            @ApiResponse(code = 400, message = "BAD REQUEST")
 
     })
 
     @Path("/changepass")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response ChangePassword(String mail) {
+    public Response ChangePassword(User mail) {
         try {
-            Mailer.send(mail,"Change your password","This is a test");
+            Mailer.send(mail.mail,"Change your password","Si recibes esto es que el mailer funciona! Aquí enviaria el enlace para hacer un update del user");
             return Response.status(200).build();
         } catch (Exception e) {
             e.printStackTrace();
