@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public int timeRemaining;
     private Animator animator;
-    RaycastHit2D hit;
+    
     public float moveTime = 0.1f;
     public int velocidad;
     public LayerMask blockinLayer; // per veure si el espai on ens movem esta ocupat o no 
@@ -98,21 +98,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-    }
-    public RaycastHit2D Move(int xDir, int yDir)
-    {
-        Vector2 start = transform.position;
-        Vector2 end = start + new Vector2(xDir*0.6f, yDir*0.6f);
-        boxCollider.enabled = false;
-        hit = Physics2D.Linecast(start, end, blockinLayer);
-        boxCollider.enabled = true;
-
-        if (hit.transform == null)//mirem si hem xocat
-        {
-            StartCoroutine(Movement(new Vector3(xDir, yDir, 0f)));
-            return hit;
-        }
-        return hit;
     }
 
     protected IEnumerator Movement(Vector3 inputplayer)

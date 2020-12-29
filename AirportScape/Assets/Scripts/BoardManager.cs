@@ -27,6 +27,7 @@ public class BoardManager : MonoBehaviour
     public GameObject cleanersSprite;
     public GameObject playerSprite;
     public GameObject thiefSprite;
+    public GameObject shopperSprite;
     public GameObject[] plants;
     public GameObject benchHorizontal;
     public GameObject benchVertical;
@@ -66,11 +67,11 @@ public class BoardManager : MonoBehaviour
         + "#                   #                  #\r\n"
         + "#C                 b#V                 #\r\n"
         + "#                 Cp#p                 #\r\n"
-        + "#          I        #vvvvvvvvvvv  vvvvv#\r\n"
+        + "#                   #vvvvvvvvvvv  vvvvv#\r\n"
         + "#                   #                  #\r\n"
-        + "#                   #                  #\r\n"
+        + "#                   #        I         #\r\n"
         + "# T               Cb#b                 #\r\n"
-        + "# B B B B B B   B  V#V                 #\r\n"
+        + "# B B B B B B   B  V#V        P        #\r\n"
         + "#           C       #                  #\r\n"
         + "# B B B   B B B B  V#V                 #\r\n"
         + "#C                  #                  #\r\n"
@@ -158,9 +159,14 @@ public class BoardManager : MonoBehaviour
                         instance10.transform.SetParent(boardHolder);
                         intantiateFloor(x, rows - y, rows, columns);
                         break;
-                    case 'T': //Cleaner                        
+                    case 'T': //Thief                       
                         GameObject instanceThief = Instantiate(thiefSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
                         instanceThief.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'P': //Shopper                        
+                        GameObject instanceShopper = Instantiate(shopperSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        instanceShopper.transform.SetParent(boardHolder);
                         intantiateFloor(x, rows - y, rows, columns);
                         break;
                     case 'I': //Inicio del Jugador                       

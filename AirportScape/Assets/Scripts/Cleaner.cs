@@ -35,7 +35,7 @@ public class Cleaner : MonoBehaviour
         DirY = 0;//No nos moveremos en eje vertical
 
         inverseMoveTime = 1f / moveTime;
-        velocidad = Random.Range(15,25); // velocidad del personaje
+        velocidad = Random.Range(10,15); // velocidad del personaje
         PlayerTimeReduction = 20; // definicion del timepo que hace perder la cleaner
         damage = 1; // tiempo que nos saca si xocamos con ella o ella con nosotros
     }
