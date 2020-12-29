@@ -42,7 +42,7 @@ $(function(){
                     console.log("success");
                     console.log(data.status);
                     localStorage.data.entity.id = data.entity.userName;
-
+                    $("#navbarDropdown").text(localStorage.data.entity.id);
                 },
                 complete: function(data) {
                     if(data.status == 401){
