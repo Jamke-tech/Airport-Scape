@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]" date="1609179111638" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 28/12/2020 19:11 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/ObjectService$1.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/ObjectService$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/ObjectService$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/BBDD/SessionImpl.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/BBDD/SessionImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/SessionImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/DAO/UserDAOImpl.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/DAO/UserDAOImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/UserDAOImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/util/QueryHelper.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/util/QueryHelper.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/QueryHelper.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/DAO/IObjectDAO.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/DAO/IObjectDAO.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/IObjectDAO.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/BBDD/Session.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/BBDD/Session.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/Session.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/UserService$1.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/UserService$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/UserService$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/ObjectService.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/ObjectService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/ObjectService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/DAO/ObjectDAOImpl.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/DAO/ObjectDAOImpl.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/ObjectDAOImpl.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/ObjectService$2.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/ObjectService$2.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/ObjectService$2.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/UserService.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/service/UserService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/UserService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/model/Objects.class" />
+    <option name="AFTER_PATH" value="DAO/target/classes/edu/upc/eetac/dsa/model/Objects.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11_[Default_Changelist]/Objects.class" />
+  </binary>
+</changelist>
