@@ -26,13 +26,14 @@ $(function(){
 
         $.ajax({
                 type: "POST",
-                url: "https://localhost:8080/dameDSA/user/changepass", //A definir cuando se haga bien el servicio
+                url: "https://localhost:8080/gameDSA/user/changepass", //A definir cuando se haga bien el servicio
                 data: JSON.stringify(email),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(data) {
                     console.log("success");
-                    console.log(data.status)
+                    console.log(data.status);
+                    alert("Check your email account!")
                 },
                 complete: function(data) {
                     if(data.status == 400){
