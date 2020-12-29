@@ -95,7 +95,7 @@ $(document).ready(function(){
                             $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(data[i].name),
                             $('<p>').addClass('has-text-centered').text(data[i].description),
                             $('<div>').addClass('card-buttons').append(
-                              $('<button>').prop('id','buttonBuy'+i).text().addClass('button')
+                              $('<button>').prop('id','buttonBuy'+i).text().addClass('button')//falta meter icono
                             ),
                           )
                         )
