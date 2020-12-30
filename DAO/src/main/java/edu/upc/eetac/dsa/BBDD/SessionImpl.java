@@ -139,6 +139,28 @@ public class SessionImpl implements Session {
         }
     }
 
+    @Override
+    public Object getByEmail(Object theObject, String email) throws SQLException {
+        String selectQuery = QueryHelper.createQuerySELECTEmail(theObject);
+        PreparedStatement pstm = null;
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, email);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            if (rs.next()){
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(theObject,rs.getMetaData().getColumnName(i),rs.getObject(i));
+            }
+            return theObject;
+
+        }  catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
     public void update(Object object) throws SQLException {
         String updateQuery = QueryHelper.createQueryUPDATE(object);
 

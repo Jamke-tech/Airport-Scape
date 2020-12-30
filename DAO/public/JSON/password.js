@@ -26,17 +26,23 @@ $(function(){
 
         $.ajax({
                 type: "POST",
-                url: "https://localhost:8080/dameDSA/user/changepass", //A definir cuando se haga bien el servicio
+                url: "/gameDSA/user/changepass",
                 data: JSON.stringify(email),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function(data) {
                     console.log("success");
-                    console.log(data.status)
+                    console.log(data.status);
                 },
                 complete: function(data) {
                     if(data.status == 400){
                         alert("Wrong mail");
+                    }
+                    else if (data.status == 200){
+                        alert("Check your email account");
+                    }
+                    else if (data.status == 404){
+                        alert("No user registered with that mail");
                     }
                     else if (data.status != 200){
                         alert("CONNECTION ERROR ");

@@ -1,7 +1,9 @@
 package edu.upc.eetac.dsa.service;
 import edu.upc.eetac.dsa.model.*;
 import edu.upc.eetac.dsa.DAO.*;
+import edu.upc.eetac.dsa.util.Mailer;
 
+import edu.upc.eetac.dsa.util.Mailer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -12,6 +14,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.Console;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -97,16 +100,29 @@ public class UserService {
     @ApiOperation(value = "Change Password", notes = "Pedir @ para cambiar el password")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
-            @ApiResponse(code = 400, message = "WRONG DATA")
+            @ApiResponse(code = 404, message = "User Not Found"),
+            @ApiResponse(code = 400, message = "BAD REQUEST")
 
     })
 
     @Path("/changepass")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response ChangePassword(User mail) {
-
-        return Response.status(400).build();
-
+        try {
+            User user = u.getUserByEmail(mail.mail);
+            //System.out.println(user.mail);
+            //System.out.println(mail.mail);
+            if (user.mail != null && user.mail.equals(mail.mail)){
+                Mailer.send(mail.mail,"Recover your password","Si recibes esto es que el mailer funciona! Aquí enviaria el enlace para hacer un update del user");
+                return Response.status(200).build();
+            }
+            else{
+                return Response.status(404).build();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
     }
 
     @PUT
@@ -176,3 +192,4 @@ public class UserService {
             return Response.status(404).build();
     }
 }
+//Comentario de una linea

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Perfil Usuario</title>
+
+    <!-- Cuadro CSS -->
+    <link rel="stylesheet" href="css/estilosProfile.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body onload="getUserProfile">
+
+    <div class="d-flex">
+        <div id="sidebar-container" class="bp-primary">
+            <div class="logo"></div>
+            <div class="nameGame">
+                <h4>Airport Scape</h4>
+            </div>
+            <div class="menu">
+                <a href="inicio.html" class="d-block text-light p-3"><i class="icon ion-md-airplane mr-2 lead"></i>Inicio</a>
+                <a href="index.html" class="d-block text-light p-3"><i class="icon ion-md-key mr-2 lead"></i>Log in/Create Account</a>
+                <a href="shop.html" class="d-block text-light p-3"><i class="icon ion-md-card mr-2 lead"></i>Shop</a>
+                <a href="estadisticas.html" class="d-block text-light p-3"><i class="icon ion-md-stats mr-2 lead"></i>Statistics</a>
+                <a href="X" class="d-block text-light p-3"><i class="icon ion-md-construct mr-2 lead"></i>...</a>
+            </div>
+        </div>
+
+        <div class="w-100">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="userNameNav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Go in!
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="index.html"><i class="icon ion-md-person mr-2 lead"></i>Log In</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="register.html"><i class="icon ion-md-create mr-2 lead"></i>Create Account</a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header">
+
+                <img id="userImage" src="" class="avatar" />
+                <h1 id="userName" class="user-name"></h1>
+
+            </div>
+            <ul class="user-info">
+                <li>
+                    <h4 id="name"></h4>
+                </li>
+                <li>
+                    <h4 id="surname"></h4>
+                </li>
+                <li>
+                    <a href="mailto:" id="userEmail"></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <!--jQuery UI for the shake effect when error-->
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    function getUserProfile() {
+        var userName = document.getElementById("userNameNav")
+        var userUrl = '/gameDSA/user/{userName}';
+
+        $.getJSON(userUrl, function(data){
+            $(data).each(function(index,value){
+                var user = value.userName;
+                var name = value.name;
+                var surname = value.surname;
+                var mail = value.email;
+                var imageUrl = value.url;
+                $("#userName").text(user);
+                $("#name").text("Name:" + name);
+                $("#surname").text("Surname:" + surname);
+                $("#userEmail").text("Email address:" + mail);
+                $("#userImage").attr({'src': imageUrl,'alt':''});
+
+
+
+    }
+    </script>
+    <!--Global Script-->
+    <script src="JSON/password.js"></script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

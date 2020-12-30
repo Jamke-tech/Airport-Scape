@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &4867622818226483384
+--- !u!1001 &228898369
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -187,11 +187,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867622818043136199, guid: 29a5c65af50691843b941f4ac68ea478,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29a5c65af50691843b941f4ac68ea478, type: 3}
