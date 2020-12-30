@@ -2,13 +2,18 @@ package com.example.log_in_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -99,6 +104,7 @@ public class ProfileActivity extends AppCompatActivity {
         textSurname = this.findViewById(R.id.textSurname);
         textMail = this.findViewById(R.id.textMail);
         textMoney = this.findViewById(R.id.textMoney);
+        context = this.getApplicationContext();
 
         startRetrofit();
 
@@ -124,4 +130,47 @@ public class ProfileActivity extends AppCompatActivity {
                 .client(client)
                 .build();
     }
+
+    public void onChangePasswordClicked(View view){
+        changePasswordDialog();
+    }
+
+    private void changePasswordDialog(){
+        final Dialog dialog=new Dialog(this);
+        dialog.setContentView(R.layout.dialog_changepassword);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        Button cancel= dialog.findViewById(R.id.buttonCancel);
+        Button accept =dialog.findViewById(R.id.buttonAccept);
+        TextView currentPass = dialog.findViewById(R.id.currentPasswordText);
+        TextView newPass = dialog.findViewById(R.id.newPasswordText);
+        TextView newPassRe = dialog.findViewById(R.id.repeatPasswordText);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){dialog.dismiss();}
+        });
+
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Check if the password is correct and new password and retype password is same
+                if(newPass.getText().toString().equals(newPassRe.getText().toString()) &&!newPass.getText().toString().contains(" ")){
+                    //New pass and old pass is same
+                    if(currentPass.getText().toString().equals(User.getInstance().getPassword())){
+                        User.getInstance().setPassword( newPass.getText().toString());
+                        dialog.dismiss();
+                    }else{
+                        //Incorrect Current Password NOTIFY
+                        Toast.makeText(getApplicationContext(), "Incorrect current password: ", Toast.LENGTH_LONG).show();
+
+                    }
+                }else{
+                    Toast.makeText(getApplicationContext(), "Please type new Password without spaces ", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+        dialog.show();
+    }
+
 }
