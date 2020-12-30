@@ -23,12 +23,16 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="459fb730-ec37-465f-a6d1-5d18810d9a21">
+        <schema name="airportscape" object-types="function, table, procedure, index, column, view, constraint" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="459fb730-ec37-465f-a6d1-5d18810d9a21">
       <console name="AirportBBDD" type="STANDARD" schema="" session="Main" />
-      <console name="AirportScape" type="STANDARD" schema="" session="Main" />
+      <console name="AirportScape" type="STANDARD" schema="airportscape" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

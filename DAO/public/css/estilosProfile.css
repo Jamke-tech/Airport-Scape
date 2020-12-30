@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imagen/aero1.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.d-flex .navbar{
+    position: relative;
+    z-index: 1;
+
+}
+.d-flex .bp-primary{
+    position: absolute;
+    width: 65px;
+    height: 100%;
+    background: rgba(0,0,0,.7) !important;
+    overflow: hidden;
+    -webkit-transition: width 0.5s;
+    z-index:3;
+
+}
+
+.d-flex .bp-primary:hover{
+    width: 250px
+}
+
+.d-flex .logo{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    background: url(../imagen/menu.png);
+
+}
+
+.d-flex  .nameGame{
+    padding: 14px 20px;
+    color: #fff;
+
+}
+
+.d-flex .menu{
+    width: 200px;
+
+}
+.d-flex .menu a:hover{
+    text-decoration: none;
+
+}
+
+.d-flex .contenedor-form{
+
+    position: relative;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    max-width: 500px;
+    max-height: 600px;
+    margin: 250px auto;
+    color: #fff;
+    border-radius: 5px;
+    z-index:4;
+
+}
+
+.d-flex .contenedor-form h2{
+    margin: 10px 10px 20px 10px;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1;
+
+}
+
+.d-flex .contenedor-form h6{
+    margin: 10px 10px 20px 10px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.d-flex .contenedor-form input[type="email"] {
+    outline: none;
+    background: rgba(0,0,0,.7);
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    border-bottom: 3px solid #fff;
+    margin: 0 0 10px 0;
+
+}
+
+
+.d-flex .contenedor-form input[type="email"]:hover {
+    border-bottom: 3px solid #0075d9;
+
+}
+
+.button{
+    background: rgba(255,255,255,.7);
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 2px;
+
+}
+
+.button:hover{
+    background: rgba(0,117,217,.7);
+
+}
+
+.header{
+    text-align: center;
+    height: 300px;
+    padding: 12px;
+    background-image: url("../imagen/pruebaFondo.jpg");
+
+}
+
+.avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+
+}
+
+.user-name{
+    font-size: 18px;
+    margin-top: 14px;
+    color: #fff;
+
+}
+
+.user-info{
+    text-align: center;
+    padding: 0;
+
+}
+.user-info{
+    text-align: center;
+    padding: 0;
+
+}
+.user-info li{
+    list-style: none;
+
+}
+

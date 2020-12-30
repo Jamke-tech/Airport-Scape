@@ -33,7 +33,7 @@ public abstract class MovingObject : MonoBehaviour
 
         if (hit.transform == null)//mirem si hem xocat
         {
-            StartCoroutine(Movement(new Vector3(xDir,yDir,0f)));
+            StartCoroutine(Movement(new Vector3(xDir, yDir, 0f)));
             return true;
         }
         return false;
@@ -44,11 +44,14 @@ public abstract class MovingObject : MonoBehaviour
     {
         RaycastHit2D hit;
         bool canMove = Move(xDir, yDir, out hit);
+
+        //StartCoroutine(Movement(new Vector3(xDir, yDir, 0f)));
     }
 
     protected IEnumerator Movement (Vector3 inputplayer)
     {
         rb2D.MovePosition(GetComponent<Transform>().position + inputplayer * velocidad * Time.deltaTime);
+
         yield return null;
     }
     protected IEnumerator SmoothMovement(Vector3 end)

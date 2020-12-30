@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     void InitGame()
     {
         cleaners.Clear();
+        boardScript.Start();
         boardScript.SetUpScene();
     }
 

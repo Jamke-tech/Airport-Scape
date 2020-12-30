@@ -147,6 +147,24 @@ public class UserDAOImpl implements IUserDAO {
         return user;
     }
 
+    @Override
+    public User getUserByEmail(String email) throws SQLException {
+        Session session = null;
+        User user = new User();
+        try {
+            session = FactorySession.openSession();
+            user = (User) session.getByEmail(user, email);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            session.close();
+        }
+
+        return user;
+    }
+
     public int getIDByNickName (String nickName) throws SQLException{
         Session session = null;
         User user = new User();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEditor;
 
 public class BoardManager : MonoBehaviour
 {
@@ -25,54 +26,58 @@ public class BoardManager : MonoBehaviour
     public GameObject[] externalWalls;
     public GameObject cleanersSprite;
     public GameObject playerSprite;
+    public GameObject thiefSprite;
+    public GameObject shopperSprite;
     public GameObject[] plants;
     public GameObject benchHorizontal;
     public GameObject benchVertical;
     public GameObject bin;
-    public Count cleanerCount = new Count(2, 2);
+    public GameObject arrivals;
+    public GameObject departures;
+    public GameObject baggage;
+    public GameObject[] companys;
+    public GameObject secretWall;
+    public GameObject fence;
+
+    private GameObject mainCamera;
 
     private Transform boardHolder;
     private List<Vector3> gridPositionsCleanerPart1 = new List<Vector3>(); //To places the tiles
-
+    public void Start()
+    {
+        //Buscamos la camara principal para asi poder assignar el personaje
+        mainCamera = GameObject.FindWithTag("MainCamera");
+    }
 
 
     void BoardSetup()
     {
-        boardHolder = new GameObject("Board").transform;
-
-
+        GameObject board = new GameObject("Board");
+        ObjectFactory.AddComponent<CompositeCollider2D>(board);
+        boardHolder = board.transform;
+        boardHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GameObject playerinstance = new GameObject("Player");
         String mapa = "40 20\r\n"
-       + "########################################\r\n"
-        + "#                                      #\r\n"
-        + "#                                      #\r\n"
-        + "#C                 pp                  #\r\n"
-        + "#                  VV                  #\r\n"
-        + "#                  VV                  #\r\n"
-        + "#                  VV                  #\r\n"
-        + "#                  bV                  #\r\n"
-        + "#                 Cpp                  #\r\n"
-        + "#                                      #\r\n"
-        + "#                                      #\r\n"
-        + "#                                      #\r\n"
-        + "#                  bb                  #\r\n"
-        + "#B B B B B B   B    V                  #\r\n"
-        + "#                  V                   #\r\n"
-        + "#B B B   B B B B    V                  #\r\n"
-        + "#C                 V                   #\r\n"
-        + "#B B B B B B B B    V                  #\r\n"
-        + "#I                 V                   #\r\n"
+        + "########################################\r\n"
+        + "#        a          S                  #\r\n"
+        + "#                   #                  #\r\n"
+        + "#C                 V#V                 #\r\n"
+        + "#                   #                  #\r\n"
+        + "#                  V#V                 #\r\n"
+        + "#                   #                  #\r\n"
+        + "#C                 b#V                 #\r\n"
+        + "#                 Cp#p                 #\r\n"
+        + "#                   #vvvvvvvvvvv  vvvvv#\r\n"
+        + "#                   #                  #\r\n"
+        + "#                   #        I         #\r\n"
+        + "# T               Cb#b                 #\r\n"
+        + "# B B B B B B   B  V#V        P        #\r\n"
+        + "#           C       #                  #\r\n"
+        + "# B B B   B B B B  V#V                 #\r\n"
+        + "#C                  #                  #\r\n"
+        + "# B B B B B B B B  V#V                 #\r\n"
+        + "#                   #                  #\r\n"
         + "########################################\r\n";
-        /*String mapa = "10 10\r\n"
-             + "##########\r\n"
-             + "#p       #\r\n"
-             + "# B      #\r\n"
-             + "#  V     #\r\n"
-             + "# p      #\r\n"
-             + "#  p    C#\r\n"
-             + "#   p    #\r\n"
-             + "#    p   #\r\n"
-             + "#I    p  #\r\n"
-             + "##########\r\n"; //mapa*/
 
         mapa = mapa.Replace("\r\n", "\n");
         String[] maplines = mapa.Split('\n');
@@ -91,6 +96,16 @@ public class BoardManager : MonoBehaviour
                         GameObject toInstantiate = externalWalls[Random.Range(0, externalWalls.Length)];
                         GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
                         instance.transform.SetParent(boardHolder);
+                        break;
+                    case 'S': //instanciamos una external wall secreta para mover
+                        GameObject instanceSecretWall = Instantiate(secretWall, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instanceSecretWall.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'v': //instanciamos una fence de cristal
+                        GameObject instancefence = Instantiate(fence, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instancefence.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
                         break;
                     case 'b'://papelera
 
@@ -117,14 +132,45 @@ public class BoardManager : MonoBehaviour
                         instance5.transform.SetParent(boardHolder);
                         intantiateFloor(x, rows - y, rows, columns);
                         break;
-
-                    case 'C': //Cleaner                        
-                        GameObject instance6 = Instantiate(cleanersSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                    case 'd': //Cartel departures
+                        GameObject instance6 = Instantiate(departures, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                         instance6.transform.SetParent(boardHolder);
                         intantiateFloor(x, rows - y, rows, columns);
                         break;
+                    case 'a': //Cartel Arrivals
+                        GameObject instance7 = Instantiate(arrivals, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance7.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'm': //Cartel baggage
+                        GameObject instance8 = Instantiate(baggage, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance8.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'i': //Cartel de companyia aleatoria
+                        GameObject toInstantiateCompanys = companys[Random.Range(0, companys.Length)];
+                        GameObject instance9 = Instantiate(toInstantiateCompanys, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+                        instance9.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+
+                    case 'C': //Cleaner                        
+                        GameObject instance10 = Instantiate(cleanersSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        instance10.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'T': //Thief                       
+                        GameObject instanceThief = Instantiate(thiefSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        instanceThief.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
+                    case 'P': //Shopper                        
+                        GameObject instanceShopper = Instantiate(shopperSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        instanceShopper.transform.SetParent(boardHolder);
+                        intantiateFloor(x, rows - y, rows, columns);
+                        break;
                     case 'I': //Inicio del Jugador                       
-                        GameObject instance7 = Instantiate(playerSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                        playerinstance = Instantiate(playerSprite, new Vector3(x, rows - y, 0f), Quaternion.identity);
                         intantiateFloor(x, rows - y, rows, columns);
 
                         break;
@@ -137,6 +183,13 @@ public class BoardManager : MonoBehaviour
 
 
         }
+        //Añadimos la camara de seguimiento del personage.
+
+        CameraFollow camerascript = mainCamera.GetComponent<CameraFollow>();
+        camerascript.following = playerinstance;
+        //GameObject camerainstance =Instantiate(mainCamera, new Vector3(playerinstance.transform.position.x, playerinstance.transform.position.y, -10f), Quaternion.identity);
+        
+
     }
 
     public void intantiateFloor(int x, int y, int rows, int columns)
@@ -148,112 +201,6 @@ public class BoardManager : MonoBehaviour
         GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
         instanceFloor.transform.SetParent(boardHolder);
     }
-
-        /*for (int x = -1; x < columns + 1; x++)//Per establir el terra
-        {
-            for (int y = -1; y < rows + 1; y++)
-            {
-                GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
-
-                if (x == -1 || x == columns || y == -1 || y == rows)
-                    toInstantiate = externalWalls[Random.Range(0, externalWalls.Length)];
-                else if (x == 0 || x == columns - 1 || y == 0 || y == rows - 1)
-                    toInstantiate = perimetralFloor[Random.Range(0, perimetralFloor.Length)];
-
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
-                instance.transform.SetParent(boardHolder);
-            }
-        }
-
-        //Posem la primera part d'escenari ( la casella 20x20)
-
-        int[] positionsBenchLines = new int[] { 1, 3, 5, 7, 9, 11, 13, 15 };
-        int[] positionsBenchHorizontal= new int[] { 1, 3, 5, 7, 13, 15 };
-        int[] positionBinx = new int[] { };
-        int[] positionBiny = new int[] { };
-        int[] positionSignalsx = new int[] { };
-        int[] positionSignalsy = new int[] { };
-
-
-
-        for (int posX = 0; posX < columns; posX++)
-        {
-            for (int posY = 0; posY < rows; posY++)
-            {
-                if (posX <= columns/2)//primera part de la casella
-                {
-                    if (posX == (columns / 2) )//Posem bancs verticals de separacio
-                    {
-                        if (ExistInVector(positionsBenchHorizontal, posY))
-                        {
-                            //Instanciem el banc en la posicio que tenim
-                            Vector3 benchposition = new Vector3(posX, posY, 0f);
-
-                            Instantiate(benchVertical, benchposition, Quaternion.identity);
-
-                        }
-
-                    }
-                    else if (posY == 2 || posY == 5)//Posem bancs en fila
-                    {
-                        if (ExistInVector(positionsBenchLines, posX))
-                        {
-                            if (posX != 5 || posY != 5)//eliminamos el banco de la posicion 5,5
-                            {
-                                //Instanciem el banc en la posicio que tenim
-                                Vector3 benchposition = new Vector3(posX, posY, 0f);
-
-                                Instantiate(benchHorizontal, benchposition, Quaternion.identity);
-                            }
-                        }
-                    }
-                }
-                else//segona part del mapa
-                {
-                    if (posX == (columns / 2)+1)//Posem bancs verticals de separacio al cosat del altres
-                    {
-                        if (ExistInVector(positionsBenchHorizontal, posY))
-                        {
-                            //Instanciem el banc en la posicio que tenim
-                            Vector3 benchposition = new Vector3(posX, posY, 0f);
-
-                            Instantiate(benchVertical, benchposition, Quaternion.identity);
-
-                        }
-
-                    }
-
-                }
-            }
-
-        }
-
-
-
-        // Anem a dissenyar la zona intermitja 
-
-    }
-
-
-    private bool ExistInVector(int[] Vector, int num)
-    {
-        bool exist = false;
-        int i = 0;
-        while (i < Vector.Length && exist != true)
-        {
-            if (Vector[i] == num)
-            {
-                exist = true;
-            }
-            if (!exist)
-            {
-                i++;
-            }
-
-        }
-        return exist;
-    }*/
-
 
     void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
     {

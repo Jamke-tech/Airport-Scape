@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785ccc3f2d371d547b638f2ca4624b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 20
   columns: 40
+  rows: 20
   floorTiles:
   - {fileID: 5957757960710327514, guid: 6063f31639c66bc48844b98bfd8af1cf, type: 3}
   perimetralFloor:
@@ -76,6 +76,10 @@ MonoBehaviour:
     type: 3}
   playerSprite: {fileID: 8202539611048700264, guid: d17c3008d31e6ca4e981cf2d8b0d283f,
     type: 3}
+  thiefSprite: {fileID: 6246450978322330396, guid: 0ac7d28b89129c54483ce668d2bccf4d,
+    type: 3}
+  shopperSprite: {fileID: 5724172264406599438, guid: 894f8f8bfdd46c34cad5c239e311093b,
+    type: 3}
   plants:
   - {fileID: 1275217245501603514, guid: e76e75eb222cbb343a7e9fc629443f83, type: 3}
   - {fileID: 5310389590974242058, guid: 85c205ee6f3cc8c42b1c4f4d08341f9f, type: 3}
@@ -86,7 +90,13 @@ MonoBehaviour:
   benchVertical: {fileID: 4268429523090625992, guid: 94edfbe8d66322a4a8ebe10458b26709,
     type: 3}
   bin: {fileID: 3578771030783471998, guid: b6ae01fb16ab42f4891e3d98563fed76, type: 3}
-  playerdisplayed: {fileID: 0}
-  cleanerCount:
-    minimum: 1
-    maximum: 1
+  arrivals: {fileID: 3533039892363325905, guid: b267f878ae44eb54393442ac012c0409,
+    type: 3}
+  departures: {fileID: 7823446216572732656, guid: 52185ff8b17150c4a9dc0f6db385bde0,
+    type: 3}
+  baggage: {fileID: 3604845925486744525, guid: 3477eeefabd84794ebba183891082e08, type: 3}
+  companys:
+  - {fileID: 3692176098876694997, guid: 4123d3b3eb5934348b1d20224869e598, type: 3}
+  secretWall: {fileID: 5432660658672684247, guid: f1395e7d21b40fd47b8c8b6071d6c77b,
+    type: 3}
+  fence: {fileID: 7955030711698851217, guid: 2ee79e6f208c4754bba9aa5d44f66f9a, type: 3}
