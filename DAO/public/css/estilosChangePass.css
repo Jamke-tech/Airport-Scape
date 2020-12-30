@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(../imagen/password.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+/* barra superior*/
+
+.d-flex .navbar{
+    position: relative;
+    z-index: 1;
+
+}
+
+/* menu lateral forma y fondo*/
+
+.d-flex .menu-lateral{
+     position: absolute;
+     width: 65px;
+     height: 100%;
+     background: rgba(0,0,0,.7) !important;
+     overflow: hidden;
+     -webkit-transition: width 0.5s;
+     z-index: 100;
+ }
+
+/* menu lateral acción*/
+
+ .d-flex .menu-lateral:hover{
+     width: 250px
+ }
+
+/* dibujo de menu lateral */
+
+ .d-flex .logo{
+     width: 40px;
+     height: 40px;
+     margin: 10px;
+     background: url(../imagen/menu.png);
+
+ }
+
+/* menu lateral titulo */
+
+ .d-flex  .nameGame{
+     padding: 14px 20px;
+     color: #fff;
+
+ }
+
+/* menu lateral tamaño de opciones*/
+
+ .d-flex .menu{
+     width: 200px;
+
+ }
+
+ /* menu lateral acción opciones*/
+
+ .d-flex .menu a:hover{
+     text-decoration: none;
+
+ }
+
+/* contenedor central parametros */
+
+.d-flex .contenedor-form{
+
+    position: relative;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    max-width: 500px;
+    max-height: 600px;
+    margin: 48px auto;
+    color: #fff;
+    border-radius: 5px;
+    z-index:3;
+
+}
+
+/* contenedor central parametros bloque derecho */
+
+.d-flex .contenedor-form .toggle{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 25px;
+    text-align: center;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transition: all .5s ease;
+    cursor: pointer;
+
+}
+
+/* contenedor central parametros bloque derecho acción recuadro */
+
+.d-flex .contenedor-form .toggle:hover{
+    border-top: 2px solid #0075d9;
+    border-bottom: 2px solid #0075d9;
+
+}
+
+/* contenedor central parametros bloque derecho acción letras */
+
+.d-flex .contenedor-form .toggle a{
+    color: #fff;
+    text-decoration: none;
+
+}
+
+/* contenedor central parametros titulo */
+
+.d-flex .contenedor-form h2{
+    margin: 0 0 20px 0;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1;
+
+}
+
+/* contenedor central parametros inputs */
+
+.d-flex .contenedor-form input[type="text"],
+.d-flex .contenedor-form input[type="email"],
+.d-flex .contenedor-form input[type="password"] {
+    outline: none;
+    background: rgba(0,0,0,.7);
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    border-bottom: 3px solid #fff;
+    margin: 0 0 10px 0;
+
+}
+
+/* contenedor central acciones inputs */
+
+.d-flex .contenedor-form input[type="text"]:hover,
+.d-flex .contenedor-form input[type="email"]:hover,
+.d-flex .contenedor-form input[type="password"]:hover {
+    border-bottom: 3px solid #0075d9;
+
+}
+
+/* caracteristicas boton login */
+
+.button{
+    background: rgba(255,255,255,.7);
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: normal;
+    cursor: pointer;
+
+}
+
+/* acción boton login */
+
+.button:hover{
+    background: rgba(0,117,217,.7);
+
+}
+
+/* caracteristicas boton nueva contraseña */
+
+.d-flex .contenedor-form .Reset-password{
+    background: rgba(0,117,217,.7);
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+/* caracteristicas boton nueva contraseña letras */
+
+.d-flex .contenedor-form .Reset-password a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+
+}
+
+/* caracteristicas Formulario (espacios...) */
+
+.d-flex .contenedor-form .Formulario {
+    padding: 40px;
+    display: none;
+
+}
+
+.d-flex .contenedor-form .Formulario:nth-child(2){
+    display: block;
+}
