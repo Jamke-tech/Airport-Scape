@@ -113,7 +113,7 @@ public class UserService {
             //System.out.println(user.mail);
             //System.out.println(mail.mail);
             if (user.mail != null && user.mail.equals(mail.mail)){
-                Mailer.send(mail.mail,"Recover your password","Si recibes esto es que el mailer funciona! Aquí enviaria el enlace para hacer un update del user");
+                Mailer.send(mail.mail,"Recover your password","Dear "+user.getUserName()+ ", you can access the following link to set a new password for your account: http://localhost:8080/changepassword.html?user="+user.getUserName());
                 return Response.status(200).build();
             }
             else{
@@ -137,7 +137,7 @@ public class UserService {
     public Response EditUser(User user) {
 
         try{
-            int numException = u.registerUser(user);
+            int numException = u.updateUser(user);
             if (numException==0) {
                 return Response.status(200).entity(user).build();
             }
@@ -151,6 +151,8 @@ public class UserService {
             return Response.status(503).build();
         }
     }
+
+
 
     @GET
     @ApiOperation(value = "Obtener Datos user", notes = "Nos devuelve todos los datos del user")
