@@ -89,7 +89,7 @@ public class Main {
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
         // in edu.upc.dsa package
-        final ResourceConfig rc = new ResourceConfig().packages("edu.upc.dsa.services");
+        final ResourceConfig rc = new ResourceConfig().packages("edu.upc.eetac.dsa.services");
 
         rc.register(io.swagger.jaxrs.listing.ApiListingResource.class);
         rc.register(io.swagger.jaxrs.listing.SwaggerSerializers.class);
@@ -97,7 +97,7 @@ public class Main {
         BeanConfig beanConfig = new BeanConfig();
 
         beanConfig.setHost("eetacdsa0.upc.es:8080");
-        beanConfig.setBasePath("/dsaApp");
+        beanConfig.setBasePath("/gameDSA");
         beanConfig.setContact("support@example.com");
         beanConfig.setDescription("REST API for Tracks Manager");
         beanConfig.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
