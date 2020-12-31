@@ -28,7 +28,7 @@ public class Main {
         BeanConfig beanConfig = new BeanConfig();
 
         beanConfig.setHost("147.83.7.203:8080");//entorno produccion
-       //beanConfig.setHost("localhost:8080");//entorno local
+        //beanConfig.setHost("localhost:8080");//entorno local
         beanConfig.setBasePath("/gameDSA");
         beanConfig.setContact("support@example.com");
         beanConfig.setDescription("REST API for GAMESERVICE DSA");
