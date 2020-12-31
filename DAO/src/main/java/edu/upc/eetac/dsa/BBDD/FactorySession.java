@@ -22,8 +22,8 @@ public class FactorySession {
         Connection conn = null;
         try {
             conn =
-                    //DriverManager.getConnection("jdbc:mariadb://localhost:3306/airportscape", "admin","password");//entorno produccion
-                    DriverManager.getConnection("jdbc:mariadb://localhost:3306/airportscape", "root","password");//entorno local
+                    DriverManager.getConnection("jdbc:mariadb://localhost:3306/airportscape", "admin","password");//entorno produccion
+                    //DriverManager.getConnection("jdbc:mariadb://localhost:3306/airportscape", "root","password");//entorno local
         } catch (SQLException ex) {
             // handle any errors
             System.out.println("SQLException: " + ex.getMessage());
