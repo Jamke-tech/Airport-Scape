@@ -71,7 +71,7 @@ body{
 
  }
 
-#ranking {
+.rankingDiv {
 
   width: 800px;
   margin: 60px auto;
@@ -79,13 +79,13 @@ body{
   color: #213B4C;
   }
 
-  h1 {
+  .rankingDiv h1{
     text-align: center;
     margin-bottom: 30px;
   }
 
 
-  table {
+  .rankingTable {
     width: 100%;
     border-spacing: 0 0;
     background: #213B4C;
