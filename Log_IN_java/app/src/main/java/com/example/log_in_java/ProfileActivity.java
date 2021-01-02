@@ -64,6 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
                     loggedUsr.setUserName(response.body().getUserName());
                     loggedUsr.setMail(response.body().getMail());
                     loggedUsr.setMoney(response.body().getMoney());
+                    loggedUsr.setId(response.body().getId());
 
                     String userName = "UserName: " + loggedUsr.getUserName();
                     String name = "Name: " + loggedUsr.getName();
@@ -90,6 +91,38 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    public void updatePassword(final User user){
+
+        usersAPI = retrofit.create(UserManagerService.class);
+        Call<User> call = usersAPI.updateUser(user);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.code() == 200){
+                    User loggedUser = User.getInstance();
+                    loggedUser.setUserName(user.getUserName());
+                    loggedUser.setPassword(user.getPassword());
+                    loggedUser.setId(user.getId());
+                    Toast.makeText(getApplicationContext(), "Password changed", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    if(response.code() == 400)
+                    Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
+                    else if(response.code() == 503)
+                        Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
 
 
     @Override
@@ -158,6 +191,9 @@ public class ProfileActivity extends AppCompatActivity {
                     //New pass and old pass is same
                     if(currentPass.getText().toString().equals(User.getInstance().getPassword())){
                         User.getInstance().setPassword( newPass.getText().toString());
+                        nickname =preferences.getString("userNickname", null);
+                        User user = new User(User.getInstance().id, nickname, newPass.getText().toString(),User.getInstance().getName(),User.getInstance().getSurname(),User.getInstance().getMoney(),User.getInstance().getMail());
+                        updatePassword(user);
                         dialog.dismiss();
                     }else{
                         //Incorrect Current Password NOTIFY

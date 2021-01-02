@@ -26,6 +26,12 @@ public interface UserManagerService {
     @GET("user/{nickName}")
     Call <User> getUser(@Path("nickName") String userName);
 
+    @POST("user/changepass")
+    Call<User>  changePassword(@Body User mail);
+
+    @PUT("user/edit")
+    Call<User> updateUser(@Body User user);
+
     //De aqui para abajo arreglar  amedida que vayamos usando
 
     @POST("usermanager/users/{name}/update") //PUT
