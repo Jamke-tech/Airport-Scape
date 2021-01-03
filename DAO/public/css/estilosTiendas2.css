@@ -59,6 +59,22 @@ body{
 
 }
 
+.d-flex .buttonMenu{
+    background: rgba(0,0,0,.0);
+    border: none;
+    width: 250px;
+    padding: 10px 0;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.buttonMenu:hover{
+    background: rgba(0,117,217,.7);
+
+}
+
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
