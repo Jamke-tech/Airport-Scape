@@ -113,7 +113,7 @@ public class UserService {
             //System.out.println(user.mail);
             //System.out.println(mail.mail);
             if (user.mail != null && user.mail.equals(mail.mail)){
-                Mailer.send(mail.mail,"Recover your password","Dear "+user.getUserName()+ ", you can access the following link to set a new password for your account: http://localhost:8080/changepassword.html?user="+user.getUserName());
+                Mailer.send(mail.mail,"Recover your password","Dear "+user.getUserName()+ ", you can access the following link to set a new password for your account: http://eetacdsa0.upc.es:8080/changepassword.html?user="+user.getUserName());
                 return Response.status(200).build();
             }
             else{
