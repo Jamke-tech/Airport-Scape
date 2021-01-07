@@ -39,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void shopButtonClicked(View v){
         //poner la url de la tienda web
-        Uri uri = Uri.parse("localhost:8080");
-        //Uri uri = Uri.parse("http://147.83.7.203:8080/shop.html");
+        Uri uri = Uri.parse("http://147.83.7.203:8080/shop.html");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
