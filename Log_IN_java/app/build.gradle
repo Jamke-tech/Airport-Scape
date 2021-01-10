@@ -44,11 +44,15 @@ dependencies {
 
     //RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc03"
 
     //HTTP
     implementation 'com.squareup.okhttp3:logging-interceptor:3.7.0'
 
     //SharedPreferences
     implementation "androidx.preference:preference:1.1.0"
+
+    //Imageview
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }

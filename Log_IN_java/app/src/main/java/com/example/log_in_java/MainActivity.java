@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void myObjectsButtonClicked(View v){
+
+
         startActivity(new Intent(MainActivity.this, MyObjectsActivity.class));
     }
 

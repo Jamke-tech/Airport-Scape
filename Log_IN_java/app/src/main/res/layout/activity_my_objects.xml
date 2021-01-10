@@ -7,19 +7,39 @@
     tools:context=".MyObjectsActivity"
     android:orientation="vertical">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-71dp"
+        tools:layout_editor_absoluteY="226dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textObjects"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="YOUR OBJECTS"
+            app:autoSizeTextType="none" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/objectRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="212dp" />
 
+        <TextView
+            android:id="@+id/textBags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YOUR BAGS" />
 
-        </LinearLayout>
-    </ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bagsRecycler"
+            android:layout_width="411dp"
+            android:layout_height="475dp">
 
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

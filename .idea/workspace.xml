@@ -22,7 +22,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f" name="Default Changelist" comment="" />
+    <list default="true" id="ff8a7f1c-adaf-45f8-a519-f8ce567b0d9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_17_29__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_17_29__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_19_11__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_12_2020_18_07__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_12_2020_18_07__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,5 +117,11 @@
     <MESSAGE value="JavaScript añadido --&gt; al clickar al botón crear del register, comprueba si hay algún campo vacío y da aviso en ese caso, si no, convierte los datos a JSON. También empezando a definir el $ajax" />
     <MESSAGE value="JavaScript login added (+ modifications on html and css)" />
     <option name="LAST_COMMIT_MESSAGE" value="JavaScript login added (+ modifications on html and css)" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1700" y="275" key="FileChooserDialogImpl" timestamp="1609408220534">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1700" y="275" key="FileChooserDialogImpl/0.0.2560.1040/2560.256.1920.1040@0.0.2560.1040" timestamp="1609408220534" />
   </component>
 </project>

@@ -7,8 +7,8 @@
 
     <ImageButton
         android:id="@+id/shopButton"
-        android:layout_width="391dp"
-        android:layout_height="201dp"
+        android:layout_width="387dp"
+        android:layout_height="161dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="10dp"
@@ -63,14 +63,14 @@
         android:layout_height="157dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:onClick="profileButtonClicked"
         android:src="@drawable/userprofile_main"
         android:text="PROFILE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
