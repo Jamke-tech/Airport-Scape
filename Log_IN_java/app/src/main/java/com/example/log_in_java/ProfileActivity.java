@@ -66,11 +66,11 @@ public class ProfileActivity extends AppCompatActivity {
                     loggedUsr.setMoney(response.body().getMoney());
                     loggedUsr.setId(response.body().getId());
 
-                    String userName = "UserName: " + loggedUsr.getUserName();
-                    String name = "Name: " + loggedUsr.getName();
-                    String surname = "Surname: " + loggedUsr.getSurname();
-                    String mail = "Mail: " + loggedUsr.getMail();
-                    String money = "Money: " + loggedUsr.getMoney();
+                    String userName =  loggedUsr.getUserName();
+                    String name =  loggedUsr.getName();
+                    String surname = loggedUsr.getSurname();
+                    String mail =  loggedUsr.getMail();
+                    String money = String.valueOf(loggedUsr.getMoney());
 
                     textUsername.setText(userName);
                     textName.setText(name);
