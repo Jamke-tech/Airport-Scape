@@ -62,7 +62,7 @@ public class ObjectService {
     @GET
     @ApiOperation(value = "Lista Objetos de User", notes = "Nos devuelve todos los objetos de un user")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = BuyedObject.class, responseContainer = "List"),
+            @ApiResponse(code = 200, message = "OK", response = Objects.class, responseContainer = "List"),
             @ApiResponse(code = 401, message = "Error en los datos"),
             @ApiResponse(code = 503, message = "BBDD Down")
 
