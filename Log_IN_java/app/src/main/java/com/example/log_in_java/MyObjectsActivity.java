@@ -93,8 +93,9 @@ public class MyObjectsActivity extends AppCompatActivity {
                         Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png");
                         objectsList.add(object);
                     }
-                    if(bagsList.size()==0){
+                    else if(bagsList.size()==0){
                         Objects object = new Objects(0,"YOU DO NOT HAVE ANY BAG",0,"Go to the shop if you want to spend the money",0,true, "imagen/sad.png");
+                        bagsList.add(object);
                     }
 
 

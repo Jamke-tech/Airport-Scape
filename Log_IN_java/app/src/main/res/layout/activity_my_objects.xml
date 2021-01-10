@@ -33,19 +33,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bagsRecycler"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBags">
+        app:layout_constraintTop_toBottomOf="@+id/textBags"
+        tools:layout_editor_absoluteX="372dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/objectRecycler"
         android:layout_width="match_parent"
-        android:layout_height="161dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/textObjects"
         tools:layout_editor_absoluteX="-16dp">
 

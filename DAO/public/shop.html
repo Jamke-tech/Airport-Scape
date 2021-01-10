@@ -85,11 +85,11 @@
                 </nav>
             </div>
             <!-- Sección de fotografías -->
-            <div class="container">
-                <div class="columns is-multiline">
-                    <div class="column is-full-mobile">
+            <div class="container" >
+                <div class="columns is-multiline" id="objetos">
+                    <!--div class="column is-full-mobile">
                         <div class="columns is-centered is-mobile is-multiline" id ="objetos">
-                            <!-- 1 Sección de fotografías -->
+                            < 1 Sección de fotografías -->
                             <!--<div class="column is-half column-full" id="objetos">
                                 <div class="card" id="card">
                                     <span class="price" id="price1"><i class="icon ion-logo-bitcoin lead"></i>100</span>
@@ -116,9 +116,9 @@
                                             <button class="button" id ="buttonBuy2" type="button"><i class="icon ion-md-cart lead"></i></button>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div> >
                             </div>
-                    </div>
+                    </div -->
                 </div>
             </div>
         </div>
@@ -130,10 +130,12 @@
     function getObjects() {
         var objectsUrl = '/gameDSA/object/getListObjects';
         var card = document.getElementById("card");
+        var contador =0;
         $.getJSON(objectsUrl, function(data){
             $(data).each( function(key,val) {
                   var image = val.urlImage;
-                  $('<div>').addClass('column').append(
+
+                  $('<div>').addClass('column is-half column-full').append(
                       $('<div>')
                         .addClass('card') // css classes
                         .append(
@@ -152,6 +154,7 @@
                         )
                   )
                   .appendTo('#objetos'); // add it to #column is-half column-full
+
             })
 
         });
