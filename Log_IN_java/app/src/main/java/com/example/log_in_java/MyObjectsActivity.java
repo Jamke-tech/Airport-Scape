@@ -32,8 +32,8 @@ public class MyObjectsActivity extends AppCompatActivity {
     private static Retrofit retrofit;
     private String nickname;
     private ObjectManagerService objectsAPI;
-    private List<Objects> objectsList;
-    private List<Objects> bagsList;
+    private List<Objects> objectsList= new ArrayList<Objects>();
+    private List<Objects> bagsList= new ArrayList<Objects>();
 
     private RecyclerView objectsRecycler;
     private RecyclerView bagsRecycler;
@@ -49,27 +49,19 @@ public class MyObjectsActivity extends AppCompatActivity {
         objectsRecycler= this.findViewById(R.id.objectRecycler);
         bagsRecycler= this.findViewById(R.id.bagsRecycler);
         startRetrofit();
-        getObjectFromDataBase(nickname);
+
 
         //Inizializo vectores
-        objectsList= new ArrayList<Objects>();
-        bagsList= new ArrayList<Objects>();
-
+        getObjectFromDataBase(nickname);
         //Recyclerview
-        objectsRecycler.setHasFixedSize(true);
-        bagsRecycler.setHasFixedSize(true);
-        objectsRecycler.setLayoutManager(new LinearLayoutManager(this));
-        bagsRecycler.setLayoutManager(new LinearLayoutManager(this));
+
         // use a linear layout manager
 
 
         //Hem d'inizialitzar els vectors
 
 
-        mobjectsAdapter = new MyAdapter(this,objectsList);
-        mbagsAdapter = new MyAdapter(this,bagsList);
-        objectsRecycler.setAdapter(mobjectsAdapter);
-        bagsRecycler.setAdapter(mbagsAdapter);
+
 
 
 
@@ -96,6 +88,25 @@ public class MyObjectsActivity extends AppCompatActivity {
                             objectsList.add(object);
                         }
                     }
+                    Toast.makeText(getApplicationContext(), "Imagen: " + objectsList.get(0).getUrlImage() , Toast.LENGTH_LONG).show();
+                    if(objectsList.size()==0){
+                        Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png");
+                        objectsList.add(object);
+                    }
+                    if(bagsList.size()==0){
+                        Objects object = new Objects(0,"YOU DO NOT HAVE ANY BAG",0,"Go to the shop if you want to spend the money",0,true, "imagen/sad.png");
+                    }
+
+
+
+                    objectsRecycler.setHasFixedSize(true);
+                    bagsRecycler.setHasFixedSize(true);
+                    objectsRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    bagsRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    mobjectsAdapter = new MyAdapter(getApplicationContext(),objectsList);
+                    mbagsAdapter = new MyAdapter(getApplicationContext(),bagsList);
+                    objectsRecycler.setAdapter(mobjectsAdapter);
+                    bagsRecycler.setAdapter(mbagsAdapter);
 
 
                 }

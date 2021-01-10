@@ -49,7 +49,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             holder.attributeObjectText.setText("Suspicious decrement:" +objectsList.get(position).getAttribute());
         }
         //Poner la foto
-        //Picasso.get().load(objectsList.get(position).getAvatar_url()).into(holder.myImage);
+        Picasso.get().load("http://eetacdsa0.upc.es:8080/"+objectsList.get(position).getUrlImage()).into(holder.myImage);
 
     }
 

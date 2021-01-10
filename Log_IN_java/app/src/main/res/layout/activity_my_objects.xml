@@ -7,39 +7,48 @@
     tools:context=".MyObjectsActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textObjects"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="82dp"
         android:gravity="center"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-71dp"
-        tools:layout_editor_absoluteY="226dp">
+        android:text="YOUR OBJECTS"
+        app:autoSizeTextType="none"
+        app:layout_constraintBottom_toTopOf="@+id/objectRecycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textObjects"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="YOUR OBJECTS"
-            app:autoSizeTextType="none" />
+    <TextView
+        android:id="@+id/textBags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="YOUR BAGS"
+        app:layout_constraintBottom_toTopOf="@+id/bagsRecycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/objectRecycler" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/objectRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="212dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bagsRecycler"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBags">
 
-        <TextView
-            android:id="@+id/textBags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="YOUR BAGS" />
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/bagsRecycler"
-            android:layout_width="411dp"
-            android:layout_height="475dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/objectRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        app:layout_constraintTop_toBottomOf="@+id/textObjects"
+        tools:layout_editor_absoluteX="-16dp">
 
-        </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
