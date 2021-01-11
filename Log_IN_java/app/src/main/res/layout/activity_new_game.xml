@@ -7,21 +7,15 @@
     tools:context=".NewGameActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="167dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="214dp"
-        android:layout_marginRight="214dp"
-        android:layout_marginBottom="515dp"
+        android:id="@+id/imageChar"
+        android:layout_width="202dp"
+        android:layout_height="181dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574"
+        app:layout_constraintVertical_bias="0.101"
         tools:srcCompat="@drawable/userprofile1" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.833"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageChar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.203" />
 

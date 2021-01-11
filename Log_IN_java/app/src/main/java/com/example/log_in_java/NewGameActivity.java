@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,9 +25,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class NewGameActivity extends AppCompatActivity {
 
@@ -42,18 +39,25 @@ public class NewGameActivity extends AppCompatActivity {
     private MyAdapter2 mobjectsAdapter;
     private MyAdapter objectsSelectedAdapter;
     private ProgressBar progressBar;
+    private String nickname;
+    private ImageView imageView;
+    private Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
+        imageView = this.findViewById(R.id.imageChar);
         objectsRecycler= this.findViewById(R.id.myObjects);
         objectsSelectedRecycler= this.findViewById(R.id.objectsSelected);
+        context = this.getApplicationContext();
+        loadPreferences();
+        nickname =preferences.getString("userNickname", null);//recupero el nickname
         startRetrofit();
 
 
-
+        getObjectFromDataBase(nickname);
 
 
     }
@@ -95,11 +99,15 @@ public class NewGameActivity extends AppCompatActivity {
                     objectsRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     objectsSelectedRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     mobjectsAdapter = new MyAdapter2(getApplicationContext(),objectsList);
-
-
-                    //objectsSelectedAdapter = new MyAdapter(getApplicationContext(),selectedObjectsList);
                     objectsRecycler.setAdapter(mobjectsAdapter);
-                    //bagsRecycler.setAdapter(mbagsAdapter);
+
+                    /*objectsRecycler.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            objectsSelectedAdapter = new MyAdapter(getApplicationContext(),mobjectsAdapter.getSelectedObjectsList());
+                            objectsSelectedRecycler.setAdapter(objectsSelectedAdapter);
+                        }
+                    });*/
 
 
                 }
@@ -140,5 +148,9 @@ public class NewGameActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
+    }
+
+    private void loadPreferences(){
+        preferences = getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
     }
 }
