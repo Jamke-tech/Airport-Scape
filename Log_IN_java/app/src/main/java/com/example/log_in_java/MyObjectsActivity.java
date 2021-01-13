@@ -46,6 +46,7 @@ public class MyObjectsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_objects);
         loadPreferences();
         nickname =preferences.getString("userNickname", null);//recupero el nickname
+
         objectsRecycler= this.findViewById(R.id.objectRecycler);
         bagsRecycler= this.findViewById(R.id.bagsRecycler);
         startRetrofit();
@@ -53,18 +54,6 @@ public class MyObjectsActivity extends AppCompatActivity {
 
         //Inizializo vectores
         getObjectFromDataBase(nickname);
-        //Recyclerview
-
-        // use a linear layout manager
-
-
-        //Hem d'inizialitzar els vectors
-
-
-
-
-
-
 
     }
 
