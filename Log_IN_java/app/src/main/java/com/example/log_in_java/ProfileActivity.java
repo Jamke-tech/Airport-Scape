@@ -110,9 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
                     else if(response.code() == 503)
                         Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
-
                 }
-
             }
 
             @Override

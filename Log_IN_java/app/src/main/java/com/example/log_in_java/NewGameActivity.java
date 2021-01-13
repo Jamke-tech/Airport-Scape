@@ -56,7 +56,6 @@ public class NewGameActivity extends AppCompatActivity {
         nickname =preferences.getString("userNickname", null);//recupero el nickname
         startRetrofit();
 
-
         getObjectFromDataBase(nickname);
 
 

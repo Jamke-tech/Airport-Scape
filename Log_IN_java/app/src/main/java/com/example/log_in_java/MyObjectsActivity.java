@@ -77,7 +77,7 @@ public class MyObjectsActivity extends AppCompatActivity {
             public void onResponse(Call<List<Objects>> call, Response<List<Objects>> response) {
                 //Si nos responde con un 200 OK sacamos los objetos i las mochilas por separado
                 if(response.code()==200){
-                    //tenemos objetos en el responsebody, recoremos el body para ir sacando los objetos i poniendolos en las listas
+                    //tenemos objetos en el responsebody, recorremos el body para ir sacando los objetos i poniendolos en las listas
 
                     for (Objects object : response.body()){
 
@@ -125,8 +125,6 @@ public class MyObjectsActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Objects>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-
-
             }
         });
 

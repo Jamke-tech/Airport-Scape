@@ -60,11 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Authentication error:"+response.code() + "\nDatabase down", Toast.LENGTH_LONG).show();
                     else
                         Toast.makeText(getApplicationContext(), "Authentication error: " + response.code() + "\nInternal Server Error", Toast.LENGTH_LONG).show();
-
                 }
-
             }
-
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
