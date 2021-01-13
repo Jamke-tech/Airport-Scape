@@ -40,7 +40,7 @@ public class NewGameActivity extends AppCompatActivity {
     private MyAdapter objectsSelectedAdapter;
     private ProgressBar progressBar;
     private String nickname;
-    private ImageView imageView;
+    private ImageView imageVieww;
     private Context context;
 
 
@@ -48,7 +48,7 @@ public class NewGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
-        imageView = this.findViewById(R.id.imageChar);
+        imageVieww = this.findViewById(R.id.imageChar);
         objectsRecycler= this.findViewById(R.id.myObjects);
         objectsSelectedRecycler= this.findViewById(R.id.objectsSelected);
         context = this.getApplicationContext();
