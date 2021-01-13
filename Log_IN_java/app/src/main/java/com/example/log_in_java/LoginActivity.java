@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.log_in_java.services.UserManagerService;
@@ -20,11 +22,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     //--------Atributes------------//
 
     Button loginBtn;
     Button registerBtn;
+    private TextView forgottenPass;
+    private String address;
     private EditText idLogin;
     private EditText passwordLogin;
     private UserManagerService usersAPI;
@@ -84,7 +88,9 @@ public class LoginActivity extends AppCompatActivity {
         passwordLogin = findViewById(R.id.editTextPassword);
         loginBtn = findViewById(R.id.buttonLogin);
         registerBtn = findViewById(R.id.buttonRegister);
-
+        forgottenPass = findViewById(R.id.forgottenPassText);
+        forgottenPass.setOnClickListener(this);
+        address ="";
 
 
         //Temporal
@@ -131,4 +137,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+        case R.id.forgottenPassText:
+            address="http://147.83.7.203:8080/recuperarcontrasena.html";
+            goWebsite(address);
+            break;
+        default:
+            break;
+        }
+    }
+
+    public void goWebsite(String d){
+        Uri uri = Uri.parse(d);
+        Intent intentNav = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intentNav);
+    }
 }
