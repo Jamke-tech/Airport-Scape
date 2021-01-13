@@ -46,6 +46,7 @@ public class MyObjectsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_objects);
         loadPreferences();
         nickname =preferences.getString("userNickname", null);//recupero el nickname
+
         objectsRecycler= this.findViewById(R.id.objectRecycler);
         bagsRecycler= this.findViewById(R.id.bagsRecycler);
         startRetrofit();
@@ -53,18 +54,6 @@ public class MyObjectsActivity extends AppCompatActivity {
 
         //Inizializo vectores
         getObjectFromDataBase(nickname);
-        //Recyclerview
-
-        // use a linear layout manager
-
-
-        //Hem d'inizialitzar els vectors
-
-
-
-
-
-
 
     }
 
@@ -88,12 +77,12 @@ public class MyObjectsActivity extends AppCompatActivity {
                             objectsList.add(object);
                         }
                     }
-                    Toast.makeText(getApplicationContext(), "Imagen: " + objectsList.get(0).getUrlImage() , Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Imagen: " + objectsList.get(0).getUrlImage() , Toast.LENGTH_LONG).show();
                     if(objectsList.size()==0){
                         Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png");
                         objectsList.add(object);
                     }
-                    else if(bagsList.size()==0){
+                    if(bagsList.size()==0){
                         Objects object = new Objects(0,"YOU DO NOT HAVE ANY BAG",0,"Go to the shop if you want to spend the money",0,true, "imagen/sad.png");
                         bagsList.add(object);
                     }

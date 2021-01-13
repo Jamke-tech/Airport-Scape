@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish(); //-----Response activity (close session - delete SHAREDPREFERENCES)
                     Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
+                    savePreferences();
                 }
                 else{
 
@@ -101,7 +102,6 @@ public class LoginActivity extends AppCompatActivity {
             }
             else{
                 login(new User(idLogin.getText().toString(),passwordLogin.getText().toString()));
-                savePreferences();
             }
 
         });

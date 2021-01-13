@@ -26,8 +26,8 @@ public class splash_activity_main extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_main);
         loadPreferences();
-
-
+        loginbar=(ProgressBar) findViewById(R.id.progressBar);
+        
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

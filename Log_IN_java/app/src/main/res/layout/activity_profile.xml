@@ -12,6 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/audiowide"
+        android:text="elPepe"
+        android:textColor="@color/md_grey_700"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+        app:layout_constraintTop_toBottomOf="@+id/textName2" />
+
+    <TextView
+        android:id="@+id/textName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/audiowide"
         android:text="Name:"
@@ -22,60 +36,114 @@
 
     <TextView
         android:id="@+id/textMail"
+        android:layout_width="380sp"
+        android:layout_height="22dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/audiowide"
+        android:gravity="center"
+        android:text="elpepe@elpepe.upc.edu"
+        android:textColor="@color/md_grey_700"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMail2" />
+
+    <TextView
+        android:id="@+id/textMail2"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/audiowide"
         android:text="Mail:"
         android:textColor="@color/md_red_500"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/textMoney" />
 
     <TextView
         android:id="@+id/textMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/audiowide"
+        android:text="99999"
+        android:textColor="@color/md_grey_700"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/textMoney2"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
+
+    <TextView
+        android:id="@+id/textMoney2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/audiowide"
         android:text="Money:"
         android:textColor="@color/md_red_500"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageProfile"
-        app:layout_constraintTop_toBottomOf="@+id/textUsername" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageProfile" />
 
     <TextView
         android:id="@+id/textSurname"
-        android:layout_width="195dp"
-        android:layout_height="wrap_content"
+        android:layout_width="168dp"
+        android:layout_height="23dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
+        android:fontFamily="@font/audiowide"
+        android:text="elPepe"
+        android:textColor="@color/md_grey_700"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+        app:layout_constraintTop_toBottomOf="@+id/textSurname2" />
+
+    <TextView
+        android:id="@+id/textSurname2"
+        android:layout_width="115dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/audiowide"
         android:text="Surname:"
         android:textColor="@color/md_red_500"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageProfile"
         app:layout_constraintTop_toBottomOf="@+id/textName" />
 
     <TextView
         android:id="@+id/textUsername"
-        android:layout_width="195dp"
+        android:layout_width="168sp"
+        android:layout_height="22dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/audiowide"
+        android:text="elPepe"
+        android:textColor="@color/md_grey_700"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+        app:layout_constraintTop_toBottomOf="@+id/textUsername2" />
+
+    <TextView
+        android:id="@+id/textUsername2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:fontFamily="@font/audiowide"
@@ -83,6 +151,7 @@
         android:textColor="@color/md_red_500"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageProfile"
         app:layout_constraintTop_toBottomOf="@+id/textSurname" />
 
@@ -100,8 +169,8 @@
 
     <ImageView
         android:id="@+id/imageProfile"
-        android:layout_width="174dp"
-        android:layout_height="168dp"
+        android:layout_width="201dp"
+        android:layout_height="211dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="170dp"
