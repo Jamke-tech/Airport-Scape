@@ -1,15 +1,21 @@
 package com.example.log_in_java;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.app.DirectAction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.view.View;
 import android.widget.Toast;
+import android.content.Intent;
 
 import com.example.log_in_java.Adapter.*;
 import com.example.log_in_java.models.Objects;
@@ -42,6 +48,9 @@ public class NewGameActivity extends AppCompatActivity {
     private String nickname;
     private ImageView imageVieww;
     private Context context;
+    private TextView suspiciousNum;
+    private Bundle datos;
+
 
 
     @Override
@@ -51,12 +60,28 @@ public class NewGameActivity extends AppCompatActivity {
         imageVieww = this.findViewById(R.id.imageChar);
         objectsRecycler= this.findViewById(R.id.myObjects);
         objectsSelectedRecycler= this.findViewById(R.id.objectsSelected);
+        suspiciousNum = this.findViewById(R.id.suspiciousNum);
+        progressBar = this.findViewById(R.id.progressBarSuspicious);
         context = this.getApplicationContext();
         loadPreferences();
         nickname =preferences.getString("userNickname", null);//recupero el nickname
         startRetrofit();
 
         getObjectFromDataBase(nickname);
+
+
+        //ESTO NO VA BIEN, LO PROBARÉ CON OTRO METODO
+        /*objectsRecycler.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            datos = getIntent().getExtras();
+                            String datosObtenidos = datos.getString("Suspicious deacreament");
+                            int datosInt = datos.getInt("Suspicious deacreament");
+
+                            suspiciousNum.setText(datosObtenidos);
+                            progressBar.setProgress(100-datosInt);
+                        }
+                    });*/
 
 
     }
@@ -66,6 +91,7 @@ public class NewGameActivity extends AppCompatActivity {
         objectsAPI = retrofit.create(ObjectManagerService.class);
         Call<List<Objects>> call = objectsAPI.listBuyedObjects(nickname);
         call.enqueue(new Callback<List<Objects>>() {
+
             @Override
             public void onResponse(Call<List<Objects>> call, Response<List<Objects>> response) {
                 //Si nos responde con un 200 OK sacamos los objetos i las mochilas por separado
@@ -95,7 +121,7 @@ public class NewGameActivity extends AppCompatActivity {
 
                     objectsRecycler.setHasFixedSize(true);
                     objectsSelectedRecycler.setHasFixedSize(true);
-                    objectsRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    objectsRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(),3 ));
                     objectsSelectedRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     mobjectsAdapter = new MyAdapter2(getApplicationContext(),objectsList);
                     objectsRecycler.setAdapter(mobjectsAdapter);
@@ -103,8 +129,12 @@ public class NewGameActivity extends AppCompatActivity {
                     /*objectsRecycler.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            objectsSelectedAdapter = new MyAdapter(getApplicationContext(),mobjectsAdapter.getSelectedObjectsList());
-                            objectsSelectedRecycler.setAdapter(objectsSelectedAdapter);
+                            datos = getIntent().getExtras();
+                            String datosObtenidos = datos.getString("Suspicious deacreament");
+                            int datosInt = datos.getInt("Suspicious deacreament");
+
+                            suspiciousNum.setText(datosObtenidos);
+                            progressBar.setProgress(100-datosInt);
                         }
                     });*/
 

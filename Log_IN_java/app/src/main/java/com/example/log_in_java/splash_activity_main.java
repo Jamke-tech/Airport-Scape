@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
@@ -26,7 +25,7 @@ public class splash_activity_main extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_main);
         loadPreferences();
-        loginbar=(ProgressBar) findViewById(R.id.progressBar);
+        loginbar=(ProgressBar) findViewById(R.id.progressBarSuspicious);
         
         new Handler().postDelayed(new Runnable() {
             @Override

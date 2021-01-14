@@ -1,14 +1,17 @@
 package com.example.log_in_java.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.log_in_java.NewGameActivity;
@@ -16,14 +19,18 @@ import com.example.log_in_java.models.Objects;
 import com.example.log_in_java.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
 
     List<Objects> objectsList;
-    List<Objects> selectedObjectsList;
+    List<Objects> selectedObjectsList = new ArrayList<Objects>();;
     Context context;
+    int posicionMarcada = 0;
+    int barra = 100;
     private MyAdapter objectsSelectedAdapter;
+
 
     public MyAdapter2(Context ct, List<Objects> objectsToList) {
         context =ct;
@@ -40,18 +47,36 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter2.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         Picasso.get().load("http://eetacdsa0.upc.es:8080/"+objectsList.get(position).getUrlImage()).into(holder.myImage);
-
+        final int pos = position;
         holder.myImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedObjectsList.add(objectsList.get(position));
+                System.out.println("click");
+                posicionMarcada = pos;
+                notifyDataSetChanged();
+                //ESTO TAMPOCO VA BIEN
+                /*selectedObjectsList.add(objectsList.get(position));
+                Intent i = new Intent (v.getContext(), NewGameActivity.class);
+                i.putExtra("Suspicious deacreament", objectsList.get(position).attribute );
+                System.out.println(objectsList.get(position).attribute);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);*/
+
+
             }
-
-
         });
+
+        if (posicionMarcada == position){
+
+            holder.barraSeleccion.setBackgroundColor(Color.RED);
+
+        }else{
+            holder.barraSeleccion.setBackgroundColor(Color.BLACK);
+        }
+
 
     }
 
@@ -66,12 +91,17 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-
+        CardView cardObject;
         ImageView myImage;
+        TextView barraSeleccion;
+        ProgressBar progressbar;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            cardObject = (CardView) itemView.findViewById(R.id.cardObject);
             myImage = (ImageView) itemView.findViewById(R.id.objectToChoose);
+            barraSeleccion = (TextView) itemView.findViewById(R.id.barraSeleccion);
+            progressbar = (ProgressBar) itemView.findViewById(R.id.progressBarSuspicious);
 
 
         }

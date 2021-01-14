@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/logo" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarSuspicious"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
