@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MyObjectsActivity"/>
+        <activity android:name=".NextNewGameActivity"></activity>
+        <activity android:name=".MyObjectsActivity" />
         <activity android:name=".LoadGameActivity" />
         <activity android:name=".NewGameActivity" />
         <activity android:name=".twoOptionsToPlayActivity" />
@@ -25,9 +26,8 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-
         <activity android:name=".MainActivity" />
-        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".ProfileActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

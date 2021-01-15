@@ -87,16 +87,16 @@ public class NewGameActivity extends AppCompatActivity {
     }
 
     private void getObjectFromDataBase(String nickname) {
-        //pedimos los objetos de la base de Datos i los ponemos en los dos vectores
+        //pedimos los objetos de la base de Datos y los ponemos en los dos vectores
         objectsAPI = retrofit.create(ObjectManagerService.class);
         Call<List<Objects>> call = objectsAPI.listBuyedObjects(nickname);
         call.enqueue(new Callback<List<Objects>>() {
 
             @Override
             public void onResponse(Call<List<Objects>> call, Response<List<Objects>> response) {
-                //Si nos responde con un 200 OK sacamos los objetos i las mochilas por separado
+                //Si nos responde con un 200 OK sacamos los objetos y las mochilas por separado
                 if(response.code()==200){
-                    //tenemos objetos en el responsebody, recoremos el body para ir sacando los objetos i poniendolos en las listas
+                    //tenemos objetos en el responsebody, recoremos el body para ir sacando los objetos y poniendolos en las listas
 
                     for (Objects object : response.body()){
 
@@ -159,11 +159,11 @@ public class NewGameActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
+    public void nextButtonClicked (View v){
+        startActivity(new Intent(NewGameActivity.this, NextNewGameActivity.class));
+    }
 
 
     private static void startRetrofit(){
