@@ -152,7 +152,9 @@ public class NewGameActivity extends AppCompatActivity {
     }
 
     public void nextButtonClicked (View v){
-        startActivity(new Intent(NewGameActivity.this, NextNewGameActivity.class));
+        Intent intent = new Intent(getApplicationContext(), NextNewGameActivity.class);
+        intent.putExtra("suspicious",suspiciousNum.getText().toString());
+        startActivity(intent);
     }
 
 

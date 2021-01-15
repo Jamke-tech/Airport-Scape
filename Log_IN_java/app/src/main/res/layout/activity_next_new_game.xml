@@ -6,6 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".NextNewGameActivity">
 
+    <Button
+        android:id="@+id/chooseButton"
+        android:layout_width="75dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/button_rounded"
+        android:fontFamily="@font/audiowide"
+        android:onClick="chooseButtonClicked"
+        android:text="Choose"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/dinero"
+        android:layout_width="186dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Extra money:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSuspicious2" />
+
+    <TextView
+        android:id="@+id/suspiciousTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/audiowide"
+        android:text="100"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/progressBarSuspicious2"
+        app:layout_constraintTop_toBottomOf="@+id/snakeImageView" />
+
+    <TextView
+        android:id="@+id/dineroTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/audiowide"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSuspicious2" />
+
+    <ImageView
+        android:id="@+id/imageChar2"
+        android:layout_width="94dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drugsImageView"
+        app:srcCompat="@drawable/userprofile1"
+        tools:srcCompat="@drawable/userprofile1"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progressBarSuspicious2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="183dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="64dp"
+        android:progress="100"
+        app:layout_constraintStart_toEndOf="@+id/imageChar2"
+        app:layout_constraintTop_toBottomOf="@+id/gunImageView" />
+
     <TextView
         android:id="@+id/textBags2"
         android:layout_width="wrap_content"
@@ -19,6 +98,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/objectRecycler" />
+
+    <TextView
+        android:id="@+id/textBags3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/audiowide"
+        android:text="SMUGGLING"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -36,4 +128,112 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/drugsImageView"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
+        android:onClick="drugsImageViewClicked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBags3"
+        app:srcCompat="@drawable/drugs" />
+
+    <ImageView
+        android:id="@+id/gunImageView"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="28dp"
+        android:onClick="gunImageViewClicked"
+        app:layout_constraintStart_toEndOf="@+id/drugsImageView"
+        app:layout_constraintTop_toBottomOf="@+id/textBags3"
+        app:srcCompat="@drawable/gun" />
+
+    <ImageView
+        android:id="@+id/moneyImageView"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="28dp"
+        android:onClick="moneyImageViewClicked"
+        app:layout_constraintStart_toEndOf="@+id/gunImageView"
+        app:layout_constraintTop_toBottomOf="@+id/textBags3"
+        app:srcCompat="@drawable/money" />
+
+    <ImageView
+        android:id="@+id/snakeImageView"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="28dp"
+        android:onClick="snakeImageViewClicked"
+        app:layout_constraintStart_toEndOf="@+id/moneyImageView"
+        app:layout_constraintTop_toBottomOf="@+id/textBags3"
+        app:srcCompat="@drawable/snake" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="2 spaces required"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/drugsImageView"
+        app:layout_constraintStart_toStartOf="@+id/drugsImageView"
+        app:layout_constraintTop_toBottomOf="@+id/drugsImageView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="1 space required"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/gunImageView"
+        app:layout_constraintStart_toEndOf="@+id/drugsImageView"
+        app:layout_constraintTop_toBottomOf="@+id/gunImageView" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="3 spaces required"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/moneyImageView"
+        app:layout_constraintStart_toEndOf="@+id/gunImageView"
+        app:layout_constraintTop_toBottomOf="@+id/moneyImageView" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="3 spaces required"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/snakeImageView"
+        app:layout_constraintStart_toEndOf="@+id/moneyImageView"
+        app:layout_constraintTop_toBottomOf="@+id/snakeImageView" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Available spaces:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/spacesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

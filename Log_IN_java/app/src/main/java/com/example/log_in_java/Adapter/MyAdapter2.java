@@ -32,6 +32,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
     int atributoObjeto;
     Boolean chosen = false;
 
+    private int maleta = 0;
+
 
     public MyAdapter2(Context ct, List<Objects> objectsToList) {
         context =ct;
@@ -57,14 +59,24 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
             public void onClick(View v) {
                 if (!chosen) {
                     chosen = true;
-                    holder.barraSeleccion.setBackgroundColor(Color.RED);
 
-                    selectedObjectsList.add(objectsList.get(position));
+                    if(!objectsList.get(position).isBag() || (maleta <= 1)){
+                        if(objectsList.get(position).isBag()){
+                            maleta = 1;
+                        }
+                        holder.barraSeleccion.setBackgroundColor(Color.RED);
+
+                        selectedObjectsList.add(objectsList.get(position));
+                    }
+                    /*holder.barraSeleccion.setBackgroundColor(Color.RED);
+
+                    selectedObjectsList.add(objectsList.get(position));*/
 
                 }
                 else{
                     holder.barraSeleccion.setBackgroundColor(Color.BLACK);
                     chosen = false;
+                    maleta = 0;
 
                     selectedObjectsList.remove(objectsList.get(position));
 
