@@ -2,6 +2,7 @@ package com.example.log_in_java.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +29,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
     List<Objects> selectedObjectsList = new ArrayList<Objects>();;
     Context context;
     int posicionMarcada = 0;
-    int barra = 100;
-    private MyAdapter objectsSelectedAdapter;
+    int atributoObjeto;
+    Boolean chosen = false;
 
 
     public MyAdapter2(Context ct, List<Objects> objectsToList) {
@@ -54,28 +55,27 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
         holder.myImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!chosen) {
+                    chosen = true;
+                    holder.barraSeleccion.setBackgroundColor(Color.RED);
+
+                    selectedObjectsList.add(objectsList.get(position));
+
+                }
+                else{
+                    holder.barraSeleccion.setBackgroundColor(Color.BLACK);
+                    chosen = false;
+
+                    selectedObjectsList.remove(objectsList.get(position));
+
+
+                }
                 System.out.println("click");
-                posicionMarcada = pos;
-                notifyDataSetChanged();
-                //ESTO TAMPOCO VA BIEN
-                /*selectedObjectsList.add(objectsList.get(position));
-                Intent i = new Intent (v.getContext(), NewGameActivity.class);
-                i.putExtra("Suspicious deacreament", objectsList.get(position).attribute );
-                System.out.println(objectsList.get(position).attribute);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(i);*/
+
 
 
             }
         });
-
-        if (posicionMarcada == position){
-
-            holder.barraSeleccion.setBackgroundColor(Color.RED);
-
-        }else{
-            holder.barraSeleccion.setBackgroundColor(Color.BLACK);
-        }
 
 
     }
@@ -84,6 +84,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
     public int getItemCount() {
         return objectsList.size();
     }
+
 
     public List<Objects> getSelectedObjectsList() {
         return selectedObjectsList;
@@ -102,7 +103,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
             myImage = (ImageView) itemView.findViewById(R.id.objectToChoose);
             barraSeleccion = (TextView) itemView.findViewById(R.id.barraSeleccion);
             progressbar = (ProgressBar) itemView.findViewById(R.id.progressBarSuspicious);
-
 
         }
 

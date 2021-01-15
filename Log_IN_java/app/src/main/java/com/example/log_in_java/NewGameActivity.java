@@ -10,6 +10,7 @@ import android.app.DirectAction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,15 +42,17 @@ public class NewGameActivity extends AppCompatActivity {
     private List<Objects> selectedObjectsList= new ArrayList<Objects>();
     private List<Objects> bagsList= new ArrayList<Objects>();
     private RecyclerView objectsRecycler;
-    private RecyclerView objectsSelectedRecycler;
     private MyAdapter2 mobjectsAdapter;
-    private MyAdapter objectsSelectedAdapter;
     private ProgressBar progressBar;
     private String nickname;
     private ImageView imageVieww;
     private Context context;
     private TextView suspiciousNum;
-    private Bundle datos;
+    private Button selectObjectButton;
+    int atributo;
+    int sospechoso = 100;
+    Boolean clickeado = false;
+
 
 
 
@@ -57,17 +60,18 @@ public class NewGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
-        imageVieww = this.findViewById(R.id.imageChar);
+        selectObjectButton =this.findViewById(R.id.selectObjectsButton);
+        imageVieww = (ImageView) this.findViewById(R.id.imageChar);
         objectsRecycler= this.findViewById(R.id.myObjects);
-        objectsSelectedRecycler= this.findViewById(R.id.objectsSelected);
-        suspiciousNum = this.findViewById(R.id.suspiciousNum);
-        progressBar = this.findViewById(R.id.progressBarSuspicious);
+        suspiciousNum = (TextView) this.findViewById(R.id.suspiciousNum);
+        progressBar = (ProgressBar) this.findViewById(R.id.progressBarSuspicious);
         context = this.getApplicationContext();
         loadPreferences();
         nickname =preferences.getString("userNickname", null);//recupero el nickname
         startRetrofit();
 
         getObjectFromDataBase(nickname);
+
 
 
         //ESTO NO VA BIEN, LO PROBARÉ CON OTRO METODO
@@ -120,23 +124,9 @@ public class NewGameActivity extends AppCompatActivity {
 
 
                     objectsRecycler.setHasFixedSize(true);
-                    objectsSelectedRecycler.setHasFixedSize(true);
                     objectsRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(),3 ));
-                    objectsSelectedRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     mobjectsAdapter = new MyAdapter2(getApplicationContext(),objectsList);
                     objectsRecycler.setAdapter(mobjectsAdapter);
-
-                    /*objectsRecycler.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            datos = getIntent().getExtras();
-                            String datosObtenidos = datos.getString("Suspicious deacreament");
-                            int datosInt = datos.getInt("Suspicious deacreament");
-
-                            suspiciousNum.setText(datosObtenidos);
-                            progressBar.setProgress(100-datosInt);
-                        }
-                    });*/
 
 
                 }
@@ -163,6 +153,29 @@ public class NewGameActivity extends AppCompatActivity {
 
     public void nextButtonClicked (View v){
         startActivity(new Intent(NewGameActivity.this, NextNewGameActivity.class));
+    }
+
+
+
+
+    public void selectObjectsButtonClicked(View v){
+
+
+        selectedObjectsList = mobjectsAdapter.getSelectedObjectsList();
+        for (int i=0; i < selectedObjectsList.size(); i++){
+
+            if (selectedObjectsList.size() == 0){
+                atributo = 0;
+            }
+            atributo = atributo + selectedObjectsList.get(i).getAttribute();
+
+        }
+        int suspicious = sospechoso - atributo;
+        progressBar.setProgress(suspicious);
+        suspiciousNum.setText(String.valueOf(suspicious));
+        sospechoso = 100;
+        atributo = 0;
+
     }
 
 

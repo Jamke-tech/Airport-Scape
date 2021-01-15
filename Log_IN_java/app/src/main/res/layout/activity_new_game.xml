@@ -12,21 +12,21 @@
         android:layout_height="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
+        app:layout_constraintVertical_bias="0.137"
+        app:srcCompat="@drawable/userprofile1"
         tools:srcCompat="@drawable/userprofile1" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myObjects"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="449dp"
+        android:layout_width="369dp"
+        android:layout_height="314dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -54,34 +54,35 @@
         android:progress="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/objectsSelected"
-        android:layout_width="364dp"
-        android:layout_height="189dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763" />
+        app:layout_constraintVertical_bias="0.163" />
 
     <TextView
         android:id="@+id/suspiciousNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:fontFamily="@font/audiowide"
         android:text="100"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintVertical_bias="0.18" />
+
+    <Button
+        android:id="@+id/selectObjectsButton"
+        android:layout_width="233dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="168dp"
+        android:background="@drawable/button_rounded"
+        android:onClick="selectObjectsButtonClicked"
+        android:text="SELECT OBJECTS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
