@@ -60,7 +60,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
                 if (objectsList.get(position).chosen == false) {
                     //chosen = true;
                     objectsList.get(position).setChosen(true);
-                    if(!objectsList.get(position).isBag() || (maleta <= 1)){
+                    if(!objectsList.get(position).isBag() || (maleta < 1)){
                         if(objectsList.get(position).isBag()){
                             maleta = 1;
                         }

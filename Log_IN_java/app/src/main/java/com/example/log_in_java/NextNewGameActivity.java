@@ -140,8 +140,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Objects>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-
-
+                
             }
         });
 
@@ -151,6 +150,14 @@ public class NextNewGameActivity extends AppCompatActivity {
         selectedBagsList = mobjectsAdapter.getSelectedObjectsList();
         spaceAvailable = selectedBagsList.get(0).getAttribute();
         spacesTextView.setText(String.valueOf(spaceAvailable));
+        suspiciousTextView.setText(String.valueOf(suspicious));
+        progressBar.setProgress(Integer.parseInt(suspicious));
+        extraMoney = 0;
+        dineroTextView.setText(String.valueOf(extraMoney));
+        drugs = false;
+        gun = false;
+        money = false;
+        snake = false;
     }
 
     public void drugsImageViewClicked(View v){
