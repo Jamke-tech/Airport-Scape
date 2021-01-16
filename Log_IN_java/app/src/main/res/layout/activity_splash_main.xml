@@ -17,18 +17,20 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="-4dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="-1dp"
+        android:layout_marginBottom="5dp"
         app:srcCompat="@drawable/logo" />
 
     <ProgressBar
-        android:id="@+id/progressBarSuspicious"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="268dp"
+        android:id="@+id/loadingBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="181dp" />
+        android:layout_marginTop="506dp"
+        android:layout_marginBottom="177dp" />
 
 </RelativeLayout>

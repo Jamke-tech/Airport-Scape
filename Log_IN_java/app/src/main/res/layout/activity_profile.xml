@@ -157,9 +157,10 @@
 
     <Button
         android:id="@+id/buttonChangePassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="217dp"
+        android:layout_height="49dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/button_rounded"
         android:fontFamily="@font/audiowide"
         android:onClick="onChangePasswordClicked"
         android:text="CHANGE PASSWORD"
