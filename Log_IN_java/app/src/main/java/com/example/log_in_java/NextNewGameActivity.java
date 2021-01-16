@@ -166,7 +166,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+10));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())+10);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
 
         }
@@ -181,7 +181,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                 dineroTextView.setText(String.valueOf(extraMoney));
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-10));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())-10);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
         }
     }
@@ -199,7 +199,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+5));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())+5);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
 
         }
@@ -214,7 +214,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                 dineroTextView.setText(String.valueOf(extraMoney));
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-5));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())-5);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
         }
     }
@@ -232,7 +232,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+15));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())+15);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
 
         }
@@ -247,7 +247,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                 dineroTextView.setText(String.valueOf(extraMoney));
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-15));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())-15);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
         }
     }
@@ -265,7 +265,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+15));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())+15);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
 
         }
@@ -280,7 +280,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                 dineroTextView.setText(String.valueOf(extraMoney));
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-15));
-                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString())-15);
+                progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
             }
         }
     }
