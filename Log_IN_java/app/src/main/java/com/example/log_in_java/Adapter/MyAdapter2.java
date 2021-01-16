@@ -30,7 +30,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
     Context context;
     int posicionMarcada = 0;
     int atributoObjeto;
-    Boolean chosen = false;
+    //Boolean chosen = false;
 
     private int maleta = 0;
 
@@ -57,16 +57,18 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
         holder.myImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!chosen) {
-                    chosen = true;
-
+                if (objectsList.get(position).chosen == false) {
+                    //chosen = true;
+                    objectsList.get(position).setChosen(true);
                     if(!objectsList.get(position).isBag() || (maleta <= 1)){
                         if(objectsList.get(position).isBag()){
                             maleta = 1;
                         }
                         holder.barraSeleccion.setBackgroundColor(Color.RED);
-
+                        notifyDataSetChanged();
                         selectedObjectsList.add(objectsList.get(position));
+                        notifyDataSetChanged();
+                        System.out.println("seleccionado");
                     }
                     /*holder.barraSeleccion.setBackgroundColor(Color.RED);
 
@@ -75,10 +77,14 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
                 }
                 else{
                     holder.barraSeleccion.setBackgroundColor(Color.BLACK);
-                    chosen = false;
+                    notifyDataSetChanged();
+                    objectsList.get(position).setChosen(false);
+                    //chosen = false;
                     maleta = 0;
 
                     selectedObjectsList.remove(objectsList.get(position));
+                    notifyDataSetChanged();
+                    System.out.println("deseleccionado");
                 }
                 System.out.println("click");
             }

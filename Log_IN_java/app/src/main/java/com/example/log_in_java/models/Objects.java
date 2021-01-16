@@ -9,8 +9,9 @@ public class Objects {
     public int attribute;
     public boolean bag;
     public String urlImage;
+    public boolean chosen;
 
-    public Objects(int id, String name, int price, String description, int attribute, boolean bag, String urlImage) {
+    public Objects(int id, String name, int price, String description, int attribute, boolean bag, String urlImage, boolean chosen) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -18,6 +19,7 @@ public class Objects {
         this.attribute = attribute;
         this.bag = bag;
         this.urlImage = urlImage;
+        this.chosen = chosen;
     }
 
     public int getId() {
@@ -74,5 +76,13 @@ public class Objects {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public boolean isChosen() {
+        return chosen;
+    }
+
+    public void setChosen(boolean chosen) {
+        this.chosen = chosen;
     }
 }

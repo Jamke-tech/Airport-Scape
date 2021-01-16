@@ -110,11 +110,11 @@ public class NextNewGameActivity extends AppCompatActivity {
                     }
                     Toast.makeText(getApplicationContext(), "Imagen: " + objectsList.get(0).getUrlImage() , Toast.LENGTH_LONG).show();
                     if(objectsList.size()==0){
-                        Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png");
+                        Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png", false);
                         objectsList.add(object);
                     }
                     else if(bagsList.size()==0){
-                        Objects object = new Objects(0,"YOU DO NOT HAVE ANY BAG",0,"Go to the shop if you want to spend the money",0,true, "imagen/sad.png");
+                        Objects object = new Objects(0,"YOU DO NOT HAVE ANY BAG",0,"Go to the shop if you want to spend the money",0,true, "imagen/sad.png", false);
                         bagsList.add(object);
                     }
 
