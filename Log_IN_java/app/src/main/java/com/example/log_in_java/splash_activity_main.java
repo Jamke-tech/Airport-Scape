@@ -7,11 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.graphics.PorterDuff;
 
 
 public class splash_activity_main extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class splash_activity_main extends AppCompatActivity {
         setContentView(R.layout.activity_splash_main);
         loadPreferences();
         loginbar=(ProgressBar) findViewById(R.id.loadingBar);
+        loginbar.getIndeterminateDrawable().setColorFilter(Color.RED,PorterDuff.Mode.SRC_IN);
         loginbar.onVisibilityAggregated(true);
         
         new Handler().postDelayed(new Runnable() {

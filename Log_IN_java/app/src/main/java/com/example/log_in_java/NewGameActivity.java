@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.app.DirectAction;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
