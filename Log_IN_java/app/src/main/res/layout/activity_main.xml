@@ -11,7 +11,7 @@
         android:layout_height="149dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:background="@android:color/transparent"
@@ -20,14 +20,13 @@
         android:src="@drawable/carrito2"
         android:text="SHOP"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playButton" />
 
     <ImageButton
         android:id="@+id/playButton"
-        android:layout_width="184dp"
-        android:layout_height="119dp"
+        android:layout_width="129dp"
+        android:layout_height="116dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
@@ -44,8 +43,8 @@
 
     <ImageButton
         android:id="@+id/myObjectsButton"
-        android:layout_width="151dp"
-        android:layout_height="167dp"
+        android:layout_width="118dp"
+        android:layout_height="197dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
@@ -59,17 +58,18 @@
         android:text="MY OBJECTS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shopButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/profileButton"
-        android:layout_width="257dp"
-        android:layout_height="121dp"
+        android:layout_width="140dp"
+        android:layout_height="131dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:background="@android:color/transparent"
