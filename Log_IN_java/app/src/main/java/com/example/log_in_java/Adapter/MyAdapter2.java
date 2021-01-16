@@ -79,13 +79,8 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
                     maleta = 0;
 
                     selectedObjectsList.remove(objectsList.get(position));
-
-
                 }
                 System.out.println("click");
-
-
-
             }
         });
 
@@ -117,8 +112,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
             progressbar = (ProgressBar) itemView.findViewById(R.id.progressBarSuspicious);
 
         }
-
-
     }
 
 
