@@ -292,6 +292,16 @@ public class NextNewGameActivity extends AppCompatActivity {
         }
     }
 
+    public void playButtonClicked(View v){
+
+        Toast.makeText(context,"Starting game as" + nickname,Toast.LENGTH_LONG).show();
+
+
+
+
+
+    }
+
     private static void startRetrofit(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

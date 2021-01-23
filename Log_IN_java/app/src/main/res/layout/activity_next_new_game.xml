@@ -250,6 +250,7 @@
         android:layout_marginBottom="13dp"
         android:background="@drawable/button_rounded"
         android:fontFamily="@font/audiowide"
+        android:onClick="playButtonClicked"
         android:text="PLAY!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
