@@ -294,7 +294,7 @@ public class NextNewGameActivity extends AppCompatActivity {
 
     public void playButtonClicked(View v){
 
-        Toast.makeText(context,"Starting game as" + nickname,Toast.LENGTH_LONG).show();
+        Toast.makeText(context,"Starting game as: " + nickname,Toast.LENGTH_LONG).show();
 
 
 

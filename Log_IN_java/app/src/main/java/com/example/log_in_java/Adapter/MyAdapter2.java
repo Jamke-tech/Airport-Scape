@@ -26,7 +26,7 @@ import java.util.List;
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
 
     List<Objects> objectsList;
-    List<Objects> selectedObjectsList = new ArrayList<Objects>();;
+    List<Objects> selectedObjectsList = new ArrayList<Objects>();
     Context context;
     int posicionMarcada = 0;
     int atributoObjeto;

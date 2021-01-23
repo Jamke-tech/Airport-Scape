@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NextNewGameActivity"></activity>
+        <activity android:name=".PlayGameActivity"></activity>
+        <activity android:name=".NextNewGameActivity" />
         <activity android:name=".MyObjectsActivity" />
         <activity android:name=".LoadGameActivity" />
         <activity android:name=".NewGameActivity" />
