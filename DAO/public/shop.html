@@ -137,7 +137,7 @@
                             $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
                             $('<p>').addClass('has-text-centered').text(val.description),
                             $('<div>').addClass('card-buttons').append(
-                                $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar").onclick('buyObject(val.id)')
+                                $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar").on('click',buyObject(val.id)')
                             ),
                           )
 
@@ -151,29 +151,30 @@
         });
 
     }
-    function buyObject(id)
+    function buyObject(id){
 
-    $.ajax({
-       type: "PUT",
-       url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio
-       data: {username.value : myStorage.getItem("user"), i: id}
-       success: function(data) {
-           console.log("success");
-           console.log(data.status)
-       },
-       complete: function(data) {
-           if(data.status == 406){
-              alert("You don't have enough money!");
+        $.ajax({
+           type: "PUT",
+           url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio
+           data: {username.value : myStorage.getItem("user"), i: id}
+           success: function(data) {
+               console.log("success");
+               console.log(data.status);
+               alert("Has comprado este objeto");
+           },
+           complete: function(data) {
+               if(data.status == 406){
+                  alert("You don't have enough money!");
+               }
+               else if (data.status != 200){
+                   alert("Good purchase!");
+               }
+               else if (data.status != 503){
+                   alert("Database down!");
+               }
            }
-           else if (data.status != 200){
-               alert("Good purchase!");
-           }
-           else if (data.status != 503){
-               alert("Database down!");
-           }
-       }
-   })
-
+       })
+    }
     function goToInicio() {
       location.href = "http://147.83.7.203:8080/inicio.html";
     }
