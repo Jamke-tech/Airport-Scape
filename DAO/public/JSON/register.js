@@ -60,10 +60,8 @@ $(function(){
                 success: function(data) {
                     console.log("success");
                     console.log(data.status)
+                    window.location.pathname = "/index.html"
 
-                    sessionStorage.setItem(data.id, data.userName);
-                    var  userNameStored = sessionStorage.getItem(data.id);
-                    document.getElementById("navbarDropdown").innerHTML = userNameStored;
                 },
                 complete: function(data) {
                     if(data.status == 503){

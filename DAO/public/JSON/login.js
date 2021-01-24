@@ -46,7 +46,7 @@ $(function(){
                     myStorage.setItem("user",data.username);
                     var  userNameStored = sessionStorage.getItem("user");
                     document.getElementById("navbarDropdown").innerHTML = data.userName;
-                    window.location.pathname = "/swagger/inicio.html"
+                    window.location.pathname = "/inicio.html"
 
                 },
                 complete: function(data) {
