@@ -298,6 +298,9 @@ public class NextNewGameActivity extends AppCompatActivity {
 
         Toast.makeText(context,"Starting game as: " + nickname,Toast.LENGTH_LONG).show();
         Intent newintent = new Intent(this,PlayGameActivity.class);
+        newintent.putExtra("suspicious",suspicious);
+        String moneyy = String.valueOf(extraMoney);
+        newintent.putExtra("money", moneyy);
         startActivity(newintent);
 
     }
