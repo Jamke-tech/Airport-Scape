@@ -28,11 +28,11 @@
             </div>
             <div class="menu">
 
-                <button class="buttonMenu" id="buttonInicio" type="button"><i class="icon ion-md-airplane mr-2 lead"></i>Inicio</button>
-                <button class="buttonMenu" id="buttonLogIn" type="button"><i class="icon ion-md-stats mr-2 lead"></i>Log in</button>
-                <button class="buttonMenu" id="buttonShop" type="button"><i class="icon ion-md-card mr-2 lead"></i>Shop</button>
-                <button class="buttonMenu" id="buttonStatics" type="button"><i class="icon ion-md-stats mr-2 lead"></i>Statistics</button>
-                <button class="buttonMenu" id="buttonOthers" type="button"><i class="icon ion-md-construct mr-2 lead"></i>...</button>
+                <button class="buttonMenu" id="buttonInicio" type="button" onclick="goToInicio()"><i class="icon ion-md-airplane mr-2 lead"></i>Inicio</button>
+                <button class="buttonMenu" id ="buttonLogIn" type="button" onclick="goToLogIn()"><i class="icon ion-md-stats mr-2 lead"></i>Log in</button>
+                <button class="buttonMenu" id="buttonOthers" type="button" onclick="goToProfile()"><i class="icon ion-md-contact mr-2 lead"></i>Profile</button>
+                <button class="buttonMenu" id="buttonShop" type="button" onclick="goToShop()"><i class="icon ion-md-card mr-2 lead"></i>Shop</button>
+                <button class="buttonMenu" id="buttonStatics" type="button" onclick="goToStatistics()"><i class="icon ion-md-stats mr-2 lead"></i>Statistics</button>
 
                 <!--<a href="inicio.html" class="d-block text-light p-3"><i class="icon ion-md-airplane mr-2 lead"></i>Inicio</a>
                 <a href="index.html" class="d-block text-light p-3"><i class="icon ion-md-key mr-2 lead"></i>Log in/Create Account</a>
@@ -74,16 +74,6 @@
                 </div>
             </div>
 
-            <!-- Barra de navegacion secundaria -->
-            <div class="container">
-                <nav class="nav">
-                    <a class="nav-item active has-text-weight-semibold" href="#">Popular</a>
-                    <a class="nav-item has-text-weight-semibold" href="#">Bags</a>
-                    <a class="nav-item has-text-weight-semibold" href="#">Character</a>
-                    <a class="nav-item has-text-weight-semibold" href="#">Custome</a>
-                    <a class="nav-item has-text-weight-semibold" href="#">More</a>
-                </nav>
-            </div>
             <!-- Sección de fotografías -->
             <div class="container" >
                 <div class="columns is-multiline" id="objetos">
@@ -128,6 +118,7 @@
     <script>
     <!-- función conocer objetos BBDD -->
     function getObjects() {
+        const myStorage = window.localStorage;
         var objectsUrl = '/gameDSA/object/getListObjects';
         var card = document.getElementById("card");
         var contador =0;
@@ -146,7 +137,7 @@
                             $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
                             $('<p>').addClass('has-text-centered').text(val.description),
                             $('<div>').addClass('card-buttons').append(
-                                $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar")
+                                $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar").onclick('buyObject(val.id)')
                             ),
                           )
 
@@ -160,6 +151,44 @@
         });
 
     }
+    function buyObject(id)
+
+    $.ajax({
+       type: "PUT",
+       url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio
+       data: {username.value : myStorage.getItem("user"), i: id}
+       success: function(data) {
+           console.log("success");
+           console.log(data.status)
+       },
+       complete: function(data) {
+           if(data.status == 406){
+              alert("You don't have enough money!");
+           }
+           else if (data.status != 200){
+               alert("Good purchase!");
+           }
+           else if (data.status != 503){
+               alert("Database down!");
+           }
+       }
+   })
+
+    function goToInicio() {
+      location.href = "http://147.83.7.203:8080/inicio.html";
+    }
+    function goToShop() {
+      location.href = "http://147.83.7.203:8080/shop.html";
+    }
+    function goToLogIn() {
+      location.href = "http://147.83.7.203:8080/index.html";
+    }
+    function goToStatistics() {
+      location.href = "http://147.83.7.203:8080/estadisticas.html";
+    }
+    function goToProfile() {
+      location.href = "http://147.83.7.203:8080/profile.html";
+    }
     </script>
     <script src="JSON/shop.js"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -168,6 +197,8 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>
