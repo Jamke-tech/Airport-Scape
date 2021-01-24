@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.example.log_in_java.Adapter.MyAdapter2;
 import com.example.log_in_java.models.Objects;
 import com.example.log_in_java.services.ObjectManagerService;
+import com.unity3d.player.UnityPlayerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -295,10 +297,8 @@ public class NextNewGameActivity extends AppCompatActivity {
     public void playButtonClicked(View v){
 
         Toast.makeText(context,"Starting game as: " + nickname,Toast.LENGTH_LONG).show();
-
-
-
-
+        Intent newintent = new Intent(this,UnityPlayerActivity.class);
+        startActivity(newintent);
 
     }
 

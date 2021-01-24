@@ -14,6 +14,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi-v7a','arm64-v8a'
+        }
+
+
+
     }
 
     buildTypes {
@@ -57,6 +63,10 @@ dependencies {
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    //Unity
+    implementation project (':unityLibrary-release')
+
 
 
 

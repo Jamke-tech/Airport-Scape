@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Log_IN_java</string>
+    <string name="app_name">Airport Scape</string>
     <string name="action_exit">Exit</string>
     <string name="action_logout">Log Out</string>
+    <string name="game_view_content_description"></string>
 
 </resources>

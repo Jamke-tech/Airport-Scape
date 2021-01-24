@@ -1,2 +1,3 @@
+include ':unityLibrary-release'
 include ':app'
 rootProject.name = "Log_IN_java"
