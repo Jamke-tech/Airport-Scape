@@ -100,11 +100,11 @@ public class GameService {
 
     })
 
-    @Path("/getStringMapByGameName/{name}")
+    @Path("/getStringMap/{id}}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma class game
-    public Response getStringMapByGameName (@PathParam("name") String name) {
+    public Response getStringMapByGameName (@PathParam("id") int id) {
         try{
-            String stringMap = g.getStringMapByGameName(name);
+            String stringMap = g.getStringMap(id);
             return Response.status(200).entity(stringMap).build();
         }
         catch (Exception e){

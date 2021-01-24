@@ -2,7 +2,10 @@ package com.example.log_in_java;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.unity3d.player.UnityPlayerActivity;
 
 public class PlayGameActivity extends AppCompatActivity {
 
@@ -13,4 +16,6 @@ public class PlayGameActivity extends AppCompatActivity {
 
 
     }
+    Intent newintent = new Intent(this, UnityPlayerActivity.class);
+    startActivity(newintent);
 }

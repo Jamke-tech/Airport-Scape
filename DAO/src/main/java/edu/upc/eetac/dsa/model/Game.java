@@ -8,9 +8,10 @@ public class Game {
     public boolean win;
     public int idUser;
     public int suspicious;
+    public int money;
     public boolean ticket;
 
-    public Game(int id, String name, int idMap, int time, boolean win, int idUser, int suspicious, boolean ticket) {
+    public Game(int id, String name, int idMap, int time, boolean win, int idUser, int suspicious, boolean ticket, int money) {
         this.id = id;
         this.name = name;
         this.idMap = idMap;
@@ -19,6 +20,7 @@ public class Game {
         this.idUser = idUser;
         this.suspicious = suspicious;
         this.ticket = ticket;
+        this.money=money;
     }
 
     public Game() {

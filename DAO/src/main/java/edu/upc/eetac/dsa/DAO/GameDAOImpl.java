@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameDAOImpl {
+public class GameDAOImpl implements IGameDAO {
     private static IGameDAO instance;
 
     private GameDAOImpl() {   }
@@ -69,14 +69,14 @@ public class GameDAOImpl {
             return idMap;
         }
     }
-    public String getStringMapByGameName (String name) throws SQLException {
+
+
+    public String getStringMap (int id) throws SQLException {
         Session session = null;
         String stringMap = null;
         try {
             session = FactorySession.openSession();
-            Game actualGame = (Game) session.getByName(new Game(), name);
-            int idMap = actualGame.getIdMap();
-            Map map = (Map) session.getByID(new Map(), idMap);
+            Map map = (Map) session.getByID(new Map(), id);
             stringMap = map.getStringMap();
 
         } catch (Exception e) {
