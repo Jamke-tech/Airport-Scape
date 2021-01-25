@@ -3,6 +3,7 @@ package edu.upc.eetac.dsa.service;
 import edu.upc.eetac.dsa.DAO.GameDAOImpl;
 import edu.upc.eetac.dsa.DAO.IGameDAO;
 import edu.upc.eetac.dsa.model.Game;
+import edu.upc.eetac.dsa.model.Map;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -95,7 +96,7 @@ public class GameService {
     @GET
     @ApiOperation(value = "Obtener StringMap mapa", notes = "Nos devuelve el mapa (modo string) en el que se había quedado la partida")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK", response = String.class),
+            @ApiResponse(code = 200, message = "OK", response = Map.class),
             @ApiResponse(code = 503, message = "BBDD Down")
 
     })
@@ -104,8 +105,8 @@ public class GameService {
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma string
     public Response getStringMap (@PathParam("id") int id) {
         try{
-            String stringMap = g.getStringMap(id);
-            return Response.status(200).entity(stringMap).build();
+            Map map = g.getStringMap(id);
+            return Response.status(200).entity(map).build();
         }
         catch (Exception e){
 

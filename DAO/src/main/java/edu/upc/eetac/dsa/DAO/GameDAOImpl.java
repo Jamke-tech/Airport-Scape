@@ -71,19 +71,19 @@ public class GameDAOImpl implements IGameDAO {
     }
 
 
-    public String getStringMap (int id) throws SQLException {
+    public Map getStringMap (int id) throws SQLException {
         Session session = null;
-        String stringMap = null;
+        Map map = null;
         try {
             session = FactorySession.openSession();
-            Map map = (Map) session.getByID(new Map(), id);
-            stringMap = map.getStringMap();
+            map = (Map) session.getByID(new Map(), id);
+            //stringMap = map.getStringMap();
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
-            return stringMap;
+            return map;
         }
     }
     public int winGame(Game game, int money) throws SQLException {
