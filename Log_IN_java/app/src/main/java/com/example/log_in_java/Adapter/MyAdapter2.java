@@ -29,7 +29,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
     List<Objects> selectedObjectsList = new ArrayList<Objects>();
     Context context;
     int posicionMarcada = 0;
-    int atributoObjeto;
+    int atributoObjeto;//prueba jaume
     //Boolean chosen = false;
 
     private int maleta = 0;
