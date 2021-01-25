@@ -102,11 +102,14 @@
     </div>
 
     <script>
+    $(document).ready(function() {
+        const myStorage = window.localStorage;
+    });
     function goToInicio() {
       location.href = "http://147.83.7.203:8080/inicio.html";
     }
     function goToShop() {
-      location.href = "http://147.83.7.203:8080/shop.html";
+      window.location.pathname = "/store.html";
     }
     function goToLogIn() {
       location.href = "http://147.83.7.203:8080/index.html";
