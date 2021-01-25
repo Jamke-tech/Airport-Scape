@@ -71,8 +71,8 @@
             var userName = localStorage.getItem("user");
             $.ajax({
                type: "PUT",
-               url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio,
                data: {userName: userName, i: id },
+               url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio,
                success: function(data) {
                    console.log("success");
                    console.log(data.status);
