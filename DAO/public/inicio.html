@@ -18,13 +18,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            const myStorage = window.localStorage;
+            const localStorage = window.localStorage;
+            alert(localStorage.getItem("user"));
         });
         function goToInicio() {
           window.location.pathname = "/inicio.html";
         }
         function goToShop() {
-          window.location.pathname = "/store.html";
+          window.location.pathname = "/shop.html";
         }
         function goToLogIn() {
           window.location.pathname = "/index.html";

@@ -29,7 +29,7 @@
     <script>
         <!-- función conocer objetos BBDD -->
         function getObjects() {
-            const myStorage = window.localStorage;
+            const localStorage = window.localStorage;
             var objectsUrl = '/gameDSA/object/getListObjects';
             var card = document.getElementById("card");
             var contador =0;
@@ -48,9 +48,10 @@
                                 $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
                                 $('<p>').addClass('has-text-centered').text(val.description),
                                 $('<div>').addClass('card-buttons').append(
-                                    $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar").click(buyObject(val.id))
+                                    $('<button>').prop('id','buttonBuy' + val.id).addClass('button').text("Comprar"+val.id).on('click',buyObject(val.id)),
 
-                                ),
+
+
                               )
 
 
@@ -69,7 +70,7 @@
             $.ajax({
                type: "PUT",
                url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio,
-               data: {username: myStorage.getItem("user"), i: id },
+               data: {userName: localStorage.getItem("user"), i: id },
                success: function(data) {
                    console.log("success");
                    console.log(data.status);
@@ -79,10 +80,10 @@
                    if(data.status == 406){
                       alert("You don't have enough money!");
                    }
-                   else if (data.status != 200){
+                   else if (data.status == 200){
                        alert("Good purchase!");
                    }
-                   else if (data.status != 503){
+                   else if (data.status == 503){
                        alert("Database down!");
                    }
                }
@@ -105,6 +106,7 @@
         }
         $(document).ready(function() {
                 getObjects();
+                alert(localStorage.getItem("user"));
         });
     </script>
 </head>
