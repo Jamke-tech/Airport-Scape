@@ -17,6 +17,86 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script>
+        <!-- función conocer objetos BBDD -->
+        function getObjects() {
+            const myStorage = window.localStorage;
+            var objectsUrl = '/gameDSA/object/getListObjects';
+            var card = document.getElementById("card");
+            var contador =0;
+            $.getJSON(objectsUrl, function(data){
+                $(data).each( function(key,val) {
+                      var image = val.urlImage;
+
+                      $('<div>').addClass('column is-half column-full').append(
+                          $('<div>')
+                            .addClass('card') // css classes
+                            .append(
+                              $('<span>').addClass('price').text(val.price),
+                              $('<span>').addClass('state').text(val.bag),
+                              $('<img>').attr({'src':image,'alt':''}),
+                              $('<div>').addClass('card-info').append(
+                                $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
+                                $('<p>').addClass('has-text-centered').text(val.description),
+                                $('<div>').addClass('card-buttons').append(
+                                    $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar")
+
+                                ),
+                              )
+
+
+                            )
+                      )
+                      .appendTo('#objetos'); // add it to #column is-half column-full
+
+                })
+
+            });
+
+        }
+        function buyObject(id){
+
+            $.ajax({
+               type: "PUT",
+               url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio
+               data: {username.value : myStorage.getItem("user"), i: id}
+               success: function(data) {
+                   console.log("success");
+                   console.log(data.status);
+                   alert("Has comprado este objeto");
+               },
+               complete: function(data) {
+                   if(data.status == 406){
+                      alert("You don't have enough money!");
+                   }
+                   else if (data.status != 200){
+                       alert("Good purchase!");
+                   }
+                   else if (data.status != 503){
+                       alert("Database down!");
+                   }
+               }
+           })
+        }
+        function goToInicio() {
+          location.href = "http://147.83.7.203:8080/inicio.html";
+        }
+        function goToShop() {
+          location.href = "http://147.83.7.203:8080/shop.html";
+        }
+        function goToLogIn() {
+          location.href = "http://147.83.7.203:8080/index.html";
+        }
+        function goToStatistics() {
+          location.href = "http://147.83.7.203:8080/estadisticas.html";
+        }
+        function goToProfile() {
+          location.href = "http://147.83.7.203:8080/profile.html";
+        }
+        $(document).ready(function() {
+                getObjects();
+        });
+    </script>
 </head>
 <body onload="getObjects()">
 
@@ -115,83 +195,6 @@
 
         </div>
     </div>
-    <script>
-    <!-- función conocer objetos BBDD -->
-    function getObjects() {
-        const myStorage = window.localStorage;
-        var objectsUrl = '/gameDSA/object/getListObjects';
-        var card = document.getElementById("card");
-        var contador =0;
-        $.getJSON(objectsUrl, function(data){
-            $(data).each( function(key,val) {
-                  var image = val.urlImage;
-
-                  $('<div>').addClass('column is-half column-full').append(
-                      $('<div>')
-                        .addClass('card') // css classes
-                        .append(
-                          $('<span>').addClass('price').text(val.price),
-                          $('<span>').addClass('state').text(val.bag),
-                          $('<img>').attr({'src':image,'alt':''}),
-                          $('<div>').addClass('card-info').append(
-                            $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
-                            $('<p>').addClass('has-text-centered').text(val.description),
-                            $('<div>').addClass('card-buttons').append(
-                                $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar")
-
-                            ),
-                          )
-
-
-                        )
-                  )
-                  .appendTo('#objetos'); // add it to #column is-half column-full
-
-            })
-
-        });
-
-    }
-    function buyObject(id){
-
-        $.ajax({
-           type: "PUT",
-           url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio
-           data: {username.value : myStorage.getItem("user"), i: id}
-           success: function(data) {
-               console.log("success");
-               console.log(data.status);
-               alert("Has comprado este objeto");
-           },
-           complete: function(data) {
-               if(data.status == 406){
-                  alert("You don't have enough money!");
-               }
-               else if (data.status != 200){
-                   alert("Good purchase!");
-               }
-               else if (data.status != 503){
-                   alert("Database down!");
-               }
-           }
-       })
-    }
-    function goToInicio() {
-      location.href = "http://147.83.7.203:8080/inicio.html";
-    }
-    function goToShop() {
-      location.href = "http://147.83.7.203:8080/shop.html";
-    }
-    function goToLogIn() {
-      location.href = "http://147.83.7.203:8080/index.html";
-    }
-    function goToStatistics() {
-      location.href = "http://147.83.7.203:8080/estadisticas.html";
-    }
-    function goToProfile() {
-      location.href = "http://147.83.7.203:8080/profile.html";
-    }
-    </script>
     <script src="JSON/shop.js"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
