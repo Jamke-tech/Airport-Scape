@@ -6,10 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.log_in_java.models.Game;
+import com.example.log_in_java.models.Map;
+import com.example.log_in_java.models.User;
 import com.example.log_in_java.services.GameManagerService;
 import com.unity3d.player.UnityPlayerActivity;
 
@@ -30,7 +33,7 @@ public class PlayGameActivity extends AppCompatActivity {
     private String money;
     private static Retrofit retrofit;
     private GameManagerService gameAPI;
-    private String mapa;
+    String stringMap;
 
 
 
@@ -68,13 +71,14 @@ public class PlayGameActivity extends AppCompatActivity {
     public void frankfurtClick (View v){
 
         level=1;
-        //GetMapa(level);
-        Intent newintent = new Intent(this, UnityPlayerActivity.class);
-        newintent.putExtra("playerSuspicious",suspicious);
+        GetMapa(level);
+
+        //Intent newintent = new Intent(this, UnityPlayerActivity.class);
+        /*newintent.putExtra("playerSuspicious",suspicious);
         newintent.putExtra("playerMoney",money);
         newintent.putExtra("playerNickname",nickname);
-        newintent.putExtra("playerLevel",level);
-        startActivity(newintent);
+        newintent.putExtra("playerLevel",level);*/
+        //startActivity(newintent);
 
 
     }
@@ -109,24 +113,32 @@ public class PlayGameActivity extends AppCompatActivity {
     }
 
     private String GetMapa(int level){
+
         gameAPI = retrofit.create(GameManagerService.class);
-        Call<String> call = gameAPI.getStringMap(level);
-        call.enqueue(new Callback<String>() {
+        Call<Map> call = gameAPI.getStringMap(level);
+        call.enqueue(new Callback<Map>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.code()==200){
-                    mapa = response.body();
+            public void onResponse(Call<Map> call, Response<Map> response) {
+                if (response.isSuccessful()){
+                    Map mapa = Map.getInstance();
+                    mapa.setStringMap(response.body().getStringMap());
+                    mapa.setName(response.body().getName());
+                    mapa.setId(response.body().getId());
+
+                    stringMap = mapa.getStringMap();
+                    System.out.println(stringMap);
+                    Log.d("Prueba", stringMap);
                 }
 
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<Map> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "No hi ha mapes" , Toast.LENGTH_LONG).show();
 
             }
         });
-        return mapa;
+        return stringMap;
 
 
     }
