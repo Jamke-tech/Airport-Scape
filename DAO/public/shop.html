@@ -48,7 +48,7 @@
                                 $('<h4>').addClass('has-text-black has-text-centered has-text-weight-bold').text(val.name),
                                 $('<p>').addClass('has-text-centered').text(val.description),
                                 $('<div>').addClass('card-buttons').append(
-                                    $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar").click(buyObject(val.id))
+                                    $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar").on('click',buyObject(val.id))
 
                                 ),
                               )
@@ -79,10 +79,10 @@
                    if(data.status == 406){
                       alert("You don't have enough money!");
                    }
-                   else if (data.status != 200){
+                   else if (data.status == 200){
                        alert("Good purchase!");
                    }
-                   else if (data.status != 503){
+                   else if (data.status == 503){
                        alert("Database down!");
                    }
                }
