@@ -101,7 +101,7 @@ public class GameService {
 
     })
 
-    @Path("/getStringMap/{id}}")
+    @Path("/getStringMap/{id}")
     @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma string
     public Response getStringMap (@PathParam("id") int id) {
         try{

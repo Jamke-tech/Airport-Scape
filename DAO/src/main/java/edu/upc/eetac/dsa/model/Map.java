@@ -1,9 +1,9 @@
 package edu.upc.eetac.dsa.model;
 
 public class Map {
-    private int id;
-    private String name;
-    private String stringMap;
+    public int id;
+    public String name;
+    public String stringMap;
 
     public Map(int id, String name, String stringMap) {
         this.id = id;
