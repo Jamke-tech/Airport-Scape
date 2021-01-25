@@ -5,13 +5,13 @@ $(document).ready(function(){
     $.getJSON(staticUrl, function(data){
         $(data).each(function(index,value){
             var user = value.userName;
-            var concat ='<tr class="user"><td>'+(index+1)+"</td><td>"+user+"</td><td>"+value.money+"</td><td>"+"..."+"</td></tr>";
+            var concat ='<tbody><tr><th scope="row">'+(index+1)+"</th><td>"+user+"</td><td>"+value.money+"</td><td>"+"..."+"</td></tr></tbody>";
             $("table").append(concat);
 
-            /*var data = [
+           /*var graphs = [
                 {
-                      x: ['wins', 'lost'],
-                      y: [value.wins, value.games-value.wins],
+                      x: ['user'],
+                      y: [value.money],
                       type: 'bar'
                 }
             ];
