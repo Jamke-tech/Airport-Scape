@@ -66,10 +66,13 @@
 
         function buyObject(id){
 
+
+            var id = id;
+            var userName = localStorage.getItem("user");
             $.ajax({
                type: "PUT",
                url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio,
-               data: {userName: localStorage.getItem("user"), i: id },
+               data: {userName: userName, i: id },
                success: function(data) {
                    console.log("success");
                    console.log(data.status);
