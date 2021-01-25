@@ -350,31 +350,7 @@ footer {
 
 .active {
     color: var(--primary) !important;
-}
-
-.nav {
-    border-top: var(--border-dark-light);
-    margin-top: 1rem;
-    padding-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 0;
-}
-
-.nav-item {
-    display: block;
-    padding: 0.33333rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--dark);
-    font-weight: bold;
-}
-
-.nav-item:hover {
-    color: var(--primary);
-}
+    }
 
 .--active {
     color: var(--primary);
