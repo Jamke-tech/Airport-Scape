@@ -49,7 +49,7 @@
                                 $('<p>').addClass('has-text-centered').text(val.description),
                                 $('<div>').addClass('card-buttons').append(
                                     $('<button>').prop('id','buttonBuy'+val.id).addClass('button').text("Comprar")
-
+                                    $('#buttonBuy'+val.id).click(buyObject(val.id))
                                 ),
                               )
 

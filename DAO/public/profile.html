@@ -16,6 +16,56 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!--jQuery UI for the shake effect when error-->
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function getUserProfile() {
+
+            const myStorage = window.localStorage;
+            var username = myStorage.getItem("user");
+            var userUrl = '/gameDSA/user/userName';
+
+            $.getJSON(userUrl, function(data){
+                $(data).each(function(index,value){
+                    var user = value.userName;
+                    var name = value.name;
+                    var surname = value.surname;
+                    var mail = value.email;
+                    var imageUrl = value.url;
+                    $("#userName").text(user);
+                    $("#name").text("Name:" + name);
+                    $("#surname").text("Surname:" + surname);
+                    $("#userEmail").text("Email address:" + mail);
+                    $("#userImage").attr({'src': imageUrl,'alt':''});
+
+        }
+
+        function goToInicio(){
+          location.href = "http://147.83.7.203:8080/inicio.html";
+        }
+        function goToShop() {
+          location.href = "http://147.83.7.203:8080/shop.html";
+        }
+        function goToLogIn() {
+          location.href = "http://147.83.7.203:8080/index.html";
+        }
+        function goToStatistics() {
+          location.href = "http://147.83.7.203:8080/estadisticas.html";
+        }
+        function goToProfile() {
+          location.href = "http://147.83.7.203:8080/profile.html";
+        }
+
+    </script>
+
+    <!--Global Script-->
+    <script src="JSON/password.js"></script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 </head>
 <body onload="getUserProfile">
 
@@ -88,58 +138,6 @@
         </div>
 
     </div>
-
-
-    <!--jQuery UI for the shake effect when error-->
-    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-    function getUserProfile() {
-
-        const myStorage = window.localStorage;
-        var username = myStorage.getItem("user");
-        var userUrl = '/gameDSA/user/userName';
-
-        $.getJSON(userUrl, function(data){
-            $(data).each(function(index,value){
-                var user = value.userName;
-                var name = value.name;
-                var surname = value.surname;
-                var mail = value.email;
-                var imageUrl = value.url;
-                $("#userName").text(user);
-                $("#name").text("Name:" + name);
-                $("#surname").text("Surname:" + surname);
-                $("#userEmail").text("Email address:" + mail);
-                $("#userImage").attr({'src': imageUrl,'alt':''});
-
-    }
-
-    function goToInicio() {
-      location.href = "http://147.83.7.203:8080/inicio.html";
-    }
-    function goToShop() {
-      location.href = "http://147.83.7.203:8080/shop.html";
-    }
-    function goToLogIn() {
-      location.href = "http://147.83.7.203:8080/index.html";
-    }
-    function goToStatistics() {
-      location.href = "http://147.83.7.203:8080/estadisticas.html";
-    }
-    function goToProfile() {
-      location.href = "http://147.83.7.203:8080/profile.html";
-    }
-
-    </script>
-
-    <!--Global Script-->
-    <script src="JSON/password.js"></script>
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
 
 </body>
 </html>
