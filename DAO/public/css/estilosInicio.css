@@ -8,9 +8,9 @@
 
 body{
     background: url(../imagen/aero1.jpg);
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-attachment: fixed;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-attachment: fixed;
 
 }
 
