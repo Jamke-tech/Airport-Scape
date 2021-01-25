@@ -1,6 +1,6 @@
 $(document).ready(function(){
     console.log("ok loaded")
-    //myStorage = window.localStorage;
+    localStorage = window.localStorage;
 });
 //prova commit
 $(function(){

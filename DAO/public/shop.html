@@ -29,6 +29,7 @@
     <script>
         <!-- función conocer objetos BBDD -->
         function getObjects() {
+            const localStorage = window.localStorage;
             var objectsUrl = '/gameDSA/object/getListObjects';
             var card = document.getElementById("card");
             var contador =0;
