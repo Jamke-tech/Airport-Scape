@@ -72,7 +72,7 @@
             $.ajax({
                type: "PUT",
                data: {userName: userName, i: id },
-               url: "/gameDSA/object/buy/{userName}/{i}",
+               url: "/gameDSA/object/buy/"+userName+"/"+id,
                success: function(data) {
                    console.log("success");
                    console.log(data.status);
