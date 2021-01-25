@@ -69,7 +69,7 @@
             $.ajax({
                type: "PUT",
                url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio
-               data: {username.value : myStorage.getItem("user"), i: id}
+               data: {username: myStorage.getItem("user"), i: id}
                success: function(data) {
                    console.log("success");
                    console.log(data.status);
