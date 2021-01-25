@@ -50,7 +50,7 @@
                                 $('<div>').addClass('card-buttons').append(
                                     $('<button>').prop('id','buttonBuy' + val.id).addClass('button').text("Comprar")),
 
-                                    $(".button").on('click',buyObject(val.id));
+
 
                               )
 
@@ -58,7 +58,7 @@
                             )
                       )
                       .appendTo('#objetos'); // add it to #column is-half column-full
-
+                      $(".button").on('click',buyObject(val.id));
                 })
 
             });
