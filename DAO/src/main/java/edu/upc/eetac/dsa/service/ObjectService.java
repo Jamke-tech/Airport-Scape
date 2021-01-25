@@ -31,7 +31,7 @@ public class ObjectService {
 
     }
 
-    @PUT
+    @POST
     @ApiOperation(value = "Comprar Objeto", notes = "Nos dice que objeto compra el cliente")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),

@@ -70,9 +70,9 @@
             var id = id;
             var userName = localStorage.getItem("user");
             $.ajax({
-               type: "PUT",
+               type: "POST",
                data: {userName: userName, i: id },
-               url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio,
+               url: "/gameDSA/object/buy/{userName}/{i}",
                success: function(data) {
                    console.log("success");
                    console.log(data.status);
