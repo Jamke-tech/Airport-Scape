@@ -43,7 +43,7 @@ $(function(){
                     console.log("success");
                     console.log(data.status);
 
-                    localStorage.setItem("user",data.username);
+                    localStorage.setItem("user",data.userName);
                     //var  userNameStored = sessionStorage.getItem("user");
                     //document.getElementById("navbarDropdown").innerHTML = data.userName;
                     window.location.pathname = "/inicio.html";
