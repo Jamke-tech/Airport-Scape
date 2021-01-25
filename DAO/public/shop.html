@@ -29,7 +29,6 @@
     <script>
         <!-- función conocer objetos BBDD -->
         function getObjects() {
-            const myStorage = window.localStorage;
             var objectsUrl = '/gameDSA/object/getListObjects';
             var card = document.getElementById("card");
             var contador =0;
@@ -69,7 +68,7 @@
             $.ajax({
                type: "PUT",
                url: "/gameDSA/object/buy/{userName}/{i}", //A definir cuando se haga bien el servicio,
-               data: {username: myStorage.getItem("user"), i: id },
+               data: {username: localStorage.getItem("user"), i: id },
                success: function(data) {
                    console.log("success");
                    console.log(data.status);

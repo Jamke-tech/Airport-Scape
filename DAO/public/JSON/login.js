@@ -1,6 +1,6 @@
 $(document).ready(function(){
     console.log("ok loaded")
-    myStorage = window.localStorage;
+    //myStorage = window.localStorage;
 });
 //prova commit
 $(function(){
@@ -43,7 +43,7 @@ $(function(){
                     console.log("success");
                     console.log(data.status);
 
-                    myStorage.setItem("user",data.username);
+                    localStorage.setItem("user",data.username);
                     //var  userNameStored = sessionStorage.getItem("user");
                     //document.getElementById("navbarDropdown").innerHTML = data.userName;
                     window.location.pathname = "/inicio.html";
