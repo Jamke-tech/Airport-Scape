@@ -85,6 +85,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder>{
                     selectedObjectsList.remove(objectsList.get(position));
                     notifyDataSetChanged();
                     System.out.println("deseleccionado");
+
                 }
                 System.out.println("click");
             }

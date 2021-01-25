@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -40,6 +42,7 @@ public class NextNewGameActivity extends AppCompatActivity {
     private TextView suspiciousTextView;
     private MyAdapter2 mobjectsAdapter;
     private ProgressBar progressBar;
+    private ProgressBar loadingBar;
     private TextView dineroTextView;
     private TextView spacesTextView;
 
@@ -71,7 +74,8 @@ public class NextNewGameActivity extends AppCompatActivity {
         progressBar = this.findViewById(R.id.progressBarSuspicious2);
         dineroTextView = this.findViewById(R.id.dineroTextview);
         spacesTextView = this.findViewById(R.id.spacesTextView);
-
+        loadingBar = (ProgressBar) findViewById(R.id.loadingBarNextNewGame);
+        showProgress(true);
         loadPreferences();
         nickname = preferences.getString("userNickname",null);
 
@@ -110,7 +114,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                             objectsList.add(object);
                         }
                     }
-                    Toast.makeText(getApplicationContext(), "Imagen: " + objectsList.get(0).getUrlImage() , Toast.LENGTH_LONG).show();
+
                     if(objectsList.size()==0){
                         Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png", false);
                         objectsList.add(object);
@@ -125,16 +129,19 @@ public class NextNewGameActivity extends AppCompatActivity {
                     mobjectsAdapter = new MyAdapter2(getApplicationContext(),bagsList);
 
                     bagsRecycler.setAdapter(mobjectsAdapter);
-
+                    showProgress(false);
 
                 }
                 else
                 {
-                    if(response.code() == 401)
-                        Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
-                    else if(response.code() == 503)
-                        Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
-
+                    if(response.code() == 401) {
+                        Toast.makeText(getApplicationContext(), "Error data", Toast.LENGTH_LONG).show();
+                        showProgress(false);
+                    }
+                    else if(response.code() == 503) {
+                        Toast.makeText(getApplicationContext(), "BBDD down", Toast.LENGTH_LONG).show();
+                        showProgress(false);
+                    }
                 }
 
             }
@@ -142,7 +149,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Objects>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-                
+                showProgress(false);
             }
         });
 
@@ -160,6 +167,8 @@ public class NextNewGameActivity extends AppCompatActivity {
         gun = false;
         money = false;
         snake = false;
+        showProgress(false);
+
     }
 
     public void drugsImageViewClicked(View v){
@@ -169,19 +178,23 @@ public class NextNewGameActivity extends AppCompatActivity {
             extraMoney = extraMoney + 400;
             dineroTextView.setText(String.valueOf(extraMoney));
             spacesTextView.setText(String.valueOf(spaceAvailable));
+            showProgress(false);
             if(Integer.parseInt(suspiciousTextView.getText().toString())+10>=100){
                 suspiciousTextView.setText(String.valueOf(100));
                 progressBar.setProgress(100);
+                showProgress(false);
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+10));
                 progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
+                showProgress(false);
             }
 
         }
         else{
             if(spaceAvailable<2){
                 Toast.makeText(context,"There's not enough space in your bag",Toast.LENGTH_LONG).show();
+                showProgress(false);
             }
             if(drugs){
                 drugs = false;
@@ -191,6 +204,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-10));
                 progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
+                showProgress(false);
             }
         }
     }
@@ -202,6 +216,7 @@ public class NextNewGameActivity extends AppCompatActivity {
             extraMoney = extraMoney + 150;
             dineroTextView.setText(String.valueOf(extraMoney));
             spacesTextView.setText(String.valueOf(spaceAvailable));
+            showProgress(false);
             if(Integer.parseInt(suspiciousTextView.getText().toString())+10>=100){
                 suspiciousTextView.setText(String.valueOf(100));
                 progressBar.setProgress(100);
@@ -238,16 +253,19 @@ public class NextNewGameActivity extends AppCompatActivity {
             if(Integer.parseInt(suspiciousTextView.getText().toString())+10>=100){
                 suspiciousTextView.setText(String.valueOf(100));
                 progressBar.setProgress(100);
+                showProgress(false);
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+15));
                 progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
+                showProgress(false);
             }
 
         }
         else{
             if(spaceAvailable<3){
                 Toast.makeText(context,"There's not enough space in your bag",Toast.LENGTH_LONG).show();
+                showProgress(false);
             }
             if(money){
                 money = false;
@@ -257,6 +275,7 @@ public class NextNewGameActivity extends AppCompatActivity {
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-15));
                 progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
+                showProgress(false);
             }
         }
     }
@@ -271,16 +290,19 @@ public class NextNewGameActivity extends AppCompatActivity {
             if(Integer.parseInt(suspiciousTextView.getText().toString())+10>=100){
                 suspiciousTextView.setText(String.valueOf(100));
                 progressBar.setProgress(100);
+                showProgress(false);
             }
             else{
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())+15));
                 progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
+                showProgress(false);
             }
 
         }
         else{
             if(spaceAvailable<3){
                 Toast.makeText(context,"There's not enough space in your bag",Toast.LENGTH_LONG).show();
+                showProgress(false);
             }
             if(snake){
                 snake = false;
@@ -290,18 +312,20 @@ public class NextNewGameActivity extends AppCompatActivity {
                 spacesTextView.setText(String.valueOf(spaceAvailable));
                 suspiciousTextView.setText(String.valueOf(Integer.parseInt(suspiciousTextView.getText().toString())-15));
                 progressBar.setProgress(Integer.parseInt(suspiciousTextView.getText().toString()));
+                showProgress(false);
             }
         }
     }
 
     public void playButtonClicked(View v){
 
-        Toast.makeText(context,"Starting game as: " + nickname,Toast.LENGTH_LONG).show();
+
         Intent newintent = new Intent(this,PlayGameActivity.class);
         newintent.putExtra("suspicious",suspicious);
         String moneyy = String.valueOf(extraMoney);
         newintent.putExtra("money", moneyy);
         startActivity(newintent);
+        showProgress(false);
 
     }
 
@@ -321,4 +345,16 @@ public class NextNewGameActivity extends AppCompatActivity {
     private void loadPreferences(){
         preferences = getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
     }
+
+    public void showProgress (boolean visible){
+        //Sets the visibility/invisibility of progressBar
+        if(visible) {
+            this.loadingBar.getIndeterminateDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+            this.loadingBar.setVisibility(View.VISIBLE);
+        }
+        else
+            this.loadingBar.setVisibility(View.GONE);
+    }
+
+
 }

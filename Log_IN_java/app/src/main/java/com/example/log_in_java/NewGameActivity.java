@@ -46,6 +46,7 @@ public class NewGameActivity extends AppCompatActivity {
     private RecyclerView objectsRecycler;
     private MyAdapter2 mobjectsAdapter;
     private ProgressBar progressBar;
+    private ProgressBar loadingBar;
     private String nickname;
     private ImageView imageVieww;
     private Context context;
@@ -66,14 +67,14 @@ public class NewGameActivity extends AppCompatActivity {
         objectsRecycler= this.findViewById(R.id.myObjects);
         suspiciousNum = (TextView) this.findViewById(R.id.suspiciousNum);
         progressBar = (ProgressBar) this.findViewById(R.id.progressBarSuspicious);
+        loadingBar =(ProgressBar) this.findViewById(R.id.loadingBarNewGame);
+        showProgress(true);
         context = this.getApplicationContext();
         loadPreferences();
         nickname =preferences.getString("userNickname", null);//recupero el nickname
         startRetrofit();
 
         getObjectFromDataBase(nickname);
-
-
 
     }
 
@@ -98,7 +99,7 @@ public class NewGameActivity extends AppCompatActivity {
                             objectsList.add(object);
                         }
                     }
-                    Toast.makeText(getApplicationContext(), "Imagen: " + objectsList.get(0).getUrlImage() , Toast.LENGTH_LONG).show();
+
                     if(objectsList.size()==0){
                         Objects object = new Objects(0,"YOU DO NOT HAVE ANY OBJECT",0,"Go to the shop if you want to spend the money",0,false, "imagen/sad.png", false);
                         objectsList.add(object);
@@ -109,7 +110,7 @@ public class NewGameActivity extends AppCompatActivity {
                     }
 
 
-
+                    showProgress(false);
                     objectsRecycler.setHasFixedSize(true);
                     objectsRecycler.setLayoutManager(new GridLayoutManager(getApplicationContext(),3 ));
                     mobjectsAdapter = new MyAdapter2(getApplicationContext(),objectsList);
@@ -119,11 +120,14 @@ public class NewGameActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    if(response.code() == 401)
-                        Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
-                    else if(response.code() == 503)
-                        Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
-
+                    if(response.code() == 401) {
+                        showProgress(false);
+                        Toast.makeText(getApplicationContext(), "Error data", Toast.LENGTH_LONG).show();
+                    }
+                    else if(response.code() == 503) {
+                        showProgress(false);
+                        Toast.makeText(getApplicationContext(), "BBDD down", Toast.LENGTH_LONG).show();
+                    }
                 }
 
             }
@@ -131,7 +135,7 @@ public class NewGameActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Objects>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-
+                showProgress(false);
 
             }
         });
@@ -139,6 +143,7 @@ public class NewGameActivity extends AppCompatActivity {
     }
 
     public void nextButtonClicked (View v){
+        showProgress(false);
         Intent intent = new Intent(getApplicationContext(), NextNewGameActivity.class);
         intent.putExtra("suspicious",suspiciousNum.getText().toString());
         startActivity(intent);
@@ -163,7 +168,7 @@ public class NewGameActivity extends AppCompatActivity {
         suspiciousNum.setText(String.valueOf(suspicious));
         sospechoso = 100;
         atributo = 0;
-
+        showProgress(false);
     }
 
 
@@ -183,4 +188,15 @@ public class NewGameActivity extends AppCompatActivity {
     private void loadPreferences(){
         preferences = getSharedPreferences("Login credentials", Context.MODE_PRIVATE);
     }
+
+    public void showProgress (boolean visible){
+        //Sets the visibility/invisibility of progressBar
+        if(visible) {
+            this.loadingBar.getIndeterminateDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+            this.loadingBar.setVisibility(View.VISIBLE);
+        }
+        else
+            this.loadingBar.setVisibility(View.GONE);
+    }
+
 }
