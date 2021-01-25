@@ -60,7 +60,7 @@ public class UserService {
         }
     }
 
-    @POST
+    @PUT
     @ApiOperation(value = "LOGIN USER", notes = "Para LOGIN Android i WEB")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = User.class),
