@@ -22,22 +22,24 @@
     <script>
         function getUserProfile() {
 
-            const myStorage = window.localStorage;
-            var username = myStorage.getItem("user");
-            var userUrl = '/gameDSA/user/userName';
+            localStorage = window.localStorage;
+            var username = localStorage.getItem("user");
+            var userUrl = '/gameDSA/user/'+ username;
 
             $.getJSON(userUrl, function(data){
                 $(data).each(function(index,value){
                     var user = value.userName;
                     var name = value.name;
                     var surname = value.surname;
-                    var mail = value.email;
+                    var mail = value.mail;
                     var imageUrl = value.url;
                     $("#userName").text(user);
-                    $("#name").text("Name:" + name);
-                    $("#surname").text("Surname:" + surname);
-                    $("#userEmail").text("Email address:" + mail);
+                    $("#name").text("Name: " + name);
+                    $("#surname").text("Surname: " + surname);
+                    $("#userEmail").text("Email address: " + mail);
                     $("#userImage").attr({'src': imageUrl,'alt':''});
+                });
+            });
 
         }
 
@@ -56,6 +58,10 @@
         function goToProfile() {
           window.location.pathname = "/profile.html";
         }
+        $(document).ready(function() {
+                getUserProfile();
+
+        });
 
     </script>
 
@@ -68,7 +74,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
-<body onload="getUserProfile">
+<body>
 
     <div class="d-flex">
         <div id="sidebar-container" class="bp-primary">
@@ -95,30 +101,6 @@
 
         <div class="w-100">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="userNameNav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Go in!
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.html"><i class="icon ion-md-person mr-2 lead"></i>Log In</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="register.html"><i class="icon ion-md-create mr-2 lead"></i>Create Account</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
             <div class="header">
 
                 <img id="userImage" src="" class="avatar" />
@@ -133,7 +115,7 @@
                     <h4 id="surname"></h4>
                 </li>
                 <li>
-                    <a href="mailto:" id="userEmail"></a>
+                    <h4 id="userEmail"></h4>
                 </li>
             </ul>
         </div>

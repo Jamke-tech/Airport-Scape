@@ -121,13 +121,13 @@ public class GameService {
             @ApiResponse(code = 503, message = "BBDD Down"),
             @ApiResponse(code = 400, message = "NICKNAME USED"),
     })
-    @Path ("/win/{money}")
+    @Path ("/win")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response winGame(Game game, @PathParam("money") int money) {
+    public Response winGame(Game game) {
         System.out.println("Win Game");
         try{
-            int numException = g.winGame(game, money);
+            int numException = g.winGame(game);
             if (numException==0) {
                 return Response.status(200).build();
             }

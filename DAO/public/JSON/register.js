@@ -59,7 +59,8 @@ $(function(){
                 dataType: "json",
                 success: function(data) {
                     console.log("success");
-                    console.log(data.status)
+                    console.log(data.status);
+                    alert("Successfully registered!")
                     window.location.pathname = "/index.html"
 
                 },
