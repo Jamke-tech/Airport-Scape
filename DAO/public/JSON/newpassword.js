@@ -8,7 +8,7 @@ $(function(){
     const urlParams = new URLSearchParams(params);
     const user = urlParams.get('user');
     console.log(user);
-    var urlget = "http://localhost:8080/gameDSA/user/" + user;
+    var urlget = "http://eetacdsa0.upc.es/:8080/gameDSA/user/" + user;
     console.log(urlget);
     $.get(urlget, function(data, status){
 
@@ -41,7 +41,7 @@ $(function(){
 
                 $.ajax({
                         type: "PUT",
-                        url: "/gameDSA/user/edit", //A definir cuando se haga bien el servicio
+                        url: "/gameDSA/user/edit",
                         data: JSON.stringify(updatedUser),
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
