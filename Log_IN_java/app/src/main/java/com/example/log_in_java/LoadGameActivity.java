@@ -50,7 +50,7 @@ public class LoadGameActivity extends AppCompatActivity {
         nickname =preferences.getString("userNickname", null);//recupero el nickname
         gamesRecycler= this.findViewById(R.id.recyclerViewListGame);
         startRetrofit();
-        getSavedGame(nickname);
+        //getSavedGame(nickname);
         getListSavedGames(nickname);
     }
 
@@ -92,7 +92,6 @@ public class LoadGameActivity extends AppCompatActivity {
     }
 
 
-
     private void getSavedGame(String nickname){
 
         gameAPI = retrofit.create(GameManagerService.class);
@@ -120,7 +119,6 @@ public class LoadGameActivity extends AppCompatActivity {
 
 
     }
-
 
 
     private static void startRetrofit(){

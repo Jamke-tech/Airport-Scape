@@ -28,7 +28,7 @@ public interface GameManagerService {
     Call<Map> getStringMap (@Path("id") int id);
 
     @POST("game/win/")
-    Call<Game> updateMoney (@Body Game game);
+    Call<Game> winGame (@Body Game game);
 
     @GET("game/getList/{nickName}")
     Call<List<Game>> getListSavedGames(@Path("nickName") String username);

@@ -20,13 +20,14 @@ public class Game {
     }
 
 
-    public Game(int id, String name, int idMap, boolean win, String userName, int suspicious) {
+    public Game(int id, String name, int idMap, boolean win, String userName, int suspicious,int money) {
         this.id = id;
         this.name = name;
         this.idMap = idMap;
         this.win = win;
         this.userName = userName;
         this.suspicious = suspicious;
+        this.money = money;
     }
 
 

@@ -25,10 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyUnity extends AppCompatActivity {
 
-    private static Retrofit retrofit;
-    private GameManagerService gameAPI;
-
-
     public static String GetMap(int level){
 
         MyMaps mapas= MyMaps.getInstance();
@@ -58,26 +54,89 @@ public class MyUnity extends AppCompatActivity {
 
     }
 
-    public void FinalGame(int level, boolean win, int playerSuspicious, int playerMoney, String nickname, String gameName)//Tiene que poner el dinero en el usuario  y poner la partida en win ( volver a main activity con una toast que pongo money win)
+    public static void FinalGame(int level, boolean win, int playerSuspicious, int playerMoney, String nickname)//Tiene que poner el dinero en el usuario  y poner la partida en win ( volver a main activity con una toast que pongo money win)
     {
         Log.d("Dinero Ganado",String.valueOf(playerMoney));
-        Game game = new Game(0, gameName, level, win, nickname, playerSuspicious);
-        saveeGame(game);
+        MyGame mygame = MyGame.getInstance();
+        String namePartida = mygame.getNamePartida();
+        Game game = new Game(0, namePartida, level, win, nickname, playerSuspicious,playerMoney);
+        winGame(game);
+
     }
     public static void GameOver()//Cuando perdemos en unity entramos aqui tendremos que ir a main activity
     {
         Log.d("Fin Partida","Game OVER");
+
     }
 
     public static void SaveGame( int level, boolean win, int playerSuspicious, int playerMoney)
     {
-        MyGame game = MyGame.getInstance();
-        String namePartida = game.getNamePartida();
+        MyGame mygame = MyGame.getInstance();
+        String namePartida = mygame.getNamePartida();
+
+        Game game = new Game( 0, namePartida,level, win, mygame.getNameUser(), playerSuspicious,playerMoney);
+
+        saveGame(game);
 
 
     }
+    public static void winGame(final Game game){
+        Retrofit retrofit;
+        GameManagerService gameAPI;
 
-    public void saveeGame(final Game game){
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //Attaching Interceptor to a client
+        OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(interceptor).build();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://eetacdsa0.upc.es:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+
+        gameAPI = retrofit.create(GameManagerService.class);
+        Call<Game> call = gameAPI.winGame(game);
+        call.enqueue(new Callback<Game>() {
+            @Override
+            public void onResponse(Call<Game> call, Response<Game> response) {
+                if (response.code() == 200){
+                    Log.d("Congrats","Juego Guardado, enhorabuena crack! Pues ok. ");
+                }
+                else{
+                    if(response.code() == 400)
+                        Log.d("Error","Error Data");
+
+                    else if(response.code() == 503)
+                        Log.d("Error","DATABASE DOWN");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Game> call, Throwable t) {
+                Log.d("Error",t.getMessage());
+                //Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+    public static void saveGame(final Game game){
+        Retrofit retrofit;
+        GameManagerService gameAPI;
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //Attaching Interceptor to a client
+        OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(interceptor).build();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://eetacdsa0.upc.es:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
 
         gameAPI = retrofit.create(GameManagerService.class);
         Call<Game> call = gameAPI.saveGame(game);
@@ -94,19 +153,22 @@ public class MyUnity extends AppCompatActivity {
                     savedGame.setUserName(response.body().getUserName());
                     savedGame.setMoney(response.body().getMoney());
 
-                    Toast.makeText(getApplicationContext(), "Game saved", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Game saved", Toast.LENGTH_LONG).show();
                 }
                 else{
                     if(response.code() == 400)
-                        Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
+                        Log.d("Error","Error Data");
+                        //Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
                     else if(response.code() == 503)
-                        Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
+                        Log.d("Error","DATABASE DOWN");
+                        //Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Game> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("Error",t.getMessage());
+                //Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
             }
         });
