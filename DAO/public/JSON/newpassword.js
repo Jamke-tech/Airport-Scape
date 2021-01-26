@@ -8,7 +8,7 @@ $(function(){
     const urlParams = new URLSearchParams(params);
     const user = urlParams.get('user');
     console.log(user);
-    var urlget = "http://eetacdsa0.upc.es/:8080/gameDSA/user/" + user;
+    var urlget = "http://eetacdsa0.upc.es:8080/gameDSA/user/" + user;
     console.log(urlget);
     $.get(urlget, function(data, status){
 
