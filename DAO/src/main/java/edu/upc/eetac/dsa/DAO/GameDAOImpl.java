@@ -108,4 +108,23 @@ public class GameDAOImpl implements IGameDAO {
         return error;
 
     }
+
+    public List<Game> getListUserGames(String userName) throws SQLException {
+
+        Session session = null;
+        List<Game> listaGames = new ArrayList<Game>();
+        try {
+            session = FactorySession.openSession();
+            listaGames = session.findAllByName(new Game(),userName);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            listaGames = null;
+        }
+        finally {
+            session.close();
+            return listaGames;
+        }
+    }
+
 }

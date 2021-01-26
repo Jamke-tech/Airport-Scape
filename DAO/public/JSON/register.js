@@ -47,7 +47,8 @@ $(function(){
                 "name": name.value,
                 "surname": surname.value,
                 "money": 0,
-                "mail": email.value
+                "mail": email.value,
+                "wins": 0
 
             }
         console.log(UserData);

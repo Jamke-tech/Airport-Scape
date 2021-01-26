@@ -46,6 +46,7 @@ $(function(){
                     localStorage.setItem("user",data.userName);
                     //var  userNameStored = sessionStorage.getItem("user");
                     //document.getElementById("navbarDropdown").innerHTML = data.userName;
+                    alert("Welcome back " + localStorage.getItem("user") + "!!!");
                     window.location.pathname = "/inicio.html";
 
                 },
