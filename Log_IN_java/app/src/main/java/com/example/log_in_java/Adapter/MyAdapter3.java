@@ -16,6 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.log_in_java.MyGame;
+import com.example.log_in_java.MyMaps;
 import com.example.log_in_java.NewGameActivity;
 import com.example.log_in_java.models.Game;
 import com.example.log_in_java.models.Objects;
@@ -61,9 +62,20 @@ public class MyAdapter3  extends RecyclerView.Adapter<MyAdapter3.MyViewHolder>{
             @Override
             public void onClick(View v) {
                 Intent newintent = new Intent(context, UnityPlayerActivity.class); //PASAR DATOS!!!!
+
+                selectedGame = listGames.get(position);
+
+                MyGame startedGame = MyGame.getInstance();
+                startedGame.setLevel(selectedGame.getIdMap());
+                startedGame.setMoney(selectedGame.getMoney());
+                startedGame.setNameUser(selectedGame.getUserName());
+                startedGame.setSuspicious(selectedGame.getSuspicious());
+                startedGame.setNamePartida(selectedGame.getName());
+                MyMaps mapas = MyMaps.getInstance();
+                mapas.setMaps();
+
                 context.startActivity(newintent);
 
-                //selectedGame = listGames.get(position);
 
                 System.out.println("click");
             }

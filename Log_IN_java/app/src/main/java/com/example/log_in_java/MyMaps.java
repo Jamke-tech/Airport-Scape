@@ -41,6 +41,8 @@ public class MyMaps {
 
     public void setMaps() {
 
+        Maps.clear(); //ELiminamos lo que tenemos descargado i ponemos los nuevos mapas
+
         for(int i=1;i<10;i++){
 
             GetMaps(i);
