@@ -40,6 +40,8 @@ public class LoadGameActivity extends AppCompatActivity {
     }
 
 
+
+
     private void getSavedGame(String nickname){
 
         gameAPI = retrofit.create(GameManagerService.class);
@@ -53,11 +55,9 @@ public class LoadGameActivity extends AppCompatActivity {
                     savedGame.setId(response.body().getId());
                     savedGame.setName(response.body().getName());
                     savedGame.setIdMap(response.body().getIdMap());
-                    savedGame.setTime(response.body().getTime());
                     savedGame.setWin(response.body().isWin());
-                    savedGame.setIdUser(response.body().getIdUser());
                     savedGame.setSuspicious(response.body().getSuspicious());
-                    savedGame.setTicket(response.body().isTicket());
+
                 }
             }
 

@@ -190,7 +190,7 @@ public class ProfileActivity extends AppCompatActivity {
                     if(currentPass.getText().toString().equals(User.getInstance().getPassword())){
                         User.getInstance().setPassword( newPass.getText().toString());
                         nickname =preferences.getString("userNickname", null);
-                        User user = new User(User.getInstance().id, nickname, newPass.getText().toString(),User.getInstance().getName(),User.getInstance().getSurname(),User.getInstance().getMoney(),User.getInstance().getMail());
+                        User user = new User(User.getInstance().id, nickname, newPass.getText().toString(),User.getInstance().getName(),User.getInstance().getSurname(),User.getInstance().getMoney(),User.getInstance().getMail(), User.getInstance().getWins());
                         updatePassword(user);
                         dialog.dismiss();
                     }else{
