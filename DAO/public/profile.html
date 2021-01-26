@@ -22,9 +22,9 @@
     <script>
         function getUserProfile() {
 
-            const myStorage = window.localStorage;
-            var username = myStorage.getItem("user");
-            var userUrl = '/gameDSA/user/userName';
+            localStorage = window.localStorage;
+            var username = localStorage.getItem("user");
+            var userUrl = '/gameDSA/user/'+ username;
 
             $.getJSON(userUrl, function(data){
                 $(data).each(function(index,value){
@@ -56,6 +56,10 @@
         function goToProfile() {
           window.location.pathname = "/profile.html";
         }
+        $(document).ready(function() {
+                getUserProfile();
+
+        });
 
     </script>
 
@@ -68,7 +72,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
-<body onload="getUserProfile">
+<body>
 
     <div class="d-flex">
         <div id="sidebar-container" class="bp-primary">
