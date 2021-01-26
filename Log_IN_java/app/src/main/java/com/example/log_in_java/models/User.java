@@ -16,6 +16,7 @@ public class User implements Serializable {
     public String surname;
     public int money;
     public String mail;
+    public int wins;
 
 
     //------------Singleton--------------//
@@ -32,7 +33,7 @@ public class User implements Serializable {
 
     //----------Constructors----------//
 
-    public User(int id, String userName, String password, String name, String surname, int money, String mail) {
+    public User(int id, String userName, String password, String name, String surname, int money, String mail, int wins) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -40,14 +41,22 @@ public class User implements Serializable {
         this.surname = surname;
         this.money = money;
         this.mail = mail;
+        this.wins = wins;
     }
 
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
-
     //------------Methods----------------//
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
 
     public void setId(int id) {
         this.id = id;

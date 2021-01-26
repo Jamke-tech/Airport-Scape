@@ -13,8 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/unityLibrary" />
-            <option value="$PROJECT_DIR$/unityLibrary-release2" />
+            <option value="$PROJECT_DIR$/unityLibrary4" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

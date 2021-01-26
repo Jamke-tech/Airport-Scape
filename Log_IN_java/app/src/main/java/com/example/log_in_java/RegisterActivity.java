@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
         else{
             if(passwordRegister.getText().toString().equals(repeatPasswordRegister.getText().toString())){
                 Toast.makeText(getApplicationContext(), "Accessing to the BBDD", Toast.LENGTH_LONG).show();
-                User user = new User(0,nicknameRegister.getText().toString(),passwordRegister.getText().toString(),nameRegister.getText().toString(),surnameRegister.getText().toString(),0,mailRegister.getText().toString());
+                User user = new User(0,nicknameRegister.getText().toString(),passwordRegister.getText().toString(),nameRegister.getText().toString(),surnameRegister.getText().toString(),0,mailRegister.getText().toString(),0);
                 register(user);
             }
             else{
