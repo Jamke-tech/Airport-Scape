@@ -4,14 +4,17 @@ import edu.upc.eetac.dsa.DAO.GameDAOImpl;
 import edu.upc.eetac.dsa.DAO.IGameDAO;
 import edu.upc.eetac.dsa.model.Game;
 import edu.upc.eetac.dsa.model.Map;
+import edu.upc.eetac.dsa.model.Objects;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Api(value = "/game", description = "Endpoint to Game Service")
 @Path("/game")
@@ -141,5 +144,31 @@ public class GameService {
             e.printStackTrace();
             return Response.status(503).build();
         }
+    }
+    @GET
+    @ApiOperation(value = "Lista partidas de User", notes = "Nos devuelve todas los partidas de un user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Game.class, responseContainer = "List"),
+            @ApiResponse(code = 401, message = "Error en los datos"),
+            @ApiResponse(code = 503, message = "BBDD Down")
+
+    })
+
+    @Path("/getList/{nickName}")
+    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma Games in a List
+    public Response listGames(@PathParam("nickName") String userName) {
+        try {
+            List<Game> gamesOfUser = this.g.getListUserGames(userName);
+            if (gamesOfUser == null) {
+                return Response.status(401).build();
+            }
+            GenericEntity<List<Game>> entity = new GenericEntity<List<Game>>(gamesOfUser) {
+            };
+            return Response.status(200).entity(entity).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
+
     }
 }
