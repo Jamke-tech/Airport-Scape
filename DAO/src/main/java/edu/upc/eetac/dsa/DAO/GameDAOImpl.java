@@ -32,7 +32,9 @@ public class GameDAOImpl implements IGameDAO {
         catch (Exception e)
         {
             e.printStackTrace();
+            session.update(game);
         }
+
         finally {
             if(session!=null) {
                 session.close();
