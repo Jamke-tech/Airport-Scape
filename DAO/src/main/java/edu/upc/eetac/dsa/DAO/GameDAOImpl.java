@@ -23,17 +23,12 @@ public class GameDAOImpl implements IGameDAO {
         int error =-1;
         try {
             session = FactorySession.openSession();
-            boolean found= false;
-            List<Game> listGames = session.findAll(game);
-            int i =0;
-            while (i<listGames.size() && !found)
-            {
-                if(listGames.get(i).getName()==game.getName()){
-                    found = true;
-                }
-            }
-            if(found){
+
+
+            Game encontrado = getGameSaved(game.getName());
+            if(encontrado!=null){
                 session.update(game);
+
             }
             else{
                 session.save(game);

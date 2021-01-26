@@ -5,10 +5,7 @@ import edu.upc.eetac.dsa.BBDD.Session;
 import edu.upc.eetac.dsa.model.User;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class UserDAOImpl implements IUserDAO {
 
@@ -183,13 +180,13 @@ public class UserDAOImpl implements IUserDAO {
 
     }
 
-    public ArrayList<User> getListUsers() throws SQLException{
+    public List<User> getListUsers() throws SQLException{
         Session session = null;
-        ArrayList<User> lista = null;
+        List<User> lista = null;
         User user = new User();
         try{
             session = FactorySession.openSession();
-            lista = (ArrayList<User>) session.findAll(user);
+            lista = (List<User>) session.findAll(user);
         }
         catch (Exception e){
 
