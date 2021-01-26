@@ -1,4 +1,3 @@
-include ':unityLibrary'
-include ':unityLibrary-release2'
+include ':unityLibrary4'
 include ':app'
 rootProject.name = "Log_IN_java"

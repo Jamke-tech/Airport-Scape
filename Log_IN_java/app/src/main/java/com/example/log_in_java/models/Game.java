@@ -10,8 +10,6 @@ public class Game {
     public int time;
     public boolean win;
     public int idUser;
-    public int suspicious;
-    public boolean ticket;
 
     public static synchronized Game getInstance(){
         if(gameinstance == null) {
@@ -28,8 +26,7 @@ public class Game {
         this.time = time;
         this.win = win;
         this.idUser = idUser;
-        this.suspicious = suspicious;
-        this.ticket = ticket;
+
     }
 
     public Game() {}
@@ -83,19 +80,5 @@ public class Game {
         this.idUser = idUser;
     }
 
-    public int getSuspicious() {
-        return suspicious;
-    }
 
-    public void setSuspicious(int suspicious) {
-        this.suspicious = suspicious;
-    }
-
-    public boolean isTicket() {
-        return ticket;
-    }
-
-    public void setTicket(boolean ticket) {
-        this.ticket = ticket;
-    }
 }
