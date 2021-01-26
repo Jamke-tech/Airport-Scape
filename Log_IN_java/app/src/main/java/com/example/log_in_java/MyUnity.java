@@ -67,6 +67,15 @@ public class MyUnity extends AppCompatActivity {
     public static void GameOver()//Cuando perdemos en unity entramos aqui tendremos que ir a main activity
     {
         Log.d("Fin Partida","Game OVER");
+        MyGame mygame = MyGame.getInstance();
+        String namePartida = mygame.getNamePartida();
+        namePartida=namePartida+" Game Over";
+        Game game = new Game( 0, namePartida,1, false, mygame.getNameUser(), 0,0);
+
+        saveGame(game);
+
+
+
 
     }
 
@@ -74,6 +83,12 @@ public class MyUnity extends AppCompatActivity {
     {
         MyGame mygame = MyGame.getInstance();
         String namePartida = mygame.getNamePartida();
+        if (level ==2 || level ==5 || level ==8 ){
+            namePartida=namePartida+" on level 2";
+        }
+        else if (level==3 || level ==6 || level==9){
+            namePartida=namePartida+ " on level 3";
+        }
 
         Game game = new Game( 0, namePartida,level, win, mygame.getNameUser(), playerSuspicious,playerMoney);
 

@@ -30,10 +30,6 @@ public class GameDAOImpl implements IGameDAO {
             error=0;
 
         }
-        catch (SQLIntegrityConstraintViolationException e){
-            session.update(game);
-
-        }
         catch (Exception e)
         {
             e.printStackTrace();
