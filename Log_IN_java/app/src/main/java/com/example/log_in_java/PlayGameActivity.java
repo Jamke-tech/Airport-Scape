@@ -65,16 +65,17 @@ public class PlayGameActivity extends AppCompatActivity {
 
         level = 4;
         //GetMapa(level);
-        if (gameName.getText().toString() != null)
+        if (gameName.getText().toString().equals(""))
         {
+            Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
+        }
+        else{
             Intent newintent = new Intent(this, UnityPlayerActivity.class);
             saveGameValues(level,suspicious,money,gameName.getText().toString());
             MyMaps mapas = MyMaps.getInstance();
             mapas.setMaps();
             startActivity(newintent);
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
+
         }
 
         /*newintent.putExtra("playerSuspicious",suspicious);
@@ -90,16 +91,17 @@ public class PlayGameActivity extends AppCompatActivity {
         level=1;
         //GetMapa(level);
 
-        if (gameName.getText().toString() != null)
+        if (gameName.getText().toString().equals(""))
         {
+            Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
+        }
+        else{
             Intent newintent = new Intent(this, UnityPlayerActivity.class);
             saveGameValues(level,suspicious,money,gameName.getText().toString());
             MyMaps mapas = MyMaps.getInstance();
             mapas.setMaps();
             startActivity(newintent);
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
+
         }
         /*newintent.putExtra("playerSuspicious",suspicious);
         newintent.putExtra("playerMoney",money);
@@ -114,16 +116,17 @@ public class PlayGameActivity extends AppCompatActivity {
     public void moscowClick (View v){
 
         level=7;
-        if (gameName.getText().toString() != null)
+        if (gameName.getText().toString().equals(""))
         {
+            Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
+        }
+        else{
             Intent newintent = new Intent(this, UnityPlayerActivity.class);
             saveGameValues(level,suspicious,money,gameName.getText().toString());
             MyMaps mapas = MyMaps.getInstance();
             mapas.setMaps();
             startActivity(newintent);
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
+
         }
 
     }
