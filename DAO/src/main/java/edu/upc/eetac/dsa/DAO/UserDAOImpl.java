@@ -27,8 +27,8 @@ public class UserDAOImpl implements IUserDAO {
         int error =-1;
         try {
             session = FactorySession.openSession();
-                int money = 1000;
-                user.setMoney(money);
+                user.setWins(0);
+                user.setMoney(1000);
                 session.save(user);
                 error=0;
 
