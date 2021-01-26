@@ -276,6 +276,8 @@ public class SessionImpl implements Session {
         }
         return ListObject;
     }
+
+    @Override
     public List<Object> findAllByUserName(Object theObject, String userName) {
         String selectQuery = QueryHelper.createQuerySELECTAllByuserName(theObject);
         PreparedStatement pstm = null;
