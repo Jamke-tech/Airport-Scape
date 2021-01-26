@@ -86,17 +86,18 @@ public class GameDAOImpl implements IGameDAO {
             return map;
         }
     }
-    public int winGame(Game game, int money) throws SQLException {
+    public int winGame(Game game) throws SQLException {
         // Hemos de añadir el dinero obtenido al usuario
         Session session = null;
         int error =-1;
         try {
             session = FactorySession.openSession();
-            int idUser = game.getIdUser();
-            User user = (User) session.getByID(new User(), idUser);
+            String userName = game.getUserName();
+            User user = (User) session.getByName(new User(), userName);
             int userMoney = user.getMoney();//Buscamos el dinero que tiene el usuario
-            int finalMoney = userMoney + money;
-            User updateuser = new User (user.getId(),user.getUserName(),user.getPassword(),user.getName(),user.getSurname(),finalMoney, user.getMail());
+            int finalMoney = userMoney + game.getMoney() ;
+            int wins = user.getWins() + 1;
+            User updateuser = new User (user.getId(),user.getUserName(),user.getPassword(),user.getName(),user.getSurname(),finalMoney, user.getMail(), wins);
             session.update(updateuser);//Sumamos el dinero al usuario y lo modificamos
             error = 0;
         }

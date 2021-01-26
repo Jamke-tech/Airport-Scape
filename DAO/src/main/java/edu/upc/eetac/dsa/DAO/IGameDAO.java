@@ -10,5 +10,5 @@ public interface IGameDAO {
     public Game getGameSaved(String name) throws SQLException;
     public int getIdMap (String name) throws SQLException;
     public Map getStringMap (int id) throws SQLException;
-    public int winGame(Game game, int money) throws SQLException;
+    public int winGame(Game game) throws SQLException;
 }

@@ -34,7 +34,7 @@ public class ObjectDAOImpl implements IObjectDAO {
             int finalMoney = userMoney-priceObject;
             if(finalMoney>0) {
                 session = FactorySession.openSession();
-                User updateuser = new User (user.getId(),user.getUserName(),user.getPassword(),user.getName(),user.getSurname(),finalMoney, user.getMail());
+                User updateuser = new User (user.getId(),user.getUserName(),user.getPassword(),user.getName(),user.getSurname(),finalMoney, user.getMail(),user.getWins());
                 session.update(updateuser);//modificamos el dinero restante al usuario
                 BuyedObject newBuyedObject = new BuyedObject(0, idObject, user.getUserName());
                 session.save(newBuyedObject);
