@@ -24,15 +24,8 @@ public class GameDAOImpl implements IGameDAO {
         try {
             session = FactorySession.openSession();
 
+            session.save(game);
 
-            Game encontrado = getGameSaved(game.getName());
-            if(encontrado!=null){
-                session.update(game);
-
-            }
-            else{
-                session.save(game);
-            }
             error=0;
 
         }
