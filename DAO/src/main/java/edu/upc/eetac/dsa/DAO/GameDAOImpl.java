@@ -115,7 +115,7 @@ public class GameDAOImpl implements IGameDAO {
         List<Game> listaGames = new ArrayList<Game>();
         try {
             session = FactorySession.openSession();
-            listaGames = session.findAllByName(new Game(),userName);
+            listaGames = session.findAllByUserName(new Game(),userName);
         }
         catch (Exception e) {
             e.printStackTrace();

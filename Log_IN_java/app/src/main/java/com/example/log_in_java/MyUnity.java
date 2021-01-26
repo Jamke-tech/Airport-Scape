@@ -60,6 +60,7 @@ public class MyUnity extends AppCompatActivity {
         MyGame mygame = MyGame.getInstance();
         String namePartida = mygame.getNamePartida();
         Game game = new Game(0, namePartida, level, win, nickname, playerSuspicious,playerMoney);
+        Log.d("Partida",String.valueOf(playerMoney));
         winGame(game);
 
     }

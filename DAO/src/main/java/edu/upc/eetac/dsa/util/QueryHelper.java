@@ -78,6 +78,12 @@ public class QueryHelper {
         sb.append(" WHERE nickNameBuyer = ?");
         return sb.toString();
     }
+    public static String createQuerySELECTAllByuserName(Object entity) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+        sb.append(" WHERE userName = ?");
+        return sb.toString();
+    }
 
     public static String createQueryUPDATE(Object entity){
         // FALTA CORREGIR

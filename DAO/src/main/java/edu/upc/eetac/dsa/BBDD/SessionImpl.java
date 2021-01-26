@@ -42,10 +42,6 @@ public class SessionImpl implements Session {
         {
             e.printStackTrace();
         }
-
-
-
-
     }
 
     public void close() throws SQLException {
@@ -254,6 +250,34 @@ public class SessionImpl implements Session {
     @Override
     public List<Object> findAllByName(Object theObject, String userName) {
         String selectQuery = QueryHelper.createQuerySELECTAllBynickName(theObject);
+        PreparedStatement pstm = null;
+        List<Object> ListObject = new ArrayList<Object>();
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            pstm.setObject(1, userName);
+            pstm.executeQuery();
+            ResultSet rs = pstm.getResultSet();
+            while (rs.next()) {
+                //Class theClass = Class.forName("edu.upc.eetac.dsa.model.BuyedObject");
+                Class theClass = theObject.getClass();
+                Object object = theClass.newInstance();
+                //BuyedObject object =  new BuyedObject();// parche pq si entra algo que no es object mal !!
+                for (int i=1;i<=rs.getMetaData().getColumnCount();i++)
+                    ObjectHelper.setter(object,rs.getMetaData().getColumnName(i),rs.getObject(i));
+                ListObject.add(object);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        return ListObject;
+    }
+    public List<Object> findAllByUserName(Object theObject, String userName) {
+        String selectQuery = QueryHelper.createQuerySELECTAllByuserName(theObject);
         PreparedStatement pstm = null;
         List<Object> ListObject = new ArrayList<Object>();
         try {
