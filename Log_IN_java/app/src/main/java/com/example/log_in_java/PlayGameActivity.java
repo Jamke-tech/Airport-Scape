@@ -152,39 +152,4 @@ public class PlayGameActivity extends AppCompatActivity {
         startedGame.setNamePartida(namePartida);
     }
 
-    public void saveGame(final Game game) {
-
-        gameAPI = retrofit.create(GameManagerService.class);
-        Call<Game> call = gameAPI.saveGame(game);
-        call.enqueue(new Callback<Game>() {
-            @Override
-            public void onResponse(Call<Game> call, Response<Game> response) {
-                if (response.code() == 200) {
-                    Game savedGame = Game.getInstance();
-                    savedGame.setId(response.body().getId());
-                    savedGame.setName(response.body().getName());
-                    savedGame.setIdMap(response.body().getIdMap());
-                    savedGame.setWin(response.body().isWin());
-                    savedGame.setSuspicious(response.body().getSuspicious());
-                    savedGame.setUserName(response.body().getUserName());
-                    savedGame.setMoney(response.body().getMoney());
-
-                    Toast.makeText(getApplicationContext(), "Game saved", Toast.LENGTH_LONG).show();
-                } else {
-                    if (response.code() == 400)
-                        Toast.makeText(getApplicationContext(), "Error data", Toast.LENGTH_LONG).show();
-                    else if (response.code() == 503)
-                        Toast.makeText(getApplicationContext(), "BBDD down", Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Game> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
-
-
 }
