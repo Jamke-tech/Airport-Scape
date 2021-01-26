@@ -1,16 +1,26 @@
 package com.example.log_in_java;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import com.example.log_in_java.Adapter.MyAdapter;
+import com.example.log_in_java.Adapter.MyAdapter3;
 import com.example.log_in_java.models.Game;
 
+import com.example.log_in_java.models.Objects;
 import com.example.log_in_java.models.User;
 import com.example.log_in_java.services.GameManagerService;
 import com.example.log_in_java.services.ObjectManagerService;
 import com.example.log_in_java.services.UserManagerService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -27,6 +37,9 @@ public class LoadGameActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private static Retrofit retrofit;
     private GameManagerService gameAPI;
+    private List<Game> gameList= new ArrayList<Game>();
+    private RecyclerView gamesRecycler;
+    private MyAdapter3 gamesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +48,48 @@ public class LoadGameActivity extends AppCompatActivity {
 
         loadPreferences();
         nickname =preferences.getString("userNickname", null);//recupero el nickname
+        gamesRecycler= this.findViewById(R.id.recyclerViewListGame);
         startRetrofit();
         getSavedGame(nickname);
+        getListSavedGames(nickname);
     }
 
+
+    private void getListSavedGames(String nickname){
+        gameAPI = retrofit.create(GameManagerService.class);
+        Call<List<Game>> call = gameAPI.getListSavedGames(nickname);
+        call.enqueue(new Callback<List<Game>>() {
+            @Override
+            public void onResponse(Call<List<Game>> call, Response<List<Game>> response) {
+                if (response.isSuccessful()){
+                    gameList = response.body();
+
+
+                    gamesRecycler.setHasFixedSize(true);
+                    gamesRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    gamesAdapter = new MyAdapter3(getApplicationContext(),gameList);
+                    gamesRecycler.setAdapter(gamesAdapter);
+                }
+                else
+                {
+                    if(response.code() == 401)
+                        Toast.makeText(getApplicationContext(), "Error data" , Toast.LENGTH_LONG).show();
+                    else if(response.code() == 503)
+                        Toast.makeText(getApplicationContext(),"BBDD down", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Game>> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(), "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
 
 
 

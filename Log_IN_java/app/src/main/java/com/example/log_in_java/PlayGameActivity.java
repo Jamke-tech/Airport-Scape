@@ -126,7 +126,6 @@ public class PlayGameActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Error: Fill the Game Name" , Toast.LENGTH_LONG).show();
         }
 
-
     }
     private static void startRetrofit(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -186,12 +185,6 @@ public class PlayGameActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
 
 
 }
