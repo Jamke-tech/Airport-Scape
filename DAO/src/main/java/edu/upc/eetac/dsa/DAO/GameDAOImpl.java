@@ -5,6 +5,7 @@ import edu.upc.eetac.dsa.BBDD.Session;
 import edu.upc.eetac.dsa.model.*;
 
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,10 +30,13 @@ public class GameDAOImpl implements IGameDAO {
             error=0;
 
         }
+        catch (SQLIntegrityConstraintViolationException e){
+            session.update(game);
+
+        }
         catch (Exception e)
         {
             e.printStackTrace();
-            session.update(game);
         }
 
         finally {
