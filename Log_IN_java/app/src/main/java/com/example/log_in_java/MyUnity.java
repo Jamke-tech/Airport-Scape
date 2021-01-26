@@ -73,10 +73,6 @@ public class MyUnity extends AppCompatActivity {
         Game game = new Game( 0, namePartida,1, false, mygame.getNameUser(), 0,0);
 
         saveGame(game);
-
-
-
-
     }
 
     public static void SaveGame( int level, boolean win, int playerSuspicious, int playerMoney)
