@@ -118,17 +118,25 @@ public class GameDAOImpl implements IGameDAO {
 
         Session session = null;
         List<Game> listaGames = new ArrayList<Game>();
+        List<Game> listreturn = new ArrayList<Game>();
         try {
             session = FactorySession.openSession();
-            listaGames = session.findAllByUserName(new Game(),userName);
+            listaGames = session.findAll (new Game());
+
+            for (Game g : listaGames){
+                if(g.getName()==userName){
+                    listreturn.add(g);
+                }
+            }
+
         }
         catch (Exception e) {
             e.printStackTrace();
-            listaGames = null;
+            listreturn = null;
         }
         finally {
             session.close();
-            return listaGames;
+            return listreturn;
         }
     }
 
