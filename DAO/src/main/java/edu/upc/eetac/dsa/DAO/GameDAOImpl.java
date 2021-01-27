@@ -113,6 +113,7 @@ public class GameDAOImpl implements IGameDAO {
 
     }
 
+
     public List<Game> getListUserGames(String userName) throws SQLException {
 
         Session session = null;

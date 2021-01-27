@@ -146,6 +146,35 @@ public class GameService {
         }
     }
     @GET
+    @ApiOperation(value = "Lista Partidas de un Usuario", notes = "Nos devuelve todas los partidas de un user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = Game.class, responseContainer = "List"),
+            @ApiResponse(code = 401, message = "Error en los datos"),
+            @ApiResponse(code = 503, message = "BBDD Down")
+
+    })
+
+    @Path("/getGames/{userName}")
+    @Produces(MediaType.APPLICATION_JSON)// nos devuelve JSON con forma Games in a List
+    public Response ListAllGameOfUser(@PathParam("userName") String userName) {
+        try {
+            List<Game> gamesOfUser = this.g.getListUserGames(userName);
+            if (gamesOfUser == null) {
+                return Response.status(401).build();
+            }
+            else{
+            GenericEntity<List<Game>> entity = new GenericEntity<List<Game>>(gamesOfUser) { };
+            return Response.status(200).entity(entity).build();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(503).build();
+        }
+
+    }
+
+    @GET
     @ApiOperation(value = "Lista partidas de User", notes = "Nos devuelve todas los partidas de un user")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK", response = Game.class, responseContainer = "List"),

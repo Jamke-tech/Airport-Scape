@@ -30,7 +30,9 @@ public interface GameManagerService {
     @POST("game/win")
     Call<Game> winGame (@Body Game game);
 
-    @GET("game/getList/{nickName}")
-    Call<List<Game>> getListSavedGames(@Path("nickName") String username);
+    @GET("game/getGames/{userName}")
+    Call<List<Game>> getListSavedGames(@Path("userName") String userName);
+
+
 
 }
