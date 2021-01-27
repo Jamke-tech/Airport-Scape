@@ -29,4 +29,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="228dp"
+        android:layout_height="51dp"
+        android:background="@drawable/button_rounded"
+        android:fontFamily="@font/audiowide"
+        android:onClick="ResumeGameClicked"
+        android:text="RESUME GAME"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewListGame" />
 </androidx.constraintlayout.widget.ConstraintLayout>

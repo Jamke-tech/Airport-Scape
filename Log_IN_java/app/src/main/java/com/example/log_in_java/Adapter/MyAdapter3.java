@@ -30,15 +30,8 @@ import java.util.List;
 
 public class MyAdapter3  extends RecyclerView.Adapter<MyAdapter3.MyViewHolder>{
     List<Game>  listGames;
-    Game selectedGame;
     Context context;
     String nickname;
-    int posicionMarcada = 0;
-    int atributoObjeto;//prueba jaume
-    //Boolean chosen = false;
-
-    private int maleta = 0;
-
 
     public MyAdapter3(Context ct, List<Game> gamesToList) {
         context =ct;
@@ -61,9 +54,9 @@ public class MyAdapter3  extends RecyclerView.Adapter<MyAdapter3.MyViewHolder>{
         holder.gameName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newintent = new Intent(context, UnityPlayerActivity.class); //PASAR DATOS!!!!
+                 //PASAR DATOS!!!!
 
-                selectedGame = listGames.get(position);
+                Game selectedGame = listGames.get(position);
 
                 MyGame startedGame = MyGame.getInstance();
                 startedGame.setLevel(selectedGame.getIdMap());
@@ -73,11 +66,13 @@ public class MyAdapter3  extends RecyclerView.Adapter<MyAdapter3.MyViewHolder>{
                 startedGame.setNamePartida(selectedGame.getName());
                 MyMaps mapas = MyMaps.getInstance();
                 mapas.setMaps();
-
-                context.startActivity(newintent);
-
-
                 System.out.println("click");
+
+                holder.gameName.setTextColor(Color.RED);
+
+
+
+
             }
         });
 

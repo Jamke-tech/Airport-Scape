@@ -5,8 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.log_in_java.Adapter.MyAdapter;
@@ -18,6 +20,7 @@ import com.example.log_in_java.models.User;
 import com.example.log_in_java.services.GameManagerService;
 import com.example.log_in_java.services.ObjectManagerService;
 import com.example.log_in_java.services.UserManagerService;
+import com.unity3d.player.UnityPlayerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +91,13 @@ public class LoadGameActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void ResumeGameClicked(View v){
+
+        Intent newintent = new Intent(this, UnityPlayerActivity.class);
+        startActivity(newintent);
 
     }
 
