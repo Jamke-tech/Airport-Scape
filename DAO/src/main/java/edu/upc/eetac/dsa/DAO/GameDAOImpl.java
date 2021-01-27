@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class GameDAOImpl implements IGameDAO {
     private static IGameDAO instance;
@@ -117,14 +118,15 @@ public class GameDAOImpl implements IGameDAO {
     public List<Game> getListUserGames(String userName) throws SQLException {
 
         Session session = null;
-        List<Game> listaGames = new ArrayList<Game>();
+        List<Game> listaGames;
         List<Game> listreturn = new ArrayList<Game>();
         try {
             session = FactorySession.openSession();
-            listaGames = session.findAll (new Game());
+            listaGames = session.findAll(new Game());
+
 
             for (Game g : listaGames){
-                if(g.getName()==userName){
+                if(g.getUserName().equals(userName)){
                     listreturn.add(g);
                 }
             }
